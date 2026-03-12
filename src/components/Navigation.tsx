@@ -103,6 +103,7 @@ export default function Navigation() {
         </SheetTrigger>
         <SheetContent
           side="right"
+          showCloseButton={false}
           className="w-[300px] sm:w-[380px] bg-background border-l border-border p-0 overflow-y-auto transition-transform duration-300 ease-in-out"
         >
           <div className="flex flex-col h-full">
