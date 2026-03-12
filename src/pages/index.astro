@@ -1,19 +1,34 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SimpleTest from '@/components/SimpleTest';
-import { hero_title, hero_subtitle } from '@/paraglide/messages.js';
+import AutoCard from '@/components/AutoCard';
+import { hero_title, hero_subtitle, nav_projects } from '@/paraglide/messages.js';
 
 const locale = 'de';
+const loc = { locale } as const;
 ---
 
-<Layout title={hero_title({}, { locale })} locale={locale}>
+<Layout title={hero_title({}, loc)} locale={locale}>
   <div class="max-w-4xl mx-auto px-6 py-16 text-center">
     <h1 class="text-5xl font-bold tracking-tight mb-6">
-      {hero_title({}, { locale })}
+      {hero_title({}, loc)}
     </h1>
     <p class="text-xl text-muted-foreground mb-12">
-      {hero_subtitle({}, { locale })}
+      {hero_subtitle({}, loc)}
     </p>
     <SimpleTest locale={locale} client:load />
+
+    <div class="mt-16 text-left">
+      <AutoCard
+        title={nav_projects({}, loc)}
+        direction="col"
+        gap="gap-6"
+        className="bg-card text-card-foreground"
+        client:load
+      >
+        {/* Projekt-Inhalt kommt hier rein */}
+        <p class="text-muted-foreground">Projekte folgen in Kürze…</p>
+      </AutoCard>
+    </div>
   </div>
 </Layout>
