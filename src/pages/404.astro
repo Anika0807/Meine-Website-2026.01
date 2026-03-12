@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import { not_found_title, not_found_heading, not_found_message, not_found_back_home } from '@/paraglide/messages.js';
+
+const locale = 'de';
+const opts = { locale };
+---
+
+<Layout title={not_found_title({}, opts)} locale={locale}>
+  <div class="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-background">
+    <h1 class="text-8xl md:text-[12rem] font-black text-primary/80 mb-6 tracking-tighter">
+      404
+    </h1>
+    
+    <h2 class="text-4xl md:text-5xl font-medium mb-8 text-foreground">
+      {not_found_heading({}, opts)}
+    </h2>
+    
+    <p class="text-lg md:text-xl text-muted-foreground max-w-md mb-12">
+      {not_found_message({}, opts)}
+    </p>
+
+    <Button size="lg" asChild>
+      <a href="/">
+        {not_found_back_home({}, opts)}
+      </a>
+    </Button>
+  </div>
+</Layout>

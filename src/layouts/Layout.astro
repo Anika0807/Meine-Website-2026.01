@@ -1,0 +1,48 @@
+---
+import '@/styles/global.css';
+import Navigation from '@/components/Navigation';
+
+const { title = 'Meine Website 2026', locale = 'de' } = Astro.props;
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div class="container flex h-16 items-center justify-between px-6 mx-auto max-w-7xl">
+        <a href={locale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
+          Anika Warncke
+        </a>
+
+        <Navigation locale={locale} client:load />
+      </div>
+    </header>
+
+    <!-- Haupt-Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t bg-background py-6 mt-auto">
+      <div class="container mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-4">
+        <p>© {new Date().getFullYear()} Anika Warncke – Innenarchitektur & UX/UI Design</p>
+
+        <div class="flex gap-6">
+          <a href="/impressum" class="hover:text-primary transition-colors">
+            Impressum
+          </a>
+          <a href="/datenschutz" class="hover:text-primary transition-colors">
+            Datenschutz
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

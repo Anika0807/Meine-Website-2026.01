@@ -1,0 +1,20 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "nav_home": "Home",
+  "nav_projects": "Projekte",
+  "nav_about": "Über mich",
+  "nav_contact": "Kontakt",
+  "nav_language": "DE / EN",
+  "hero_title": "Innenarchitektur & UX/UI Design",
+  "hero_subtitle": "Willkommen auf meiner Seite",
+  "hero_button": "Das sollte jetzt schwarz sein!",
+  "test_title": "Simple Test (Client-only)",
+  "test_button": "Das sollte jetzt schwarz sein!",
+  "test_text1": "Das sollte gestylt sein!",
+  "test_text2": "Hover mich – Schatten & Skalierung sollten kommen",
+  "not_found_title": "404 – Seite nicht gefunden",
+  "not_found_heading": "Ups... Seite nicht gefunden",
+  "not_found_message": "Die Seite, die du suchst, existiert nicht oder wurde verschoben.",
+  "not_found_back_home": "Zur Startseite",
+  "not_found_to_projects": "Zu meinen Projekten"
+}

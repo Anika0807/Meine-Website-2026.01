@@ -1,0 +1,20 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "nav_home": "Home",
+  "nav_projects": "Projects",
+  "nav_about": "About me",
+  "nav_contact": "Contact",
+  "nav_language": "EN / DE",
+  "hero_title": "Interior Architecture & UX/UI Design",
+  "hero_subtitle": "Welcome to my site",
+  "hero_button": "This should be black now!",
+  "test_title": "Simple Test (Client-only)",
+  "test_button": "This should now be black!",
+  "test_text1": "This should be styled!",
+  "test_text2": "Hover me – shadow & scaling should appear",
+  "not_found_title": "404 – Page Not Found",
+  "not_found_heading": "Oops... Page Not Found",
+  "not_found_message": "The page you're looking for doesn't exist or has been moved.",
+  "not_found_back_home": "Back to Home",
+  "not_found_to_projects": "To my Projects"
+}
