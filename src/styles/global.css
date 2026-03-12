@@ -82,11 +82,11 @@
 html {
   font-size: calc(1rem * var(--font-size-multiplier));
   line-height: calc(1.5 * var(--line-height-multiplier));
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 * {
-  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
 }
 
 .dyslexia-font {
@@ -117,18 +117,9 @@ html {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewport="0 0 100 100" style="fill:black;font-size:24px;"><text y="50%" x="50%" dy=".35em" text-anchor="middle">👆</text></svg>') 16 0, auto !important;
 }
 
-/* Smooth Dark Mode Transition */
-html {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-* {
-  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-}
-
 /* Für shadcn-Komponenten (falls nötig) */
 [data-radix-popper-content-wrapper] {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 /* Fix: Dark mode text utilities */
@@ -141,11 +132,7 @@ html {
 
 /* Header Scroll-Schatten */
 header[data-scroll-shadow="true"] {
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
-}
-/* Alternativer starker Scroll-Schatten */
-header[data-scroll-shadow="true"] {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13), 0 2px 4px -1px rgba(0,0,0,0.08);
 }
 
 /* Responsive Feintuning für kleine Geräte */
@@ -160,4 +147,38 @@ header[data-scroll-shadow="true"] {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* View Transitions – sanfte & elegante Animationen */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.98); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Für spezielle Elemente (optional – z. B. Hero oder Cards) */
+.hero-image {
+  view-transition-name: hero-image;
+}
+
+.card {
+  view-transition-name: card;
 }
