@@ -240,7 +240,42 @@ header[data-scroll-shadow="true"] {
   view-transition-name: card;
 }
 
-/* Auto-Layout-ähnliche Utilities (Figma-Style) */
+/* ━━━ Typo-Skala (Figma-Style) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --font-size-xs:   0.75rem;   /* 12px */
+  --font-size-sm:   0.875rem;  /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg:   1.125rem;  /* 18px */
+  --font-size-xl:   1.25rem;   /* 20px */
+  --font-size-2xl:  1.5rem;    /* 24px */
+  --font-size-3xl:  1.875rem;  /* 30px */
+  --font-size-4xl:  2.25rem;   /* 36px */
+  --font-size-5xl:  3rem;      /* 48px */
+  --font-size-6xl:  3.75rem;   /* 60px */
+  --font-size-7xl:  4.5rem;    /* 72px */
+  --font-size-8xl:  6rem;      /* 96px */
+  --font-size-9xl:  8rem;      /* 128px */
+}
+
+/* Semantische Typo-Klassen */
+.text-heading-1 { font-size: var(--font-size-6xl); line-height: 1.1;  font-weight: 800; }
+.text-heading-2 { font-size: var(--font-size-5xl); line-height: 1.15; font-weight: 700; }
+.text-heading-3 { font-size: var(--font-size-4xl); line-height: 1.2;  font-weight: 700; }
+.text-heading-4 { font-size: var(--font-size-3xl); line-height: 1.25; font-weight: 600; }
+.text-body-lg   { font-size: var(--font-size-xl);  line-height: 1.6; }
+.text-body      { font-size: var(--font-size-base); line-height: 1.6; }
+.text-body-sm   { font-size: var(--font-size-sm);  line-height: 1.5; }
+.text-caption   { font-size: var(--font-size-xs);  line-height: 1.4; }
+
+/* Responsive Typo-Scale: Headings skalieren auf kleineren Geräten */
+@media (max-width: 640px) {
+  .text-heading-1 { font-size: var(--font-size-4xl); }
+  .text-heading-2 { font-size: var(--font-size-3xl); }
+  .text-heading-3 { font-size: var(--font-size-2xl); }
+  .text-heading-4 { font-size: var(--font-size-xl);  }
+}
+
+/* ━━━ Auto-Layout-ähnliche Utilities (Figma-Style) ━━━━━━━━━━━━━━━━━ */
 
 /* Hug Contents (nur so groß wie Inhalt) */
 .auto-hug {
