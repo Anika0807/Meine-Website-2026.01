@@ -1,0 +1,21 @@
+{
+  "accessibility.title": "Barrierefreiheit",
+  "accessibility.fontSize": "Schriftgröße",
+  "accessibility.fontSizeAria": "Schriftgröße anpassen",
+  "accessibility.lineHeight": "Zeilenabstand",
+  "accessibility.lineHeightAria": "Zeilenabstand anpassen",
+  "accessibility.dyslexiaFont": "Dyslexie-Schrift (OpenDyslexic)",
+  "accessibility.dyslexiaFontAria": "Dyslexie-Schrift aktivieren oder deaktivieren",
+  "accessibility.highContrast": "Hoher Kontrast",
+  "accessibility.highContrastAria": "Hoher Kontrast aktivieren oder deaktivieren",
+  "accessibility.reducedMotion": "Bewegungen reduzieren",
+  "accessibility.reducedMotionAria": "Bewegungen reduzieren aktivieren oder deaktivieren",
+  "accessibility.grayscale": "Graustufen (Farben umkehren)",
+  "accessibility.grayscaleAria": "Graustufen aktivieren oder deaktivieren",
+  "accessibility.invertedColors": "Farben umkehren",
+  "accessibility.invertedColorsAria": "Farben umkehren aktivieren oder deaktivieren",
+  "accessibility.largeCursor": "Großer Mauszeiger",
+  "accessibility.largeCursorAria": "Großer Mauszeiger aktivieren oder deaktivieren",
+  "accessibility.reset": "Einstellungen zurücksetzen",
+  "accessibility.ariaLabel": "Barrierefreiheit Einstellungen öffnen"
+}

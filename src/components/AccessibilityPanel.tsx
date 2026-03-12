@@ -1,12 +1,61 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Slider } from '@/components/ui/slider';
-import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Accessibility, Eye, Type, AlignJustify, SunMoon } from 'lucide-react';
+import { PersonStanding, Eye, Type, AlignJustify, Contrast } from 'lucide-react';
+import { t, defaultLocale } from '@/lib/i18n';
+import type { Locale } from '@/lib/i18n';
 
-export default function AccessibilityPanel() {
+function Toggle({ checked, onChange, label }: { checked: boolean; onChange: (v: boolean) => void; label: string }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      aria-label={label}
+      onClick={() => onChange(!checked)}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        width: '48px',
+        height: '26px',
+        borderRadius: '9999px',
+        border: checked ? '2px solid #1d4ed8' : '2px solid #9ca3af',
+        padding: '2px',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s, border-color 0.2s',
+        backgroundColor: checked ? '#2563eb' : '#d1d5db',
+        flexShrink: 0,
+        outline: 'none',
+      }}
+    >
+      <span
+        style={{
+          display: 'block',
+          width: '18px',
+          height: '18px',
+          borderRadius: '9999px',
+          backgroundColor: '#ffffff',
+          transform: checked ? 'translateX(22px)' : 'translateX(0)',
+          transition: 'transform 0.2s',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.35)',
+          flexShrink: 0,
+        }}
+      />
+    </button>
+  );
+}
+
+interface AccessibilityPanelProps {
+  locale?: Locale;
+}
+
+export default function AccessibilityPanel({ locale: propLocale }: AccessibilityPanelProps) {
+  // Try to get locale from prop, fallback to localStorage, then default
+  let locale: Locale = propLocale || (typeof window !== 'undefined' ? (localStorage.getItem('lang') as Locale) : undefined) || defaultLocale;
+  if (locale !== 'de' && locale !== 'en') locale = defaultLocale;
   const [settings, setSettings] = useState({
     fontSize: 100,
     lineHeight: 150,
@@ -14,6 +63,8 @@ export default function AccessibilityPanel() {
     highContrast: false,
     reducedMotion: false,
     grayscale: false,
+    invertedColors: false,
+    largeCursor: false,
   });
 
   useEffect(() => {
@@ -42,6 +93,8 @@ export default function AccessibilityPanel() {
     root.classList.toggle('high-contrast', s.highContrast);
     root.classList.toggle('reduced-motion', s.reducedMotion);
     root.classList.toggle('grayscale', s.grayscale);
+    root.classList.toggle('inverted-colors', s.invertedColors);
+    root.classList.toggle('large-cursor', s.largeCursor);
   };
 
   const resetSettings = () => {
@@ -52,6 +105,8 @@ export default function AccessibilityPanel() {
       highContrast: false,
       reducedMotion: false,
       grayscale: false,
+      invertedColors: false,
+      largeCursor: false,
     };
     setSettings(defaults);
     localStorage.setItem('accessibility', JSON.stringify(defaults));
@@ -62,115 +117,169 @@ export default function AccessibilityPanel() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          aria-label="Barrierefreiheit Einstellungen"
+          className="fixed bottom-6 right-6 z-50 rounded-full shadow-2xl hover:shadow-3xl hover:bg-primary/90 transition-all duration-300 border-2 border-primary/50 text-primary-foreground"
+          aria-label={t(locale, 'accessibility.ariaLabel')}
         >
-          <Accessibility className="h-6 w-6" />
+          <PersonStanding className="h-6 w-6" />
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md bg-background border-border">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-md bg-background border-border rounded-2xl shadow-2xl p-8">
+        <DialogHeader className="mb-8">
           <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-            <Accessibility className="h-6 w-6 text-primary" />
-            Barrierefreiheit
+            <PersonStanding className="h-6 w-6 text-primary" />
+            {t(locale, 'accessibility.title')}
           </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-8 py-6">
+        <div className="space-y-8">
           {/* Schriftgröße */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-2">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="fontSize">
                 <Type className="h-5 w-5" />
-                Schriftgröße
+                {t(locale, 'accessibility.fontSize')}
               </Label>
-              <span className="text-sm text-muted-foreground">{settings.fontSize}%</span>
+              <span className="text-sm font-medium text-muted-foreground">{settings.fontSize}%</span>
             </div>
-            <Slider
-              value={[settings.fontSize]}
-              min={80}
-              max={200}
-              step={10}
-              onValueChange={([v]) => updateSetting('fontSize', v)}
-            />
+            <div className="relative pt-2">
+              <Slider
+                id="fontSize"
+                value={[settings.fontSize]}
+                min={80}
+                max={200}
+                step={10}
+                className="w-full"
+                onValueChange={([v]) => updateSetting('fontSize', v)}
+                aria-valuemin={80}
+                aria-valuemax={200}
+                aria-valuenow={settings.fontSize}
+                aria-label={t(locale, 'accessibility.fontSizeAria')}
+              />
+              {/* Sichtbare Skala mit Labels */}
+              <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                <span>80%</span>
+                <span>140%</span>
+                <span>200%</span>
+              </div>
+            </div>
           </div>
 
           {/* Zeilenabstand */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-2">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="lineHeight">
                 <AlignJustify className="h-5 w-5" />
-                Zeilenabstand
+                {t(locale, 'accessibility.lineHeight')}
               </Label>
-              <span className="text-sm text-muted-foreground">{settings.lineHeight}%</span>
+              <span className="text-sm font-medium text-muted-foreground">{settings.lineHeight}%</span>
             </div>
-            <Slider
-              value={[settings.lineHeight]}
-              min={100}
-              max={250}
-              step={25}
-              onValueChange={([v]) => updateSetting('lineHeight', v)}
-            />
+            <div className="relative pt-2">
+              <Slider
+                id="lineHeight"
+                value={[settings.lineHeight]}
+                min={100}
+                max={250}
+                step={25}
+                className="w-full"
+                onValueChange={([v]) => updateSetting('lineHeight', v)}
+                aria-valuemin={100}
+                aria-valuemax={250}
+                aria-valuenow={settings.lineHeight}
+                aria-label={t(locale, 'accessibility.lineHeightAria')}
+              />
+              <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                <span>100%</span>
+                <span>175%</span>
+                <span>250%</span>
+              </div>
+            </div>
           </div>
 
-          {/* Dyslexie-Schrift */}
-          <div className="flex items-center justify-between">
-            <Label className="flex items-center gap-2">
-              <Type className="h-5 w-5" />
-              Dyslexie-Schrift (OpenDyslexic)
-            </Label>
-            <Switch
-              checked={settings.dyslexiaFont}
-              onCheckedChange={(checked) => updateSetting('dyslexiaFont', checked)}
-            />
+          {/* Alle weiteren Funktionen mit Toggle */}
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="dyslexia">
+                <Type className="h-5 w-5" />
+                {t(locale, 'accessibility.dyslexiaFont')}
+              </Label>
+              <Toggle
+                checked={settings.dyslexiaFont}
+                onChange={(checked) => updateSetting('dyslexiaFont', checked)}
+                label={t(locale, 'accessibility.dyslexiaFontAria')}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="highContrast">
+                <Contrast className="h-5 w-5" />
+                {t(locale, 'accessibility.highContrast')}
+              </Label>
+              <Toggle
+                checked={settings.highContrast}
+                onChange={(checked) => updateSetting('highContrast', checked)}
+                label={t(locale, 'accessibility.highContrastAria')}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="reducedMotion">
+                <Eye className="h-5 w-5" />
+                {t(locale, 'accessibility.reducedMotion')}
+              </Label>
+              <Toggle
+                checked={settings.reducedMotion}
+                onChange={(checked) => updateSetting('reducedMotion', checked)}
+                label={t(locale, 'accessibility.reducedMotionAria')}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="grayscale">
+                <Eye className="h-5 w-5" />
+                {t(locale, 'accessibility.grayscale')}
+              </Label>
+              <Toggle
+                checked={settings.grayscale}
+                onChange={(checked) => updateSetting('grayscale', checked)}
+                label={t(locale, 'accessibility.grayscaleAria')}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="invertedColors">
+                <Eye className="h-5 w-5" />
+                {t(locale, 'accessibility.invertedColors')}
+              </Label>
+              <Toggle
+                checked={settings.invertedColors}
+                onChange={(checked) => updateSetting('invertedColors', checked)}
+                label={t(locale, 'accessibility.invertedColorsAria')}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="largeCursor">
+                <Eye className="h-5 w-5" />
+                {t(locale, 'accessibility.largeCursor')}
+              </Label>
+              <Toggle
+                checked={settings.largeCursor}
+                onChange={(checked) => updateSetting('largeCursor', checked)}
+                label={t(locale, 'accessibility.largeCursorAria')}
+              />
+            </div>
           </div>
 
-          {/* Hoher Kontrast */}
-          <div className="flex items-center justify-between">
-            <Label className="flex items-center gap-2">
-              <SunMoon className="h-5 w-5" />
-              Hoher Kontrast
-            </Label>
-            <Switch
-              checked={settings.highContrast}
-              onCheckedChange={(checked) => updateSetting('highContrast', checked)}
-            />
-          </div>
-
-          {/* Reduced Motion */}
-          <div className="flex items-center justify-between">
-            <Label className="flex items-center gap-2">
-              <Eye className="h-5 w-5" />
-              Bewegungen reduzieren
-            </Label>
-            <Switch
-              checked={settings.reducedMotion}
-              onCheckedChange={(checked) => updateSetting('reducedMotion', checked)}
-            />
-          </div>
-
-          {/* Graustufen */}
-          <div className="flex items-center justify-between">
-            <Label className="flex items-center gap-2">
-              <Eye className="h-5 w-5" />
-              Graustufen (Farben umkehren)
-            </Label>
-            <Switch
-              checked={settings.grayscale}
-              onCheckedChange={(checked) => updateSetting('grayscale', checked)}
-            />
-          </div>
-
-          {/* Reset */}
+          {/* Reset-Button – präsenter und größer */}
           <Button
             variant="outline"
-            className="w-full mt-6"
+            className="w-full mt-10 text-base font-medium border-2 border-primary/50 hover:bg-primary/10"
             onClick={resetSettings}
           >
-            Einstellungen zurücksetzen
+            {t(locale, 'accessibility.reset')}
           </Button>
         </div>
       </DialogContent>
