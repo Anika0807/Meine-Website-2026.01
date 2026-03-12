@@ -22,9 +22,10 @@ export default function AutoCard({
 }: AutoCardProps) {
   return (
     <Card className={cn(
-      "overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
-      hug && "w-fit h-fit",
-      fill && "w-full h-full",
+      // Mobile-first: always full-width, fills grid cell height when fill=true
+      "w-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
+      hug && "w-fit",
+      fill && "h-full",
       className
     )}>
       <CardHeader className="pb-4">

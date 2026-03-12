@@ -129,7 +129,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md bg-background border-border rounded-2xl shadow-2xl p-8">
+      <DialogContent className="w-[calc(100%-2rem)] sm:max-w-md bg-background border-border rounded-2xl shadow-2xl p-6 sm:p-8">
         <DialogHeader className="mb-8">
           <DialogTitle className="text-2xl font-bold flex items-center gap-3">
             <PersonStanding className="h-6 w-6 text-primary" />

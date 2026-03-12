@@ -32,8 +32,8 @@ const loc = { locale: ssrLocale } as const;
       </div>
     </header>
 
-    <!-- Haupt-Content -->
-    <main class="flex-1">
+    <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
+    <main class="flex-1 w-full">
       <slot />
     </main>
 

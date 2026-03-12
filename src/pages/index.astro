@@ -9,7 +9,8 @@ const loc = { locale } as const;
 ---
 
 <Layout title={hero_title({}, loc)} locale={locale}>
-  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+  <!-- Mobile-first: full-width, responsive padding, max-width cap on larger screens -->
+  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
     <h1 class="text-5xl font-bold tracking-tight mb-6">
       {hero_title({}, loc)}
     </h1>
@@ -18,17 +19,20 @@ const loc = { locale } as const;
     </p>
     <SimpleTest locale={locale} client:load />
 
-    <div class="mt-16 text-left">
-      <AutoCard
-        title={nav_projects({}, loc)}
-        direction="col"
-        gap="gap-6"
-        className="bg-card text-card-foreground"
-        client:load
-      >
-        {/* Projekt-Inhalt kommt hier rein */}
-        <p class="text-muted-foreground">Projekte folgen in Kürze…</p>
-      </AutoCard>
+    <!-- Projekt-Grid: mobile-first, grid-cols-1 → sm:2 → lg:3 -->
+    <div class="mt-16 text-left w-full">
+      <h2 class="text-2xl font-bold mb-6">{nav_projects({}, loc)}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+        <AutoCard title="Projekt 1" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Folgt in Kürze…</p>
+        </AutoCard>
+        <AutoCard title="Projekt 2" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Folgt in Kürze…</p>
+        </AutoCard>
+        <AutoCard title="Projekt 3" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Folgt in Kürze…</p>
+        </AutoCard>
+      </div>
     </div>
   </div>
 </Layout>
