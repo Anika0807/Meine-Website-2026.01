@@ -182,3 +182,48 @@ header[data-scroll-shadow="true"] {
 .card {
   view-transition-name: card;
 }
+
+/* Auto-Layout-ähnliche Utilities (Figma-Style) */
+
+/* Hug Contents (nur so groß wie Inhalt) */
+.auto-hug {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Fill Container (füllt den Parent) */
+.auto-fill {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fixed Width/Height (feste Größe) */
+.auto-fixed {
+  width: var(--fixed-width, auto);
+  height: var(--fixed-height, auto);
+}
+
+/* Auto-Layout Direction */
+.auto-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap, 1rem);
+  align-items: center;
+}
+
+.auto-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+  align-items: stretch;
+}
+
+/* Spacing Variables (wie Figma Spacing-Component) */
+:root {
+  --gap-1: 0.25rem;
+  --gap-2: 0.5rem;
+  --gap-3: 0.75rem;
+  --gap-4: 1rem;
+  --gap-6: 1.5rem;
+  --gap-8: 2rem;
+}
