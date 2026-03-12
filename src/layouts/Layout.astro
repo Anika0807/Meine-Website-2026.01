@@ -56,13 +56,15 @@ const loc = { locale: ssrLocale } as const;
 
     <AccessibilityPanel locale={ssrLocale} client:only="react" />
 
-    <script>
-      const header = document.querySelector('header[data-scroll-shadow]');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          header.setAttribute('data-scroll-shadow', window.scrollY > 10 ? 'true' : 'false');
-        }, { passive: true });
-      }
+    <script is:inline>
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 10) {
+          header.setAttribute('data-scroll-shadow', 'true');
+        } else {
+          header.setAttribute('data-scroll-shadow', 'false');
+        }
+      });
     </script>
   </body>
 </html>
