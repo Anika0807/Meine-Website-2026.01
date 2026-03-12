@@ -35,7 +35,9 @@ export default function LanguageToggle() {
       <Button
         variant={lang === 'de' ? 'default' : 'ghost'}
         size="sm"
-        className="text-sm px-3"
+        className={
+          `text-sm px-3 ${lang === 'de' ? 'bg-primary text-primary-foreground' : ''}`
+        }
         onClick={() => switchLang('de')}
       >
         DE
@@ -44,7 +46,9 @@ export default function LanguageToggle() {
       <Button
         variant={lang === 'en' ? 'default' : 'ghost'}
         size="sm"
-        className="text-sm px-3"
+        className={
+          `text-sm px-3 ${lang === 'en' ? 'bg-primary text-primary-foreground' : ''}`
+        }
         onClick={() => switchLang('en')}
       >
         EN
