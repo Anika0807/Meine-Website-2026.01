@@ -7,6 +7,12 @@ import react from '@astrojs/react';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['react-cookie-consent'],
+    },
+    ssr: {
+      noExternal: ['react-cookie-consent'],
+    },
   },
 
   integrations: [react()],
