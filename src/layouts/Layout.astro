@@ -1,11 +1,14 @@
 ---
 import '@/styles/global.css';
 import Navigation from '@/components/Navigation';
+import { footer_name, footer_tagline, footer_impressum, footer_datenschutz } from '@/paraglide/messages.js';
 
-const { title = 'Meine Website 2026', locale = 'de' } = Astro.props;
+const { title = 'Meine Website 2026' } = Astro.props;
+const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
+const loc = { locale: ssrLocale } as const;
 ---
 
-<html lang={locale}>
+<html lang={ssrLocale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,11 +19,11 @@ const { title = 'Meine Website 2026', locale = 'de' } = Astro.props;
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div class="container flex h-16 items-center justify-between px-6 mx-auto max-w-7xl">
-        <a href={locale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
+        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
           Anika Warncke
         </a>
 
-        <Navigation locale={locale} client:load />
+        <Navigation client:load />
       </div>
     </header>
 
@@ -32,14 +35,16 @@ const { title = 'Meine Website 2026', locale = 'de' } = Astro.props;
     <!-- Footer -->
     <footer class="border-t bg-background py-6 mt-auto">
       <div class="container mx-auto max-w-7xl px-6 text-center text-sm text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-4">
-        <p>© {new Date().getFullYear()} Anika Warncke – Innenarchitektur & UX/UI Design</p>
+        <p>
+          © {new Date().getFullYear()} {footer_name({}, loc)} – {footer_tagline({}, loc)}
+        </p>
 
         <div class="flex gap-6">
           <a href="/impressum" class="hover:text-primary transition-colors">
-            Impressum
+            {footer_impressum({}, loc)}
           </a>
           <a href="/datenschutz" class="hover:text-primary transition-colors">
-            Datenschutz
+            {footer_datenschutz({}, loc)}
           </a>
         </div>
       </div>

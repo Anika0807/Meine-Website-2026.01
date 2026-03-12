@@ -14,7 +14,11 @@
   "test_text2": "Hover mich – Schatten & Skalierung sollten kommen",
   "not_found_title": "404 – Seite nicht gefunden",
   "not_found_heading": "Ups... Seite nicht gefunden",
-  "not_found_message": "Die Seite, die du suchst, existiert nicht oder wurde verschoben.",
+  "not_found_message": "Die Seite, die du suchst, existiert leider nicht oder wurde verschoben.",
   "not_found_back_home": "Zur Startseite",
-  "not_found_to_projects": "Zu meinen Projekten"
+  "not_found_to_projects": "Zu meinen Projekten",
+  "footer_name": "Anika Warncke",
+  "footer_tagline": "Innenarchitektur & UX/UI Design",
+  "footer_impressum": "Impressum",
+  "footer_datenschutz": "Datenschutz"
 }

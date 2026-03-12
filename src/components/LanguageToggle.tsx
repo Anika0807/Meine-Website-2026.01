@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';
 
 export default function LanguageToggle() {
@@ -8,7 +9,7 @@ export default function LanguageToggle() {
 
   useEffect(() => {
     const currentPath = window.location.pathname;
-    const savedLang = localStorage.getItem('lang') || 'de';
+    const savedLang = (localStorage.getItem('PARAGLIDE_LOCALE') || localStorage.getItem('lang') || 'de') as 'de' | 'en';
 
     if (currentPath.startsWith('/en')) {
       setLang('en');
@@ -18,18 +19,17 @@ export default function LanguageToggle() {
     }
   }, []);
 
-  const switchLang = (newLang: string) => {
+  const switchLang = (newLang: 'de' | 'en') => {
+    setCurrentLanguage(newLang);
     setLang(newLang);
-    localStorage.setItem('lang', newLang);
-
     const currentPath = window.location.pathname;
+    let newPath = currentPath;
     if (newLang === 'en' && !currentPath.startsWith('/en')) {
-      window.location.href = '/en' + currentPath;
+      newPath = '/en' + currentPath;
     } else if (newLang === 'de' && currentPath.startsWith('/en')) {
-      window.location.href = currentPath.replace('/en', '');
-    } else {
-      window.location.reload();
+      newPath = currentPath.replace('/en', '') || '/';
     }
+    window.location.href = newPath;
   };
 
   return (
