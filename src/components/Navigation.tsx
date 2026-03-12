@@ -81,7 +81,7 @@ export default function Navigation() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 fixed top-4 right-6 z-50 md:relative md:top-auto md:right-auto">
           <LanguageToggle />
           <ThemeToggle />
         </div>
