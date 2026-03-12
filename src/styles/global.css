@@ -138,3 +138,8 @@ html {
 .dark .text-muted-foreground {
   color: hsl(var(--muted-foreground));
 }
+
+/* Header Scroll-Schatten */
+header[data-scroll-shadow="true"] {
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+}

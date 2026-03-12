@@ -20,7 +20,8 @@ const loc = { locale: ssrLocale } as const;
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
     <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300" 
+        data-scroll-shadow="false">
       <div class="container flex h-16 items-center justify-between px-6 mx-auto max-w-7xl">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
           Anika Warncke
@@ -54,5 +55,14 @@ const loc = { locale: ssrLocale } as const;
     </footer>
 
     <AccessibilityPanel locale={ssrLocale} client:only="react" />
+
+    <script>
+      const header = document.querySelector('header[data-scroll-shadow]');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.setAttribute('data-scroll-shadow', window.scrollY > 10 ? 'true' : 'false');
+        }, { passive: true });
+      }
+    </script>
   </body>
 </html>
