@@ -1,19 +1,41 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SimpleTest from '@/components/SimpleTest';
-import { hero_title, hero_subtitle } from '@/paraglide/messages.js';
+import AutoCard from '@/components/AutoCard';
+import { Heading1, Heading2 } from '@/components/design-system/headings';
+import { hero_title, hero_subtitle, nav_projects } from '@/paraglide/messages.js';
 
 const locale = 'en';
+const loc = { locale } as const;
 ---
 
-<Layout title={hero_title({}, { locale })} locale={locale}>
-  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-5xl font-bold tracking-tight mb-6">
-      {hero_title({}, { locale })}
-    </h1>
+<Layout title={hero_title({}, loc)} locale={locale}>
+  <!-- Mobile-first: full-width, responsive padding, max-width cap on larger screens -->
+  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+    <Heading1 className="text-center">
+      {hero_title({}, loc)}
+    </Heading1>
     <p class="text-xl text-muted-foreground mb-12">
-      {hero_subtitle({}, { locale })}
+      {hero_subtitle({}, loc)}
     </p>
     <SimpleTest locale={locale} client:load />
+
+    <!-- Project Grid: mobile-first, grid-cols-1 → sm:2 → lg:3 -->
+    <div class="mt-16 text-left w-full">
+      <Heading2 className="text-left">
+        {nav_projects({}, loc)}
+      </Heading2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+        <AutoCard title="Project 1" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Coming soon…</p>
+        </AutoCard>
+        <AutoCard title="Project 2" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Coming soon…</p>
+        </AutoCard>
+        <AutoCard title="Project 3" hug={false} fill={true} client:load>
+          <p class="text-muted-foreground">Coming soon…</p>
+        </AutoCard>
+      </div>
+    </div>
   </div>
 </Layout>
