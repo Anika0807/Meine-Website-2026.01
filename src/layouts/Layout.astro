@@ -53,6 +53,6 @@ const loc = { locale: ssrLocale } as const;
       </div>
     </footer>
 
-    <AccessibilityPanel client:only="react" />
+    <AccessibilityPanel locale={ssrLocale} client:only="react" />
   </body>
 </html>

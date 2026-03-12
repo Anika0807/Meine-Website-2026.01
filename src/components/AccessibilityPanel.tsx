@@ -53,8 +53,11 @@ interface AccessibilityPanelProps {
 }
 
 export default function AccessibilityPanel({ locale: propLocale }: AccessibilityPanelProps) {
-  // Try to get locale from prop, fallback to localStorage, then default
-  let locale: Locale = propLocale || (typeof window !== 'undefined' ? (localStorage.getItem('lang') as Locale) : undefined) || defaultLocale;
+  // Locale from prop (SSR), fallback to URL path detection, then default
+  let locale: Locale = propLocale ?? defaultLocale;
+  if (typeof window !== 'undefined' && !propLocale) {
+    locale = window.location.pathname.startsWith('/en') ? 'en' : 'de';
+  }
   if (locale !== 'de' && locale !== 'en') locale = defaultLocale;
   const [settings, setSettings] = useState({
     fontSize: 100,
