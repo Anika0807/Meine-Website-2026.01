@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import Navigation from '@/components/Navigation';
 import AccessibilityPanel from '@/components/AccessibilityPanel';
+import CookieBanner from '@/components/CookieBanner';
 import { footer_name, footer_tagline, footer_impressum, footer_datenschutz } from '@/paraglide/messages.js';
 
 const { title = 'Meine Website 2026' } = Astro.props;
@@ -56,6 +57,7 @@ const loc = { locale: ssrLocale } as const;
     </footer>
 
     <AccessibilityPanel locale={ssrLocale} client:only="react" />
+    <CookieBanner locale={ssrLocale} client:only="react" />
 
     <script is:inline>
       window.addEventListener('scroll', () => {
