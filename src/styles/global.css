@@ -72,3 +72,32 @@
     --ring: 212.7 26.8% 83.9%;
   }
 }
+
+/* Accessibility-Anpassungen */
+:root {
+  --font-size-multiplier: 1;
+  --line-height-multiplier: 1.5;
+}
+
+html {
+  font-size: calc(1rem * var(--font-size-multiplier));
+  line-height: calc(1.5 * var(--line-height-multiplier));
+}
+
+.dyslexia-font {
+  font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
+  letter-spacing: 0.05em;
+}
+
+.high-contrast {
+  filter: contrast(150%) brightness(110%);
+}
+
+.reduced-motion * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}

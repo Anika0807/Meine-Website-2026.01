@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import Navigation from '@/components/Navigation';
+import AccessibilityPanel from '@/components/AccessibilityPanel';
 import { footer_name, footer_tagline, footer_impressum, footer_datenschutz } from '@/paraglide/messages.js';
 
 const { title = 'Meine Website 2026' } = Astro.props;
@@ -13,6 +14,7 @@ const loc = { locale: ssrLocale } as const;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/opendyslexic@1.0.0/css/opendyslexic.min.css" />
   </head>
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
@@ -49,5 +51,7 @@ const loc = { locale: ssrLocale } as const;
         </div>
       </div>
     </footer>
+
+    <AccessibilityPanel client:load />
   </body>
 </html>

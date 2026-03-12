@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';

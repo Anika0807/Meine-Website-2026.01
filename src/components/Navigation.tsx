@@ -1,5 +1,4 @@
 
-"use client";
 import { useEffect, useState } from 'react';
 import { initLanguage } from '../lib/language';
 import { nav_home, nav_projects, nav_about, nav_contact } from '../paraglide/messages.js';
