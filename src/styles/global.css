@@ -48,85 +48,73 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* ==================== LIGHT MODE ==================== */
+    --background: 0 0% 98.5%;        /* Off-White #FBFBFB – dein Lieblings-Hintergrund */
+    --foreground: 240 10% 12%;       /* Dunkler Grauton für Text */
+
+    --card: 0 0% 98.5%;
+    --card-foreground: 240 10% 12%;
+
+    --primary: 150 55% 28%;          /* Dein dunkles, sattes Grün */
+    --primary-foreground: 0 0% 100%; /* Weißer Text auf Grün */
+
+    --accent: 45 92% 58%;            /* Sonniges Gelb */
+    --accent-foreground: 240 10% 12%;
+
+    --muted: 35 25% 94%;             /* Warmes Soft-Beige – kein Cardboard mehr */
+    --muted-foreground: 240 10% 45%;
+
+    --border: 240 10% 88%;
+
+    --success: 150 55% 35%;
+    --success-foreground: 0 0% 100%;
+
+    /* Kompatibilität mit shadcn-Komponenten */
+    --secondary: var(--muted);
+    --secondary-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
+    --destructive-foreground: 0 0% 100%;
+    --input: var(--border);
+    --ring: var(--primary);
 
-  /* ─── Eigene Farb-Tokens (semantisch & erweiterbar) ─── */
-  :root {
-    /* Brand-Farben */
-    --brand-primary:      222.2 47.4% 11.2%;
-    --brand-primary-soft: 222.2 47.4% 20%;
-    --brand-secondary:    210 40% 96.1%;
-    --brand-accent:       210 40% 96.1%;
-
-    /* Status-Farben */
-    --success: 142.4 76.2% 36.3%;
-    --warning: 38 92.1% 50%;
-    --danger:  0 84.2% 60.2%;
-    --info:    221.2 83.2% 53.3%;
-
-    /* Neutrale Palette */
-    --neutral-50:  0 0% 98%;
-    --neutral-100: 0 0% 96%;
-    --neutral-200: 0 0% 92%;
-    --neutral-300: 0 0% 85%;
-    --neutral-400: 0 0% 75%;
-    --neutral-500: 0 0% 60%;
-    --neutral-600: 0 0% 45%;
-    --neutral-700: 0 0% 30%;
-    --neutral-800: 0 0% 20%;
-    --neutral-900: 0 0% 10%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* ==================== DARK MODE ==================== */
+    --background: 240 10% 8%;        /* Tiefes Anthrazit – edel */
+    --foreground: 0 0% 98%;          /* Fast Weiß */
 
-    /* Brand & Status – Dark-Varianten */
-    --brand-primary:      210 40% 98%;
-    --brand-primary-soft: 210 40% 85%;
-    --brand-secondary:    217.2 32.6% 17.5%;
-    --brand-accent:       217.2 32.6% 17.5%;
-    --success: 142.4 71.8% 29.4%;
-    --warning: 38 92.1% 40%;
-    --danger:  0 84.2% 50.2%;
-    --info:    221.2 83.2% 43.3%;
+    --card: 240 10% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --primary: 150 55% 52%;          /* Satteres, dunkleres Grün – edel & nicht zu hell */
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 45 92% 68%;            /* Weicheres, wärmeres Gelb – nicht zu strahlend */
+    --accent-foreground: 240 10% 8%;
+
+    --muted: 240 10% 22%;
+    --muted-foreground: 240 10% 55%;
+
+    --border: 240 10% 25%;
+
+    --success: 150 55% 52%;
+    --success-foreground: 0 0% 100%;
+
+    /* Kompatibilität mit shadcn-Komponenten */
+    --secondary: var(--muted);
+    --secondary-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --input: var(--border);
+    --ring: var(--primary);
+
+    --radius: 0.75rem;
   }
 }
 
