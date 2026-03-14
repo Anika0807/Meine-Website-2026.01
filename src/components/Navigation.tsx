@@ -1,7 +1,5 @@
-
 import { useEffect, useState } from 'react';
 import { initLanguage } from '../lib/language';
-import { nav_home, nav_projects, nav_about, nav_contact } from '../paraglide/messages.js';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@/components/ui/navigation-menu';
@@ -9,6 +7,20 @@ import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 
+const navTranslations: Record<string, { path: string; label: string }[]> = {
+  de: [
+    { path: '/', label: 'Home' },
+    { path: '/projekte', label: 'Projekte' },
+    { path: '/ueber-mich', label: 'Über mich' },
+    { path: '/kontakt', label: 'Kontakt' },
+  ],
+  en: [
+    { path: '/', label: 'Home' },
+    { path: '/projekte', label: 'Projects' },
+    { path: '/ueber-mich', label: 'About me' },
+    { path: '/contact', label: 'Contact' },
+  ],
+};
 
 export default function Navigation() {
   const [currentPath, setCurrentPath] = useState('');
@@ -21,6 +33,7 @@ export default function Navigation() {
     initLanguage();
   }, []);
 
+  const navLinks = navTranslations[locale] ?? navTranslations['de'];
   const href = (path: string) => locale === 'en' ? `/en${path === '/' ? '' : path}` || '/en' : path;
 
   const isActive = (path: string) => {
@@ -28,63 +41,26 @@ export default function Navigation() {
     return currentPath.startsWith(path);
   };
 
+  const linkClass = (path: string) =>
+    `text-foreground transition-colors duration-200 ${
+      isActive(path)
+        ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
+        : 'hover:text-primary hover:underline hover:underline-offset-8 hover:decoration-primary/70'
+    }`;
+
   return (
     <>
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-8">
         <NavigationMenu>
           <NavigationMenuList className="gap-6">
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href={href('/')}
-                className={`text-foreground transition-colors duration-200 ${
-                  isActive('/')
-                    ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
-                    : 'hover:text-primary hover:underline hover:underline-offset-8 hover:decoration-primary/70'
-                }`}
-              >
-                {nav_home({})}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href={href('/projekte')}
-                className={`text-foreground transition-colors duration-200 ${
-                  isActive('/projekte')
-                    ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
-                    : 'hover:text-primary hover:underline hover:underline-offset-8 hover:decoration-primary/70'
-                }`}
-              >
-                {nav_projects({})}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href={href('/ueber-mich')}
-                className={`text-foreground transition-colors duration-200 ${
-                  isActive('/ueber-mich')
-                    ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
-                    : 'hover:text-primary hover:underline hover:underline-offset-8 hover:decoration-primary/70'
-                }`}
-              >
-                {nav_about({})}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href={href('/kontakt')}
-                className={`text-foreground transition-colors duration-200 ${
-                  isActive('/kontakt')
-                    ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
-                    : 'hover:text-primary hover:underline hover:underline-offset-8 hover:decoration-primary/70'
-                }`}
-              >
-                {nav_contact({})}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            {navLinks.map(({ path, label }) => (
+              <NavigationMenuItem key={path}>
+                <NavigationMenuLink href={href(path)} className={linkClass(path)}>
+                  {label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -109,9 +85,7 @@ export default function Navigation() {
           <div className="flex flex-col h-full">
             {/* Header mit Close-Button */}
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <h2 className="text-xl font-semibold text-foreground">
-                Anika Warncke
-              </h2>
+              <h2 className="text-xl font-semibold text-foreground">Anika Warncke</h2>
               <SheetClose asChild>
                 <Button variant="ghost" size="icon" aria-label="Menü schließen">
                   <X className="h-6 w-6" />
@@ -119,24 +93,19 @@ export default function Navigation() {
               </SheetClose>
             </div>
 
-            {/* Links mit Active-Highlighting & Animation */}
-            <nav className="flex-1 px-6 py-10 space-y-4">
-              {([
-                { path: '/', label: nav_home({}) },
-                { path: '/projekte', label: nav_projects({}) },
-                { path: '/ueber-mich', label: nav_about({}) },
-                { path: '/kontakt', label: nav_contact({}) },
-              ] as { path: string; label: string }[]).map((item) => (
-                <SheetClose asChild key={item.path}>
+            {/* Nav Links */}
+            <nav className="flex flex-col p-6 gap-2 flex-1">
+              {navLinks.map(({ path, label }) => (
+                <SheetClose asChild key={path}>
                   <a
-                    href={href(item.path)}
-                    className={`block text-lg font-medium px-4 py-3 rounded-lg transition-all duration-200 ${
-                      isActive(item.path)
-                        ? 'bg-primary/10 text-primary font-semibold shadow-sm'
-                        : 'hover:bg-accent/50 hover:text-primary hover:shadow-sm'
+                    href={href(path)}
+                    className={`text-lg py-3 px-2 rounded-lg transition-colors ${
+                      isActive(path)
+                        ? 'font-semibold text-primary bg-primary/10'
+                        : 'text-foreground hover:text-primary hover:bg-muted'
                     }`}
                   >
-                    {item.label}
+                    {label}
                   </a>
                 </SheetClose>
               ))}

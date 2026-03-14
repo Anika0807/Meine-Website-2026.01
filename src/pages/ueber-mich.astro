@@ -1,15 +1,27 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Heading1, Heading2 } from '@/components/design-system/headings';
-import UeberMichFAQ from '@/components/UeberMichFAQ';
 ---
 
-<Layout title="Über mich">
-  <div class="container mx-auto px-6 py-16">
-    <Heading1>Über mich</Heading1>
-    <p class="text-body mb-12">Hier dein Text + persönliche Aussage.</p>
+<Layout title="Über mich – Anika Warncke">
+  <div class="container mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Über mich</h1>
+    
+    <div class="prose max-w-none">
+      <p class="text-lg text-muted-foreground">Hallo! Ich bin Anika Warncke – Innenarchitektin und UX/UI Designerin mit Leidenschaft für durchdachte Räume und digitale Erlebnisse.</p>
+      
+      <h3 class="text-2xl font-semibold mt-10 mb-4">Mein Designprozess</h3>
+      <p class="text-muted-foreground">Jedes Projekt beginnt mit Zuhören. Ich verstehe die Bedürfnisse meiner Kunden und übersetze sie in funktionale, ästhetische Lösungen.</p>
+      
+      <h3 class="text-2xl font-semibold mt-10 mb-4">Meine Disziplinen</h3>
+      <p class="text-muted-foreground">Innenarchitektur · UX/UI Design · Raumplanung · Möbeldesign · Digitale Produktgestaltung</p>
+    </div>
 
-    <Heading2>FAQs</Heading2>
-    <UeberMichFAQ client:load />
+    <h2 class="text-3xl font-semibold mt-16 mb-6">Häufig gestellte Fragen</h2>
+    <div class="space-y-6">
+      <div class="border-b pb-6">
+        <h4 class="font-semibold">Arbeitest du remote?</h4>
+        <p class="text-muted-foreground mt-2">Ja, ich arbeite bevorzugt remote oder hybrid.</p>
+      </div>
+    </div>
   </div>
 </Layout>

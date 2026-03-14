@@ -288,6 +288,16 @@ header[data-scroll-shadow="true"] {
   letter-spacing: -0.04em; 
 }
 
+.text-h1 { 
+  font-family: var(--heading-font); 
+  font-size: 4.5rem; 
+  line-height: 1.05; 
+  font-weight: 900; 
+  letter-spacing: -0.04em; 
+  color: hsl(var(--foreground));
+  text-align: left;
+}
+
 .text-h2 { 
   font-family: var(--heading-font); 
   font-size: 3.5rem; 
