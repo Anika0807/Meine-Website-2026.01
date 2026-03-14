@@ -50,37 +50,6 @@
 
     --accent: 45 92% 68%;            /* Weicheres, wärmeres Gelb – nicht zu strahlend */
     --accent-foreground: 240 10% 8%;
-  /* Viel Weißraum & Clean Design */
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 var(--space-6);
-  }
-
-  .section {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-8);
-  }
-
-  .hero-section {
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-16);
-  }
-
-  @media (max-width: 768px) {
-    .section {
-      padding-top: var(--space-8);
-      padding-bottom: var(--space-8);
-    }
-  }
-
-  .project-image:hover img {
-    transform: scale(1.05);
-    filter: invert(10%) brightness(1.05);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
-  }
 
     --muted: 240 10% 22%;
     --muted-foreground: 240 10% 55%;
@@ -102,6 +71,38 @@
 
     --radius: 0.75rem;
   }
+}
+
+/* Viel Weißraum & Clean Design */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.hero-section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+}
+
+.project-image:hover img {
+  transform: scale(1.05);
+  filter: invert(10%) brightness(1.05);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
 }
 
 /* Accessibility-Anpassungen */
