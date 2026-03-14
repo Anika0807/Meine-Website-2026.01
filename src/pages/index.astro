@@ -106,60 +106,141 @@ import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-
     </div>
   </section>
 
-  <!-- AUSGEWÄHLTE PROJEKTE – Full Bleed (4 Projekte) -->
-  <section class="py-20 bg-background">
+  <!-- === AUSGEWÄHLTE PROJEKTE – Stacking + Button am Ende === -->
+  <section class="relative py-20 bg-background">
     <div class="w-full">
 
       <ScrollReveal client:load>
-        <Heading2 className="text-center mb-12">Ausgewählte Projekte</Heading2>
+        <Heading2 className="text-center mb-16">Ausgewählte Projekte</Heading2>
       </ScrollReveal>
 
-      <!-- Projekt 1: My Mind Studio -->
-      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full">
-        <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-h3">My Mind Studio</h3>
-          <p class="text-body-sm opacity-90">Meditations- und Yogastudio mit Café • Innenarchitektur</p>
+      <div class="relative">
+
+      <!-- Projekt 1 -->
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" onclick="window.location='/projekte'">
+        <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+          <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">My Mind Studio</h3>
+          <p class="text-lg md:text-xl opacity-90">Meditations- und Yogastudio mit Café • Innenarchitektur</p>
         </div>
       </div>
 
-      <!-- Projekt 2: NaturKompass -->
-      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
-        <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-h3">NaturKompass</h3>
-          <p class="text-body-sm opacity-90">Digitaler Begleiter zur Flora & Fauna • UX/UI Design</p>
+      <!-- Projekt 2 -->
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" onclick="window.location='/projekte'">
+        <img src="/images/naturkompass.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+          <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">NaturKompass</h3>
+          <p class="text-lg md:text-xl opacity-90">Digitaler Begleiter zur Flora & Fauna • UX/UI Design</p>
         </div>
       </div>
 
-      <!-- Projekt 3: Festsaal im Klostergasthof -->
-      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
-        <img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-h3">Festsaal im Klostergasthof</h3>
-          <p class="text-body-sm opacity-90">Veranstaltungsgastronomie • Innenarchitektur</p>
+      <!-- Projekt 3 -->
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" onclick="window.location='/projekte'">
+        <img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+          <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">Festsaal im Klostergasthof</h3>
+          <p class="text-lg md:text-xl opacity-90">Veranstaltungsgastronomie • Innenarchitektur</p>
         </div>
       </div>
 
-      <!-- Projekt 4: FlavorFusion -->
-      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
-        <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-h3">FlavorFusion</h3>
-          <p class="text-body-sm opacity-90">Landing Page für mobile Rezepte App • UX/UI Design</p>
+      <!-- Projekt 4 -->
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" onclick="window.location='/projekte'">
+        <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+          <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">FlavorFusion</h3>
+          <p class="text-lg md:text-xl opacity-90">Landing Page für mobile Rezepte App • UX/UI Design</p>
         </div>
       </div>
 
-      <div class="text-center mt-12">
+      </div>
+
+      <!-- Button "Alle Projekte ansehen" – jetzt richtig am Ende -->
+      <div class="relative z-50 bg-background py-16 text-center">
         <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
           Alle Projekte ansehen →
         </a>
       </div>
+
     </div>
   </section>
+
+  <!-- === WARUM ICH – mit drei großen Bildern (normaler Mauszeiger) === -->
+  <section class="py-28 bg-background">
+    <div class="container mx-auto max-w-5xl px-6">
+
+      <ScrollReveal client:load>
+        <Heading2 className="text-center mb-20">Warum ich</Heading2>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+
+        <!-- Spalte 1: Raum verstehen -->
+        <div class="group">
+          <div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-3xl">
+            <img src="/images/warum-raum.jpg" alt="Raum verstehen" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <h3 class="mb-3 text-h3">Raum verstehen</h3>
+          <p class="text-body-sm text-muted-foreground">
+            Ob physisch oder digital – ich beginne immer mit dem Menschen und seinem Kontext.
+          </p>
+        </div>
+
+        <!-- Spalte 2: Ein Prozess -->
+        <div class="group">
+          <div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-3xl">
+            <img src="/images/warum-prozess.jpg" alt="Ein Prozess" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <h3 class="mb-3 text-h3">Ein Prozess</h3>
+          <p class="text-body-sm text-muted-foreground">
+            Strategie, Konzeption, Design und Umsetzung – alles aus einer Hand mit dem gleichen roten Faden.
+          </p>
+        </div>
+
+        <!-- Spalte 3: Emotion & Funktion -->
+        <div class="group">
+          <div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-3xl">
+            <img src="/images/warum-emotion.jpg" alt="Emotion &amp; Funktion" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <h3 class="mb-3 text-h3">Emotion &amp; Funktion</h3>
+          <p class="text-body-sm text-muted-foreground">
+            Ich verbinde Ästhetik mit echter Nutzbarkeit – für Räume und Erlebnisse, die berühren.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === CUSTOM CURSOR (größer) === -->
+  <div id="custom-cursor" 
+       class="fixed pointer-events-none hidden w-40 h-40 rounded-full bg-white/40 backdrop-blur-2xl flex flex-col items-center justify-center text-zinc-900 text-sm font-medium z-[9999] shadow-2xl gap-px">
+    <span class="tracking-widest text-[14px]">PROJEKT</span>
+    <span class="text-[18px]">ansehen</span>
+  </div>
+
+  <script>
+    const cursor = document.getElementById('custom-cursor');
+    const projects = document.querySelectorAll('.project-card');
+
+    if (cursor instanceof HTMLElement) {
+      projects.forEach(project => {
+        project.addEventListener('mousemove', (e) => {
+          const mouseEvent = e as MouseEvent;
+          cursor.style.left = `${mouseEvent.clientX - 80}px`;
+          cursor.style.top = `${mouseEvent.clientY - 80}px`;
+          cursor.classList.remove('hidden');
+        });
+
+        project.addEventListener('mouseleave', () => {
+          cursor.classList.add('hidden');
+        });
+      });
+    }
+  </script>
 
 </Layout>
