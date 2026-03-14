@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Tailwind v4: class-basierter Dark Mode (ersetzt darkMode: 'class' aus tailwind.config.mjs) */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
