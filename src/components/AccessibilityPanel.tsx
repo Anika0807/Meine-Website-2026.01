@@ -122,10 +122,10 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
         <Button
           variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 z-50 rounded-full shadow-2xl hover:shadow-3xl hover:bg-primary/90 transition-all duration-300 border-2 border-primary/50 text-primary-foreground"
+          className="fixed bottom-6 right-6 z-[9999] flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-xl hover:bg-accent focus:outline-none focus:ring-4 focus:ring-primary/50 transition-all"
           aria-label={t(locale, 'accessibility.ariaLabel')}
         >
-          <PersonStanding className="h-6 w-6" />
+          <PersonStanding className="h-7 w-7" />
         </Button>
       </DialogTrigger>
 

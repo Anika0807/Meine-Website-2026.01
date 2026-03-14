@@ -259,6 +259,29 @@ header[data-scroll-shadow="true"] {
   view-transition-name: hero-image;
 }
 
+/* Scroll-Indikator Animationen */
+@keyframes bounce-slow {
+  0%, 20% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2.8s infinite ease-in-out;
+}
+
+.ds-hero-image {
+  filter: none;
+  transform: scale(1);
+  transition: transform 700ms ease, filter 700ms ease;
+}
+
+.ds-hero-panel:hover .ds-hero-image {
+  transform: scale(1.12);
+  filter: invert(12%) brightness(1.08);
+}
+
+
 .card {
   view-transition-name: card;
 }
@@ -294,7 +317,6 @@ header[data-scroll-shadow="true"] {
   line-height: 1.05; 
   font-weight: 900; 
   letter-spacing: -0.04em; 
-  color: hsl(var(--foreground));
   text-align: left;
 }
 

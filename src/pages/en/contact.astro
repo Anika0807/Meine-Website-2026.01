@@ -1,47 +1,53 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Heading1 } from '@/components/design-system/headings';
 ---
 
 <Layout title="Contact">
   <div class="container mx-auto max-w-6xl px-6 py-16 md:py-28">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Left side -->
       <div class="space-y-8 text-center lg:text-left">
-        <h1 class="text-h1">Let's start a project together!</h1>
+        <Heading1 className="text-4xl md:text-5xl">Let's start a project together!</Heading1>
+
         <p class="text-body-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-          I look forward to working with you. Tell me about your project – whether interior architecture or UX/UI design.
+          I look forward to working with you. Tell me about your project - whether interior architecture or UX/UI design.
         </p>
+
         <div class="flex flex-col items-center lg:items-start gap-6">
-          <img 
-            src="/images/anika-foto.jpg" 
-            alt="Anika Warncke" 
+          <img
+            src="/images/anika-foto.jpg"
+            alt="Anika Warncke"
             class="w-28 h-28 md:w-32 md:h-32 rounded-3xl object-cover shadow-md"
           />
           <div>
             <p class="font-semibold text-lg">Anika Warncke</p>
-            <p class="text-sm text-muted-foreground">Lüneburg • Remote/Hybrid possible</p>
+            <p class="text-sm text-muted-foreground">Luneburg - Remote/Hybrid possible</p>
             <a href="https://linkedin.com/in/anika-warncke" target="_blank" class="text-primary hover:underline text-sm">LinkedIn</a>
           </div>
         </div>
       </div>
-      <!-- Right side: Form -->
+
       <div class="bg-card rounded-3xl p-8 md:p-12 shadow-sm">
         <form class="space-y-8">
           <div>
             <label class="block text-sm font-medium mb-3">Your Name *</label>
             <input type="text" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="Your Name" required />
           </div>
+
           <div>
             <label class="block text-sm font-medium mb-3">Your Email Address *</label>
             <input type="email" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="your@email.com" required />
           </div>
+
           <div>
             <label class="block text-sm font-medium mb-3">Your Message / Project *</label>
             <textarea rows="7" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary resize-y" placeholder="Describe your project..."></textarea>
           </div>
+
           <button type="submit" class="w-full bg-primary text-primary-foreground py-5 rounded-2xl font-medium text-lg hover:bg-accent transition-colors">
             Send Message
           </button>
+
           <p class="text-xs text-muted-foreground text-center">
             Your data will be treated confidentially and not passed on to third parties.
           </p>

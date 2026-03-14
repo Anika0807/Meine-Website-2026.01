@@ -3,11 +3,15 @@ import '@/styles/global.css';
 import Navigation from '@/components/Navigation';
 import AccessibilityPanel from '@/components/AccessibilityPanel';
 import CookieBanner from '@/components/CookieBanner';
-import { footer_name, footer_tagline, footer_impressum, footer_datenschutz } from '@/paraglide/messages.js';
 
 const { title = 'Meine Website 2026' } = Astro.props;
 const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
-const loc = { locale: ssrLocale } as const;
+// Footer immer Deutsch, wenn nicht /en
+const footerLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
+const footerName = 'Anika Warncke';
+const footerTagline = footerLocale === 'en' ? 'Interior Architecture & UX/UI Design' : 'Innenarchitektur & UX/UI Design';
+const footerImpressum = footerLocale === 'en' ? 'Imprint' : 'Impressum';
+const footerDatenschutz = footerLocale === 'en' ? 'Privacy Policy' : 'Datenschutz';
 ---
 
 <html lang={ssrLocale}>
@@ -66,10 +70,10 @@ const loc = { locale: ssrLocale } as const;
     <!-- Footer -->
     <footer class="border-t bg-background py-6 mt-auto">
       <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} {footer_name(loc)} – {footer_tagline(loc)}</p>
+        <p>© {new Date().getFullYear()} {footerName} – {footerTagline}</p>
         <div class="flex gap-6">
-          <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-primary">{footer_impressum(loc)}</a>
-          <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-primary">{footer_datenschutz(loc)}</a>
+          <a href={footerLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-primary">{footerImpressum}</a>
+          <a href={footerLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-primary">{footerDatenschutz}</a>
         </div>
       </div>
     </footer>

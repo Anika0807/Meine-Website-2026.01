@@ -5,6 +5,18 @@ import { Button } from '@/components/ui/button';
 export default function LanguageToggle() {
   const [lang, setLang] = useState('de');
 
+  const mapLocalizedPath = (path: string, targetLang: 'de' | 'en') => {
+    const normalized = path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path;
+
+    if (targetLang === 'en') {
+      if (normalized === '/kontakt') return '/en/contact';
+      return normalized === '/' ? '/en' : `/en${normalized}`;
+    }
+
+    if (normalized === '/contact') return '/kontakt';
+    return normalized;
+  };
+
   useEffect(() => {
     const currentPath = window.location.pathname;
     const savedLang = (localStorage.getItem('PARAGLIDE_LOCALE') || localStorage.getItem('lang') || 'de') as 'de' | 'en';
@@ -21,12 +33,7 @@ export default function LanguageToggle() {
     setCurrentLanguage(newLang);
     setLang(newLang);
     const currentPath = window.location.pathname;
-    let newPath = currentPath;
-    if (newLang === 'en' && !currentPath.startsWith('/en')) {
-      newPath = '/en' + currentPath;
-    } else if (newLang === 'de' && currentPath.startsWith('/en')) {
-      newPath = currentPath.replace('/en', '') || '/';
-    }
+    const newPath = mapLocalizedPath(currentPath, newLang);
     window.location.href = newPath;
   };
 

@@ -1,147 +1,165 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import SimpleTest from '@/components/SimpleTest';
-import AutoCard from '@/components/AutoCard';
 import ScrollReveal from '@/components/ScrollReveal';
-import SlowCarousel from '@/components/SlowCarousel';
-import { Heading1, Heading2 } from '@/components/design-system/headings';
-import { hero_title, hero_subtitle, nav_projects } from '@/paraglide/messages.js';
-
-const locale = 'de';
-const loc = { locale } as const;
+import { Heading2 } from '@/components/design-system/headings';
+import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-image-hover';
 ---
 
-<Layout title={hero_title({}, loc)} locale={locale}>
+<Layout title="Anika Warncke - Innenarchitektur & UX/UI Design">
 
-  <!-- Hero / Intro -->
-  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
-    <ScrollReveal delay={0} client:load>
-      <Heading1 className="text-center">
-        {hero_title({}, loc)}
-      </Heading1>
-      <p class="text-xl text-muted-foreground mb-12">
-        {hero_subtitle({}, loc)}
-      </p>
-    </ScrollReveal>
+  <!-- SPLIT HERO – Zwei Bilder nebeneinander mit Hover -->
+  <section class="relative h-screen flex overflow-hidden">
 
-    <ScrollReveal delay={0.1} client:load>
-      <SimpleTest locale={locale} client:load />
-    </ScrollReveal>
-
-    <SlowCarousel images={[
-      '/images/projekt1.jpg',
-      '/images/projekt2.jpg',
-      '/images/projekt3.jpg',
-    ]} client:load />
-  </div>
-
-  <!-- Full-Bleed Projekt Hero -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
+    <!-- LINKS: Innenarchitektur -->
+    <div class={`${heroPanelClass} hero-left`}>
       <img 
-        src="/images/hero-project.jpg" 
-        alt="Projekt Hero Full-Bleed"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+        src="/images/hero-interior.jpg" 
+        alt="Innenarchitektur Projekt"
+        class={heroImageHover}
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-12">
-          <h2 class="text-h2 text-white">Ausgewählte Projekte</h2>
-          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur & UX/UI Design</p>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+    </div>
+
+    <!-- RECHTS: UX/UI -->
+    <div class={`${heroPanelClass} hero-right`}>
+      <img 
+        src="/images/hero-uxui.jpg" 
+        alt="UX/UI Projekt"
+        class={heroImageHover}
+      />
+      <div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent"></div>
+    </div>
+
+    <!-- NUR DIESEN CONTAINER ERSETZEN -->
+    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
+      <div class="pointer-events-auto bg-black/75 backdrop-blur-2xl px-16 py-16 rounded-3xl text-center max-w-[960px] border border-white/10">
+
+        <ScrollReveal client:load>
+          <h1 class="text-[5.4rem] md:text-[6.4rem] leading-none tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+            Anika Warncke
+          </h1>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1} client:load>
+          <p class="text-[2.85rem] md:text-[3.2rem] font-light text-white mb-12 drop-shadow-xl">
+            Innenarchitektur &amp; UX/UI Design
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.2} client:load>
+          <p class="text-body-lg text-white/95 max-w-lg mx-auto drop-shadow-lg">
+            Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
+          </p>
+        </ScrollReveal>
+
+        <div class="flex flex-col sm:flex-row gap-6 mt-14 justify-center">
+          <a href="/projekte" class="flex-1 bg-primary text-primary-foreground py-6 rounded-2xl font-medium text-lg transition-all duration-300 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] hover:-translate-y-0.5 hover:shadow-xl">
+            Projekte ansehen
+          </a>
+          <a href="/kontakt" class="flex-1 border-2 border-white text-white py-6 rounded-2xl font-medium text-lg hover:bg-white hover:text-primary transition-all">
+            Lass uns sprechen
+          </a>
         </div>
+
+      </div>
+
+      <!-- Scroll-Indikator – außerhalb des Kastens -->
+      <div class="pointer-events-none mt-20 flex flex-col items-center gap-3 text-white">
+        <span class="text-xs tracking-[3px] font-medium opacity-70">SCROLLEN</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)] animate-bounce-slow"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </div>
   </section>
 
-  <!-- Full-Bleed Projekt: Yoga Studio Umgestaltung -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <img 
-        src="/images/yoga-studio.jpg" 
-        alt="Yoga Studio Umgestaltung"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-10">
-          <h3 class="text-h2 text-white">Yoga Studio Umgestaltung</h3>
-          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • Berlin 2025</p>
-        </div>
-      </div>
+  <!-- PERSÖNLICHE AUSSAGE – mit größerem, elegantem Einstein-Zitat -->
+  <section class="py-28 bg-background">
+    <div class="container mx-auto max-w-3xl px-6 text-center">
+      
+      <ScrollReveal client:load>
+        <p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
+          Ich liebe es, coole Dinge zu entwickeln
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.15} client:load>
+        <p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
+          und zeitgleich komplexe Probleme für Menschen wie dich zu lösen.
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.45} client:load>
+        <p class="text-base md:text-lg text-muted-foreground mt-14 italic">
+          „Das Wichtigste ist, dass man nicht aufhört zu fragen.“<br />
+          <span class="not-italic text-xs">– Albert Einstein</span>
+        </p>
+      </ScrollReveal>
+
     </div>
   </section>
 
-  <!-- Full-Bleed Projekt: Etsy Shop Redesign -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <img 
-        src="/images/etsy-shop.jpg" 
-        alt="Etsy Shop Redesign"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-10">
-          <h3 class="text-h2 text-white">Etsy Shop Redesign</h3>
-          <p class="text-body-lg text-white/90 mt-space-2">UX/UI Design • 2025</p>
+  <!-- AUSGEWÄHLTE PROJEKTE – Full Bleed (4 Projekte) -->
+  <section class="py-20 bg-background">
+    <div class="w-full">
+
+      <ScrollReveal client:load>
+        <Heading2 className="text-center mb-12">Ausgewählte Projekte</Heading2>
+      </ScrollReveal>
+
+      <!-- Projekt 1: My Mind Studio -->
+      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full">
+        <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-h3">My Mind Studio</h3>
+          <p class="text-body-sm opacity-90">Meditations- und Yogastudio mit Café • Innenarchitektur</p>
         </div>
+      </div>
+
+      <!-- Projekt 2: NaturKompass -->
+      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
+        <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-h3">NaturKompass</h3>
+          <p class="text-body-sm opacity-90">Digitaler Begleiter zur Flora & Fauna • UX/UI Design</p>
+        </div>
+      </div>
+
+      <!-- Projekt 3: Festsaal im Klostergasthof -->
+      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
+        <img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-h3">Festsaal im Klostergasthof</h3>
+          <p class="text-body-sm opacity-90">Veranstaltungsgastronomie • Innenarchitektur</p>
+        </div>
+      </div>
+
+      <!-- Projekt 4: FlavorFusion -->
+      <div class="project-image group relative overflow-hidden aspect-[16/10] w-full mt-8">
+        <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-h3">FlavorFusion</h3>
+          <p class="text-body-sm opacity-90">Landing Page für mobile Rezepte App • UX/UI Design</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
+          Alle Projekte ansehen →
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- Full-Bleed Projekt: Restaurant Makeover -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <img 
-        src="/images/restaurant-makeover.jpg" 
-        alt="Restaurant Makeover"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-10">
-          <h3 class="text-h2 text-white">Restaurant Makeover</h3>
-          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • München 2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full-Bleed Projekt: Urban Loft -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <img 
-        src="/images/urban-loft.jpg" 
-        alt="Urban Loft Transformation"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-10">
-          <h3 class="text-h2 text-white">Urban Loft Transformation</h3>
-          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • Hamburg 2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full-Bleed Projekt: Web App Redesign -->
-  <section class="w-full overflow-hidden bg-background">
-    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <img 
-        src="/images/web-app-redesign.jpg" 
-        alt="Web App Redesign"
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-        <div class="container mx-auto px-6 pb-10">
-          <h3 class="text-h2 text-white">Web App Redesign</h3>
-          <p class="text-body-lg text-white/90 mt-space-2">UX/UI Design • Remote 2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Link zu allen Projekten -->
-  <div class="text-center py-16">
-    <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
-      Alle Projekte ansehen →
-    </a>
-  </div>
 
 </Layout>
