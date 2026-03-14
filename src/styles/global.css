@@ -1,50 +1,5 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
-  /* Eigene semantische Farb-Tokens */
-  --color-brand-primary:      hsl(var(--brand-primary));
-  --color-brand-primary-soft: hsl(var(--brand-primary-soft));
-  --color-brand-secondary:    hsl(var(--brand-secondary));
-  --color-brand-accent:       hsl(var(--brand-accent));
-  --color-success:            hsl(var(--success));
-  --color-warning:            hsl(var(--warning));
-  --color-danger:             hsl(var(--danger));
-  --color-info:               hsl(var(--info));
-  --color-neutral-50:         hsl(var(--neutral-50));
-  --color-neutral-100:        hsl(var(--neutral-100));
-  --color-neutral-200:        hsl(var(--neutral-200));
-  --color-neutral-300:        hsl(var(--neutral-300));
-  --color-neutral-400:        hsl(var(--neutral-400));
-  --color-neutral-500:        hsl(var(--neutral-500));
-  --color-neutral-600:        hsl(var(--neutral-600));
-  --color-neutral-700:        hsl(var(--neutral-700));
-  --color-neutral-800:        hsl(var(--neutral-800));
-  --color-neutral-900:        hsl(var(--neutral-900));
-}
 
 @layer base {
   :root {
@@ -95,6 +50,37 @@
 
     --accent: 45 92% 68%;            /* Weicheres, wärmeres Gelb – nicht zu strahlend */
     --accent-foreground: 240 10% 8%;
+  /* Viel Weißraum & Clean Design */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+  }
+
+  .project-image:hover img {
+    transform: scale(1.05);
+    filter: invert(10%) brightness(1.05);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+  }
 
     --muted: 240 10% 22%;
     --muted-foreground: 240 10% 55%;
@@ -167,6 +153,14 @@ html {
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
+/* Eigene Utilities für bg-primary und text-primary-foreground */
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+.text-primary-foreground {
+  color: hsl(var(--primary-foreground));
+}
+
 /* Fix: Dark mode text utilities */
 .dark .text-foreground {
   color: hsl(var(--foreground));
@@ -228,39 +222,88 @@ header[data-scroll-shadow="true"] {
   view-transition-name: card;
 }
 
-/* ━━━ Typo-Skala (Figma-Style) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ==================== TYPO-VORSCHLAG 2: Satoshi + Inter ==================== */
 :root {
-  --font-size-xs:   0.75rem;   /* 12px */
-  --font-size-sm:   0.875rem;  /* 14px */
-  --font-size-base: 1rem;      /* 16px */
-  --font-size-lg:   1.125rem;  /* 18px */
-  --font-size-xl:   1.25rem;   /* 20px */
-  --font-size-2xl:  1.5rem;    /* 24px */
-  --font-size-3xl:  1.875rem;  /* 30px */
-  --font-size-4xl:  2.25rem;   /* 36px */
-  --font-size-5xl:  3rem;      /* 48px */
-  --font-size-6xl:  3.75rem;   /* 60px */
-  --font-size-7xl:  4.5rem;    /* 72px */
-  --font-size-8xl:  6rem;      /* 96px */
-  --font-size-9xl:  8rem;      /* 128px */
+  --heading-font: 'Satoshi', sans-serif;
+  --body-font: 'Inter', sans-serif;
 }
 
-/* Semantische Typo-Klassen */
-.text-heading-1 { font-size: var(--font-size-6xl); line-height: 1.1;  font-weight: 800; }
-.text-heading-2 { font-size: var(--font-size-5xl); line-height: 1.15; font-weight: 700; }
-.text-heading-3 { font-size: var(--font-size-4xl); line-height: 1.2;  font-weight: 700; }
-.text-heading-4 { font-size: var(--font-size-3xl); line-height: 1.25; font-weight: 600; }
-.text-body-lg   { font-size: var(--font-size-xl);  line-height: 1.6; }
-.text-body      { font-size: var(--font-size-base); line-height: 1.6; }
-.text-body-sm   { font-size: var(--font-size-sm);  line-height: 1.5; }
-.text-caption   { font-size: var(--font-size-xs);  line-height: 1.4; }
+.project-image img {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+  .project-image:hover img {
+    transform: scale(1.12);
+    filter: invert(12%) contrast(108%) brightness(1.05);   /* subtiler Invert + Farberhalt */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  }
 
-/* Responsive Typo-Scale: Headings skalieren auf kleineren Geräten */
-@media (max-width: 640px) {
-  .text-heading-1 { font-size: var(--font-size-4xl); }
-  .text-heading-2 { font-size: var(--font-size-3xl); }
-  .text-heading-3 { font-size: var(--font-size-2xl); }
-  .text-heading-4 { font-size: var(--font-size-xl);  }
+.project-image:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);   /* Schatten am Container */
+  line-height: 1.05; 
+  font-weight: 900; 
+  letter-spacing: -0.04em; 
+}
+
+.text-h2 { 
+  font-family: var(--heading-font); 
+  font-size: 3.5rem; 
+  line-height: 1.08; 
+  font-weight: 700; 
+  letter-spacing: -0.03em; 
+}
+
+.text-h3 { 
+  font-family: var(--heading-font); 
+  font-size: 2.8rem; 
+  line-height: 1.12; 
+  font-weight: 700; 
+}
+
+.text-h4 { 
+  font-family: var(--heading-font); 
+  font-size: 2.1rem; 
+  line-height: 1.2; 
+  font-weight: 600; 
+}
+
+.text-h5 { 
+  font-family: var(--body-font); 
+  font-size: 1.75rem; 
+  line-height: 1.25; 
+  font-weight: 600; 
+}
+
+.text-h6 { 
+  font-family: var(--body-font); 
+  font-size: 1.4rem; 
+  line-height: 1.35; 
+  font-weight: 500; 
+  letter-spacing: 0.02em; 
+}
+
+/* Body Text */
+.text-body { 
+  font-family: var(--body-font); 
+  font-size: 1rem; 
+  line-height: 1.65; 
+  font-weight: 400; 
+}
+
+.text-body-lg { font-size: 1.125rem; line-height: 1.6; }
+.text-body-sm { font-size: 0.875rem; line-height: 1.55; }
+.text-caption { font-size: 0.75rem; line-height: 1.4; font-weight: 500; }
+
+/* Responsive Skalierung (Mobile-First) */
+@media (max-width: 768px) {
+  .text-h1 { font-size: 3rem; }
+  .text-h2 { font-size: 2.5rem; }
+  .text-h3 { font-size: 2rem; }
+  .text-h4 { font-size: 1.75rem; }
+  .text-h5 { font-size: 1.5rem; }
+  .text-h6 { font-size: 1.25rem; }
 }
 
 /* ━━━ Auto-Layout-ähnliche Utilities (Figma-Style) ━━━━━━━━━━━━━━━━━ */
@@ -427,3 +470,26 @@ header[data-scroll-shadow="true"] {
   .mr-space-8  { margin-right: var(--space-8); }
   .mr-space-12 { margin-right: var(--space-12); }
 }
+
+/* ━━━ Hover-Effekte bei Bildern – Zoom + Invert ━━━━━━━━━━━━━━━━━━━━ */
+/* === STÄRKERE HOVER-EFFEKTE BEI BILDERN === */
+.project-image {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.project-image img {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+  /* === SEHR STARKE HOVER-EFFEKTE (Test-Version) === */
+  .project-image:hover img {
+    transform: scale(1.15);                    /* stärkerer Zoom */
+    filter: invert(25%) brightness(1.12);      /* deutlich sichtbarer Invert */
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45); /* sehr starker Schatten */
+  }

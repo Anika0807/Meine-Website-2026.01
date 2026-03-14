@@ -1,0 +1,20 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Heading1 } from '@/components/design-system/headings';
+---
+
+<Layout title="Projekte">
+  <section class="section">
+    <div class="container">
+      <Heading1>Projekte</Heading1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-space-8">
+        <div class="project-image group">
+          <img src="/images/projekt1.jpg" class="w-full h-auto object-cover rounded-xl" />
+          <h3 class="text-h3 mt-4">Projekt 1</h3>
+          <p class="text-body-sm">Vorher / Nachher-Beschreibung...</p>
+        </div>
+        <!-- Weitere Cards -->
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Heading1 } from '@/components/design-system/headings';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'yoga-studio' } },
+    { params: { slug: 'etsy-shop' } },
+    { params: { slug: 'designprozess' } },
+  ];
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout title={`Projekt: ${slug}`}>
+
+  <!-- Full-Bleed Hero Bild -->
+  <div class="relative h-screen w-full overflow-hidden">
+    <img 
+      src="/images/projekt-detail-hero.jpg" 
+      alt="Projekt Hero"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <div class="absolute bottom-16 left-8 md:left-16 text-white">
+      <h1 class="text-h1">Yoga Studio Umgestaltung</h1>
+      <p class="text-xl mt-4">Berlin • 2025</p>
+    </div>
+  </div>
+
+  <!-- Case Study Inhalt -->
+  <div class="container mx-auto px-6 py-16">
+    <Heading1>Designprozess</Heading1>
+    <p class="text-body">Hier beschreibe deinen Prozess: Strategisches Denken, datenbasierte Insights usw.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      <img src="/images/vorher.jpg" alt="Vorher" class="w-full" />
+      <img src="/images/nachher.jpg" alt="Nachher" class="w-full" />
+    </div>
+  </div>
+
+</Layout>

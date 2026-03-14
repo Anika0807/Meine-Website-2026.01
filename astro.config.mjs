@@ -8,10 +8,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ['react-cookie-consent'],
+      include: ['react-cookie-consent', 'framer-motion'],
+      exclude: ['aria-query'],
     },
     ssr: {
-      noExternal: ['react-cookie-consent'],
+      noExternal: ['react-cookie-consent', 'framer-motion'],
     },
   },
 

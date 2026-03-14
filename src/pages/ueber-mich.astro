@@ -1,0 +1,15 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Heading1, Heading2 } from '@/components/design-system/headings';
+import UeberMichFAQ from '@/components/UeberMichFAQ';
+---
+
+<Layout title="Über mich">
+  <div class="container mx-auto px-6 py-16">
+    <Heading1>Über mich</Heading1>
+    <p class="text-body mb-12">Hier dein Text + persönliche Aussage.</p>
+
+    <Heading2>FAQs</Heading2>
+    <UeberMichFAQ client:load />
+  </div>
+</Layout>

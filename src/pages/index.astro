@@ -2,6 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import SimpleTest from '@/components/SimpleTest';
 import AutoCard from '@/components/AutoCard';
+import ScrollReveal from '@/components/ScrollReveal';
+import SlowCarousel from '@/components/SlowCarousel';
 import { Heading1, Heading2 } from '@/components/design-system/headings';
 import { hero_title, hero_subtitle, nav_projects } from '@/paraglide/messages.js';
 
@@ -10,32 +12,136 @@ const loc = { locale } as const;
 ---
 
 <Layout title={hero_title({}, loc)} locale={locale}>
-  <!-- Mobile-first: full-width, responsive padding, max-width cap on larger screens -->
-  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
-    <Heading1 className="text-center">
-      {hero_title({}, loc)}
-    </Heading1>
-    <p class="text-xl text-muted-foreground mb-12">
-      {hero_subtitle({}, loc)}
-    </p>
-    <SimpleTest locale={locale} client:load />
 
-    <!-- Projekt-Grid: mobile-first, grid-cols-1 → sm:2 → lg:3 -->
-    <div class="mt-16 text-left w-full">
-      <Heading2 className="text-left">
-        {nav_projects({}, loc)}
-      </Heading2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-        <AutoCard title="Projekt 1" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Folgt in Kürze…</p>
-        </AutoCard>
-        <AutoCard title="Projekt 2" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Folgt in Kürze…</p>
-        </AutoCard>
-        <AutoCard title="Projekt 3" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Folgt in Kürze…</p>
-        </AutoCard>
+  <!-- Hero / Intro -->
+  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+    <ScrollReveal delay={0} client:load>
+      <Heading1 className="text-center">
+        {hero_title({}, loc)}
+      </Heading1>
+      <p class="text-xl text-muted-foreground mb-12">
+        {hero_subtitle({}, loc)}
+      </p>
+    </ScrollReveal>
+
+    <ScrollReveal delay={0.1} client:load>
+      <SimpleTest locale={locale} client:load />
+    </ScrollReveal>
+
+    <SlowCarousel images={[
+      '/images/projekt1.jpg',
+      '/images/projekt2.jpg',
+      '/images/projekt3.jpg',
+    ]} client:load />
+  </div>
+
+  <!-- Full-Bleed Projekt Hero -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
+      <img 
+        src="/images/hero-project.jpg" 
+        alt="Projekt Hero Full-Bleed"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-12">
+          <h2 class="text-h2 text-white">Ausgewählte Projekte</h2>
+          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur & UX/UI Design</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Full-Bleed Projekt: Yoga Studio Umgestaltung -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <img 
+        src="/images/yoga-studio.jpg" 
+        alt="Yoga Studio Umgestaltung"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-10">
+          <h3 class="text-h2 text-white">Yoga Studio Umgestaltung</h3>
+          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • Berlin 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Bleed Projekt: Etsy Shop Redesign -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <img 
+        src="/images/etsy-shop.jpg" 
+        alt="Etsy Shop Redesign"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-10">
+          <h3 class="text-h2 text-white">Etsy Shop Redesign</h3>
+          <p class="text-body-lg text-white/90 mt-space-2">UX/UI Design • 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Bleed Projekt: Restaurant Makeover -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <img 
+        src="/images/restaurant-makeover.jpg" 
+        alt="Restaurant Makeover"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-10">
+          <h3 class="text-h2 text-white">Restaurant Makeover</h3>
+          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • München 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Bleed Projekt: Urban Loft -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <img 
+        src="/images/urban-loft.jpg" 
+        alt="Urban Loft Transformation"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-10">
+          <h3 class="text-h2 text-white">Urban Loft Transformation</h3>
+          <p class="text-body-lg text-white/90 mt-space-2">Innenarchitektur • Hamburg 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Bleed Projekt: Web App Redesign -->
+  <section class="w-full overflow-hidden bg-background">
+    <div class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <img 
+        src="/images/web-app-redesign.jpg" 
+        alt="Web App Redesign"
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+        <div class="container mx-auto px-6 pb-10">
+          <h3 class="text-h2 text-white">Web App Redesign</h3>
+          <p class="text-body-lg text-white/90 mt-space-2">UX/UI Design • Remote 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Link zu allen Projekten -->
+  <div class="text-center py-16">
+    <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
+      Alle Projekte ansehen →
+    </a>
   </div>
+
 </Layout>

@@ -18,6 +18,7 @@ const loc = { locale: ssrLocale } as const;
     <title>{title}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/opendyslexic@1.0.0/css/opendyslexic.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=OpenDyslexic" />
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Theme-Script: verhindert Flackern beim Laden -->
     <script is:inline>
       (function() {
@@ -30,8 +31,7 @@ const loc = { locale: ssrLocale } as const;
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
     <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300" 
-        data-scroll-shadow="false">
+      <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300" data-scroll="up">
       <div class="container flex h-16 items-center justify-between px-6 mx-auto max-w-7xl">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
           Anika Warncke
@@ -40,6 +40,23 @@ const loc = { locale: ssrLocale } as const;
         <Navigation client:only="react" />
       </div>
     </header>
+
+      <script is:inline>
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+          const header = document.querySelector('header');
+          const currentScroll = window.scrollY;
+
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            header.classList.add('translate-y-[-100%]');
+          } else {
+            header.classList.remove('translate-y-[-100%]');
+          }
+          header.classList.toggle('shadow-md', currentScroll > 10);
+
+          lastScroll = currentScroll;
+        });
+      </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
     <main class="flex-1 w-full">
@@ -67,15 +84,5 @@ const loc = { locale: ssrLocale } as const;
     <AccessibilityPanel locale={ssrLocale} client:only="react" />
     <CookieBanner locale={ssrLocale} client:only="react" />
 
-    <script is:inline>
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 10) {
-          header.setAttribute('data-scroll-shadow', 'true');
-        } else {
-          header.setAttribute('data-scroll-shadow', 'false');
-        }
-      });
-    </script>
   </body>
 </html>

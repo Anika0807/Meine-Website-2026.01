@@ -22,11 +22,11 @@ function Toggle({ checked, onChange, label }: { checked: boolean; onChange: (v: 
         width: '48px',
         height: '26px',
         borderRadius: '9999px',
-        border: checked ? '2px solid #1d4ed8' : '2px solid #9ca3af',
+        border: checked ? '2px solid hsl(var(--primary))' : '2px solid #9ca3af',
         padding: '2px',
         cursor: 'pointer',
         transition: 'background-color 0.2s, border-color 0.2s',
-        backgroundColor: checked ? '#2563eb' : '#d1d5db',
+        backgroundColor: checked ? 'hsl(var(--primary))' : '#d1d5db',
         flexShrink: 0,
         outline: 'none',
       }}
