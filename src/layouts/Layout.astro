@@ -6,12 +6,6 @@ import CookieBanner from '@/components/CookieBanner';
 
 const { title = 'Meine Website 2026' } = Astro.props;
 const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
-// Footer immer Deutsch, wenn nicht /en
-const footerLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
-const footerName = 'Anika Warncke';
-const footerTagline = footerLocale === 'en' ? 'Interior Architecture & UX/UI Design' : 'Innenarchitektur & UX/UI Design';
-const footerImpressum = footerLocale === 'en' ? 'Imprint' : 'Impressum';
-const footerDatenschutz = footerLocale === 'en' ? 'Privacy Policy' : 'Datenschutz';
 ---
 
 <html lang={ssrLocale}>
@@ -67,13 +61,29 @@ const footerDatenschutz = footerLocale === 'en' ? 'Privacy Policy' : 'Datenschut
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t bg-background py-6 mt-auto">
-      <div class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} {footerName} – {footerTagline}</p>
-        <div class="flex gap-6">
-          <a href={footerLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-primary">{footerImpressum}</a>
-          <a href={footerLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-primary">{footerDatenschutz}</a>
+    <!-- === FINALER FOOTER – warm & abgesetzt (#f5f8f3) === -->
+    <footer class="bg-[#f5f8f3] py-16 mt-20">
+      <div class="container mx-auto max-w-5xl px-6">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm">
+
+          <div class="flex flex-wrap gap-x-8 gap-y-2 text-muted-foreground">
+            <a href="/ueber-mich" class="hover:text-foreground transition-colors">Über mich</a>
+            <a href="/projekte" class="hover:text-foreground transition-colors">Projekte</a>
+            <a href="/kontakt" class="hover:text-foreground transition-colors">Kontakt</a>
+          </div>
+
+          <div class="flex items-center gap-8 text-muted-foreground">
+            <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" class="hover:text-foreground transition-colors">LinkedIn</a>
+            <span>09:17 Uhr MEZ</span>
+          </div>
+
+          <div class="flex flex-wrap gap-x-6 text-muted-foreground">
+            <a href="/impressum" class="hover:text-foreground transition-colors">Impressum</a>
+            <a href="/datenschutz" class="hover:text-foreground transition-colors">Datenschutz</a>
+            <span>© 2026 Anika Warncke</span>
+          </div>
+
         </div>
       </div>
     </footer>

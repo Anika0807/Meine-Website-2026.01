@@ -3,6 +3,8 @@ import Layout from '@/layouts/Layout.astro';
 import ScrollReveal from '@/components/ScrollReveal';
 import { Heading2 } from '@/components/design-system/headings';
 import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-image-hover';
+import { Image } from 'astro:assets';
+import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 ---
 
 <Layout title="Anika Warncke - Innenarchitektur & UX/UI Design">
@@ -212,6 +214,62 @@ import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-
         </div>
 
       </div>
+
+    </div>
+  </section>
+
+  <!-- === FINALER CALL-TO-ACTION – maximale Bildschärfe === -->
+  <section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background overflow-hidden">
+    <div class="container mx-auto max-w-3xl px-6 text-center relative z-10">
+
+      <ScrollReveal client:load>
+        <div class="mb-12">
+          <Image
+            src={anikaPortraitWarm}
+            alt="Anika Warncke"
+            width={1200}
+            height={1200}
+            quality={95}
+            format="webp"
+            densities={[1, 2]}
+            sizes="(max-width: 768px) 256px, 384px"
+            class="mx-auto w-64 h-64 md:w-72 md:h-72 rounded-full object-cover shadow-2xl border-8 border-white/50"
+          />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal client:load>
+        <h2 class="text-h2 mb-8 leading-tight">
+          Lass uns gemeinsam<br />etwas Schönes schaffen
+        </h2>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.1} client:load>
+        <p class="text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
+          Ich freue mich darauf, mit dir zusammenzuarbeiten.
+          Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.2} client:load>
+        <a href="/kontakt"
+           class="inline-block bg-primary text-primary-foreground px-16 py-7 rounded-3xl font-medium text-xl hover:bg-accent transition-all">
+          Mit mir sprechen
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.3} client:load>
+        <a href="/ueber-mich"
+           class="mt-10 inline-block text-primary hover:text-accent transition-colors text-base font-medium">
+          Mehr über mich erfahren →
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.4} client:load>
+        <p class="text-xs text-muted-foreground mt-12">
+          Deine Nachricht wird vertraulich behandelt.
+        </p>
+      </ScrollReveal>
 
     </div>
   </section>
