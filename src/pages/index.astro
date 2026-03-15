@@ -108,8 +108,68 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
     </div>
   </section>
 
-  <!-- === AUSGEWÄHLTE PROJEKTE – Stacking + Button am Ende === -->
-  <section class="relative py-20 bg-background">
+  <!-- === AUSGEWÄHLTE PROJEKTE – Mobile final fix (jede Karte KOMPLETT sichtbar + späteres Überlappen), Desktop 100 % unverändert === -->
+  <section class="py-20 bg-background md:hidden">
+    <div class="w-full">
+      <ScrollReveal client:load>
+        <h2 class="text-center text-h2 mb-12">Ausgewählte Projekte</h2>
+      </ScrollReveal>
+
+      <!-- Projekt 1: My Mind Studio -->
+      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-10" onclick="window.location='/projekte'">
+        <img src="/images/my-mind-studio.jpg" alt="My Mind Studio"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-3xl md:text-h3 font-medium">My Mind Studio</h3>
+          <p class="text-body-sm opacity-90 mt-2">Meditations- &amp; Yogastudio mit Café • Innenarchitektur</p>
+        </div>
+      </div>
+
+      <!-- Projekt 2: NaturKompass -->
+      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-20 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+        <img src="/images/naturkompass.jpg" alt="NaturKompass"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-3xl md:text-h3 font-medium">NaturKompass</h3>
+          <p class="text-body-sm opacity-90 mt-2">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
+        </div>
+      </div>
+
+      <!-- Projekt 3: Festsaal im Klostergasthof -->
+      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-30 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+        <img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-3xl md:text-h3 font-medium">Festsaal im Klostergasthof</h3>
+          <p class="text-body-sm opacity-90 mt-2">Veranstaltungsgastronomie • Innenarchitektur</p>
+        </div>
+      </div>
+
+      <!-- Projekt 4: FlavorFusion -->
+      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-40 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+        <img src="/images/flavorfusion.jpg" alt="FlavorFusion"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-3xl md:text-h3 font-medium">FlavorFusion</h3>
+          <p class="text-body-sm opacity-90 mt-2">Landing Page für mobile Rezepte App • UX/UI Design</p>
+        </div>
+      </div>
+
+      <!-- Button zu allen Projekten -->
+      <div class="text-center mt-16">
+        <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
+          Alle Projekte ansehen →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === AUSGEWÄHLTE PROJEKTE – Desktop unverändert === -->
+  <section class="relative py-20 bg-background hidden md:block">
     <div class="w-full">
 
       <ScrollReveal client:load>
@@ -134,7 +194,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
           <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">NaturKompass</h3>
-          <p class="text-lg md:text-xl opacity-90">Digitaler Begleiter zur Flora & Fauna • UX/UI Design</p>
+          <p class="text-lg md:text-xl opacity-90">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
         </div>
       </div>
 
@@ -218,34 +278,34 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
     </div>
   </section>
 
-  <!-- === FINALER CALL-TO-ACTION – maximale Bildschärfe === -->
+  <!-- === CTA-Abschnitt – optimiert für iPhone SE === -->
   <section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background overflow-hidden">
     <div class="container mx-auto max-w-3xl px-6 text-center relative z-10">
 
       <ScrollReveal client:load>
-        <div class="mb-12">
+        <div class="mb-10">
           <Image
             src={anikaPortraitWarm}
             alt="Anika Warncke"
-            width={1200}
-            height={1200}
+            width={512}
+            height={512}
             quality={95}
             format="webp"
             densities={[1, 2]}
-            sizes="(max-width: 768px) 256px, 384px"
-            class="mx-auto w-64 h-64 md:w-72 md:h-72 rounded-full object-cover shadow-2xl border-8 border-white/50"
+            sizes="(max-width: 768px) 208px, 256px"
+            class="mx-auto w-52 h-52 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-8 border-white/50"
           />
         </div>
       </ScrollReveal>
 
       <ScrollReveal client:load>
-        <h2 class="text-h2 mb-8 leading-tight">
+        <h2 class="text-4xl md:text-h2 mb-8 leading-tight">
           Lass uns gemeinsam<br />etwas Schönes schaffen
         </h2>
       </ScrollReveal>
 
       <ScrollReveal delay={0.1} client:load>
-        <p class="text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
+        <p class="text-base md:text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
           Ich freue mich darauf, mit dir zusammenzuarbeiten.
           Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
         </p>
@@ -253,7 +313,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
       <ScrollReveal delay={0.2} client:load>
         <a href="/kontakt"
-           class="inline-block bg-primary text-primary-foreground px-16 py-7 rounded-3xl font-medium text-xl hover:bg-accent transition-all">
+           class="inline-block bg-primary text-primary-foreground px-14 py-6 rounded-3xl font-medium text-lg md:text-xl hover:bg-accent transition-all">
           Mit mir sprechen
         </a>
       </ScrollReveal>
