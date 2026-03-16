@@ -9,8 +9,56 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
 <Layout title="Anika Warncke - Innenarchitektur & UX/UI Design">
 
+  <!-- === HERO – NUR MOBILE (Kasten weniger schwarz + mehr blurry/transparente, Typo exakt wie Desktop) === -->
+  <div class="md:hidden">
+    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+
+      <!-- Mobile: zwei Bilder übereinander -->
+      <div class="absolute inset-0 grid grid-rows-2">
+        <div class="relative">
+          <img src="/images/hero-innenarchitektur.jpg" alt="Innenarchitektur" class="w-full h-full object-cover" />
+        </div>
+        <div class="relative">
+          <img src="/images/hero-ux-ui.jpg" alt="UX/UI Design" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Kasten – Opacity wie Desktop, mobile Breite beibehalten -->
+        <div class="relative z-10 bg-black/75 backdrop-blur-2xl rounded-3xl px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl">
+          <!-- Typo im selben Stil wie Desktop, nur mobil skaliert -->
+          <h1 class="text-[3.1rem] leading-none tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+          Anika Warncke
+        </h1>
+          <p class="text-[1.95rem] font-light text-white mb-12 drop-shadow-xl">
+          Innenarchitektur<br />&amp; UX/UI Design
+        </p>
+
+          <p class="text-body-lg text-white/95 max-w-lg mx-auto mb-12 drop-shadow-lg">
+          Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
+        </p>
+
+        <div class="flex flex-col gap-4">
+          <a href="/projekte" class="bg-primary text-primary-foreground px-10 py-4 rounded-3xl font-medium text-lg hover:bg-accent transition-all">
+            Projekte ansehen
+          </a>
+          <a href="/kontakt" class="border-2 border-white text-white px-10 py-4 rounded-3xl font-medium text-lg hover:bg-white hover:text-black transition-all">
+            Lass uns sprechen
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll-Pfeil -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
+        <p class="text-xs tracking-[3px] font-medium">SCROLLEN</p>
+        <div class="w-5 h-9 border-2 border-white/70 rounded-full flex items-center justify-center">
+          <div class="w-1 h-2 bg-white rounded-full animate-scroll-down"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- SPLIT HERO – Zwei Bilder nebeneinander mit Hover -->
-  <section class="relative h-screen flex overflow-hidden">
+  <section class="relative hidden md:flex h-screen overflow-hidden">
 
     <!-- LINKS: Innenarchitektur -->
     <div class={`${heroPanelClass} hero-left`}>
@@ -108,59 +156,59 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
     </div>
   </section>
 
-  <!-- === AUSGEWÄHLTE PROJEKTE – Mobile final fix (jede Karte KOMPLETT sichtbar + späteres Überlappen), Desktop 100 % unverändert === -->
-  <section class="py-20 bg-background md:hidden">
+  <!-- === AUSGEWÄHLTE PROJEKTE – Mobile Button-Fix (Link immer sichtbar), Desktop 100 % unverändert === -->
+  <section class="pt-16 pb-8 bg-background md:hidden">
     <div class="w-full">
-      <ScrollReveal client:load>
+      <div class="relative z-50 bg-background pb-6">
         <h2 class="text-center text-h2 mb-12">Ausgewählte Projekte</h2>
-      </ScrollReveal>
+      </div>
 
       <!-- Projekt 1: My Mind Studio -->
-      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-10" onclick="window.location='/projekte'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10">
         <img src="/images/my-mind-studio.jpg" alt="My Mind Studio"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
-          <h3 class="text-3xl md:text-h3 font-medium">My Mind Studio</h3>
-          <p class="text-body-sm opacity-90 mt-2">Meditations- &amp; Yogastudio mit Café • Innenarchitektur</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">My Mind Studio</h3>
+          <p class="text-body-sm opacity-95 mt-2">Meditations- &amp; Yogastudio mit Café • Innenarchitektur</p>
         </div>
       </div>
 
       <!-- Projekt 2: NaturKompass -->
-      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-20 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0">
         <img src="/images/naturkompass.jpg" alt="NaturKompass"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
-          <h3 class="text-3xl md:text-h3 font-medium">NaturKompass</h3>
-          <p class="text-body-sm opacity-90 mt-2">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">NaturKompass</h3>
+          <p class="text-body-sm opacity-95 mt-2">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
         </div>
       </div>
 
       <!-- Projekt 3: Festsaal im Klostergasthof -->
-      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-30 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0">
         <img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
-          <h3 class="text-3xl md:text-h3 font-medium">Festsaal im Klostergasthof</h3>
-          <p class="text-body-sm opacity-90 mt-2">Veranstaltungsgastronomie • Innenarchitektur</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">Festsaal im Klostergasthof</h3>
+          <p class="text-body-sm opacity-95 mt-2">Veranstaltungsgastronomie • Innenarchitektur</p>
         </div>
       </div>
 
       <!-- Projekt 4: FlavorFusion -->
-      <div class="group relative overflow-hidden h-[95vh] md:h-screen w-full sticky top-0 z-40 mt-[-4vh] md:mt-0" onclick="window.location='/projekte'">
+      <div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0">
         <img src="/images/flavorfusion.jpg" alt="FlavorFusion"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
-          <h3 class="text-3xl md:text-h3 font-medium">FlavorFusion</h3>
-          <p class="text-body-sm opacity-90 mt-2">Landing Page für mobile Rezepte App • UX/UI Design</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+          <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">FlavorFusion</h3>
+          <p class="text-body-sm opacity-95 mt-2">Landing Page für mobile Rezepte App • UX/UI Design</p>
         </div>
       </div>
 
-      <!-- Button zu allen Projekten -->
-      <div class="text-center mt-16">
+      <!-- Button – Mobile: sichtbar über Sticky-Karten -->
+      <div class="relative z-50 bg-background pt-6 pb-[max(5rem,env(safe-area-inset-bottom))] text-center">
         <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
           Alle Projekte ansehen →
         </a>
