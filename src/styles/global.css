@@ -7,38 +7,31 @@
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
-
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
-
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
-
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
+  /* === NEUE KONSISTENTE RADIEN (2026/2027 + Design Brief) === */
+  --radius: 0.75rem;           /* Basis für die meisten Elemente */
+  --radius-btn: 1.5rem;        /* Einheitlich für ALLE Buttons (rounded-3xl) */
+  --radius-card: 1rem;         /* Für Karten, Bilder, Container (rounded-2xl) */
+  --radius-xl: 2rem;           /* Für große modale Elemente */
 
-  --color-success: hsl(var(--success));
-  --color-success-foreground: hsl(var(--success-foreground));
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+  /* ... dein restlicher Code (Spacing, Colors etc.) bleibt unverändert ... */
 }
 
 @layer base {
@@ -316,6 +309,14 @@ header[data-scroll-shadow="true"] {
 .ds-hero-panel:hover .ds-hero-image {
   transform: scale(1.12);
   filter: invert(12%) brightness(1.08);
+}
+
+.rounded-btn {
+  border-radius: var(--radius-btn);
+}
+
+.rounded-card {
+  border-radius: var(--radius-card);
 }
 
 

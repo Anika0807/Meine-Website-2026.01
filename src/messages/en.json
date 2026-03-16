@@ -24,6 +24,6 @@
   "accessibility.invertedColorsAria": "Toggle invert colors on or off",
   "accessibility.largeCursor": "Large Cursor",
   "accessibility.largeCursorAria": "Toggle large cursor on or off",
-  "accessibility.reset": "Reset Settings",
+  "accessibility.reset": "Reset settings",
   "accessibility.ariaLabel": "Open Accessibility Settings"
 }
