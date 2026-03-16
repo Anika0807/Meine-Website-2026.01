@@ -1,41 +1,327 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import SimpleTest from '@/components/SimpleTest';
-import AutoCard from '@/components/AutoCard';
-import { Heading1, Heading2 } from '@/components/design-system/headings';
-import { hero_title, hero_subtitle, nav_projects } from '@/paraglide/messages.js';
+import ScrollReveal from '@/components/ScrollReveal';
+import { Heading2 } from '@/components/design-system/headings';
+import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-image-hover';
+import { Image } from 'astro:assets';
+import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
+import { t } from '@/lib/i18n';
 
 const locale = 'en';
-const loc = { locale } as const;
+const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 ---
 
-<Layout title={hero_title({}, loc)} locale={locale}>
-  <!-- Mobile-first: full-width, responsive padding, max-width cap on larger screens -->
-  <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
-    <Heading1 className="text-center">
-      {hero_title({}, loc)}
-    </Heading1>
-    <p class="text-xl text-muted-foreground mb-12">
-      {hero_subtitle({}, loc)}
-    </p>
-    <SimpleTest locale={locale} client:load />
+<Layout title={getMessage('hero.title')}>
+<!-- === HERO – NUR MOBILE === -->
+<div class="md:hidden">
+<section class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+<!-- Mobile: zwei Bilder übereinander -->
+<div class="absolute inset-0 grid grid-rows-2">
+<div class="relative">
+<img src="/images/hero-innenarchitektur.jpg" alt="Interior Architecture" class="w-full h-full object-cover" />
+</div>
+<div class="relative">
+<img src="/images/hero-ux-ui.jpg" alt="UX/UI Design" class="w-full h-full object-cover" />
+</div>
+</div>
+<!-- Kasten – transparenter, mit Desktop-artigem Glas-Look -->
+<div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
+<h1 class="text-[4.1rem] leading-none font-semibold tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+  {getMessage('hero.title')}
+</h1>
+<p class="text-[2.25rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
+  {getMessage('hero.subtitle')}
+</p>
+<p class="text-body-lg text-white/95 max-w-lg mx-auto mb-12 drop-shadow-lg">
+  {getMessage('hero.description')}
+</p>
+<div class="flex flex-col gap-4">
+<a href="/projekte" class="bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+  {getMessage('hero.button.projects')}
+</a>
+<a href="/kontakt" class="border-2 border-white text-white px-10 py-4 rounded-btn font-medium text-lg hover:bg-white hover:text-black transition-all">
+  {getMessage('hero.button.contact')}
+</a>
+</div>
+</div>
+<!-- Scroll-Pfeil -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
+<p class="text-xs tracking-[3px] font-medium">SCROLL</p>
+<div class="w-5 h-9 border-2 border-white/70 rounded-full flex items-center justify-center">
+<div class="w-1 h-2 bg-white rounded-full animate-scroll-down"></div>
+</div>
+</div>
+</section>
+</div>
 
-    <!-- Project Grid: mobile-first, grid-cols-1 → sm:2 → lg:3 -->
-    <div class="mt-16 text-left w-full">
-      <Heading2 className="text-left">
-        {nav_projects({}, loc)}
-      </Heading2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-        <AutoCard title="Project 1" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Coming soon…</p>
-        </AutoCard>
-        <AutoCard title="Project 2" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Coming soon…</p>
-        </AutoCard>
-        <AutoCard title="Project 3" hug={false} fill={true} client:load>
-          <p class="text-muted-foreground">Coming soon…</p>
-        </AutoCard>
-      </div>
-    </div>
-  </div>
+<!-- SPLIT HERO – Desktop -->
+<section class="relative hidden md:flex h-screen overflow-hidden">
+<!-- LINKS: Innenarchitektur -->
+<div class={`${heroPanelClass} hero-left`}>
+<img src="/images/hero-interior.jpg" alt="Interior Architecture" class={heroImageHover} />
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+</div>
+<!-- RECHTS: UX/UI -->
+<div class={`${heroPanelClass} hero-right`}>
+<img src="/images/hero-uxui.jpg" alt="UX/UI Design" class={heroImageHover} />
+<div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent"></div>
+</div>
+<!-- Text Overlay -->
+<div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
+<div class="pointer-events-auto bg-black/75 backdrop-blur-2xl px-16 py-16 rounded-card text-center max-w-[960px] border border-white/10">
+<ScrollReveal client:load>
+<h1 class="text-[5.4rem] md:text-[6.4rem] leading-none tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+  {getMessage('hero.title')}
+</h1>
+</ScrollReveal>
+<ScrollReveal delay={0.1} client:load>
+<p class="text-[2.85rem] md:text-[3.2rem] font-light text-white mb-12 drop-shadow-xl">
+  {getMessage('hero.subtitle')}
+</p>
+</ScrollReveal>
+<ScrollReveal delay={0.2} client:load>
+<p class="hero-long-text text-body-lg text-white/95 max-w-lg mx-auto drop-shadow-lg">
+  {getMessage('hero.description')}
+</p>
+</ScrollReveal>
+<div class="flex flex-col sm:flex-row gap-6 mt-14 justify-center">
+<a href="/projekte" class="btn-primary flex-1 bg-primary text-primary-foreground py-6 rounded-btn font-medium text-lg transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:-translate-y-0.5 hover:shadow-xl">
+  {getMessage('hero.button.projects')}
+</a>
+<a href="/kontakt" class="btn-secondary flex-1 border-2 border-white text-white py-6 rounded-btn font-medium text-lg hover:bg-white hover:text-primary transition-all">
+  {getMessage('hero.button.contact')}
+</a>
+</div>
+</div>
+<!-- Scroll-Indikator -->
+<div class="pointer-events-none mt-20 flex flex-col items-center gap-3 text-white">
+<span class="text-xs tracking-[3px] font-medium opacity-70">SCROLL</span>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)] animate-bounce-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+</svg>
+</div>
+</div>
+</section>
+
+<!-- PERSÖNLICHE AUSSAGE -->
+<section class="py-28 bg-background">
+<div class="container mx-auto max-w-3xl px-6 text-center">
+<ScrollReveal client:load>
+<p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
+  {getMessage('why.statement1')}
+</p>
+</ScrollReveal>
+<ScrollReveal delay={0.15} client:load>
+<p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
+  {getMessage('why.statement2')}
+</p>
+</ScrollReveal>
+<ScrollReveal delay={0.45} client:load>
+<p class="einstein-quote text-base md:text-lg text-muted-foreground mt-14 italic">
+  {getMessage('why.einstein.quote')}
+</p>
+</ScrollReveal>
+</div>
+</section>
+
+<!-- AUSGEWÄHLTE PROJEKTE – Mobile -->
+<section class="pt-16 pb-8 bg-background md:hidden">
+<div class="w-full">
+<div class="relative z-50 bg-background pb-6">
+<h2 class="text-center text-h2 mb-12">{getMessage('projects.title')}</h2>
+</div>
+<!-- Projekt 1: My Mind Studio -->
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10">
+<img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+<h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">My Mind Studio</h3>
+<p class="project-subtitle text-body-sm opacity-95 mt-2">Meditation &amp; Yoga Studio with Café • Interior Architecture</p>
+</div>
+</div>
+<!-- Projekt 2: NaturKompass -->
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0">
+<img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+<h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">NaturKompass</h3>
+<p class="project-subtitle text-body-sm opacity-95 mt-2">Digital Companion for Flora &amp; Fauna • UX/UI Design</p>
+</div>
+</div>
+<!-- Projekt 3: Festsaal im Klostergasthof -->
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0">
+<img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+<h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">Festsaal im Klostergasthof</h3>
+<p class="project-subtitle text-body-sm opacity-95 mt-2">Event Gastronomy • Interior Architecture</p>
+</div>
+</div>
+<!-- Projekt 4: FlavorFusion -->
+<div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0">
+<img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
+<h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">FlavorFusion</h3>
+<p class="project-subtitle text-body-sm opacity-95 mt-2">Landing Page for Mobile Recipe App • UX/UI Design</p>
+</div>
+</div>
+<!-- Button -->
+<div class="relative z-50 bg-background pt-6 pb-[max(5rem,env(safe-area-inset-bottom))] text-center">
+<a href="/projekte" class="all-projects-link text-primary hover:text-accent transition-colors text-lg font-medium">
+  {getMessage('projects.button.all')}
+</a>
+</div>
+</div>
+</section>
+
+<!-- AUSGEWÄHLTE PROJEKTE – Desktop -->
+<section class="relative py-20 bg-background hidden md:block">
+<div class="w-full">
+<ScrollReveal client:load>
+<Heading2 className="text-center mb-16">{getMessage('projects.title')}</Heading2>
+</ScrollReveal>
+<div class="relative">
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" onclick="window.location='/projekte'">
+<img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 w-full h-full object-cover" />
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+<h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">My Mind Studio</h3>
+<p class="project-subtitle text-lg md:text-xl opacity-90">Meditation and yoga studio with cafe • Interior Architecture</p>
+</div>
+</div>
+
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" onclick="window.location='/projekte'">
+<img src="/images/naturkompass.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover" />
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+<h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">NaturKompass</h3>
+<p class="project-subtitle text-lg md:text-xl opacity-90">Digital companion for flora and fauna • UX/UI Design</p>
+</div>
+</div>
+
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" onclick="window.location='/projekte'">
+<img src="/images/festsaal-klostergasthof.jpg" alt="Festsaal im Klostergasthof" class="absolute inset-0 w-full h-full object-cover" />
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+<h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">Festsaal im Klostergasthof</h3>
+<p class="project-subtitle text-lg md:text-xl opacity-90">Event gastronomy • Interior Architecture</p>
+</div>
+</div>
+
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" onclick="window.location='/projekte'">
+<img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="absolute inset-0 w-full h-full object-cover" />
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
+<h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">FlavorFusion</h3>
+<p class="project-subtitle text-lg md:text-xl opacity-90">Landing page for mobile recipe app • UX/UI Design</p>
+</div>
+</div>
+</div>
+
+<div class="relative z-50 bg-background py-16 text-center">
+<a href="/projekte" class="all-projects-link text-primary hover:text-accent transition-colors text-lg font-medium">
+  {getMessage('projects.button.all')}
+</a>
+</div>
+</div>
+</section>
+
+<!-- WARUM ICH -->
+<section class="py-28 bg-background">
+<div class="container mx-auto max-w-5xl px-6">
+<ScrollReveal client:load>
+<Heading2 className="text-center mb-20">{getMessage('why.title')}</Heading2>
+</ScrollReveal>
+<div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+<div class="group">
+<div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-card">
+<img src="/images/warum-raum.jpg" alt="Understanding space" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+</div>
+<h3 class="mb-3 text-h3">Understanding Space</h3>
+<p class="cta-text warum-ich-text text-body-sm text-muted-foreground">
+  Physical or digital, I always begin with people and their context.
+</p>
+</div>
+
+<div class="group">
+<div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-card">
+<img src="/images/warum-prozess.jpg" alt="One process" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+</div>
+<h3 class="mb-3 text-h3">One Process</h3>
+<p class="warum-ich-text text-body-sm text-muted-foreground">
+  Strategy, concept, design and implementation, all from one source with one clear thread.
+</p>
+</div>
+
+<div class="group">
+<div class="relative mb-6 aspect-[4/3] overflow-hidden rounded-card">
+<img src="/images/warum-emotion.jpg" alt="Emotion and function" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+</div>
+<h3 class="mb-3 text-h3">Emotion and Function</h3>
+<p class="warum-ich-text text-body-sm text-muted-foreground">
+  I combine aesthetics with real usability to create spaces and experiences that resonate.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA mit Portrait -->
+<section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:bg-none dark:bg-background overflow-hidden">
+<div class="container mx-auto max-w-3xl px-6 text-center relative z-10">
+<ScrollReveal client:load>
+<div class="mb-10">
+<Image src={anikaPortraitWarm} alt="Anika Warncke" width={512} height={512} quality={95} format="webp" densities={[1, 2]} sizes="(max-width: 768px) 208px, 256px" class="mx-auto w-52 h-52 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-8 border-white/50" />
+</div>
+</ScrollReveal>
+<ScrollReveal client:load>
+<h2 class="text-4xl md:text-h2 mb-8 leading-tight">
+  {getMessage('cta.title')}
+</h2>
+</ScrollReveal>
+<ScrollReveal delay={0.1} client:load>
+<p class="cta-text text-base md:text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
+  {getMessage('cta.description')}
+</p>
+</ScrollReveal>
+<ScrollReveal delay={0.2} client:load>
+<a href="/kontakt" class="inline-block bg-primary text-primary-foreground px-14 py-6 rounded-btn font-medium text-lg md:text-xl hover:bg-accent transition-all">
+  {getMessage('cta.button.contact')}
+</a>
+</ScrollReveal>
+<ScrollReveal delay={0.3} client:load>
+<a href="/ueber-mich" class="mt-10 inline-block text-primary hover:text-accent transition-colors text-base font-medium">
+  {getMessage('cta.button.more')}
+</a>
+</ScrollReveal>
+<ScrollReveal delay={0.4} client:load>
+<p class="cta-privacy-text text-xs text-muted-foreground mt-12">
+  {getMessage('cta.privacy')}
+</p>
+</ScrollReveal>
+</div>
+</section>
+
+<!-- CUSTOM CURSOR -->
+<div id="custom-cursor" class="fixed pointer-events-none hidden w-40 h-40 rounded-full bg-white/40 backdrop-blur-2xl flex flex-col items-center justify-center text-zinc-900 text-sm font-medium z-[9999] shadow-2xl gap-px">
+<span class="tracking-widest text-[14px]">VIEW</span>
+<span class="text-[18px]">PROJECT</span>
+</div>
+
+<script>
+const cursor = document.getElementById('custom-cursor');
+const projects = document.querySelectorAll('.project-card');
+if (cursor instanceof HTMLElement) {
+  projects.forEach(project => {
+    project.addEventListener('mousemove', (e) => {
+      const mouseEvent = e as MouseEvent;
+      cursor.style.left = `${mouseEvent.clientX - 80}px`;
+      cursor.style.top = `${mouseEvent.clientY - 80}px`;
+      cursor.classList.remove('hidden');
+    });
+    project.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+  });
+}
+</script>
 </Layout>

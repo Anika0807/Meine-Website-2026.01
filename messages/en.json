@@ -1,30 +1,29 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "nav_home": "Home",
-  "nav_projects": "Projects",
-  "nav_about": "About me",
-  "nav_contact": "Contact",
-  "nav_language": "EN / DE",
+  "hero.title": "Anika Warncke",
+  "hero.subtitle": "Interior Architecture & UX/UI Design",
+  "hero.description": "I design spaces and digital experiences with the same process – strategic, data-driven and emotional.",
+  "hero.button.projects": "View Projects",
+  "hero.button.contact": "Let’s Talk",
+
+  "projects.title": "Selected Projects",
+  "projects.button.all": "View All Projects",
+
+  "why.title": "Why me",
+  "why.statement1": "I love developing cool things",
+  "why.statement2": "and at the same time solving complex problems for people like you.",
+  "why.einstein.quote": "“The important thing is not to stop questioning.” – Albert Einstein",
+
+  "cta.title": "Let’s create something beautiful together",
+  "cta.description": "I look forward to working with you. Whether interior architecture or UX/UI design – just tell me about your project.",
+  "cta.button.contact": "Talk to me",
+  "cta.button.more": "Learn more about me",
+  "cta.privacy": "Your message will be treated confidentially.",
+
   "menu.title": "Menu",
   "menu.appearance": "Appearance",
   "theme.light": "Light",
   "theme.dark": "Dark",
   "theme.system": "System",
-  "hero_title": "Interior Architecture & UX/UI Design",
-  "hero_subtitle": "Welcome to my site",
-  "hero_button": "This should be black now!",
-  "test_title": "Simple Test (Client-only)",
-  "test_button": "This should now be black!",
-  "test_text1": "This should be styled!",
-  "test_text2": "Hover me – shadow & scaling should appear",
-  "not_found_title": "404 – Page Not Found",
-  "not_found_heading": "Oops... Page Not Found",
-  "not_found_message": "The page you're looking for doesn't exist or has been moved.",
-  "not_found_back_home": "Back to Home",
-  "not_found_to_projects": "My Projects",
-  "footer_name": "Anika Warncke",
-  "footer_tagline": "Interior Architecture & UX/UI Design",
-  "footer_impressum": "Imprint",
-  "footer_datenschutz": "Privacy Policy",
-  "accessibility.reset": "Reset settings"
+
+  "accessibility.reset": "Reset Settings"
 }

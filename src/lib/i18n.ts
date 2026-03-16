@@ -7,15 +7,14 @@ export const locales: Locale[] = ['de', 'en'];
 
 const messages = { de, en } as const;
 
-type Messages = typeof de;
-type MessageKey = keyof Messages;
-
 export function getLocaleFromUrl(url: URL): Locale {
   const [, first] = url.pathname.split('/');
   if (locales.includes(first as Locale)) return first as Locale;
   return defaultLocale;
 }
 
-export function t(locale: Locale, key: MessageKey): string {
-  return messages[locale][key] ?? messages[defaultLocale][key] ?? key;
+export function t(locale: Locale, key: string): string {
+  const current = messages[locale] as Record<string, string>;
+  const fallback = messages[defaultLocale] as Record<string, string>;
+  return current[key] ?? fallback[key] ?? key;
 }
