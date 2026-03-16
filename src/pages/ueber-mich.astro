@@ -1,27 +1,431 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
+import ScrollReveal from '@/components/ScrollReveal';
 ---
 
 <Layout title="Über mich – Anika Warncke">
-  <div class="container mx-auto max-w-4xl px-6 py-16">
-    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Über mich</h1>
-    
-    <div class="prose max-w-none">
-      <p class="text-lg text-muted-foreground">Hallo! Ich bin Anika Warncke – Innenarchitektin und UX/UI Designerin mit Leidenschaft für durchdachte Räume und digitale Erlebnisse.</p>
-      
-      <h3 class="text-2xl font-semibold mt-10 mb-4">Mein Designprozess</h3>
-      <p class="text-muted-foreground">Jedes Projekt beginnt mit Zuhören. Ich verstehe die Bedürfnisse meiner Kunden und übersetze sie in funktionale, ästhetische Lösungen.</p>
-      
-      <h3 class="text-2xl font-semibold mt-10 mb-4">Meine Disziplinen</h3>
-      <p class="text-muted-foreground">Innenarchitektur · UX/UI Design · Raumplanung · Möbeldesign · Digitale Produktgestaltung</p>
-    </div>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-[#fdfaf5]">
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <Image src={anikaPortraitWarm} alt="Anika Warncke" width={520} height={520} quality={95} format="webp" class="mx-auto w-72 h-72 md:w-96 md:h-96 rounded-full object-cover shadow-2xl border-8 border-white/50 mb-12 transition-transform duration-700 hover:scale-[1.03]" />
 
-    <h2 class="text-3xl font-semibold mt-16 mb-6">Häufig gestellte Fragen</h2>
-    <div class="space-y-6">
-      <div class="border-b pb-6">
-        <h4 class="font-semibold">Arbeitest du remote?</h4>
-        <p class="text-muted-foreground mt-2">Ja, ich arbeite bevorzugt remote oder hybrid.</p>
+      <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-foreground mb-6">Über mich</h1>
+      <p class="text-2xl md:text-3xl font-light text-muted-foreground max-w-2xl mx-auto leading-tight">
+        Hallo! Ich bin Anika Warncke – Innenarchitektin und UX/UI Designerin mit Leidenschaft für durchdachte Räume und digitale Erlebnisse.
+      </p>
+
+      <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/kontakt" class="bg-primary text-primary-foreground px-12 py-5 rounded-btn font-medium text-lg hover:bg-accent transition-all">Mit mir sprechen</a>
+        <a href="#designprozess" class="border border-foreground/30 text-foreground px-12 py-5 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">Mein Designprozess</a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Wer ich bin -->
+  <section class="py-28 bg-background">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-8">Wer ich bin</h2>
+      <p class="text-xl text-muted-foreground max-w-3xl">
+        Meine wahre Leidenschaft liegt im Konzeptionieren, Gestalten und Problemlösen. Ob im physischen Raum als Innenarchitektin M.A. oder im digitalen Raum als UX/UI-Designerin – ich tauche mit Begeisterung in jedes Projekt ein. Besonders faszinieren mich Erlebnisausstellungen, Gastronomie- und Hotelprojekte sowie individuelle Shop-Konzepte in der Innenarchitektur. Im UX/UI-Design schlägt mein Herz für mobile Apps mit sozialem oder gesundheitlichem Mehrwert und die Gestaltung nahtloser Benutzererlebnisse, die das Wohlbefinden fördern und Engagement wecken.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-28 bg-background">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Warum physisch &amp; digital bei mir gleich sind</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-6xl mb-4">🏠</div>
+          <p class="font-medium">Interior Design</p>
+          <p class="text-muted-foreground">Raumfluss • Atmosphäre • Materialität</p>
+        </div>
+        <div class="text-center">
+          <div class="text-6xl mb-4">📱</div>
+          <p class="font-medium">UX/UI Design</p>
+          <p class="text-muted-foreground">User Flow • Interaktion • Emotion</p>
+        </div>
+        <div class="text-center bg-primary/5 rounded-3xl p-8">
+          <p class="text-primary font-medium text-lg">Beides ist bei mir dasselbe:</p>
+          <p class="text-foreground mt-4">Menschzentriert • Strategisch • Emotional • Durchdacht bis ins Detail</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mein Designprozess -->
+  <section id="designprozess" class="py-28 bg-background">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Mein Designprozess</h2>
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-8 relative">
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">1</div>
+          <h4 class="font-medium mb-2">Zuhören &amp; Verstehen</h4>
+          <p class="text-sm text-muted-foreground">Ich höre zu, stelle die richtigen Fragen und verstehe den Kontext deines Projekts.</p>
+        </div>
+
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">2</div>
+          <h4 class="font-medium mb-2">Strategie &amp; Konzeption</h4>
+          <p class="text-sm text-muted-foreground">Gemeinsam entwickeln wir eine klare Strategie und definieren Ziele.</p>
+        </div>
+
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">3</div>
+          <h4 class="font-medium mb-2">Ideen &amp; Skizzen</h4>
+          <p class="text-sm text-muted-foreground">Erste Konzepte, Moodboards und Handskizzen entstehen.</p>
+        </div>
+
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">4</div>
+          <h4 class="font-medium mb-2">Design &amp; Prototyping</h4>
+          <p class="text-sm text-muted-foreground">Detaillierte Designs, 3D-Modelle oder interaktive Prototypen.</p>
+        </div>
+
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">5</div>
+          <h4 class="font-medium mb-2">Umsetzung</h4>
+          <p class="text-sm text-muted-foreground">Realisierung, Koordination mit Handwerkern oder Entwicklern.</p>
+        </div>
+
+        <div class="relative md:col-span-1 text-center">
+          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">6</div>
+          <h4 class="font-medium mb-2">Nachbetreuung</h4>
+          <p class="text-sm text-muted-foreground">Feinschliff, Feedback-Runden und langfristige Begleitung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-28 bg-background">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Skills &amp; Tools</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-10 text-center">
+        <div><strong>Design</strong><br />UX/UI • Interaction • Information Architecture • Spatial Concept</div>
+        <div><strong>Tools</strong><br />Figma • Adobe Creative Suite • Framer • Notion • 3D/CAD</div>
+        <div><strong>Methoden</strong><br />User Research • Prototyping • Usability Testing • Design Systems</div>
+        <div><strong>Werte</strong><br />Klarheit • Ruhe • Intuitive Nutzung • Mensch im Mittelpunkt</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === INNENARCHITEKTUR & UX/UI (optimiert) === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight text-center mb-16">Innenarchitektur &amp; UX/UI</h2>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Innenarchitektur Card -->
+        <div class="group bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            🏠
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Innenarchitektur</h3>
+          <p class="text-muted-foreground mb-8">Von der ersten Idee bis zur fertigen Umsetzung gestalte ich Räume, die Menschen berühren.</p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">✓ Raumplanung &amp; Konzeption</li>
+            <li class="flex items-start gap-3">✓ Möbel- &amp; Lichtdesign</li>
+            <li class="flex items-start gap-3">✓ Projektleitung bis zur Fertigstellung</li>
+          </ul>
+        </div>
+
+        <!-- UX/UI Card -->
+        <div class="group bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            📱
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">UX/UI Design</h3>
+          <p class="text-muted-foreground mb-8">Ich entwickle digitale Produkte, die intuitiv und emotional wirken.</p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">✓ User Research &amp; Wireframing</li>
+            <li class="flex items-start gap-3">✓ Interaktive Prototypen</li>
+            <li class="flex items-start gap-3">✓ Design Systeme &amp; Micro-Interactions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === FAQ – 6 FRAGEN (final, mit deinen exakten Wünschen) === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Häufig gestellte Fragen</h2>
+
+      <div class="space-y-6">
+
+        <!-- 1. Remote -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Arbeitest du remote?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Ja, ich arbeite <span class="text-primary font-semibold">voll remote</span> und hybrid. Ich bin flexibel und kann auf Anfrage auch gerne vor Ort in Lüneburg oder Hamburg sein.
+          </p>
+        </details>
+
+        <!-- 2. Projektdauer -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Wie lange dauert ein Projekt?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Das hängt vom <span class="text-primary font-semibold">Umfang der Anfrage</span> ab, ob es ein Relaunch einer bestehenden Website ist oder eine Neuerstellung einer App im UX/UI-Bereich, eine Beratung im Innenarchitektur-Bereich oder ein kompletter Umbau von der ersten Besprechung bis zur fertigen Umsetzung inklusiver Nachbetreuung in den LPH 1-9 ist. Ich gebe dir immer von Anfang an eine <span class="text-primary font-semibold">zeitliche Übersicht</span>.
+          </p>
+        </details>
+
+        <!-- 3. Teilzeit / Festanstellung -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Arbeitest du auch Teilzeit oder in Festanstellung?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Ja, beides ist möglich. Ich bin offen für <span class="text-primary font-semibold">Teilzeit, Festanstellung oder Freelance-Projekte</span>. Lass uns einfach sprechen, was am besten zu Dir passt.
+          </p>
+        </details>
+
+        <!-- 4. Zusammenarbeit -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Wie läuft die Zusammenarbeit ab?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Jede Zusammenarbeit startet mit einem kurzen Erstgespräch. Danach erarbeiten wir gemeinsam ein klares Konzept, es gibt regelmäßige Updates und ich bin immer persönlich für Dich erreichbar. <span class="text-primary font-semibold">Transparenz und enge Abstimmung</span> sind mir sehr wichtig.
+          </p>
+        </details>
+
+        <!-- 5. Gastronomie / Hotellerie / Health Care -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Bietest du auch Projekte im Bereich Gastronomie, Hotellerie oder Health Care an?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Ja! Das sind sogar meine <span class="text-primary font-semibold">Lieblingsbereiche</span>. Ich habe bereits Erfahrungen mit Restaurants, Cafés, Hotels, Yoga-Studios und Health-Projekten, sowohl in der Innenarchitektur als auch Testprojekte im UX/UI-Bereich.
+          </p>
+        </details>
+
+        <!-- 6. Workshops / Beratung -->
+        <details class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+          <summary class="flex items-center justify-between text-lg font-medium cursor-pointer list-none">
+            Bietest du auch Workshops oder Beratung an?
+            <span class="text-primary text-2xl group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <p class="text-muted-foreground mt-6 leading-relaxed">
+            Ja! Design-Workshops, Strategie-Sessions und Beratung gehören zum <span class="text-primary font-semibold">typischen Projektverlauf</span> dazu oder können auch <span class="text-primary font-semibold">extern angefragt</span> werden, besonders im Bereich Gastronomie, Hotellerie, Health Care und persönliche Weiterentwicklung.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- === TESTIMONIALS – ALLE 6 ZITATE (mit einheitlicher Höhe + deutschem „) === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Was andere über meine Arbeitsweise sagen</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Zitat 1 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Frau Warncke überzeugt durch umfangreiche <span class="text-primary font-semibold">Fachkenntnisse</span> und <span class="text-primary font-semibold">kreativen Output</span>, die sie zur Erfüllung ihrer Aufgaben sehr erfolgreich einsetzt. [...] Dabei zeichnet sie sich unter anderem besonders durch ihre sehr guten Kenntnisse und ihr Wissen in den Bereichen der <span class="text-primary font-semibold">Grafik, Layout und Produktgestaltung</span> aus."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">FK</div>
+            <div>
+              <p class="font-medium">Florian Kienast</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer, FORMWÆNDE GmbH &amp; Co. KG</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zitat 2 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Durch ihre <span class="text-primary font-semibold">schnelle Auffassungsgabe</span>, gute fachliche Vorkenntnisse, einem sicheren Umgang mit den notwendigen Programmen und nicht zuletzt durch ihre <span class="text-primary font-semibold">Kreativität</span>, hat sie die ihr gestellten Aufgaben immer sehr zu unserer Zufriedenheit gelöst."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">JS</div>
+            <div>
+              <p class="font-medium">Jens Schneider</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer,</p>
+              <p class="text-sm text-muted-foreground">CUBIK³ Innenarchitekten GmbH</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zitat 3 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Sie führte alle Aufgaben <span class="text-primary font-semibold">selbständig, äußerst sorgfältig und durchdacht</span> aus."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">FK</div>
+            <div>
+              <p class="font-medium">Florian Kienast</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer, FORMWÆNDE GmbH &amp; Co. KG</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zitat 4 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Kunden schätzten sie auf Grund ihrer <span class="text-primary font-semibold">Ehrlichkeit, Zuverlässigkeit</span> und ihres lösungsorientierten Umgangs mit Herausforderungen. Frau Anika Warncke hat in allen Projekten mit einzelnen Partnern und Gewerken stets auf <span class="text-primary font-semibold">Augenhöhe</span> agiert."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">FK</div>
+            <div>
+              <p class="font-medium">Florian Kienast</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer, FORMWÆNDE GmbH &amp; Co. KG</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zitat 5 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Auch in Situationen mit wechselnden Anforderungen erwies sich Frau Warncke als <span class="text-primary font-semibold">belastbare Mitarbeiterin</span> und ging <span class="text-primary font-semibold">jederzeit überlegt und zielorientiert</span> vor."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">FK</div>
+            <div>
+              <p class="font-medium">Florian Kienast</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer, FORMWÆNDE GmbH &amp; Co. KG</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zitat 6 -->
+        <div class="bg-white rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[520px] group relative">
+          <div class="absolute top-8 left-8 text-8xl text-primary/10 leading-none">„</div>
+          <p class="text-lg text-muted-foreground leading-relaxed flex-1 mb-10 pt-12">
+            „Ihre Arbeitsergebnisse waren dabei nicht nur inhaltlich überzeugend, sondern auch <span class="text-primary font-semibold">gut strukturiert</span> und wurden von ihr zudem überzeugend erläutert. Man konnte sich immer auf sie verlassen und nicht zuletzt wegen ihrer <span class="text-primary font-semibold">freundlichen Art</span>, ist sie ein Gewinn für jedes Büro."
+          </p>
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-primary text-white rounded-btn flex items-center justify-center font-semibold text-xs tracking-wide shadow-md">JS</div>
+            <div>
+              <p class="font-medium">Jens Schneider</p>
+              <p class="text-sm text-muted-foreground">Geschäftsführer,</p>
+              <p class="text-sm text-muted-foreground">CUBIK³ Innenarchitekten GmbH</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MEINE WELT ABSEITS DES DESKTOPS === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight text-center mb-16">Meine Welt abseits des Desktops</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="/images/freizeit-1.jpg" alt="Lesen" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-2.jpg" alt="Wandern" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-3.JPG" alt="Wasserfall" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-4.JPG" alt="Papageientaucher" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-5.jpg" alt="Malen" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-6.JPG" alt="KinderKlinikKonzert" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-7.jpg" alt="Freizeit" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+        <img src="/images/freizeit-8.jpg" alt="Freizeit" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
+      </div>
+    </div>
+  </section>
+
+  <!-- === QUICK FACTS – OPTIMIERTE VERSION (große, klare Icons + dein Text) === -->
+  <section class="py-20 bg-background border-t border-border">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-semibold tracking-tight mb-12">Quick Facts</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4">
+
+        <!-- Standort -->
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 text-primary rounded-3xl flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.25">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-4.5-6-10a6 6 0 1112 0c0 5.5-6 10-6 10z" />
+              <circle cx="12" cy="11" r="2.5" />
+            </svg>
+          </div>
+          <strong>Standort</strong><br />
+          Lüneburg, Deutschland
+        </div>
+
+        <!-- Arbeitsmodell -->
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 text-primary rounded-3xl flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.25">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8V6a3 3 0 013-3h0a3 3 0 013 3v2" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13h18" />
+            </svg>
+          </div>
+          <strong>Arbeitsmodell</strong><br />
+          Remote • Hybrid
+        </div>
+
+        <!-- Sprachen -->
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 text-primary rounded-3xl flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            </svg>
+          </div>
+          <strong>Sprachen</strong><br />
+          Deutsch (Muttersprache)<br />
+          Englisch (B2)
+        </div>
+
+        <!-- Verfügbar -->
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 text-primary rounded-3xl flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7M5 12h14" />
+            </svg>
+          </div>
+          <strong>Verfügbar</strong><br />
+          Ab sofort
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === CTA – CLEAN VERSION (ohne Gradient, passt 100 % zur Landingpage) === -->
+  <section class="py-32 bg-background">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-8 leading-tight">
+        Lass uns gemeinsam etwas Schönes schaffen
+      </h2>
+
+      <p class="text-xl text-muted-foreground max-w-md mx-auto mb-14">
+        Ich freue mich darauf, mit dir zusammenzuarbeiten.
+        Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/kontakt" class="bg-primary text-primary-foreground px-14 py-6 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+          Mit mir sprechen
+        </a>
+        <a href="/projekte" class="border border-foreground/30 text-foreground px-14 py-6 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">
+          Meine Projekte ansehen
+        </a>
+      </div>
+
+      <p class="text-xs text-muted-foreground mt-16">
+        Deine Nachricht wird vertraulich behandelt.
+      </p>
+    </div>
+  </section>
 </Layout>

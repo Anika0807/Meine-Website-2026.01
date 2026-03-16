@@ -16,6 +16,11 @@
   "accessibility.invertedColorsAria": "Farben umkehren aktivieren oder deaktivieren",
   "accessibility.largeCursor": "Großer Mauszeiger",
   "accessibility.largeCursorAria": "Großer Mauszeiger aktivieren oder deaktivieren",
+  "about.title": "Über mich - Anika Warncke",
+  "about.hero.title": "Hi, ich bin Anika Warncke",
+  "about.hero.subtitle": "Innenarchitektin & UX/UI Designerin mit Leidenschaft für durchdachte Räume und digitale Erlebnisse",
+  "about.hero.button.contact": "Mit mir sprechen",
+  "about.hero.button.process": "Mein Designprozess",
   "accessibility.reset": "Einstellungen zurücksetzen",
   "accessibility.ariaLabel": "Barrierefreiheit Einstellungen öffnen"
 }
