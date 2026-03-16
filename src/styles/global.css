@@ -259,6 +259,24 @@ header[data-scroll-shadow="true"] {
   view-transition-name: hero-image;
 }
 
+.accessibility-slider [data-slot="slider-track"] {
+  height: 1px;
+  background: transparent;
+}
+
+.accessibility-slider [data-slot="slider-range"] {
+  background: hsl(var(--primary));
+}
+
+.accessibility-slider [data-slot="slider-thumb"] {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  border: 3px solid hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Scroll-Indikator Animationen */
 @keyframes bounce-slow {
   0%, 20% { transform: translateY(0); }
@@ -585,3 +603,149 @@ header[data-scroll-shadow="true"] {
     filter: invert(25%) brightness(1.12);      /* deutlich sichtbarer Invert */
     box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45); /* sehr starker Schatten */
   }
+
+/* ==================== DESKTOP TEXT BOOST - nur Desktop ==================== */
+@layer base {
+  @media (min-width: 769px) {
+    /* Hero langer Text */
+    .hero-long-text {
+      font-size: 1.35rem !important;
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    /* Projekt-Untertitel */
+    .project-subtitle {
+      font-size: 1.28rem !important;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* Alle Projekte ansehen */
+    .all-projects-link {
+      font-size: 1.22rem !important;
+      font-weight: 600;
+    }
+
+    /* Buttons etwas kraeftiger */
+    .btn-primary, .btn-secondary {
+      font-size: 1.18rem !important;
+      font-weight: 600;
+    }
+  }
+}
+
+/* ==================== DESKTOP HEADER FIX - groessere Typo + keine schwarze Konturlinie ==================== */
+@layer base {
+  @media (min-width: 769px) {
+    /* Header without hard black bottom line */
+    header {
+      border-bottom: none !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Navigation and logo text larger */
+    .nav-link {
+      font-size: 1.18rem !important;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text {
+      font-size: 1.65rem !important;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    /* Language toggle slightly larger */
+    .lang-toggle {
+      font-size: 1.05rem !important;
+    }
+  }
+}
+
+/* ==================== DESKTOP TEXT BOOST - larger + accessible (desktop only) ==================== */
+@layer base {
+  @media (min-width: 769px) {
+    /* Small text sizes larger on desktop */
+    .text-body-sm { font-size: 1.12rem !important; line-height: 1.6; }
+    .text-xs      { font-size: 1.08rem !important; }
+    .text-sm      { font-size: 1.12rem !important; }
+
+    /* Einstein quote */
+    .einstein-quote   { font-size: 1.65rem !important; line-height: 1.45; }
+
+    /* Project subtitles */
+    .project-subtitle { font-size: 1.28rem !important; line-height: 1.55; }
+
+    /* CTA texts and privacy note */
+    .cta-text         { font-size: 1.25rem !important; line-height: 1.6; }
+    .cta-privacy-text { font-size: 1.08rem !important; line-height: 1.5; }
+
+    /* Accessibility button larger */
+    .accessibility-btn {
+      width: 58px !important;
+      height: 58px !important;
+      font-size: 1.35rem !important;
+    }
+  }
+}
+
+@layer base {
+  @media (max-width: 768px) {
+    .text-body-sm { font-size: 1rem; line-height: 1.55; }
+    .text-xs      { font-size: 0.95rem; }
+    .text-sm      { font-size: 1rem; }
+  }
+}
+
+/* ==================== MOBILE TEXT BOOST – Barrierefrei & groesser ==================== */
+@layer base {
+  @media (max-width: 768px) {
+    .text-body-sm { font-size: 1.1rem !important; line-height: 1.6; }
+    .text-xs      { font-size: 1.05rem !important; }
+    .text-sm      { font-size: 1.1rem !important; }
+
+    /* Speziell fuer die genannten Texte */
+    .einstein-quote   { font-size: 1.48rem !important; line-height: 1.45; }
+    .project-subtitle { font-size: 1.2rem !important; line-height: 1.55; }
+    .cta-text         { font-size: 1.22rem !important; line-height: 1.6; }
+    .cta-privacy-text { font-size: 0.92rem !important; line-height: 1.45; }
+  }
+}
+
+/* ==================== DESKTOP TEXT BOOST - nur Desktop (barrierefrei & modern) ==================== */
+@layer base {
+  @media (min-width: 769px) {
+    /* Hero langer Text + Warum ich Haupttexte */
+    .hero-long-text, .warum-ich-text {
+      font-size: 1.35rem !important;
+      line-height: 1.65;
+    }
+
+    /* Projekt-Untertitel + alle kleinen Untertitel */
+    .project-subtitle {
+      font-size: 1.28rem !important;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* Alle Projekte ansehen + CTA-Texte */
+    .all-projects-link, .cta-text {
+      font-size: 1.22rem !important;
+      font-weight: 600;
+    }
+
+    /* Buttons etwas kraeftiger */
+    .btn-primary, .btn-secondary {
+      font-size: 1.18rem !important;
+      font-weight: 600;
+    }
+
+    /* Einstein-Zitat */
+    .einstein-quote {
+      font-size: 1.65rem !important;
+      line-height: 1.45;
+    }
+  }
+}

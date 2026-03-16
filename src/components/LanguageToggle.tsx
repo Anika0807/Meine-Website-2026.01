@@ -38,7 +38,7 @@ export default function LanguageToggle() {
   };
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="lang-toggle flex items-center gap-1">
       <Button
         variant={lang === 'de' ? 'default' : 'ghost'}
         size="sm"

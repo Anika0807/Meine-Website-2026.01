@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { PersonStanding, Eye, Type, AlignJustify, Contrast } from 'lucide-react';
@@ -69,6 +69,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
     invertedColors: false,
     largeCursor: false,
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('accessibility');
@@ -117,94 +118,102 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
+          id="accessibility-button"
           variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 z-[9999] flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-xl hover:bg-accent focus:outline-none focus:ring-4 focus:ring-primary/50 transition-all"
+          className={`fixed bottom-8 right-8 z-[60] flex h-[52px] w-[52px] items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30 md:h-[72px] md:w-[72px] ${isOpen ? 'hidden' : ''}`}
           aria-label={t(locale, 'accessibility.ariaLabel')}
         >
-          <PersonStanding className="h-7 w-7" />
+          <PersonStanding className="h-8 w-8 md:h-14 md:w-14" strokeWidth={2.25} />
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="w-[calc(100%-2rem)] sm:max-w-md bg-background border-border rounded-2xl shadow-2xl p-6 sm:p-8">
-        <DialogHeader className="mb-8">
-          <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-            <PersonStanding className="h-6 w-6 text-primary" />
-            {t(locale, 'accessibility.title')}
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="space-y-8">
-          {/* Schriftgröße */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="fontSize">
-                <Type className="h-5 w-5" />
-                {t(locale, 'accessibility.fontSize')}
-              </Label>
-              <span className="text-sm font-medium text-muted-foreground">{settings.fontSize}%</span>
+      <DialogContent
+        showCloseButton={false}
+        overlayClassName="bg-transparent md:bg-black/60"
+        className="top-0 left-0 h-full max-h-none w-full max-w-none translate-x-0 translate-y-0 overflow-hidden rounded-none border-0 bg-background p-0 shadow-none ring-0 sm:max-w-none md:top-1/2 md:left-1/2 md:h-auto md:max-h-[92vh] md:w-full md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-3xl md:border md:border-border/50 md:shadow-2xl md:ring-1 md:ring-foreground/10"
+      >
+        <div className="flex items-center justify-between border-b border-border/50 px-6 pt-8 pb-4 md:pt-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+              <PersonStanding className="h-6 w-6" strokeWidth={2.25} />
             </div>
-            <div className="relative pt-2">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+              {t(locale, 'accessibility.title')}
+            </h2>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsOpen(false)}
+            className="text-3xl text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Panel schließen"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="h-[calc(100vh-97px)] overflow-auto p-6 space-y-9 md:h-auto md:max-h-[calc(92vh-96px)] md:p-8">
+          <div>
+            <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="fontSize">
+              <Type className="h-5 w-5" />
+              {t(locale, 'accessibility.fontSize')}
+            </Label>
+            <div className="relative mt-4">
+              <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-primary"></div>
               <Slider
                 id="fontSize"
                 value={[settings.fontSize]}
                 min={80}
                 max={200}
                 step={10}
-                className="w-full"
+                className="accessibility-slider relative z-10 w-full"
                 onValueChange={([v]) => updateSetting('fontSize', v)}
                 aria-valuemin={80}
                 aria-valuemax={200}
                 aria-valuenow={settings.fontSize}
                 aria-label={t(locale, 'accessibility.fontSizeAria')}
               />
-              {/* Sichtbare Skala mit Labels */}
-              <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>80%</span>
-                <span>140%</span>
-                <span>200%</span>
-              </div>
+            </div>
+            <div className="mt-1 flex justify-between text-xs md:text-sm text-muted-foreground">
+              <span>80 %</span>
+              <span>200 %</span>
             </div>
           </div>
 
-          {/* Zeilenabstand */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="lineHeight">
+          <div>
+            <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="lineHeight">
                 <AlignJustify className="h-5 w-5" />
                 {t(locale, 'accessibility.lineHeight')}
-              </Label>
-              <span className="text-sm font-medium text-muted-foreground">{settings.lineHeight}%</span>
-            </div>
-            <div className="relative pt-2">
+            </Label>
+            <div className="relative mt-4">
+              <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-primary"></div>
               <Slider
                 id="lineHeight"
                 value={[settings.lineHeight]}
                 min={100}
                 max={250}
                 step={25}
-                className="w-full"
+                className="accessibility-slider relative z-10 w-full"
                 onValueChange={([v]) => updateSetting('lineHeight', v)}
                 aria-valuemin={100}
                 aria-valuemax={250}
                 aria-valuenow={settings.lineHeight}
                 aria-label={t(locale, 'accessibility.lineHeightAria')}
               />
-              <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>100%</span>
-                <span>175%</span>
-                <span>250%</span>
-              </div>
+            </div>
+            <div className="mt-1 flex justify-between text-xs md:text-sm text-muted-foreground">
+              <span>100 %</span>
+              <span>250 %</span>
             </div>
           </div>
 
-          {/* Alle weiteren Funktionen mit Toggle */}
-          <div className="space-y-5">
+          <div className="space-y-5 pt-2">
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="dyslexia">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="dyslexia">
                 <Type className="h-5 w-5" />
                 {t(locale, 'accessibility.dyslexiaFont')}
               </Label>
@@ -216,7 +225,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="highContrast">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="highContrast">
                 <Contrast className="h-5 w-5" />
                 {t(locale, 'accessibility.highContrast')}
               </Label>
@@ -228,7 +237,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="reducedMotion">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="reducedMotion">
                 <Eye className="h-5 w-5" />
                 {t(locale, 'accessibility.reducedMotion')}
               </Label>
@@ -240,7 +249,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="grayscale">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="grayscale">
                 <Eye className="h-5 w-5" />
                 {t(locale, 'accessibility.grayscale')}
               </Label>
@@ -252,7 +261,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="invertedColors">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="invertedColors">
                 <Eye className="h-5 w-5" />
                 {t(locale, 'accessibility.invertedColors')}
               </Label>
@@ -264,7 +273,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="flex items-center gap-3 text-base font-medium" htmlFor="largeCursor">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="largeCursor">
                 <Eye className="h-5 w-5" />
                 {t(locale, 'accessibility.largeCursor')}
               </Label>
@@ -278,8 +287,8 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
 
           {/* Reset-Button – präsenter und größer */}
           <Button
-            variant="outline"
-            className="w-full mt-10 text-base font-medium border-2 border-primary/50 hover:bg-primary/10"
+            variant="default"
+            className="mt-2 w-full rounded-3xl bg-primary py-5 text-lg font-medium text-primary-foreground transition-all hover:bg-primary/90"
             onClick={resetSettings}
           >
             {t(locale, 'accessibility.reset')}

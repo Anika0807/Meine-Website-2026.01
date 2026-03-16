@@ -23,13 +23,13 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         </div>
       </div>
 
-      <!-- Kasten – Opacity wie Desktop, mobile Breite beibehalten -->
-        <div class="relative z-10 bg-black/75 backdrop-blur-2xl rounded-3xl px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl">
-          <!-- Typo im selben Stil wie Desktop, nur mobil skaliert -->
-          <h1 class="text-[3.1rem] leading-none tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+      <!-- Kasten – transparenter, mit Desktop-artigem Glas-Look -->
+        <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-3xl px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
+          <!-- Typo-Hierarchie wie Desktop, mobil skaliert -->
+          <h1 class="text-[4.1rem] leading-none font-semibold tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
           Anika Warncke
         </h1>
-          <p class="text-[1.95rem] font-light text-white mb-12 drop-shadow-xl">
+          <p class="text-[2.25rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
           Innenarchitektur<br />&amp; UX/UI Design
         </p>
 
@@ -97,16 +97,16 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         </ScrollReveal>
 
         <ScrollReveal delay={0.2} client:load>
-          <p class="text-body-lg text-white/95 max-w-lg mx-auto drop-shadow-lg">
+          <p class="hero-long-text warum-ich-text text-body-lg text-white/95 max-w-lg mx-auto drop-shadow-lg">
             Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
           </p>
         </ScrollReveal>
 
         <div class="flex flex-col sm:flex-row gap-6 mt-14 justify-center">
-          <a href="/projekte" class="flex-1 bg-primary text-primary-foreground py-6 rounded-2xl font-medium text-lg transition-all duration-300 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] hover:-translate-y-0.5 hover:shadow-xl">
+          <a href="/projekte" class="btn-primary flex-1 bg-primary text-primary-foreground py-6 rounded-2xl font-medium text-lg transition-all duration-300 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] hover:-translate-y-0.5 hover:shadow-xl">
             Projekte ansehen
           </a>
-          <a href="/kontakt" class="flex-1 border-2 border-white text-white py-6 rounded-2xl font-medium text-lg hover:bg-white hover:text-primary transition-all">
+          <a href="/kontakt" class="btn-secondary flex-1 border-2 border-white text-white py-6 rounded-2xl font-medium text-lg hover:bg-white hover:text-primary transition-all">
             Lass uns sprechen
           </a>
         </div>
@@ -147,7 +147,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </ScrollReveal>
 
       <ScrollReveal delay={0.45} client:load>
-        <p class="text-base md:text-lg text-muted-foreground mt-14 italic">
+        <p class="einstein-quote text-base md:text-lg text-muted-foreground mt-14 italic">
           „Das Wichtigste ist, dass man nicht aufhört zu fragen.“<br />
           <span class="not-italic text-xs">– Albert Einstein</span>
         </p>
@@ -170,7 +170,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
           <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">My Mind Studio</h3>
-          <p class="text-body-sm opacity-95 mt-2">Meditations- &amp; Yogastudio mit Café • Innenarchitektur</p>
+          <p class="project-subtitle text-body-sm opacity-95 mt-2">Meditations- &amp; Yogastudio mit Café • Innenarchitektur</p>
         </div>
       </div>
 
@@ -181,7 +181,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
           <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">NaturKompass</h3>
-          <p class="text-body-sm opacity-95 mt-2">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
+          <p class="project-subtitle text-body-sm opacity-95 mt-2">Digitaler Begleiter zur Flora &amp; Fauna<br />• UX/UI Design</p>
         </div>
       </div>
 
@@ -192,7 +192,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
           <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">Festsaal im Klostergasthof</h3>
-          <p class="text-body-sm opacity-95 mt-2">Veranstaltungsgastronomie • Innenarchitektur</p>
+          <p class="project-subtitle text-body-sm opacity-95 mt-2">Veranstaltungsgastronomie • Innenarchitektur</p>
         </div>
       </div>
 
@@ -203,13 +203,13 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:top-auto md:translate-y-0">
           <h3 class="text-[2.25rem] md:text-h3 font-semibold tracking-tight">FlavorFusion</h3>
-          <p class="text-body-sm opacity-95 mt-2">Landing Page für mobile Rezepte App • UX/UI Design</p>
+          <p class="project-subtitle text-body-sm opacity-95 mt-2">Landing Page für mobile Rezepte App • UX/UI Design</p>
         </div>
       </div>
 
       <!-- Button – Mobile: sichtbar über Sticky-Karten -->
       <div class="relative z-50 bg-background pt-6 pb-[max(5rem,env(safe-area-inset-bottom))] text-center">
-        <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
+        <a href="/projekte" class="all-projects-link text-primary hover:text-accent transition-colors text-lg font-medium">
           Alle Projekte ansehen →
         </a>
       </div>
@@ -232,7 +232,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
           <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">My Mind Studio</h3>
-          <p class="text-lg md:text-xl opacity-90">Meditations- und Yogastudio mit Café • Innenarchitektur</p>
+          <p class="project-subtitle text-lg md:text-xl opacity-90">Meditations- und Yogastudio mit Café • Innenarchitektur</p>
         </div>
       </div>
 
@@ -242,7 +242,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
           <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">NaturKompass</h3>
-          <p class="text-lg md:text-xl opacity-90">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
+          <p class="project-subtitle text-lg md:text-xl opacity-90">Digitaler Begleiter zur Flora &amp; Fauna • UX/UI Design</p>
         </div>
       </div>
 
@@ -252,7 +252,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
           <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">Festsaal im Klostergasthof</h3>
-          <p class="text-lg md:text-xl opacity-90">Veranstaltungsgastronomie • Innenarchitektur</p>
+          <p class="project-subtitle text-lg md:text-xl opacity-90">Veranstaltungsgastronomie • Innenarchitektur</p>
         </div>
       </div>
 
@@ -262,7 +262,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
           <h3 class="text-[3.2rem] md:text-[3.8rem] leading-none tracking-tight mb-4">FlavorFusion</h3>
-          <p class="text-lg md:text-xl opacity-90">Landing Page für mobile Rezepte App • UX/UI Design</p>
+          <p class="project-subtitle text-lg md:text-xl opacity-90">Landing Page für mobile Rezepte App • UX/UI Design</p>
         </div>
       </div>
 
@@ -270,7 +270,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
       <!-- Button "Alle Projekte ansehen" – jetzt richtig am Ende -->
       <div class="relative z-50 bg-background py-16 text-center">
-        <a href="/projekte" class="text-primary hover:text-accent transition-colors text-lg font-medium">
+        <a href="/projekte" class="all-projects-link text-primary hover:text-accent transition-colors text-lg font-medium">
           Alle Projekte ansehen →
         </a>
       </div>
@@ -294,7 +294,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
             <img src="/images/warum-raum.jpg" alt="Raum verstehen" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
           <h3 class="mb-3 text-h3">Raum verstehen</h3>
-          <p class="text-body-sm text-muted-foreground">
+          <p class="cta-text warum-ich-text text-body-sm text-muted-foreground">
             Ob physisch oder digital – ich beginne immer mit dem Menschen und seinem Kontext.
           </p>
         </div>
@@ -305,7 +305,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
             <img src="/images/warum-prozess.jpg" alt="Ein Prozess" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
           <h3 class="mb-3 text-h3">Ein Prozess</h3>
-          <p class="text-body-sm text-muted-foreground">
+          <p class="warum-ich-text text-body-sm text-muted-foreground">
             Strategie, Konzeption, Design und Umsetzung – alles aus einer Hand mit dem gleichen roten Faden.
           </p>
         </div>
@@ -316,7 +316,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
             <img src="/images/warum-emotion.jpg" alt="Emotion &amp; Funktion" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
           <h3 class="mb-3 text-h3">Emotion &amp; Funktion</h3>
-          <p class="text-body-sm text-muted-foreground">
+          <p class="warum-ich-text text-body-sm text-muted-foreground">
             Ich verbinde Ästhetik mit echter Nutzbarkeit – für Räume und Erlebnisse, die berühren.
           </p>
         </div>
@@ -353,7 +353,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </ScrollReveal>
 
       <ScrollReveal delay={0.1} client:load>
-        <p class="text-base md:text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
+        <p class="cta-text text-base md:text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
           Ich freue mich darauf, mit dir zusammenzuarbeiten.
           Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
         </p>
@@ -374,7 +374,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </ScrollReveal>
 
       <ScrollReveal delay={0.4} client:load>
-        <p class="text-xs text-muted-foreground mt-12">
+        <p class="cta-privacy-text text-xs text-muted-foreground mt-12">
           Deine Nachricht wird vertraulich behandelt.
         </p>
       </ScrollReveal>

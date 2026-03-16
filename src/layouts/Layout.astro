@@ -1,6 +1,8 @@
 ---
 import '@/styles/global.css';
 import Navigation from '@/components/Navigation';
+import LanguageToggle from '@/components/LanguageToggle';
+import ThemeToggle from '@/components/ThemeToggle';
 import AccessibilityPanel from '@/components/AccessibilityPanel';
 import CookieBanner from '@/components/CookieBanner';
 
@@ -28,29 +30,53 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
   </head>
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
-    <!-- Sticky Header -->
-      <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300" data-scroll="up">
-      <div class="container flex h-16 items-center justify-between px-6 mx-auto max-w-7xl">
-        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-xl font-bold tracking-tight">
+    <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
+    <header class="md:hidden bg-background/95 backdrop-blur-xl sticky top-0 z-50 border-b-0 transition-all duration-300" data-scroll="up">
+      <div class="px-6 py-6 flex items-center justify-between">
+        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground">
           Anika Warncke
         </a>
 
-        <Navigation client:only="react" />
+        <div class="flex items-center gap-x-5">
+          <LanguageToggle client:only="react" />
+          <Navigation client:only="react" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky Header Desktop -->
+    <header class="hidden md:block bg-background/95 backdrop-blur-xl sticky top-0 z-50" data-scroll="up">
+      <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
+        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground">Anika Warncke</a>
+
+        <nav class="flex items-center gap-x-10 text-lg font-medium">
+          <a href={ssrLocale === 'en' ? '/en' : '/'} class="nav-link hover:text-primary transition-colors">Home</a>
+          <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="nav-link hover:text-primary transition-colors">Projekte</a>
+          <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">Über mich</a>
+          <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="nav-link hover:text-primary transition-colors">Kontakt</a>
+        </nav>
+
+        <div class="flex items-center gap-x-6">
+          <LanguageToggle client:only="react" />
+          <ThemeToggle client:only="react" />
+        </div>
       </div>
     </header>
 
       <script is:inline>
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
-          const header = document.querySelector('header');
+          const headers = document.querySelectorAll('header[data-scroll="up"]');
           const currentScroll = window.scrollY;
 
-          if (currentScroll > lastScroll && currentScroll > 100) {
-            header.classList.add('translate-y-[-100%]');
-          } else {
-            header.classList.remove('translate-y-[-100%]');
-          }
-          header.classList.toggle('shadow-md', currentScroll > 10);
+          headers.forEach((header) => {
+            if (currentScroll > lastScroll && currentScroll > 100) {
+              header.classList.add('translate-y-[-100%]');
+            } else {
+              header.classList.remove('translate-y-[-100%]');
+            }
+            header.classList.toggle('shadow-md', currentScroll > 10);
+          });
 
           lastScroll = currentScroll;
         });
