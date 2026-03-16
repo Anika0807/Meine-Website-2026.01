@@ -1,170 +1,323 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
-import ScrollReveal from '@/components/ScrollReveal';
+import anikaPortrait from '@/assets/anika-portrait.jpg';
 ---
 
 <Layout title="Über mich – Anika Warncke">
-  <!-- HERO -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-[#fdfaf5]">
-    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
-      <Image src={anikaPortraitWarm} alt="Anika Warncke" width={520} height={520} quality={95} format="webp" class="mx-auto w-72 h-72 md:w-96 md:h-96 rounded-full object-cover shadow-2xl border-8 border-white/50 mb-12 transition-transform duration-700 hover:scale-[1.03]" />
+  <!-- === HERO „ÜBER MICH“ – FINAL 10/10 (mit mehr Wärme & Akzent) === -->
+  <section class="py-32 bg-background">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <!-- Portrait -->
+      <Image
+        src={anikaPortrait}
+        alt="Anika Warncke – Innenarchitektur M.A. & UX/UI Designerin"
+        width={640}
+        height={640}
+        quality={95}
+        format="webp"
+        fit="cover"
+        position="center"
+        class="mx-auto w-80 h-80 rounded-full object-cover object-center shadow-2xl mb-14"
+      />
 
-      <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-foreground mb-6">Über mich</h1>
-      <p class="text-2xl md:text-3xl font-light text-muted-foreground max-w-2xl mx-auto leading-tight">
-        Hallo! Ich bin Anika Warncke – Innenarchitektin und UX/UI Designerin mit Leidenschaft für durchdachte Räume und digitale Erlebnisse.
+      <h1 class="text-5xl font-semibold tracking-tight mb-6">Über mich</h1>
+
+      <!-- Neuer Subheadline -->
+      <p class="text-2xl text-primary font-medium mb-8">
+        Innenarchitektur M.A. & UX/UI Designerin
       </p>
 
-      <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/kontakt" class="bg-primary text-primary-foreground px-12 py-5 rounded-btn font-medium text-lg hover:bg-accent transition-all">Mit mir sprechen</a>
-        <a href="#designprozess" class="border border-foreground/30 text-foreground px-12 py-5 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">Mein Designprozess</a>
+      <!-- Emotionaler Haupttext mit Highlight -->
+      <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+        Hallo! Ich bin Anika Warncke. Mit Leidenschaft gestalte ich durchdachte Räume und digitale Erlebnisse –
+        <span class="text-primary font-semibold">immer mit dem Menschen im Mittelpunkt</span>.
+        Ob physisch oder digital: Ich begleite jedes Projekt mit einem klaren roten Faden von der ersten Idee bis zur fertigen Umsetzung.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-4 justify-center mt-14">
+        <a href="/kontakt"
+           class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] px-8 py-4 bg-primary text-white rounded-btn font-medium hover:bg-accent transition-all">
+          Mit mir sprechen
+        </a>
+        <a href="#designprozess"
+           class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] px-8 py-4 border border-border rounded-btn font-medium hover:bg-accent hover:text-white transition-all">
+          Mein Designprozess
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Wer ich bin -->
   <section class="py-28 bg-background">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-8">Wer ich bin</h2>
-      <p class="text-xl text-muted-foreground max-w-3xl">
-        Meine wahre Leidenschaft liegt im Konzeptionieren, Gestalten und Problemlösen. Ob im physischen Raum als Innenarchitektin M.A. oder im digitalen Raum als UX/UI-Designerin – ich tauche mit Begeisterung in jedes Projekt ein. Besonders faszinieren mich Erlebnisausstellungen, Gastronomie- und Hotelprojekte sowie individuelle Shop-Konzepte in der Innenarchitektur. Im UX/UI-Design schlägt mein Herz für mobile Apps mit sozialem oder gesundheitlichem Mehrwert und die Gestaltung nahtloser Benutzererlebnisse, die das Wohlbefinden fördern und Engagement wecken.
-      </p>
-    </div>
-  </section>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-12">Wer ich bin</h2>
 
-  <section class="py-28 bg-background">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Warum physisch &amp; digital bei mir gleich sind</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="text-6xl mb-4">🏠</div>
-          <p class="font-medium">Interior Design</p>
-          <p class="text-muted-foreground">Raumfluss • Atmosphäre • Materialität</p>
-        </div>
-        <div class="text-center">
-          <div class="text-6xl mb-4">📱</div>
-          <p class="font-medium">UX/UI Design</p>
-          <p class="text-muted-foreground">User Flow • Interaktion • Emotion</p>
-        </div>
-        <div class="text-center bg-primary/5 rounded-3xl p-8">
-          <p class="text-primary font-medium text-lg">Beides ist bei mir dasselbe:</p>
-          <p class="text-foreground mt-4">Menschzentriert • Strategisch • Emotional • Durchdacht bis ins Detail</p>
-        </div>
+      <div class="text-left text-lg leading-relaxed text-muted-foreground">
+        <p class="mb-8">
+          Meine wahre Leidenschaft liegt im Konzeptionieren, Gestalten und Problemlösen.
+          Ob im physischen Raum als Innenarchitektur M.A. oder im digitalen Raum als UX/UI-Designerin –
+          ich tauche mit Begeisterung in jedes Projekt ein.
+        </p>
+
+        <p class="mb-8">
+          Besonders faszinieren mich Erlebnisausstellungen, Gastronomie-, Hotel- und Health-Care-Projekte sowie individuelle Shop-Konzepte in der Innenarchitektur. Im UX/UI-Design schlägt
+          mein Herz für mobile Apps mit sozialem oder gesundheitlichem Mehrwert und die
+          Gestaltung nahtloser Benutzererlebnisse, die das Wohlbefinden fördern und Engagement wecken.
+        </p>
+
+        <p>
+          Immer steht der Mensch im Mittelpunkt – ob physisch oder digital.
+          Mit einem klaren roten Faden begleite ich jedes Projekt von der ersten Idee
+          bis zur fertigen Umsetzung.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Mein Designprozess -->
-  <section id="designprozess" class="py-28 bg-background">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Mein Designprozess</h2>
-      <div class="grid grid-cols-1 md:grid-cols-6 gap-8 relative">
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">1</div>
-          <h4 class="font-medium mb-2">Zuhören &amp; Verstehen</h4>
-          <p class="text-sm text-muted-foreground">Ich höre zu, stelle die richtigen Fragen und verstehe den Kontext deines Projekts.</p>
-        </div>
-
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">2</div>
-          <h4 class="font-medium mb-2">Strategie &amp; Konzeption</h4>
-          <p class="text-sm text-muted-foreground">Gemeinsam entwickeln wir eine klare Strategie und definieren Ziele.</p>
-        </div>
-
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">3</div>
-          <h4 class="font-medium mb-2">Ideen &amp; Skizzen</h4>
-          <p class="text-sm text-muted-foreground">Erste Konzepte, Moodboards und Handskizzen entstehen.</p>
-        </div>
-
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">4</div>
-          <h4 class="font-medium mb-2">Design &amp; Prototyping</h4>
-          <p class="text-sm text-muted-foreground">Detaillierte Designs, 3D-Modelle oder interaktive Prototypen.</p>
-        </div>
-
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">5</div>
-          <h4 class="font-medium mb-2">Umsetzung</h4>
-          <p class="text-sm text-muted-foreground">Realisierung, Koordination mit Handwerkern oder Entwicklern.</p>
-        </div>
-
-        <div class="relative md:col-span-1 text-center">
-          <div class="w-14 h-14 mx-auto bg-primary/10 text-primary rounded-3xl flex items-center justify-center text-2xl mb-6">6</div>
-          <h4 class="font-medium mb-2">Nachbetreuung</h4>
-          <p class="text-sm text-muted-foreground">Feinschliff, Feedback-Runden und langfristige Begleitung.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- === WARUM PHYSISCH & DIGITAL BEI MIR GLEICH SIND – FINAL 10/10 === -->
   <section class="py-28 bg-background">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Skills &amp; Tools</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-10 text-center">
-        <div><strong>Design</strong><br />UX/UI • Interaction • Information Architecture • Spatial Concept</div>
-        <div><strong>Tools</strong><br />Figma • Adobe Creative Suite • Framer • Notion • 3D/CAD</div>
-        <div><strong>Methoden</strong><br />User Research • Prototyping • Usability Testing • Design Systems</div>
-        <div><strong>Werte</strong><br />Klarheit • Ruhe • Intuitive Nutzung • Mensch im Mittelpunkt</div>
-      </div>
-    </div>
-  </section>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">
+        Physisch oder digital: bei mir sprechen beide Welten dieselbe Sprache
+      </h2>
 
-  <!-- === INNENARCHITEKTUR & UX/UI DESIGN – FINAL VERSION === -->
-  <section class="py-28 bg-background">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Innenarchitektur & UX/UI Design</h2>
-    
-    <div class="max-w-2xl mx-auto text-center mb-16">
-      <p class="text-xl text-muted-foreground">
-        Ich liebe beide Welten – und beherrsche sie mit der gleichen Leidenschaft. 
-        Ob physischer Raum oder digitales Erlebnis: Immer steht der Mensch im Mittelpunkt.
-      </p>
-    </div>
+      <div class="grid md:grid-cols-3 gap-10">
 
-    <div class="grid md:grid-cols-2 gap-12">
-      
-      <!-- Innenarchitektur -->
-      <div class="group bg-white border border-border rounded-3xl overflow-hidden hover:shadow-xl transition-all">
-        <img src="/images/innenarchitektur-mood.jpg" 
-             alt="Innenarchitektur – einladender Raum mit Menschen" 
-             class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="p-10">
+        <!-- Innenarchitektur -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            <!-- Haus-Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5l9-7 9 7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.25 9.75V20.25H18.75V9.75" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 20.25V14.25H13.5V20.25" />
+            </svg>
+          </div>
           <h3 class="text-2xl font-semibold mb-6">Innenarchitektur</h3>
-          <p class="text-muted-foreground mb-8">Von der ersten Idee bis zur fertigen Umsetzung gestalte ich Räume, die Menschen berühren.</p>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Raumplanung & Konzeption</span></li>
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Möbel- & Lichtdesign</span></li>
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Projektleitung bis zur Fertigstellung</span></li>
+          <p class="text-muted-foreground">Vom ersten Gespräch bis zum fertigen Projekt gestalte ich Räume, die perfekt funktionieren und in denen Menschen sich einfach wohlfühlen.</p>
+        </div>
+
+        <!-- Kernbotschaft – Primary-Grün mit weißer Schrift + roter Faden -->
+        <div class="bg-primary text-white border border-primary rounded-3xl p-10 flex flex-col justify-center items-start text-left">
+          <h3 class="text-2xl font-semibold mb-6 text-white">Gemeinsamkeiten</h3>
+          <ul class="space-y-4 text-sm w-full">
+            <li class="flex items-start gap-3">
+              <span class="shrink-0">•</span>
+              <span>Menschzentriert</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0">•</span>
+              <span>Strategisch &amp; emotional</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0">•</span>
+              <span class="font-semibold">Mit einem roten Faden von der ersten Idee bis zur fertigen Umsetzung</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0">•</span>
+              <span>Durchdacht bis ins letzte Detail</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0">•</span>
+              <span>Design als gemeinsame Sprache</span>
+            </li>
           </ul>
         </div>
+
+        <!-- UX/UI Design -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            <!-- Smartphone-Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">UX/UI Design</h3>
+          <p class="text-muted-foreground">Von der ersten Kontaktaufnahme bis zum fertig interierten Produkt entwickle ich digitale Erlebnisse, die intuitiv funktionieren, sich selbst erklären und Menschen emotional berühren.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === MEIN DESIGNPROZESS – FINAL 10/10 (mit rotem Faden + LPH-Integration) === -->
+  <section id="designprozess" class="py-28 bg-background relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">
+        Mein Designprozess – mit einem roten Faden von Anfang bis Ende
+      </h2>
+
+      <!-- Visueller roter Faden (durchgehende Linie) -->
+      <div class="absolute left-1/2 top-28 bottom-12 w-0.5 bg-primary/20 hidden lg:block z-0"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
+
+        <!-- Schritt 1 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">1</div>
+          <h3 class="text-xl font-semibold mb-4">Zuhören &amp; Verstehen</h3>
+          <p class="text-muted-foreground mb-6">Ich höre zu, stelle die richtigen Fragen und verstehe den Kontext deines Projekts.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden beginnt hier – immer mit dem Menschen im Mittelpunkt.</p>
+        </div>
+
+        <!-- Schritt 2 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">2</div>
+          <h3 class="text-xl font-semibold mb-4">Strategie &amp; Konzeption</h3>
+          <p class="text-muted-foreground mb-6">Gemeinsam entwickeln wir eine klare Strategie und definieren Ziele.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden wird stärker – physisch wie digital.</p>
+        </div>
+
+        <!-- Schritt 3 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">3</div>
+          <h3 class="text-xl font-semibold mb-4">Ideen &amp; Skizzen</h3>
+          <p class="text-muted-foreground mb-6">Moodboards, Handskizzen und erste Konzepte entstehen.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden wird sichtbar – in Räumen und Interfaces.</p>
+        </div>
+
+        <!-- Schritt 4 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">4</div>
+          <h3 class="text-xl font-semibold mb-4">Design &amp; Prototyping</h3>
+          <p class="text-muted-foreground mb-6">Detaillierte Designs, 3D-Modelle oder interaktive Prototypen.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden wird greifbar – immer testbar.</p>
+        </div>
+
+        <!-- Schritt 5 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">5</div>
+          <h3 class="text-xl font-semibold mb-4">Umsetzung</h3>
+          <p class="text-muted-foreground mb-6">Koordination mit Handwerkern oder Entwicklern bis zur fertigen Realisierung.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden wird Wirklichkeit – in beiden Welten.</p>
+        </div>
+
+        <!-- Schritt 6 -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all group">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-semibold mb-6">6</div>
+          <h3 class="text-xl font-semibold mb-4">Nachbetreuung &amp; Feinschliff</h3>
+          <p class="text-muted-foreground mb-6">Feedback-Runden, langfristige Begleitung und finaler Feinschliff.</p>
+          <p class="text-sm text-primary font-medium">Der rote Faden bleibt bestehen – auch nach der Fertigstellung.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === SKILLS & TOOLS – FINAL BALANCED 10/10 === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">Skills &amp; Tools</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- DESIGN -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-8 text-primary">Design</h3>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li>✓ UX/UI · Interaction Design</li>
+            <li>✓ Information Architecture &amp; Wireframing</li>
+            <li>✓ Spatial Concept &amp; Raumplanung</li>
+            <li>✓ User Research &amp; User Journey Maps</li>
+            <li>✓ 3D-Modelle &amp; Moodboards</li>
+          </ul>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-8 text-primary">Tools</h3>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li>✓ Figma · FigJam · Adobe Creative Suite</li>
+            <li>✓ Vectorworks · AutoCAD · Cinema 4D</li>
+            <li>✓ Notion · 3D/CAD</li>
+            <li>✓ Photoshop · InDesign · Illustrator</li>
+          </ul>
+        </div>
+
+        <!-- METHODEN -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-8 text-primary">Methoden</h3>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li>✓ User Research &amp; Usability Testing</li>
+            <li>✓ Prototyping (High-Fidelity)</li>
+            <li>✓ Design Systeme &amp; Micro-Interactions</li>
+            <li>✓ Projektleitung &amp; Koordination mit Handwerkern</li>
+            <li>✓ Leistungsphasen 1-9 &amp; iterative Feinschliff</li>
+            <li>✓ Baustellenbegleitung &amp; langfristige Realisierung</li>
+          </ul>
+        </div>
+
+        <!-- WERTE -->
+        <div class="bg-white border border-border rounded-3xl p-10 hover:shadow-xl transition-all">
+          <h3 class="text-xl font-semibold mb-8 text-primary">Werte</h3>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li>✓ Klarheit · Ruhe · Intuitive Nutzung</li>
+            <li>✓ Mensch im Mittelpunkt</li>
+            <li>✓ Kreativität &amp; strategisches Denken</li>
+            <li>✓ Zuverlässigkeit &amp; lösungsorientiert</li>
+            <li>✓ Transparenz &amp; enge Abstimmung</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === INNENARCHITEKTUR & UX/UI DESIGN – 10/10 FINAL === -->
+  <section class="py-28 bg-background">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">Innenarchitektur &amp; UX/UI Design</h2>
+
+      <div class="mb-16">
+        <p class="text-xl text-muted-foreground">
+          Ich liebe beide Welten – und beherrsche sie mit der gleichen Leidenschaft.
+          Ob physischer Raum oder digitales Erlebnis: <span class="text-primary font-semibold">Immer steht der Mensch im Mittelpunkt.</span>
+        </p>
       </div>
 
-      <!-- UX/UI Design -->
-      <div class="group bg-white border border-border rounded-3xl overflow-hidden hover:shadow-xl transition-all">
-        <img src="/images/ux-ui-mood.jpg" 
-             alt="UX/UI Design – intuitive digitale Erlebnisse" 
-             class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-        <div class="p-10">
-          <h3 class="text-2xl font-semibold mb-6">UX/UI Design</h3>
-          <p class="text-muted-foreground mb-8">Ich entwickle digitale Produkte, die intuitiv und emotional wirken.</p>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">User Research & Wireframing</span></li>
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Interaktive Prototypen</span></li>
-            <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Design Systeme & Micro-Interactions</span></li>
-          </ul>
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <!-- Innenarchitektur -->
+        <div class="group bg-white border border-border rounded-3xl overflow-hidden hover:shadow-xl transition-all">
+          <img src="/images/innenarchitektur-mood.jpg"
+               alt="Innenarchitektur – einladender Raum mit Menschen"
+               class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="p-10">
+            <h3 class="text-2xl font-semibold mb-6">Innenarchitektur</h3>
+            <p class="text-muted-foreground mb-8">Von der ersten Idee bis zur fertigen Umsetzung gestalte ich Räume, die Menschen berühren.</p>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Raumplanung &amp; Konzeption</span></li>
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Möbel- &amp; Lichtdesign</span></li>
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Projektleitung bis zur Fertigstellung</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- UX/UI Design -->
+        <div class="group bg-white border border-border rounded-3xl overflow-hidden hover:shadow-xl transition-all">
+          <img src="/images/ux-ui-mood.jpg"
+               alt="UX/UI Design – intuitive digitale Erlebnisse"
+               class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="p-10">
+            <h3 class="text-2xl font-semibold mb-6">UX/UI Design</h3>
+            <p class="text-muted-foreground mb-8">Ich entwickle digitale Produkte, die intuitiv und emotional wirken.</p>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">User Research &amp; Wireframing</span></li>
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Interaktive Prototypen</span></li>
+              <li class="flex items-start gap-3">✓ <span class="text-primary font-semibold">Design Systeme &amp; Micro-Interactions</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
- </section>
   </section>
 
   <!-- === FAQ – 6 FRAGEN (final, mit deinen exakten Wünschen) === -->
   <section class="py-28 bg-background">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Häufig gestellte Fragen</h2>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">Häufig gestellte Fragen</h2>
 
       <div class="space-y-6">
 
@@ -240,7 +393,7 @@ import ScrollReveal from '@/components/ScrollReveal';
   <!-- === TESTIMONIALS – ALLE 6 ZITATE (mit einheitlicher Höhe + deutschem „) === -->
   <section class="py-28 bg-background">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-center">Was andere über meine Arbeitsweise sagen</h2>
+      <h2 class="text-4xl font-semibold tracking-tight mb-16 text-left">Was andere über meine Arbeitsweise sagen</h2>
 
       <div class="grid md:grid-cols-3 gap-8">
 
@@ -342,7 +495,7 @@ import ScrollReveal from '@/components/ScrollReveal';
   <!-- === MEINE WELT ABSEITS DES DESKTOPS === -->
   <section class="py-28 bg-background">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight text-center mb-16">Meine Welt abseits des Desktops</h2>
+      <h2 class="text-4xl font-semibold tracking-tight text-left mb-16">Meine Welt abseits des Desktops</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <img src="/images/freizeit-1.jpg" alt="Lesen" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
         <img src="/images/freizeit-2.jpg" alt="Wandern" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform" />
@@ -358,8 +511,8 @@ import ScrollReveal from '@/components/ScrollReveal';
 
   <!-- === QUICK FACTS – OPTIMIERTE VERSION (große, klare Icons + dein Text) === -->
   <section class="py-20 bg-background border-t border-border">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-semibold tracking-tight mb-12">Quick Facts</h2>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold tracking-tight mb-12 text-left">Quick Facts</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4">
 
@@ -416,22 +569,22 @@ import ScrollReveal from '@/components/ScrollReveal';
 
   <!-- === CTA – CLEAN VERSION (ohne Gradient, passt 100 % zur Landingpage) === -->
   <section class="py-32 bg-background">
-    <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto px-6 text-center">
 
       <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-8 leading-tight">
         Lass uns gemeinsam etwas Schönes schaffen
       </h2>
 
-      <p class="text-xl text-muted-foreground max-w-md mx-auto mb-14">
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto mb-14">
         Ich freue mich darauf, mit dir zusammenzuarbeiten.
         Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/kontakt" class="bg-primary text-primary-foreground px-14 py-6 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/kontakt" class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
           Mit mir sprechen
         </a>
-        <a href="/projekte" class="border border-foreground/30 text-foreground px-14 py-6 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">
+        <a href="/projekte" class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] border border-foreground/30 text-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">
           Meine Projekte ansehen
         </a>
       </div>
