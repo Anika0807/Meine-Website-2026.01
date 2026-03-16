@@ -31,7 +31,7 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
     <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
-    <header class="md:hidden bg-background/95 backdrop-blur-xl sticky top-0 z-50 border-b-0 transition-all duration-300" data-scroll="up">
+    <header class="md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50 border-b-0 transition-all duration-300" data-scroll="up">
       <div class="px-6 py-6 flex items-center justify-between">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground">
           Anika Warncke
@@ -45,15 +45,15 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
     </header>
 
     <!-- Sticky Header Desktop -->
-    <header class="hidden md:block bg-background/95 backdrop-blur-xl sticky top-0 z-50" data-scroll="up">
+    <header class="hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50" data-scroll="up">
       <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground">Anika Warncke</a>
 
         <nav class="flex items-center gap-x-10 text-lg font-medium">
-          <a href={ssrLocale === 'en' ? '/en' : '/'} class="nav-link hover:text-primary transition-colors">Home</a>
-          <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="nav-link hover:text-primary transition-colors">Projekte</a>
-          <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">Über mich</a>
-          <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="nav-link hover:text-primary transition-colors">Kontakt</a>
+          <a href={ssrLocale === 'en' ? '/en' : '/'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
+          <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+          <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+          <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
         </nav>
 
         <div class="flex items-center gap-x-6">
@@ -95,18 +95,18 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
         <div class="md:hidden space-y-8">
           <!-- Links -->
           <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
-            <a href="/ueber-mich" class="hover:text-primary transition-colors">Über mich</a>
-            <a href="/projekte" class="hover:text-primary transition-colors">Projekte</a>
-            <a href="/kontakt" class="hover:text-primary transition-colors">Kontakt</a>
+            <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+            <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+            <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
           </div>
 
           <!-- Legal + Copyright -->
           <div class="text-center text-xs text-muted-foreground space-y-1">
             <div class="flex justify-center gap-6">
-              <a href="/impressum" class="hover:text-foreground transition-colors">Impressum</a>
-              <a href="/datenschutz" class="hover:text-foreground transition-colors">Datenschutz</a>
+              <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
+              <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
             </div>
-            <p>© 2026 Anika Warncke • Alle Rechte vorbehalten</p>
+            <p>© 2026 Anika Warncke • {ssrLocale === 'en' ? 'All rights reserved' : 'Alle Rechte vorbehalten'}</p>
           </div>
         </div>
 
@@ -115,19 +115,19 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
           <div class="container mx-auto max-w-5xl px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm">
               <div class="flex flex-wrap gap-x-8 gap-y-2 text-muted-foreground">
-                <a href="/ueber-mich" class="hover:text-foreground transition-colors">Über mich</a>
-                <a href="/projekte" class="hover:text-foreground transition-colors">Projekte</a>
-                <a href="/kontakt" class="hover:text-foreground transition-colors">Kontakt</a>
+                <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+                <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+                <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
               </div>
 
               <div class="flex items-center gap-8 text-muted-foreground">
                 <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" class="hover:text-foreground transition-colors">LinkedIn</a>
-                <span>09:17 Uhr MEZ</span>
+                <span>{ssrLocale === 'en' ? '09:17 CET' : '09:17 Uhr MEZ'}</span>
               </div>
 
               <div class="flex flex-wrap gap-x-6 text-muted-foreground">
-                <a href="/impressum" class="hover:text-foreground transition-colors">Impressum</a>
-                <a href="/datenschutz" class="hover:text-foreground transition-colors">Datenschutz</a>
+                <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
+                <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
                 <span>© 2026 Anika Warncke</span>
               </div>
             </div>
