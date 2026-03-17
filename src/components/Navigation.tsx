@@ -17,7 +17,9 @@ const navTranslations: Record<string, { path: string; label: string }[]> = {
   en: [
     { path: '/', label: 'Home' },
     { path: '/projekte', label: 'Projects' },
-    { path: '/ueber-mich', label: 'About me' },
+    { path: '/about', label: 'About me' }, // legacy, not used
+    { path: '/about', label: 'About me' }, // legacy, not used
+    { path: '/en/about', label: 'About me' },
     { path: '/contact', label: 'Contact' },
   ],
 };
