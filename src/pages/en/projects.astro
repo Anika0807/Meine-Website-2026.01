@@ -1,0 +1,162 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Projects">
+  <section class="py-32 bg-background">
+    <div class="w-full px-6">
+
+      <!-- FEATURED PROJECTS – full-bleed sticky stack -->
+      <div class="mb-40">
+        <div class="relative z-50 bg-background pb-6">
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-12 text-center">Selected Projects</h2>
+        </div>
+
+        <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+          <!-- 1. My Mind Studio -->
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none">
+            <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Interior Architecture</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">My Mind Studio</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Meditation &amp; Yoga Studio with Café</p>
+            </div>
+          </div>
+
+          <!-- 2. NaturKompass -->
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none">
+            <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">NaturKompass</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Your Digital Companion for Flora &amp; Fauna Identification</p>
+            </div>
+          </div>
+
+          <!-- 3. Festsaal im Klostergasthof -->
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none">
+            <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Interior Architecture</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">Festsaal im Klostergasthof</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Event Gastronomy for Weddings &amp; Celebrations</p>
+            </div>
+          </div>
+
+          <!-- 4. FlavorFusion -->
+          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none">
+            <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">FlavorFusion</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Landing Page for a Mobile Recipe App</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- ALL PROJECTS – 2-column grid -->
+      <div>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-20 text-center">More Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="projects-grid">
+
+          <!-- 5. SCHLAF -->
+          <div class="projekt-card group md:cursor-none">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Interior Architecture</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">SCHLAF</h3>
+                <p class="text-sm mt-2 opacity-90">An Immersive Exhibition Exploring the Depths of Sleep</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. OmNomZen -->
+          <div class="projekt-card group md:cursor-none">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">OmNomZen</h3>
+                <p class="text-sm mt-2 opacity-90">Stress Relief with Organic Ashwagandha Gummies</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. weserkoje -->
+          <div class="projekt-card group md:cursor-none">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Interior Architecture</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">weserkoje</h3>
+                <p class="text-sm mt-2 opacity-90">Multifunctional Hostel with Integrated Conference Center</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Planora -->
+          <div class="projekt-card group md:cursor-none">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">Planora</h3>
+                <p class="text-sm mt-2 opacity-90">Travel Planning That Adapts to You</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="custom-cursor" class="fixed pointer-events-none hidden w-40 h-40 rounded-full bg-white/40 backdrop-blur-2xl flex flex-col items-center justify-center text-zinc-900 text-sm font-medium z-[9999] shadow-2xl gap-px">
+    <span class="tracking-widest text-[14px]">VIEW</span>
+    <span class="text-[18px]">PROJECT</span>
+  </div>
+
+  <script>
+    const cursor = document.getElementById('custom-cursor');
+    const projectCards = document.querySelectorAll('.project-card');
+    const desktopMedia = window.matchMedia('(min-width: 768px)');
+
+    if (cursor instanceof HTMLElement) {
+      const hideCursor = () => {
+        cursor.classList.add('hidden');
+      };
+
+      projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          if (!desktopMedia.matches) {
+            hideCursor();
+            return;
+          }
+
+          cursor.style.left = `${e.clientX - 80}px`;
+          cursor.style.top = `${e.clientY - 80}px`;
+          cursor.classList.remove('hidden');
+        });
+
+        card.addEventListener('mouseleave', hideCursor);
+      });
+
+      desktopMedia.addEventListener('change', hideCursor);
+      window.addEventListener('blur', hideCursor);
+    }
+  </script>
+</Layout>

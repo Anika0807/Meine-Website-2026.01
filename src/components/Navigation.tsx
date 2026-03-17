@@ -16,7 +16,7 @@ const navTranslations: Record<string, { path: string; label: string }[]> = {
   ],
   en: [
     { path: '/', label: 'Home' },
-    { path: '/projekte', label: 'Projects' },
+    { path: '/projects', label: 'Projects' },
     { path: '/about', label: 'About me' },
     { path: '/contact', label: 'Contact' },
   ],
@@ -84,11 +84,13 @@ export default function Navigation() {
     if (targetLang === 'en') {
       if (normalized === '/kontakt') return '/en/contact';
       if (normalized === '/ueber-mich') return '/en/about';
+      if (normalized === '/projekte') return '/en/projects';
       return normalized === '/' ? '/en' : `/en${normalized}`;
     }
 
     if (normalized === '/contact') return '/kontakt';
     if (normalized === '/about') return '/ueber-mich';
+    if (normalized === '/projects') return '/projekte';
     return normalized;
   };
 
@@ -177,7 +179,7 @@ export default function Navigation() {
                   className="block rounded-btn px-6 py-7 text-2xl font-medium transition-all hover:bg-primary/10 hover:text-primary"
                 >
                   {path === '/' && getMessage('menu.home')}
-                  {path === '/projekte' && getMessage('menu.projects')}
+                  {(path === '/projekte' || path === '/projects') && getMessage('menu.projects')}
                   {(path === '/ueber-mich' || path === '/about') && getMessage('menu.about')}
                   {(path === '/kontakt' || path === '/contact') && getMessage('menu.contact')}
                 </a>

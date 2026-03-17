@@ -11,11 +11,13 @@ export default function LanguageToggle() {
     if (targetLang === 'en') {
       if (normalized === '/kontakt') return '/en/contact';
       if (normalized === '/ueber-mich') return '/en/about';
+      if (normalized === '/projekte') return '/en/projects';
       return normalized === '/' ? '/en' : `/en${normalized}`;
     }
 
     if (normalized === '/contact') return '/kontakt';
     if (normalized === '/about') return '/ueber-mich';
+    if (normalized === '/projects') return '/projekte';
     return normalized;
   };
 
