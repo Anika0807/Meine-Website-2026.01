@@ -1,67 +1,77 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Heading1 } from '@/components/design-system/headings';
 ---
 
 <Layout title="Kontakt">
-  <div class="container mx-auto max-w-6xl px-6 py-16 md:py-28">
+  <section class="max-w-7xl mx-auto px-6 py-8 md:py-12">
+    <div class="w-full grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="space-y-6 flex flex-col justify-center">
+        <div class="space-y-4">
+          <h1 class="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight tracking-tight text-foreground">
+            Lass uns<br />gemeinsam<br />starten!
+          </h1>
+          <p class="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+            Erzähl mir von deinem Projekt - ob Innenarchitektur, UX/UI oder Hybrid. Ich freue mich wirklich darauf, dich kennenzulernen und gemeinsam etwas Schönes zu schaffen.
+          </p>
+        </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full max-w-[340px] md:max-w-none">
+          <img
+            src="/images/anika-moodboard.webp"
+            alt="Anika bei der Arbeit oder Porträt"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
-      <!-- Linke Seite: Text + Foto -->
-      <div class="space-y-8 text-center lg:text-left">
-        <Heading1 className="text-4xl md:text-5xl">Lass uns gemeinsam ein Projekt starten!</Heading1>
-        
-        <p class="text-body-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-          Ich freue mich darauf, mit dir zusammenzuarbeiten. Erzähl mir von deinem Vorhaben – ob Innenarchitektur oder UX/UI Design.
-        </p>
-
-        <div class="flex flex-col items-center lg:items-start gap-6">
-              <img 
-                src="/images/anika-moodboard.webp" 
-                alt="Anika Warncke – Moodboard-Arbeit, von hinten, authentisch, warm" 
-                class="w-full h-full object-cover rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition-transform duration-700" 
-                loading="lazy" 
-                width="800" height="600" 
-                sizes="(max-width: 768px) 100vw, 50vw" 
-                srcset="/images/anika-moodboard.webp 800w, /images/anika-moodboard.webp 1200w" 
-                decoding="async" 
-              />
-          <div>
-            <p class="font-semibold text-lg">Anika Warncke</p>
-            <p class="text-sm text-muted-foreground">Lüneburg • Remote/Hybrid möglich</p>
-            <a href="https://linkedin.com/in/anika-warncke" target="_blank" class="text-primary hover:underline text-sm">LinkedIn</a>
-          </div>
+        <div class="flex flex-wrap gap-5 sm:gap-6 text-sm justify-center md:justify-start">
+          <a href="mailto:hallo@anika-warncke.de" class="font-medium text-foreground/90 transition hover:text-primary hover:underline underline-offset-4">
+            hallo@anika-warncke.de
+          </a>
+          <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noreferrer" class="text-foreground/80 transition hover:text-primary hover:underline underline-offset-4">
+            LinkedIn
+          </a>
         </div>
       </div>
 
-      <!-- Rechte Seite: Formular -->
-      <div class="bg-card rounded-card p-8 md:p-12 shadow-sm">
-        <form class="space-y-8">
-          <div>
-            <label class="block text-sm font-medium mb-3">Dein Name *</label>
-            <input type="text" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="Dein Name" required />
+      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
+        <form action="DEIN_FORM_BACKEND_URL" method="POST" class="space-y-5">
+          <div class="relative">
+            <input type="text" name="name" id="name" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Dein Name *</label>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium mb-3">Deine E-Mail-Adresse *</label>
-            <input type="email" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="deine@email.de" required />
+          <div class="relative">
+            <input type="email" name="email" id="email" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine E-Mail *</label>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium mb-3">Deine Nachricht / dein Projekt *</label>
-            <textarea rows="7" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary resize-y" placeholder="Beschreibe dein Projekt..."></textarea>
+          <div class="relative">
+            <select name="projektart" id="projektart" required class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <option value="" disabled selected hidden></option>
+              <option value="innenarchitektur">Innenarchitektur</option>
+              <option value="ux-ui">UX/UI Design</option>
+              <option value="hybrid">Hybrid / beides</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+            <label for="projektart" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-valid:top-2 peer-valid:translate-y-0 peer-valid:text-xs peer-valid:text-primary peer-valid:font-medium">Art des Projekts *</label>
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">▼</span>
           </div>
 
-          <button type="submit" class="w-full bg-primary text-primary-foreground py-5 rounded-btn font-medium text-lg hover:bg-accent transition-colors">
-            Nachricht senden
+          <div class="relative">
+            <textarea name="message" id="message" rows="5" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
+            <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine Nachricht / dein Projekt *</label>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-primary text-primary-foreground font-medium rounded-btn text-base sm:text-lg hover:brightness-95 transition shadow-md hover:shadow-lg">
+            Jetzt loslegen - Nachricht senden
           </button>
 
           <p class="text-xs text-muted-foreground text-center">
-            Deine Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+            Deine Daten sind sicher und werden vertraulich behandelt.
           </p>
         </form>
       </div>
     </div>
-  </div>
+  </section>
 </Layout>
