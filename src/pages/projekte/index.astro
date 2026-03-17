@@ -4,18 +4,18 @@ import Layout from '@/layouts/Layout.astro';
 
 <Layout title="Projekte">
   <!-- === PROJEKTE CONTENT (nur diesen Block) === -->
-  <section class="py-28 bg-background">
+  <section class="py-32 bg-background">
     <div class="w-full px-6">
 
       <!-- AUSGEWÄHLTE PROJEKTE – full-bleed sticky stack wie Landingpage -->
-      <div class="mb-24">
+      <div class="mb-40">
         <div class="relative z-50 bg-background pb-6">
-          <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Ausgewählte Projekte</h2>
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-12 text-center">Ausgewählte Projekte</h2>
         </div>
 
         <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
           <!-- 1. My Mind Studio -->
-          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none">
             <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -26,7 +26,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 2. NaturKompass -->
-          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none">
             <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -37,7 +37,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 3. Festsaal im Klostergasthof -->
-          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none">
             <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -48,7 +48,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 4. FlavorFusion -->
-          <div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0">
+          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none">
             <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -65,19 +65,12 @@ import Layout from '@/layouts/Layout.astro';
     <div class="max-w-6xl mx-auto px-6">
       <!-- WEITERE PROJEKTE – 2 Spalten (2×2) -->
       <div>
-        <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Weitere Projekte</h2>
-        
-        <!-- Filter -->
-        <div class="flex flex-wrap justify-center gap-4 mb-16">
-          <button onclick="filterCategory('all')" class="filter-btn active px-8 py-4 bg-primary text-white rounded-full font-medium">Alle</button>
-          <button onclick="filterCategory('innen')" class="filter-btn px-8 py-4 border border-border rounded-full font-medium hover:bg-accent">Innenarchitektur</button>
-          <button onclick="filterCategory('uxui')" class="filter-btn px-8 py-4 border border-border rounded-full font-medium hover:bg-accent">UX/UI Design</button>
-        </div>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-20 text-center">Weitere Projekte</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="projects-grid">
 
           <!-- 5. SCHLAF -->
-          <div class="projekt-card group" data-category="innen">
+          <div class="projekt-card group md:cursor-none">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -90,7 +83,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 6. OmNomZen -->
-          <div class="projekt-card group" data-category="uxui">
+          <div class="projekt-card group md:cursor-none">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -103,7 +96,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 7. weserkoje -->
-          <div class="projekt-card group" data-category="innen">
+          <div class="projekt-card group md:cursor-none">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -116,7 +109,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 8. Planora -->
-          <div class="projekt-card group" data-category="uxui">
+          <div class="projekt-card group md:cursor-none">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -133,18 +126,39 @@ import Layout from '@/layouts/Layout.astro';
     </div>
   </section>
 
+  <div id="custom-cursor" class="fixed pointer-events-none hidden w-40 h-40 rounded-full bg-white/40 backdrop-blur-2xl flex flex-col items-center justify-center text-zinc-900 text-sm font-medium z-[9999] shadow-2xl gap-px">
+    <span class="tracking-widest text-[14px]">PROJEKT</span>
+    <span class="text-[18px]">ansehen</span>
+  </div>
+
   <script>
-    function filterCategory(category: string) {
-      const cards = document.querySelectorAll<HTMLElement>('.projekt-card');
-      cards.forEach(card => {
-        card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'block' : 'none';
+    const cursor = document.getElementById('custom-cursor');
+    const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
+    const desktopMedia = window.matchMedia('(min-width: 768px)');
+
+    if (cursor instanceof HTMLElement) {
+      const hideCursor = () => {
+        cursor.classList.add('hidden');
+      };
+
+      projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          if (!desktopMedia.matches) {
+            hideCursor();
+            return;
+          }
+
+          const mouseEvent = e as MouseEvent;
+          cursor.style.left = `${mouseEvent.clientX - 80}px`;
+          cursor.style.top = `${mouseEvent.clientY - 80}px`;
+          cursor.classList.remove('hidden');
+        });
+
+        card.addEventListener('mouseleave', hideCursor);
       });
 
-      const filterButtons = document.querySelectorAll<HTMLElement>('.filter-btn');
-      filterButtons.forEach(btn => {
-        const onclickValue = btn.getAttribute('onclick') ?? '';
-        btn.classList.toggle('active', onclickValue.includes(`'${category}'`));
-      });
+      desktopMedia.addEventListener('change', hideCursor);
+      window.addEventListener('blur', hideCursor);
     }
   </script>
 </Layout>
