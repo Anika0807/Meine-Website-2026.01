@@ -80,41 +80,30 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       <div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent"></div>
     </div>
 
-    <!-- NUR DIESEN CONTAINER ERSETZEN -->
-    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
-      <div class="pointer-events-auto bg-black/75 backdrop-blur-2xl px-16 py-16 rounded-card text-center max-w-[960px] border border-white/10">
-
-        <ScrollReveal client:load>
-          <h1 class="text-[5.4rem] md:text-[6.4rem] leading-none tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
-            Anika Warncke
-          </h1>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1} client:load>
-          <p class="text-[2.85rem] md:text-[3.2rem] font-light text-white mb-12 drop-shadow-xl">
-            Innenarchitektur &amp; UX/UI Design
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.2} client:load>
-          <p class="hero-long-text warum-ich-text text-body-lg text-white/95 max-w-lg mx-auto drop-shadow-lg">
-            Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
-          </p>
-        </ScrollReveal>
-
-        <div class="flex flex-col sm:flex-row gap-6 mt-14 justify-center">
-          <a href="/projekte" class="btn-primary flex-1 bg-primary text-primary-foreground py-6 rounded-btn font-medium text-lg transition-all duration-300 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] hover:-translate-y-0.5 hover:shadow-xl">
+    <!-- Text-Overlay – zentriert -->
+    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 z-10">
+      <div class="pointer-events-auto bg-black/65 backdrop-blur-sm text-white rounded-2xl p-8 md:p-12 max-w-lg md:max-w-2xl w-full text-center border border-white/10 shadow-2xl">
+        <h1 class="text-[4.1rem] md:text-[5.4rem] leading-none font-light tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
+          Anika Warncke
+        </h1>
+        <p class="text-[2.25rem] md:text-[2.55rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl whitespace-nowrap">
+          Innenarchitektur &amp; UX/UI Design
+        </p>
+        <p class="text-body-lg text-white/95 max-w-lg mx-auto mb-12 drop-shadow-lg">
+          Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/projekte" class="bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
             Projekte ansehen
           </a>
-          <a href="/kontakt" class="btn-secondary flex-1 border-2 border-white text-white py-6 rounded-btn font-medium text-lg hover:bg-white hover:text-primary transition-all">
+          <a href="/kontakt" class="border-2 border-white text-white px-10 py-4 rounded-btn font-medium text-lg hover:bg-white hover:text-black transition-all">
             Lass uns sprechen
           </a>
         </div>
-
       </div>
 
-      <!-- Scroll-Indikator – außerhalb des Kastens -->
-      <div class="pointer-events-none mt-20 flex flex-col items-center gap-3 text-white">
+      <!-- Scroll-Indikator -->
+      <div class="pointer-events-none mt-12 flex flex-col items-center gap-3 text-white">
         <span class="text-xs tracking-[3px] font-medium opacity-70">SCROLLEN</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -132,26 +121,17 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
   <!-- PERSÖNLICHE AUSSAGE – mit größerem, elegantem Einstein-Zitat -->
   <section class="py-28 bg-background">
-    <div class="container mx-auto max-w-3xl px-6 text-center">
-      
-      <ScrollReveal client:load>
-        <p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
-          Ich liebe es, coole Dinge zu entwickeln
-        </p>
-      </ScrollReveal>
+    <div class="container mx-auto max-w-3xl md:max-w-5xl px-6 text-center">
 
-      <ScrollReveal delay={0.15} client:load>
-        <p class="text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto">
-          und zeitgleich komplexe Probleme für Menschen wie dich zu lösen.
-        </p>
-      </ScrollReveal>
+      <p class="quote-reveal text-[2.1rem] md:text-[2.55rem] leading-tight text-foreground font-light max-w-3xl mx-auto" style="animation-delay: 120ms;">
+        Ich liebe es, coole Dinge zu entwickeln<br />
+        und zeitgleich komplexe Probleme für Menschen wie dich zu lösen.
+      </p>
 
-      <ScrollReveal delay={0.45} client:load>
-        <p class="einstein-quote text-base md:text-lg text-muted-foreground mt-14 italic">
-          „Das Wichtigste ist, dass man nicht aufhört zu fragen.“<br />
-          <span class="not-italic text-xs">– Albert Einstein</span>
-        </p>
-      </ScrollReveal>
+      <p class="quote-reveal einstein-quote text-base md:text-lg text-muted-foreground mt-12 italic" style="animation-delay: 760ms;">
+        „Das Wichtigste ist, dass man nicht aufhört zu fragen."<br />
+        <span class="quote-reveal-author not-italic text-xs">– Albert Einstein</span>
+      </p>
 
     </div>
   </section>
@@ -220,9 +200,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
   <section class="relative py-20 bg-background hidden md:block">
     <div class="w-full">
 
-      <ScrollReveal client:load>
-        <Heading2 className="text-center mb-16">Ausgewählte Projekte</Heading2>
-      </ScrollReveal>
+      <Heading2 className="text-center mb-16">Ausgewählte Projekte</Heading2>
 
       <div class="relative">
 
@@ -282,9 +260,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
   <section class="py-28 bg-background">
     <div class="container mx-auto max-w-5xl px-6">
 
-      <ScrollReveal client:load>
-        <Heading2 className="text-center mb-20">Warum ich</Heading2>
-      </ScrollReveal>
+      <Heading2 className="text-center mb-20">Warum ich</Heading2>
 
       <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
 
@@ -328,59 +304,80 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
   <!-- === CTA-Abschnitt – optimiert für iPhone SE === -->
   <section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:bg-none dark:bg-background overflow-hidden">
-    <div class="container mx-auto max-w-3xl px-6 text-center relative z-10">
+    <div class="container mx-auto max-w-3xl md:max-w-5xl px-6 text-center relative z-10">
 
-      <ScrollReveal client:load>
-        <div class="mb-10">
-          <Image
-            src={anikaPortraitWarm}
-            alt="Anika Warncke"
-            width={512}
-            height={512}
-            quality={95}
-            format="webp"
-            densities={[1, 2]}
-            sizes="(max-width: 768px) 208px, 256px"
-            class="mx-auto w-52 h-52 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-8 border-white/50"
-          />
-        </div>
-      </ScrollReveal>
+      <div class="mb-12 md:mb-14">
+        <Image
+          src={anikaPortraitWarm}
+          alt="Anika Warncke"
+          width={512}
+          height={512}
+          quality={95}
+          format="webp"
+          densities={[1, 2]}
+          sizes="(max-width: 768px) 224px, 288px"
+          class="mx-auto w-52 h-52 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-8 border-white/50"
+        />
+      </div>
 
-      <ScrollReveal client:load>
-        <h2 class="text-4xl md:text-h2 mb-8 leading-tight">
-          Lass uns gemeinsam<br />etwas Schönes schaffen
-        </h2>
-      </ScrollReveal>
+      <h2 class="text-4xl font-semibold md:text-[3.6rem] md:font-bold mb-10 md:mb-12 leading-tight max-w-3xl md:max-w-4xl mx-auto">
+        Lass uns gemeinsam<br />etwas Schönes schaffen
+      </h2>
 
-      <ScrollReveal delay={0.1} client:load>
-        <p class="cta-text text-base md:text-body-lg text-muted-foreground max-w-md mx-auto mb-14">
-          Ich freue mich darauf, mit dir zusammenzuarbeiten.
-          Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
-        </p>
-      </ScrollReveal>
+      <p class="cta-text text-base md:text-body-lg text-muted-foreground max-w-md md:max-w-2xl mx-auto mb-14 md:mb-16">
+        Ich freue mich darauf, mit dir zusammenzuarbeiten.
+        Ob Innenarchitektur oder UX/UI Design – erzähl mir einfach von deinem Vorhaben.
+      </p>
 
-      <ScrollReveal delay={0.2} client:load>
+      <div class="flex flex-col items-center gap-8 md:gap-10 mb-12 md:mb-14">
         <a href="/kontakt"
            class="inline-block bg-primary text-primary-foreground px-14 py-6 rounded-btn font-medium text-lg md:text-xl hover:bg-accent transition-all">
           Mit mir sprechen
         </a>
-      </ScrollReveal>
 
-      <ScrollReveal delay={0.3} client:load>
         <a href="/ueber-mich"
-           class="mt-10 inline-block text-primary hover:text-accent transition-colors text-base font-medium">
+           class="inline-block text-primary hover:text-accent transition-colors text-base font-medium">
           Mehr über mich erfahren →
         </a>
-      </ScrollReveal>
+      </div>
 
-      <ScrollReveal delay={0.4} client:load>
-        <p class="cta-privacy-text text-xs text-muted-foreground mt-12">
-          Deine Nachricht wird vertraulich behandelt.
-        </p>
-      </ScrollReveal>
+      <p class="cta-privacy-text text-xs text-muted-foreground">
+        Deine Nachricht wird vertraulich behandelt.
+      </p>
 
     </div>
   </section>
+
+  <style>
+    .quote-reveal {
+      opacity: 0;
+      transform: translateY(18px) scale(0.995);
+      filter: blur(3px);
+      animation: quote-reveal-in 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      will-change: opacity, transform, filter;
+    }
+
+    .quote-reveal-author {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: quote-reveal-in 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: 1080ms;
+    }
+
+    @keyframes quote-reveal-in {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.995);
+        filter: blur(3px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+  </style>
 
   <!-- === CUSTOM CURSOR (größer) === -->
   <div id="custom-cursor" 
