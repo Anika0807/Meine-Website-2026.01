@@ -49,29 +49,37 @@ import anikaPortrait from '@/assets/anika-portrait.jpg';
     </div>
   </section>
 
-  <!-- Wer ich bin -->
+  <!-- === WER ICH BIN – FINAL (Text links, Bild rechts) === -->
   <section class="py-28 bg-background">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold tracking-tight mb-12">Wer ich bin</h2>
-
-      <div class="text-left text-lg leading-relaxed text-muted-foreground">
-        <p class="mb-8">
-          Meine wahre Leidenschaft liegt im Konzeptionieren, Gestalten und Problemlösen.
-          Ob im physischen Raum als Innenarchitektur M.A. oder im digitalen Raum als UX/UI-Designerin –
-          ich tauche mit Begeisterung in jedes Projekt ein.
-        </p>
-
-        <p class="mb-8">
-          Besonders faszinieren mich Erlebnisausstellungen, Gastronomie-, Hotel- und Health-Care-Projekte sowie individuelle Shop-Konzepte in der Innenarchitektur. Im UX/UI-Design schlägt
-          mein Herz für mobile Apps mit sozialem oder gesundheitlichem Mehrwert und die
-          Gestaltung nahtloser Benutzererlebnisse, die das Wohlbefinden fördern und Engagement wecken.
-        </p>
-
-        <p>
-          Immer steht der Mensch im Mittelpunkt – ob physisch oder digital.
-          Mit einem klaren roten Faden begleite ich jedes Projekt von der ersten Idee
-          bis zur fertigen Umsetzung.
-        </p>
+      <div class="grid md:grid-cols-12 gap-12 items-stretch">
+        <!-- Text links -->
+        <div class="md:col-span-8 order-2 md:order-1 flex flex-col justify-start h-full">
+          <h2 class="text-4xl font-semibold tracking-tight mb-10 text-left">Wer ich bin</h2>
+          <div class="text-left text-lg leading-relaxed text-muted-foreground">
+            <p class="mb-8">
+              Meine wahre Leidenschaft liegt im Konzeptionieren, Gestalten und Problemlösen. 
+              Ob im physischen Raum als Innenarchitektur M.A. oder im digitalen Raum als UX/UI-Designerin – 
+              ich tauche mit Begeisterung in jedes Projekt ein.
+            </p>
+            <p class="mb-8">
+              Besonders faszinieren mich Erlebnisausstellungen, Gastronomie-, Hotel- und Healthcareprojekte sowie individuelle Shop-Konzepte in der Innenarchitektur. 
+              Im UX/UI-Design schlägt mein Herz für mobile Apps mit sozialem oder gesundheitlichem Mehrwert und die Gestaltung nahtloser Benutzererlebnisse, die das Wohlbefinden fördern und Engagement wecken.
+            </p>
+            <p>
+              Immer steht der Mensch im Mittelpunkt – ob physisch oder digital. 
+              Mit einem klaren roten Faden begleite ich jedes Projekt von der ersten Idee bis zur fertigen Umsetzung.
+            </p>
+          </div>
+        </div>
+        <!-- Bild rechts (auf Desktop), oben auf Mobil) -->
+        <div class="md:col-span-4 order-1 md:order-2 flex flex-col h-full">
+          <div class="flex-1 flex">
+            <img src="/images/anika-work.jpg" 
+                 alt="Anika bei der Arbeit" 
+                 class="w-full h-full rounded-3xl shadow-lg object-cover object-top mb-8 md:mb-0">
+          </div>
+        </div>
       </div>
     </div>
   </section>
