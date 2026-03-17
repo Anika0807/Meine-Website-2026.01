@@ -1,20 +1,150 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Heading1 } from '@/components/design-system/headings';
 ---
 
 <Layout title="Projekte">
-  <section class="section">
-    <div class="container">
-      <Heading1>Projekte</Heading1>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-space-8">
-        <div class="project-image group">
-          <img src="/images/projekt1.jpg" class="w-full h-auto object-cover rounded-xl" />
-          <h3 class="text-h3 mt-4">Projekt 1</h3>
-          <p class="text-body-sm">Vorher / Nachher-Beschreibung...</p>
+  <!-- === PROJEKTE CONTENT (nur diesen Block) === -->
+  <section class="py-28 bg-background">
+    <div class="w-full px-6">
+
+      <!-- AUSGEWÄHLTE PROJEKTE – full-bleed sticky stack wie Landingpage -->
+      <div class="mb-24">
+        <div class="relative z-50 bg-background pb-6">
+          <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Ausgewählte Projekte</h2>
         </div>
-        <!-- Weitere Cards -->
+
+        <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+          <!-- 1. My Mind Studio -->
+          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10">
+            <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">My Mind Studio</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Meditations- und Yogastudio mit Café</p>
+            </div>
+          </div>
+
+          <!-- 2. NaturKompass -->
+          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0">
+            <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">NaturKompass</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Ihr digitaler Begleiter zur Identifikation von Flora &amp; Fauna</p>
+            </div>
+          </div>
+
+          <!-- 3. Festsaal im Klostergasthof -->
+          <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0">
+            <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">Festsaal im Klostergasthof</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Veranstaltungsgastronomie für Hochzeiten und Events</p>
+            </div>
+          </div>
+
+          <!-- 4. FlavorFusion -->
+          <div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0">
+            <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">FlavorFusion</h3>
+              <p class="text-sm md:text-base mt-3 opacity-90">Landing Page für eine mobile Rezepte App</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- WEITERE PROJEKTE – 2 Spalten (2×2) -->
+      <div>
+        <h2 class="text-4xl font-semibold tracking-tight mb-12 text-center">Weitere Projekte</h2>
+        
+        <!-- Filter -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+          <button onclick="filterCategory('all')" class="filter-btn active px-8 py-4 bg-primary text-white rounded-full font-medium">Alle</button>
+          <button onclick="filterCategory('innen')" class="filter-btn px-8 py-4 border border-border rounded-full font-medium hover:bg-accent">Innenarchitektur</button>
+          <button onclick="filterCategory('uxui')" class="filter-btn px-8 py-4 border border-border rounded-full font-medium hover:bg-accent">UX/UI Design</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+
+          <!-- 5. SCHLAF -->
+          <div class="projekt-card group" data-category="innen">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">SCHLAF</h3>
+                <p class="text-sm mt-2 opacity-90">Eine Erlebnisausstellung in die Tiefen des Schlafes</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. OmNomZen -->
+          <div class="projekt-card group" data-category="uxui">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">OmNomZen</h3>
+                <p class="text-sm mt-2 opacity-90">Stressabbau mit Bio-Ashwagandha-Gummibärchen</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. weserkoje -->
+          <div class="projekt-card group" data-category="innen">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">weserkoje</h3>
+                <p class="text-sm mt-2 opacity-90">Multifunktionale Herberge mit integriertem Tagungszentrum</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Planora -->
+          <div class="projekt-card group" data-category="uxui">
+            <div class="relative overflow-hidden rounded-3xl h-[500px]">
+              <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
+              <div class="absolute bottom-10 left-10 text-white">
+                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <h3 class="text-3xl font-semibold tracking-tighter">Planora</h3>
+                <p class="text-sm mt-2 opacity-90">Reiseplanung, die sich dir anpasst</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    function filterCategory(category: string) {
+      const cards = document.querySelectorAll<HTMLElement>('.projekt-card');
+      cards.forEach(card => {
+        card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'block' : 'none';
+      });
+
+      const filterButtons = document.querySelectorAll<HTMLElement>('.filter-btn');
+      filterButtons.forEach(btn => {
+        const onclickValue = btn.getAttribute('onclick') ?? '';
+        btn.classList.toggle('active', onclickValue.includes(`'${category}'`));
+      });
+    }
+  </script>
 </Layout>
