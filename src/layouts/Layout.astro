@@ -52,7 +52,7 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
         <nav class="flex items-center gap-x-10 text-lg font-medium">
           <a href={ssrLocale === 'en' ? '/en' : '/'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
           <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
-          <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+          <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
           <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
         </nav>
 
@@ -95,7 +95,7 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
         <div class="md:hidden space-y-8">
           <!-- Links -->
           <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
-            <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+            <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
             <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
             <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
           </div>
@@ -115,7 +115,7 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
           <div class="container mx-auto max-w-5xl px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm">
               <div class="flex flex-wrap gap-x-8 gap-y-2 text-muted-foreground">
-                <a href={ssrLocale === 'en' ? '/en/ueber-mich' : '/ueber-mich'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+                <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
                 <a href={ssrLocale === 'en' ? '/en/projekte' : '/projekte'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
                 <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
               </div>

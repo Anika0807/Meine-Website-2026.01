@@ -17,9 +17,7 @@ const navTranslations: Record<string, { path: string; label: string }[]> = {
   en: [
     { path: '/', label: 'Home' },
     { path: '/projekte', label: 'Projects' },
-    { path: '/about', label: 'About me' }, // legacy, not used
-    { path: '/about', label: 'About me' }, // legacy, not used
-    { path: '/en/about', label: 'About me' },
+    { path: '/about', label: 'About me' },
     { path: '/contact', label: 'Contact' },
   ],
 };
@@ -85,10 +83,12 @@ export default function Navigation() {
 
     if (targetLang === 'en') {
       if (normalized === '/kontakt') return '/en/contact';
+      if (normalized === '/ueber-mich') return '/en/about';
       return normalized === '/' ? '/en' : `/en${normalized}`;
     }
 
     if (normalized === '/contact') return '/kontakt';
+    if (normalized === '/about') return '/ueber-mich';
     return normalized;
   };
 
@@ -178,7 +178,7 @@ export default function Navigation() {
                 >
                   {path === '/' && getMessage('menu.home')}
                   {path === '/projekte' && getMessage('menu.projects')}
-                  {path === '/ueber-mich' && getMessage('menu.about')}
+                  {(path === '/ueber-mich' || path === '/about') && getMessage('menu.about')}
                   {(path === '/kontakt' || path === '/contact') && getMessage('menu.contact')}
                 </a>
               ))}
