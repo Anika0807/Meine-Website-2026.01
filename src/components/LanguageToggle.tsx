@@ -9,12 +9,14 @@ export default function LanguageToggle() {
     const normalized = path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path;
 
     if (targetLang === 'en') {
+      if (normalized.startsWith('/projekte/')) return `/en/projects/${normalized.replace('/projekte/', '')}`;
       if (normalized === '/kontakt') return '/en/contact';
       if (normalized === '/ueber-mich') return '/en/about';
       if (normalized === '/projekte') return '/en/projects';
       return normalized === '/' ? '/en' : `/en${normalized}`;
     }
 
+    if (normalized.startsWith('/projects/')) return `/projekte/${normalized.replace('/projects/', '')}`;
     if (normalized === '/contact') return '/kontakt';
     if (normalized === '/about') return '/ueber-mich';
     if (normalized === '/projects') return '/projekte';

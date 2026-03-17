@@ -4,50 +4,50 @@ import Layout from '@/layouts/Layout.astro';
 const projects = {
   'my-mind-studio': {
     title: 'My Mind Studio',
-    category: 'Innenarchitektur',
-    subtitle: 'Meditations- und Yogastudio mit Café',
+    category: 'Interior Architecture',
+    subtitle: 'Meditation & Yoga Studio with Café',
     image: '/images/my-mind-studio.jpg',
   },
   naturkompass: {
     title: 'NaturKompass',
     category: 'UX/UI Design',
-    subtitle: 'Ihr digitaler Begleiter zur Identifikation von Flora & Fauna',
+    subtitle: 'Your Digital Companion for Flora & Fauna Identification',
     image: '/images/naturkompass.jpg',
   },
   'festsaal-im-klostergasthof': {
     title: 'Festsaal im Klostergasthof',
-    category: 'Innenarchitektur',
-    subtitle: 'Veranstaltungsgastronomie für Hochzeiten und Events',
+    category: 'Interior Architecture',
+    subtitle: 'Event Gastronomy for Weddings & Celebrations',
     image: '/images/festsaal.jpg',
   },
   flavorfusion: {
     title: 'FlavorFusion',
     category: 'UX/UI Design',
-    subtitle: 'Landing Page für eine mobile Rezepte App',
+    subtitle: 'Landing Page for a Mobile Recipe App',
     image: '/images/flavorfusion.jpg',
   },
   schlaf: {
     title: 'SCHLAF',
-    category: 'Innenarchitektur',
-    subtitle: 'Eine Erlebnisausstellung in die Tiefen des Schlafes',
+    category: 'Interior Architecture',
+    subtitle: 'An Immersive Exhibition Exploring the Depths of Sleep',
     image: '/images/schlaf.jpg',
   },
   omnomzen: {
     title: 'OmNomZen',
     category: 'UX/UI Design',
-    subtitle: 'Stressabbau mit Bio-Ashwagandha-Gummibärchen',
+    subtitle: 'Stress Relief with Organic Ashwagandha Gummies',
     image: '/images/omnomzen.jpg',
   },
   weserkoje: {
     title: 'weserkoje',
-    category: 'Innenarchitektur',
-    subtitle: 'Multifunktionale Herberge mit integriertem Tagungszentrum',
+    category: 'Interior Architecture',
+    subtitle: 'Multifunctional Hostel with Integrated Conference Center',
     image: '/images/weserkoje.jpg',
   },
   planora: {
     title: 'Planora',
     category: 'UX/UI Design',
-    subtitle: 'Reiseplanung, die sich dir anpasst',
+    subtitle: 'Travel Planning That Adapts to You',
     image: '/images/planora.jpg',
   },
 } as const;
@@ -69,11 +69,11 @@ const { slug } = Astro.params;
 const project = projects[slug as keyof typeof projects];
 
 if (!project) {
-  return Astro.redirect('/projekte');
+  return Astro.redirect('/en/projects');
 }
 ---
 
-<Layout title={`${project.title} | Projekte`}>
+<Layout title={`${project.title} | Projects`}>
   <section class="relative h-[70svh] min-h-[520px] w-full overflow-hidden">
     <img src={project.image} alt={project.title} class="absolute inset-0 h-full w-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
@@ -89,13 +89,13 @@ if (!project) {
 
   <section class="bg-background py-20">
     <div class="mx-auto max-w-3xl px-6 text-center">
-      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">Projektübersicht</h2>
+      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">Project Overview</h2>
       <p class="mt-6 text-base text-muted-foreground md:text-lg">
-        Diese Unterseite ist die Detailansicht für {project.title}. Inhalte wie Prozess, Ziele und Ergebnisse
-        können hier jederzeit ergänzt werden.
+        This subpage is the detail view for {project.title}. Content such as process, goals, and outcomes
+        can be expanded here at any time.
       </p>
-      <a href="/projekte" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
-        Zurück zu den Projekten
+      <a href="/en/projects" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
+        Back to Projects
       </a>
     </div>
   </section>

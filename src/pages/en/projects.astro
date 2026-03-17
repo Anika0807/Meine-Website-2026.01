@@ -14,7 +14,7 @@ import Layout from '@/layouts/Layout.astro';
 
         <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
           <!-- 1. My Mind Studio -->
-          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none cursor-pointer" onclick="window.location='/en/projects/my-mind-studio'">
             <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -25,7 +25,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 2. NaturKompass -->
-          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer" onclick="window.location='/en/projects/naturkompass'">
             <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -36,7 +36,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 3. Festsaal im Klostergasthof -->
-          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer" onclick="window.location='/en/projects/festsaal-im-klostergasthof'">
             <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -47,7 +47,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 4. FlavorFusion -->
-          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none">
+          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none cursor-pointer" onclick="window.location='/en/projects/flavorfusion'">
             <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
@@ -69,7 +69,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="projects-grid">
 
           <!-- 5. SCHLAF -->
-          <div class="projekt-card group md:cursor-none">
+          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/en/projects/schlaf'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -82,7 +82,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 6. OmNomZen -->
-          <div class="projekt-card group md:cursor-none">
+          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/en/projects/omnomzen'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -95,7 +95,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 7. weserkoje -->
-          <div class="projekt-card group md:cursor-none">
+          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/en/projects/weserkoje'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -108,7 +108,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 8. Planora -->
-          <div class="projekt-card group md:cursor-none">
+          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/en/projects/planora'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -146,6 +146,8 @@ import Layout from '@/layouts/Layout.astro';
             hideCursor();
             return;
           }
+
+          if (!(e instanceof MouseEvent)) return;
 
           cursor.style.left = `${e.clientX - 80}px`;
           cursor.style.top = `${e.clientY - 80}px`;
