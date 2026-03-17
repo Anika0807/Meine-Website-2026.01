@@ -1,58 +1,205 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Heading1 } from '@/components/design-system/headings';
 ---
 
 <Layout title="Contact">
-  <div class="container mx-auto max-w-6xl px-6 py-16 md:py-28">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="space-y-8 text-center lg:text-left">
-        <Heading1 className="text-4xl md:text-5xl">Let's start a project together!</Heading1>
+  <section class="max-w-7xl mx-auto px-6 py-8 md:py-12">
+    <div class="w-full grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="space-y-6 flex flex-col justify-center">
+        <div class="space-y-4">
+          <h1 class="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight tracking-tight text-foreground">
+            Let's<br />create<br />together!
+          </h1>
+          <p class="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+            Tell me about your project, whether it is interior architecture, UX/UI, or a blend of both. I am excited to connect and build something meaningful with you.
+          </p>
+        </div>
 
-        <p class="text-body-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-          I look forward to working with you. Tell me about your project - whether interior architecture or UX/UI design.
-        </p>
-
-        <div class="flex flex-col items-center lg:items-start gap-6">
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full max-w-[340px] md:max-w-none">
           <img
-            src="/images/anika-foto.jpg"
-            alt="Anika Warncke"
-            class="w-28 h-28 md:w-32 md:h-32 rounded-card object-cover shadow-md"
+            src="/images/anika-moodboard.webp"
+            alt="Anika at work or portrait"
+            class="w-full h-full object-cover"
+            loading="lazy"
           />
-          <div>
-            <p class="font-semibold text-lg">Anika Warncke</p>
-            <p class="text-sm text-muted-foreground">Luneburg - Remote/Hybrid possible</p>
-            <a href="https://linkedin.com/in/anika-warncke" target="_blank" class="text-primary hover:underline text-sm">LinkedIn</a>
-          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-5 sm:gap-6 text-sm justify-center md:justify-start">
+          <a href="mailto:hello@anika-warncke.de" class="font-medium text-foreground/90 transition hover:text-primary hover:underline underline-offset-4">
+            hello@anika-warncke.de
+          </a>
+          <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noreferrer" class="text-foreground/80 transition hover:text-primary hover:underline underline-offset-4">
+            LinkedIn
+          </a>
         </div>
       </div>
 
-      <div class="bg-card rounded-card p-8 md:p-12 shadow-sm">
-        <form class="space-y-8">
-          <div>
-            <label class="block text-sm font-medium mb-3">Your Name *</label>
-            <input type="text" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="Your Name" required />
+      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
+        <form id="contact-form" action="DEIN_FORM_BACKEND_URL" method="POST" class="space-y-5" novalidate>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <input type="text" name="name" id="name" required placeholder=" " data-error-id="name-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Your Name *</label>
+            </div>
+            <p id="name-error" class="hidden text-red-600 text-xs">Please enter your name.</p>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium mb-3">Your Email Address *</label>
-            <input type="email" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary" placeholder="your@email.com" required />
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <input type="email" name="email" id="email" required placeholder=" " data-error-id="email-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Your Email *</label>
+            </div>
+            <p id="email-error" class="hidden text-red-600 text-xs">Please enter a valid email address.</p>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium mb-3">Your Message / Project *</label>
-            <textarea rows="7" class="w-full p-4 md:p-5 rounded-2xl border border-border focus:border-primary resize-y" placeholder="Describe your project..."></textarea>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <select name="projektart" id="projektart" required data-error-id="project-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+                <option value="" disabled selected hidden></option>
+                <option value="interior-architecture">Interior Architecture</option>
+                <option value="ux-ui">UX/UI Design</option>
+                <option value="hybrid">Hybrid / Both</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="projektart" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-valid:top-2 peer-valid:translate-y-0 peer-valid:text-xs peer-valid:text-primary peer-valid:font-medium">Project type *</label>
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">▼</span>
+            </div>
+            <p id="project-error" class="hidden text-red-600 text-xs">Please select a project type.</p>
           </div>
 
-          <button type="submit" class="w-full bg-primary text-primary-foreground py-5 rounded-btn font-medium text-lg hover:bg-accent transition-colors">
-            Send Message
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <textarea name="message" id="message" rows="5" required placeholder=" " data-error-id="message-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
+              <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Your Message / Project *</label>
+            </div>
+            <p id="message-error" class="hidden text-red-600 text-xs">Please share a short message about your project.</p>
+          </div>
+
+          <button id="submit-btn" type="submit" class="w-full py-4 bg-primary text-primary-foreground font-medium rounded-btn text-base sm:text-lg hover:brightness-95 transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+            Send Your Message
           </button>
 
+          <p id="status-msg" class="text-center text-sm mt-2 min-h-[1.5rem]" aria-live="polite"></p>
+
           <p class="text-xs text-muted-foreground text-center">
-            Your data will be treated confidentially and not passed on to third parties.
+            Your data is safe and will be treated confidentially.
           </p>
         </form>
       </div>
     </div>
-  </div>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusMsg = document.getElementById('status-msg');
+
+    const setFieldError = (field, message) => {
+      const errorId = field?.dataset?.errorId;
+      const errorNode = errorId ? document.getElementById(errorId) : null;
+      field.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
+      field.classList.remove('border-border', 'focus:border-primary', 'focus:ring-primary/20');
+      if (errorNode) {
+        errorNode.textContent = message;
+        errorNode.classList.remove('hidden');
+      }
+    };
+
+    const clearFieldError = (field) => {
+      const errorId = field?.dataset?.errorId;
+      const errorNode = errorId ? document.getElementById(errorId) : null;
+      field.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
+      field.classList.add('border-border', 'focus:border-primary', 'focus:ring-primary/20');
+      if (errorNode) errorNode.classList.add('hidden');
+    };
+
+    const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    const validateField = (field) => {
+      const value = (field.value || '').trim();
+
+      if (field.id === 'name' && !value) {
+        setFieldError(field, 'Please enter your name.');
+        return false;
+      }
+
+      if (field.id === 'email' && (!value || !isValidEmail(value))) {
+        setFieldError(field, 'Please enter a valid email address.');
+        return false;
+      }
+
+      if (field.id === 'projektart' && !field.value) {
+        setFieldError(field, 'Please select a project type.');
+        return false;
+      }
+
+      if (field.id === 'message' && !value) {
+        setFieldError(field, 'Please share a short message about your project.');
+        return false;
+      }
+
+      clearFieldError(field);
+      return true;
+    };
+
+    const fields = [
+      document.getElementById('name'),
+      document.getElementById('email'),
+      document.getElementById('projektart'),
+      document.getElementById('message'),
+    ];
+
+    fields.forEach((field) => {
+      const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
+      field.addEventListener(eventName, () => {
+        validateField(field);
+      });
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusMsg.textContent = '';
+      statusMsg.className = 'text-center text-sm mt-2 min-h-[1.5rem]';
+
+      const valid = fields.map(validateField).every(Boolean);
+      if (!valid) {
+        statusMsg.textContent = 'Please complete all required fields correctly.';
+        statusMsg.classList.add('text-red-600');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const action = form.getAttribute('action') || '';
+        const shouldSimulate = !action || action.includes('DEIN_FORM_BACKEND_URL');
+
+        if (shouldSimulate) {
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+        } else {
+          const response = await fetch(action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (!response.ok) {
+            throw new Error('Request failed');
+          }
+        }
+
+        form.reset();
+        fields.forEach(clearFieldError);
+        statusMsg.textContent = 'Thank you! I will get back to you as soon as possible.';
+        statusMsg.classList.add('text-green-600', 'font-medium');
+      } catch (error) {
+        statusMsg.textContent = 'Something went wrong. Please check your connection and try again.';
+        statusMsg.classList.add('text-red-600');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Your Message';
+      }
+    });
+  </script>
 </Layout>

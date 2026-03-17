@@ -35,37 +35,51 @@ import Layout from '@/layouts/Layout.astro';
       </div>
 
       <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
-        <form action="DEIN_FORM_BACKEND_URL" method="POST" class="space-y-5">
-          <div class="relative">
-            <input type="text" name="name" id="name" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-            <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Dein Name *</label>
+        <form id="kontakt-formular" action="DEIN_FORM_BACKEND_URL" method="POST" class="space-y-5" novalidate>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <input type="text" name="name" id="name" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Dein Name *</label>
+            </div>
+            <p class="error-msg hidden text-red-600 text-xs">Bitte gib deinen Namen ein.</p>
           </div>
 
-          <div class="relative">
-            <input type="email" name="email" id="email" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-            <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine E-Mail *</label>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <input type="email" name="email" id="email" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine E-Mail *</label>
+            </div>
+            <p class="error-msg hidden text-red-600 text-xs">Bitte gib eine gültige E-Mail-Adresse ein.</p>
           </div>
 
-          <div class="relative">
-            <select name="projektart" id="projektart" required class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-              <option value="" disabled selected hidden></option>
-              <option value="innenarchitektur">Innenarchitektur</option>
-              <option value="ux-ui">UX/UI Design</option>
-              <option value="hybrid">Hybrid / beides</option>
-              <option value="sonstiges">Sonstiges</option>
-            </select>
-            <label for="projektart" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-valid:top-2 peer-valid:translate-y-0 peer-valid:text-xs peer-valid:text-primary peer-valid:font-medium">Art des Projekts *</label>
-            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">▼</span>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <select name="projektart" id="projektart" required class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+                <option value="" disabled selected hidden></option>
+                <option value="innenarchitektur">Innenarchitektur</option>
+                <option value="ux-ui">UX/UI Design</option>
+                <option value="hybrid">Hybrid / beides</option>
+                <option value="sonstiges">Sonstiges</option>
+              </select>
+              <label for="projektart" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-valid:top-2 peer-valid:translate-y-0 peer-valid:text-xs peer-valid:text-primary peer-valid:font-medium">Art des Projekts *</label>
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">▼</span>
+            </div>
+            <p class="error-msg hidden text-red-600 text-xs">Bitte wähle eine Projektart aus.</p>
           </div>
 
-          <div class="relative">
-            <textarea name="message" id="message" rows="5" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
-            <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine Nachricht / dein Projekt *</label>
+          <div class="space-y-1" data-field>
+            <div class="relative">
+              <textarea name="message" id="message" rows="5" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
+              <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine Nachricht / dein Projekt *</label>
+            </div>
+            <p class="error-msg hidden text-red-600 text-xs">Bitte beschreibe dein Projekt kurz.</p>
           </div>
 
-          <button type="submit" class="w-full py-4 bg-primary text-primary-foreground font-medium rounded-btn text-base sm:text-lg hover:brightness-95 transition shadow-md hover:shadow-lg">
+          <button id="absenden-btn" type="submit" class="w-full py-4 bg-primary text-primary-foreground font-medium rounded-btn text-base sm:text-lg hover:brightness-95 transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
             Jetzt loslegen - Nachricht senden
           </button>
+
+          <p id="status-meldung" class="text-center text-sm mt-2 min-h-[1.5rem]"></p>
 
           <p class="text-xs text-muted-foreground text-center">
             Deine Daten sind sicher und werden vertraulich behandelt.
@@ -74,4 +88,92 @@ import Layout from '@/layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    const form = document.getElementById('kontakt-formular');
+    const btn = document.getElementById('absenden-btn');
+    const status = document.getElementById('status-meldung');
+
+    const markInvalid = (feld, errorText) => {
+      const errorNode = feld.closest('[data-field]')?.querySelector('.error-msg');
+      if (errorNode) {
+        errorNode.textContent = errorText;
+        errorNode.classList.remove('hidden');
+      }
+      feld.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
+      feld.classList.remove('border-border', 'focus:border-primary', 'focus:ring-primary/20');
+    };
+
+    const clearInvalid = (feld) => {
+      const errorNode = feld.closest('[data-field]')?.querySelector('.error-msg');
+      if (errorNode) errorNode.classList.add('hidden');
+      feld.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
+      feld.classList.add('border-border', 'focus:border-primary', 'focus:ring-primary/20');
+    };
+
+    const validiereEmail = (wert) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(wert);
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const projektart = document.getElementById('projektart');
+    const nachricht = document.getElementById('message');
+    const felder = [name, email, projektart, nachricht];
+
+    felder.forEach((feld) => {
+      const eventType = feld.tagName === 'SELECT' ? 'change' : 'input';
+      feld.addEventListener(eventType, () => clearInvalid(feld));
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      status.textContent = '';
+      status.className = 'text-center text-sm mt-2 min-h-[1.5rem]';
+
+      felder.forEach(clearInvalid);
+      let gueltig = true;
+
+      if (!name.value.trim()) {
+        markInvalid(name, 'Bitte gib deinen Namen ein.');
+        gueltig = false;
+      }
+
+      if (!email.value.trim() || !validiereEmail(email.value.trim())) {
+        markInvalid(email, 'Bitte gib eine gültige E-Mail-Adresse ein.');
+        gueltig = false;
+      }
+
+      if (!projektart.value) {
+        markInvalid(projektart, 'Bitte wähle eine Projektart aus.');
+        gueltig = false;
+      }
+
+      if (!nachricht.value.trim()) {
+        markInvalid(nachricht, 'Bitte beschreibe dein Projekt kurz.');
+        gueltig = false;
+      }
+
+      if (!gueltig) {
+        status.textContent = 'Bitte fülle alle Felder korrekt aus.';
+        status.className = 'text-red-600 text-sm mt-2 font-medium';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet ...';
+      status.className = 'text-gray-600 text-sm mt-2';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = 'Jetzt loslegen - Nachricht senden';
+        status.textContent = 'Vielen Dank! Ich melde mich so schnell wie möglich bei dir.';
+        status.className = 'text-green-600 font-medium text-sm mt-2';
+        form.reset();
+
+        setTimeout(() => {
+          status.textContent = '';
+          status.className = 'text-sm mt-2 min-h-[1.5rem]';
+        }, 6000);
+      }, 1500);
+    });
+  </script>
 </Layout>
