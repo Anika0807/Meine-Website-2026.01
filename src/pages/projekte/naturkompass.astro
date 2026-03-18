@@ -4,178 +4,170 @@ import Layout from '@/layouts/Layout.astro';
 
 <Layout title="NaturKompass – Anika Warncke">
   <!-- 1. HERO -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden" data-reveal-group>
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
     <img src="/images/projekte/naturkompass-hero.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
-    <div class="relative z-10 text-center text-white px-6 max-w-4xl">
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE APP</p>
-      <h1 class="reveal-item text-6xl md:text-7xl font-semibold tracking-tighter leading-none">NaturKompass</h1>
-      <p class="reveal-item mt-6 text-xl md:text-2xl max-w-lg mx-auto opacity-90">Dein digitaler Begleiter zur Identifikation von Flora & Fauna</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">NaturKompass</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Dein digitaler Begleiter zur Identifikation von Flora & Fauna</p>
     </div>
   </section>
 
   <!-- Content Rail – alle weiteren Sections -->
-  <div class="max-w-6xl mx-auto px-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-    <!-- 2. PROJECT OVERVIEW -->
-    <section class="py-24" data-reveal-group>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-16 gap-y-20">
+    <!-- === METADATA – Überschriften größer & fetter (nur NaturKompass) === -->
+    <section class="pt-12 pb-20 md:pb-28 bg-white" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-0 md:px-12">
         
-        <!-- 1. Rolle & Team -->
-        <div class="reveal-item">
-          <p class="text-xs tracking-[4px] uppercase text-gray-500 font-medium mb-4">ROLLE & TEAM</p>
-          <p class="text-lg font-medium leading-tight">UX/UI-Designer im 2-Personen-Team<br>mit Michael Jakob</p>
+        <!-- Metadata Zeile – Mobile: vertikal gestapelt -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-8 mb-16 text-sm">
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Rolle & Team</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">UX/UI-Designer</span> im 2-Personen-Team<br>mit Michael Jakob
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Aufgabe</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">End-to-End</span> Designprozess:<br>Research, UI-Design, Prototyping & Testing
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Zeitraum & Rahmen</p>
+            <p class="text-foreground">
+              Juni – Juli 2025<br>
+              <span class="text-emerald-700 font-medium">4-wöchiger Design-Sprint</span> im UX/UI-Bootcamp bei neuefische
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Tools</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">Figma</span>, FigJam, Notion,<br>ChatGPT, Gemini, DaVinci Resolve
+            </p>
+          </div>
         </div>
 
-        <!-- 2. Aufgabe -->
-        <div class="reveal-item">
-          <p class="text-xs tracking-[4px] uppercase text-gray-500 font-medium mb-4">AUFGABE</p>
-          <p class="text-lg font-medium leading-tight">End-to-End Designprozess:<br>Research, UI-Design, Prototyping & Testing</p>
-        </div>
-
-        <!-- 3. Zeitraum & Rahmen -->
-        <div class="reveal-item">
-          <p class="text-xs tracking-[4px] uppercase text-gray-500 font-medium mb-4">ZEITRAUM & RAHMEN</p>
-          <p class="text-lg font-medium leading-tight">Juni – Juli 2025<br>4-wöchiger Design-Sprint im UX/UI-Bootcamp bei neuefische</p>
-        </div>
-
-        <!-- 4. Tools -->
-        <div class="reveal-item">
-          <p class="text-xs tracking-[4px] uppercase text-gray-500 font-medium mb-4">TOOLS</p>
-          <p class="text-lg font-medium leading-tight">Figma, FigJam, Notion, ChatGPT, Gemini, DaVinci Resolve</p>
-        </div>
       </div>
     </section>
 
-    <!-- === THE CHALLENGE === -->
-    <section class="py-28 bg-white -mx-6 px-6" id="challenge" data-reveal-group>
-      <div class="w-full">
-        <h2 class="text-5xl font-semibold tracking-tighter mb-16 text-center reveal-item">The Challenge</h2>
+    <!-- The Challenge – optimiert -->
+    <section class="py-16 md:py-28 bg-white" data-reveal-group>
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter mb-8 md:mb-14">The Challenge</h2>
 
-        <!-- Haupt-Text – erscheint zuerst -->
-        <div class="reveal-item text-xl leading-relaxed text-foreground/90 mb-14" style="transition-delay: 80ms">
-          Naturbegeisterte stehen vor einer frustrierenden Wahl: Entweder nutzen sie überladene, unzuverlässige oder nur online funktionierende Spezial-Apps – oder sie verzichten komplett auf wertvolle Informationen. Es fehlt ein intuitives, offline-fähiges Tool, das hilft, Flora und Fauna zu erkennen, ohne das echte Naturerlebnis zu stören.
-        </div>
-
-        <!-- Projektziele – nacheinander einblenden -->
-        <div class="grid md:grid-cols-2 gap-x-16 gap-y-10 text-lg">
-          <div class="flex gap-4 reveal-item" style="transition-delay: 220ms">
-            <span class="text-emerald-700 font-medium mt-1">→</span>
-            <p>Ein intuitives, visuell unterstütztes Tool entwickeln</p>
-          </div>
-          <div class="flex gap-4 reveal-item" style="transition-delay: 340ms">
-            <span class="text-emerald-700 font-medium mt-1">→</span>
-            <p>Die Zeit zur zuverlässigen Bestimmung von Flora & Fauna reduzieren</p>
-          </div>
-          <div class="flex gap-4 reveal-item" style="transition-delay: 460ms">
-            <span class="text-emerald-700 font-medium mt-1">→</span>
-            <p>Die Sicherheit bei essbaren vs. giftigen Pilzen erhöhen</p>
-          </div>
-          <div class="flex gap-4 reveal-item" style="transition-delay: 580ms">
-            <span class="text-emerald-700 font-medium mt-1">→</span>
-            <p>Hohe Nutzerbindung durch eine Tagebuch-Funktion schaffen</p>
-          </div>
-        </div>
+        <p class="reveal-item text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+          Naturbegeisterte stehen vor einer frustrierenden Wahl: Entweder nutzen sie überladene Apps –
+          oder sie verzichten komplett auf wertvolle Informationen. Es fehlt ein
+          <span class="text-emerald-700 font-medium">intuitives, offline-fähiges Tool</span>,
+          das hilft, Flora und Fauna zu erkennen, ohne das echte Naturerlebnis zu stören.
+        </p>
       </div>
     </section>
 
-    <!-- === RESEARCH HIGHLIGHTS === -->
-    <section class="py-36 bg-white -mx-6 px-6" id="research" data-reveal-group>
-      <div class="w-full">
-        <h2 class="text-5xl font-semibold tracking-tighter mb-28 text-center reveal-item">Research Highlights</h2>
+    <!-- === RESEARCH HIGHLIGHTS – final optimiert === -->
+    <section id="research" class="py-20 md:py-32 bg-gray-50" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
 
-        <!-- 3 Key Insights – staggered reveal -->
-        <div class="grid md:grid-cols-3 gap-20 mb-32">
-          <div class="text-center reveal-item" style="transition-delay: 80ms">
-            <div class="mx-auto mb-8 h-24 w-24 rounded-full border-2 border-emerald-700/80 flex items-center justify-center text-5xl font-semibold text-emerald-700">1</div>
-            <p class="font-medium text-2xl tracking-tight">Wunsch nach Wissen</p>
-            <p class="text-muted-foreground mt-6 text-lg">Natur nicht nur erleben, sondern auch verstehen.</p>
+        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">
+          Research Highlights
+        </h2>
+
+        <!-- Drei Insights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">1</div>
+            <p class="text-xl font-medium">Wunsch nach Wissen</p>
+            <p class="text-muted-foreground mt-3">Natur nicht nur erleben, sondern auch <span class="text-emerald-700 font-medium">verstehen</span>.</p>
           </div>
-          <div class="text-center reveal-item" style="transition-delay: 220ms">
-            <div class="mx-auto mb-8 h-24 w-24 rounded-full border-2 border-emerald-700/80 flex items-center justify-center text-5xl font-semibold text-emerald-700">2</div>
-            <p class="font-medium text-2xl tracking-tight">Weniger ist mehr</p>
-            <p class="text-muted-foreground mt-6 text-lg">Informationen auf Bedarf, aber unaufdringlich.</p>
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">2</div>
+            <p class="text-xl font-medium">Weniger ist mehr</p>
+            <p class="text-muted-foreground mt-3">Informationen auf Bedarf, aber <span class="text-emerald-700 font-medium">unaufdringlich</span>.</p>
           </div>
-          <div class="text-center reveal-item" style="transition-delay: 360ms">
-            <div class="mx-auto mb-8 h-24 w-24 rounded-full border-2 border-emerald-700/80 flex items-center justify-center text-5xl font-semibold text-emerald-700">3</div>
-            <p class="font-medium text-2xl tracking-tight">Gamification-Balance</p>
-            <p class="text-muted-foreground mt-6 text-lg">Nicht für jeden.</p>
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">3</div>
+            <p class="text-xl font-medium">Gamification-Balance</p>
+            <p class="text-muted-foreground mt-3">Nicht für jeden.</p>
           </div>
         </div>
 
-        <!-- Quantitative Insights – staggered + Count-up -->
-        <div class="grid md:grid-cols-4 gap-16 mb-28 text-center">
-          <div class="reveal-item" style="transition-delay: 180ms">
-            <span id="count-60" class="text-7xl font-semibold text-emerald-700">0</span><span class="text-4xl font-semibold text-emerald-700">%</span>
-            <p class="mt-5 text-sm uppercase tracking-widest text-muted-foreground">täglich in der Natur</p>
-          </div>
-          <div class="reveal-item" style="transition-delay: 320ms">
-            <span id="count-88" class="text-7xl font-semibold text-emerald-700">0</span><span class="text-4xl font-semibold text-emerald-700">%</span>
-            <p class="mt-5 text-sm uppercase tracking-widest text-muted-foreground">zur Entspannung</p>
-          </div>
-          <div class="reveal-item" style="transition-delay: 460ms">
-            <span id="count-56" class="text-7xl font-semibold text-emerald-700">0</span><span class="text-4xl font-semibold text-emerald-700">%</span>
-            <p class="mt-5 text-sm uppercase tracking-widest text-muted-foreground">wollen aktiv entdecken</p>
-          </div>
-          <div class="reveal-item" style="transition-delay: 600ms">
-            <span id="count-42" class="text-7xl font-semibold text-emerald-700">0</span><span class="text-4xl font-semibold text-emerald-700">%</span>
-            <p class="mt-5 text-sm uppercase tracking-widest text-muted-foreground">Pollenflug-Interesse</p>
-          </div>
+        <!-- Prozente -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-60">0</span>%</div><p class="text-xs sm:text-sm mt-2">TÄGLICH IN DER NATUR</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-88">0</span>%</div><p class="text-xs sm:text-sm mt-2">ZUR ENTSPANNUNG</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-56">0</span>%</div><p class="text-xs sm:text-sm mt-2">WOLLEN AKTIV ENTDECKEN</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-42">0</span>%</div><p class="text-xs sm:text-sm mt-2">POLLENFLUG-INTERESSE</p></div>
         </div>
 
-        <!-- Zitate + How might we…? – letzter Reveal -->
-        <div class="w-full text-center reveal-item" style="transition-delay: 720ms">
-          <div class="grid md:grid-cols-2 gap-16 mb-20">
-            <p class="italic text-2xl leading-tight">"Kleine Infotafeln, aber bitte nicht alles vollplastern."</p>
-            <p class="italic text-2xl leading-tight">"Ich will wissen, was es genau ist – nicht 33 Vorschläge."</p>
+        <!-- Quotes + How might we -->
+        <div class="reveal-item max-w-3xl mx-auto text-center">
+          <div class="italic text-foreground text-xl md:text-2xl font-semibold mb-12">
+            „Kleine Infotafeln, aber bitte nicht alles vollplastern.“<br>
+            „Ich will wissen, was es genau ist – nicht 33 Vorschläge.“
           </div>
-          <p class="text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-tight w-full">
-            Wie können wir Menschen die Natur neugierig und aufmerksam erleben lassen – 
-            mit einem ruhigen, offline-fähigen digitalen Begleiter?
+
+          <p class="text-2xl md:text-4xl font-semibold tracking-tight leading-tight text-foreground">
+            Wie können wir Menschen die Natur neugierig und aufmerksam erleben lassen -
+            mit einem <span class="text-emerald-700">ruhigen, offline-fähigen digitalen Begleiter</span>?
           </p>
         </div>
       </div>
     </section>
 
-    <!-- === PROCESS === -->
-    <section class="py-32 bg-white" id="process">
+    <!-- === PROCESS – komplett mit UI-Foundation + Moodboard === -->
+    <section id="process" class="py-24 md:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 class="text-5xl font-semibold tracking-tighter mb-20 text-center reveal">Process</h2>
 
-        <!-- User Flow – kompakter & rail-konsistent -->
-        <div class="reveal mb-20" style="transition-delay: 80ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">User Flow</h3>
-          <img src="/images/projekte/naturkompass-user-flow.png" alt="User Flow" class="w-full rounded-3xl shadow-2xl">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16 reveal">
+          Process
+        </h2>
+
+        <!-- User Flow -->
+        <div class="mb-20 reveal" style="transition-delay: 80ms">
+          <img src="/images/projekte/naturkompass-user-flow.png"
+               alt="User Flow"
+               class="w-full rounded-3xl shadow-2xl">
         </div>
 
-        <!-- Designprinzipien – 3 kompakte Karten -->
-        <div class="grid md:grid-cols-3 gap-12 mb-20">
-          <div class="reveal bg-white rounded-3xl p-10 shadow-sm" style="transition-delay: 220ms">
-            <div class="h-12 w-12 rounded-full bg-emerald-700 text-white flex items-center justify-center text-3xl font-semibold mb-6">1</div>
-            <h4 class="font-medium text-xl">Zurückhaltende Begleitung</h4>
-            <p class="text-sm text-muted-foreground mt-4">Frosted Glass + minimale Elemente halten den Fokus auf dem Naturerlebnis.</p>
+        <!-- Designprinzipien -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20" style="transition-delay: 160ms">
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
+            <h3 class="text-2xl font-medium mb-4">Zurückhaltende Begleitung</h3>
+            <p class="text-muted-foreground">
+              Frosted Glass + minimale Elemente halten den Fokus auf dem <span class="text-emerald-700 font-medium">Naturerlebnis</span>.
+            </p>
           </div>
-          <div class="reveal bg-white rounded-3xl p-10 shadow-sm" style="transition-delay: 340ms">
-            <div class="h-12 w-12 rounded-full bg-emerald-700 text-white flex items-center justify-center text-3xl font-semibold mb-6">2</div>
-            <h4 class="font-medium text-xl">Zugängliche Gestaltung</h4>
-            <p class="text-sm text-muted-foreground mt-4">Klare Navigation und hohe Lesbarkeit für einfache Nutzung.</p>
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
+            <h3 class="text-2xl font-medium mb-4">Zugängliche Gestaltung</h3>
+            <p class="text-muted-foreground">
+              Klare Navigation und hohe Lesbarkeit für <span class="text-emerald-700 font-medium">einfache Nutzung</span>.
+            </p>
           </div>
-          <div class="reveal bg-white rounded-3xl p-10 shadow-sm" style="transition-delay: 460ms">
-            <div class="h-12 w-12 rounded-full bg-emerald-700 text-white flex items-center justify-center text-3xl font-semibold mb-6">3</div>
-            <h4 class="font-medium text-xl">Inspirierende Wissensvermittlung</h4>
-            <p class="text-sm text-muted-foreground mt-4">Wissen wird präzise und neugierig in kleinen Häppchen vermittelt.</p>
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
+            <h3 class="text-2xl font-medium mb-4">Inspirierende Wissensvermittlung</h3>
+            <p class="text-muted-foreground">
+              Wissen wird präzise und neugierig in kleinen Häppchen <span class="text-emerald-700 font-medium">vermittelt</span>.
+            </p>
           </div>
         </div>
 
-        <!-- UI-Foundation + Moodboard nebeneinander -->
-        <div class="grid md:grid-cols-2 gap-12">
-          <div class="reveal" style="transition-delay: 580ms">
-            <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h3>
-            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-2xl">
+        <!-- UI-Foundation + Moodboard -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" style="transition-delay: 240ms">
+          <div class="reveal">
+            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
+            <!-- Hier deine UI-Foundation Bilder / Grid einfügen -->
+            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-xl">
           </div>
-          <div class="reveal" style="transition-delay: 700ms">
-            <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h3>
-            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-2xl">
+          <div class="reveal">
+            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h4>
+            <!-- Hier dein Moodboard Bild -->
+            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-xl">
           </div>
         </div>
       </div>
@@ -188,56 +180,42 @@ import Layout from '@/layouts/Layout.astro';
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
-          el.style.transition = 'all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)';
-        });
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
 
-        const processEl = document.getElementById('process');
-        if (!processEl) return;
-
-        const observer = new IntersectionObserver((entries) => {
-          if (entries[0].isIntersecting) {
-            reveals.forEach((el, i) => {
-              setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-              }, i * 110);
-            });
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
             observer.disconnect();
-          }
-        }, { threshold: 0.3 });
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
 
-        observer.observe(processEl);
+          observer.observe(el);
+        });
       }
 
-      const processObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          initProcessReveal();
-          processObserver.disconnect();
-        }
-      }, { threshold: 0.3 });
-
-      const processSectionEl = document.getElementById('process');
-      if (processSectionEl) {
-        processObserver.observe(processSectionEl);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProcessReveal, { once: true });
+      } else {
+        initProcessReveal();
       }
     </script>
 
-    <!-- === FINAL DESIGN === -->
-    <section class="py-32 bg-white" id="final-design">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">  <!-- ← exakt gleiches Rail wie Challenge, Research & Process -->
+    <section id="final-design" class="py-24 md:py-32 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="reveal text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">Final Design</h2>
 
-        <h2 class="text-5xl font-semibold tracking-tighter mb-20 text-center reveal">Final Design</h2>
-
-        <!-- Onboarding – Before / After (volles Rail) -->
+        <!-- Onboarding Before / After -->
         <div class="reveal mb-20" style="transition-delay: 80ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">Onboarding – Before / After</h3>
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">ONBOARDING VORHER / NACHHER</h3>
           <img src="/images/projekte/naturkompass-onboarding-before-after.png" alt="Onboarding Before / After" class="w-full rounded-3xl shadow-2xl">
         </div>
 
-        <!-- Haupt- & Nebenfunktionen – 2x4 Grid (perfekt rail-aligned) -->
+        <!-- Haupt- & Nebenfunktionen -->
         <div class="reveal mb-20" style="transition-delay: 220ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">Haupt- & Nebenfunktionen</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">HAUPT- & NEBENFUNKTIONEN</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <img src="/images/projekte/Hauptfunktion 01.png" alt="Camera Forest" class="w-full rounded-3xl shadow-xl">
             <img src="/images/projekte/Hauptfunktion 02.png" alt="Camera Flowers" class="w-full rounded-3xl shadow-xl">
             <img src="/images/projekte/Hauptfunktion 03.png" alt="Gefülltes Mutterkraut" class="w-full rounded-3xl shadow-xl">
@@ -249,26 +227,20 @@ import Layout from '@/layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Live Preview – YouTube-Video (rail-aligned) -->
-        <div class="reveal text-center" style="transition-delay: 460ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8">Live Preview</h3>
-          <div class="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black">
-            <iframe 
-              width="100%" 
-              height="460" 
-              src="https://www.youtube.com/embed/_Weccn01Gi8" 
-              title="NaturKompass Live Preview" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
+        <!-- Live Preview -->
+        <div class="reveal text-center" style="transition-delay: 360ms">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8">LIVE PREVIEW</h3>
+          <div class="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black aspect-video">
+            <iframe class="w-full h-full"
+                    src="https://www.youtube.com/embed/_Weccn01Gi8"
+                    title="NaturKompass Live Preview"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
           </div>
-        </div>
-
-        <!-- Kurzer Abschluss-Satz -->
-        <div class="max-w-2xl mx-auto text-center reveal mt-16" style="transition-delay: 580ms">
-          <p class="text-xl font-light tracking-tight text-foreground">
-            Das Ergebnis ist eine ruhige, intuitive und offline-fähige App, die das Naturerlebnis unterstützt – ohne zu überfordern.
+          <p class="mt-8 text-muted-foreground max-w-md mx-auto text-sm md:text-base">
+            Das Ergebnis ist eine ruhige, <span class="text-emerald-700 font-medium">intuitive und offline-fähige</span> App,
+            die das Naturerlebnis unterstützt – ohne zu überfordern.
           </p>
         </div>
       </div>
@@ -281,79 +253,68 @@ import Layout from '@/layouts/Layout.astro';
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
-          el.style.transition = 'all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)';
-        });
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
 
-        const finalDesignEl = document.getElementById('final-design');
-        if (!finalDesignEl) return;
-
-        const observer = new IntersectionObserver((entries) => {
-          if (entries[0].isIntersecting) {
-            reveals.forEach((el, i) => {
-              setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-              }, i * 110);
-            });
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
             observer.disconnect();
-          }
-        }, { threshold: 0.3 });
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
 
-        observer.observe(finalDesignEl);
+          observer.observe(el);
+        });
       }
 
-      const finalObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          initFinalReveal();
-          finalObserver.disconnect();
-        }
-      }, { threshold: 0.3 });
-
-      const finalDesignEl = document.getElementById('final-design');
-      if (finalDesignEl) {
-        finalObserver.observe(finalDesignEl);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFinalReveal, { once: true });
+      } else {
+        initFinalReveal();
       }
     </script>
 
-    <!-- === RESULTS & LEARNINGS – 100% iPhone SE optimiert === -->
+    <!-- === RESULTS & LEARNINGS – final optimiert mit grünen Highlights === -->
     <section id="results" class="py-20 md:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-        
-        <!-- Überschrift -->
-        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-20 reveal">
+
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-20 reveal">
           Results & Learnings
         </h2>
 
-        <!-- Intro -->
-        <p class="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground text-center mb-16 md:mb-20 reveal" style="transition-delay: 80ms">
-          In nur 4 Wochen entstand eine ruhige, intuitive und offline-fähige App. 
-          Die Nutzer:innen beschreiben sie als „entspannend und hilfreich“.
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground text-center mb-16 md:mb-20 reveal" style="transition-delay: 80ms">
+          In nur 4 Wochen entstand eine ruhige, intuitive und offline-fähige App.
+          Die Nutzer:innen beschreiben sie als „<span class="text-emerald-700 font-medium">entspannend und hilfreich</span>“.
         </p>
 
-        <!-- Drei Karten – Mobile optimiert -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 reveal" style="transition-delay: 160ms">
-          
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm hover:shadow-md transition-all">
+        <!-- Drei Karten mit gezielten grünen Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16" style="transition-delay: 160ms">
+
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
             <h3 class="text-2xl font-medium mb-4">Weniger ist mehr</h3>
             <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Die größte Herausforderung war nicht, Features hinzuzufügen, sondern bewusst wegzulassen – damit die Freude am Entdecken im Vordergrund bleibt.
+              Die größte Herausforderung war nicht, Features hinzuzufügen, sondern bewusst
+              <span class="text-emerald-700 font-medium">wegzulassen</span> – damit die Freude am Entdecken im Vordergrund bleibt.
             </p>
           </div>
 
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm hover:shadow-md transition-all">
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
             <h3 class="text-2xl font-medium mb-4">Forschung als Fundament</h3>
             <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Tiefgehende Nutzerforschung und kontinuierliche Iteration sind der schnellste Weg zu einem wirklich intuitiven Design.
+              Tiefgehende Nutzerforschung und kontinuierliche Iteration sind der schnellste Weg
+              zu einem wirklich <span class="text-emerald-700 font-medium">intuitiven Design</span>.
             </p>
           </div>
 
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm hover:shadow-md transition-all">
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
             <h3 class="text-2xl font-medium mb-4">Agency schafft Bindung</h3>
             <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Funktionen wie der Müllmelder geben Nutzern echtes Mitwirkungsgefühl und steigern die langfristige Bindung.
+              Funktionen wie der Müllmelder geben Nutzern echtes Mitwirkungsgefühl und
+              <span class="text-emerald-700 font-medium">steigern die langfristige Bindung</span>.
             </p>
           </div>
         </div>
@@ -368,68 +329,55 @@ import Layout from '@/layouts/Layout.astro';
           </ul>
         </div>
 
-        <!-- Buttons -->
-        <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-          <a href="/projekte" 
-             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-lg font-medium px-10 py-6 rounded-btn text-center transition-all">
+        <!-- Zurück-Button -->
+        <div class="flex justify-center">
+          <a href="/projekte"
+             class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
             Zurück zu allen Projekten →
           </a>
         </div>
 
-        <!-- Projekt Navigation -->
-        <div class="mt-20 pt-12 border-t border-gray-100 flex flex-col md:flex-row gap-6 justify-between text-xl font-medium text-muted-foreground">
-          <a href="/projekte/[vorheriges-projekt]"
-             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-lg font-medium px-10 py-6 rounded-btn text-center transition-all">
+        <!-- Projekt-Navigation -->
+        <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-gray-100 flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
+          <a href="/projekte/[previous-project]"
+             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
             ← Letztes Projekt
           </a>
-          <a href="/projekte/[nächstes-projekt]"
-             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-lg font-medium px-10 py-6 rounded-btn text-center transition-all">
+          <a href="/projekte/[next-project]"
+             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
             Nächstes Projekt →
           </a>
         </div>
 
       </div>
-    </div>
     </section>
 
     <script>
       // Sanfte Reveal-Animation (wie bei allen anderen Blöcken)
       function initResultsReveal() {
         const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
-        reveals.forEach((el) => {
+        reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
-          el.style.transition = 'all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)';
-        });
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
 
-        const resultsEl = document.getElementById('results');
-        if (!resultsEl) return;
-
-        const observer = new IntersectionObserver((entries) => {
-          if (entries[0].isIntersecting) {
-            reveals.forEach((el, i) => {
-              setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-              }, i * 110);
-            });
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
             observer.disconnect();
-          }
-        }, { threshold: 0.3 });
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
 
-        observer.observe(resultsEl);
+          observer.observe(el);
+        });
       }
 
-      const resultsObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          initResultsReveal();
-          resultsObserver.disconnect();
-        }
-      }, { threshold: 0.3 });
-
-      const resultsEl = document.getElementById('results');
-      if (resultsEl) {
-        resultsObserver.observe(resultsEl);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResultsReveal, { once: true });
+      } else {
+        initResultsReveal();
       }
     </script>
 
@@ -473,7 +421,7 @@ import Layout from '@/layouts/Layout.astro';
           items.forEach((item) => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(28px)';
-            item.style.transition = 'all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
             item.style.willChange = 'opacity, transform';
           });
 
@@ -484,38 +432,23 @@ import Layout from '@/layouts/Layout.astro';
               setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateY(0)';
-              }, index * 120);
+
+                if (group.id === 'research' && group.dataset.countAnimated !== 'true' && item.querySelector('#count-60')) {
+                  animateCounter('count-60', 60);
+                  animateCounter('count-88', 88);
+                  animateCounter('count-56', 56);
+                  animateCounter('count-42', 42);
+                  group.dataset.countAnimated = 'true';
+                }
+              }, index * 160);
             });
             group.dataset.revealed = 'true';
 
-            if (group.id === 'research' && group.dataset.countAnimated !== 'true') {
-              setTimeout(() => {
-                animateCounter('count-60', 60);
-                animateCounter('count-88', 88);
-                animateCounter('count-56', 56);
-                animateCounter('count-42', 42);
-              }, 480);
-              group.dataset.countAnimated = 'true';
-            }
-
             observer.disconnect();
-          }, { threshold: 0.12 });
+          }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
 
           observer.observe(group);
         });
-
-        // Failsafe: if an observer callback is missed (e.g. Safari edge cases),
-        // reveal remaining groups so content never stays hidden.
-        setTimeout(() => {
-          groups.forEach((group) => {
-            if (group.dataset.revealed === 'true') return;
-            const items = group.querySelectorAll<HTMLElement>('.reveal-item');
-            items.forEach((item) => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            });
-          });
-        }, 1800);
       }
 
       if (document.readyState === 'loading') {
