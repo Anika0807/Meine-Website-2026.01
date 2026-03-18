@@ -54,15 +54,7 @@ const projects = {
 } as const;
 
 export function getStaticPaths() {
-  return [
-    { params: { slug: 'my-mind-studio' } },
-    { params: { slug: 'festsaal-im-klostergasthof' } },
-    { params: { slug: 'flavorfusion' } },
-    { params: { slug: 'schlaf' } },
-    { params: { slug: 'omnomzen' } },
-    { params: { slug: 'weserkoje' } },
-    { params: { slug: 'planora' } },
-  ];
+  return [];
 }
 
 const { slug } = Astro.params;

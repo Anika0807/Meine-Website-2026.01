@@ -1,0 +1,463 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Planora - Anika Warncke">
+  <!-- 1. HERO -->
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/planora-hero.jpg" alt="Planora Hero" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">Planora</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Reiseplanung, die sich dir anpasst</p>
+    </div>
+  </section>
+
+  <!-- Content Rail – alle weiteren Sections -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- === METADATA – Überschriften größer & fetter (nur Planora) === -->
+    <section class="pt-12 pb-20 md:pb-28 bg-white" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-0 md:px-12">
+        
+        <!-- Metadata Zeile – Mobile: vertikal gestapelt -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-8 mb-16 text-sm">
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Rolle & Team</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">UX/UI-Designer</span> im 2-Personen-Team<br>mit Michael Jakob
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Aufgabe</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">End-to-End</span> Designprozess:<br>Research, UI-Design, Prototyping & Testing
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Zeitraum & Rahmen</p>
+            <p class="text-foreground">
+              Juni – Juli 2025<br>
+              <span class="text-emerald-700 font-medium">4-wöchiger Design-Sprint</span> im UX/UI-Bootcamp bei neuefische
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Tools</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">Figma</span>, FigJam, Notion,<br>ChatGPT, Gemini, DaVinci Resolve
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Challenge – optimiert -->
+    <section class="py-16 md:py-28 bg-white" data-reveal-group>
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter mb-8 md:mb-14">The Challenge</h2>
+
+        <p class="reveal-item text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+          Naturbegeisterte stehen vor einer frustrierenden Wahl: Entweder nutzen sie überladene Apps –
+          oder sie verzichten komplett auf wertvolle Informationen. Es fehlt ein
+          <span class="text-emerald-700 font-medium">intuitives, offline-fähiges Tool</span>,
+          das hilft, Flora und Fauna zu erkennen, ohne das echte Naturerlebnis zu stören.
+        </p>
+      </div>
+    </section>
+
+    <!-- === RESEARCH HIGHLIGHTS – final optimiert === -->
+    <section id="research" class="py-20 md:py-32 bg-gray-50" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">
+          Research Highlights
+        </h2>
+
+        <!-- Drei Insights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">1</div>
+            <p class="text-xl font-medium">Wunsch nach Wissen</p>
+            <p class="text-muted-foreground mt-3">Natur nicht nur erleben, sondern auch <span class="text-emerald-700 font-medium">verstehen</span>.</p>
+          </div>
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">2</div>
+            <p class="text-xl font-medium">Weniger ist mehr</p>
+            <p class="text-muted-foreground mt-3">Informationen auf Bedarf, aber <span class="text-emerald-700 font-medium">unaufdringlich</span>.</p>
+          </div>
+          <div class="text-center reveal-item">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">3</div>
+            <p class="text-xl font-medium">Gamification-Balance</p>
+            <p class="text-muted-foreground mt-3">Nicht für jeden.</p>
+          </div>
+        </div>
+
+        <!-- Prozente -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-60">0</span>%</div><p class="text-xs sm:text-sm mt-2">TÄGLICH IN DER NATUR</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-88">0</span>%</div><p class="text-xs sm:text-sm mt-2">ZUR ENTSPANNUNG</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-56">0</span>%</div><p class="text-xs sm:text-sm mt-2">WOLLEN AKTIV ENTDECKEN</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-42">0</span>%</div><p class="text-xs sm:text-sm mt-2">POLLENFLUG-INTERESSE</p></div>
+        </div>
+
+        <!-- Quotes + How might we -->
+        <div class="reveal-item max-w-3xl mx-auto text-center">
+          <div class="italic text-foreground text-xl md:text-2xl font-semibold mb-12">
+            „Kleine Infotafeln, aber bitte nicht alles vollplastern.“<br>
+            „Ich will wissen, was es genau ist – nicht 33 Vorschläge.“
+          </div>
+
+          <p class="text-2xl md:text-4xl font-semibold tracking-tight leading-tight text-foreground">
+            Wie können wir Menschen die Natur neugierig und aufmerksam erleben lassen -
+            mit einem <span class="text-emerald-700">ruhigen, offline-fähigen digitalen Begleiter</span>?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === PROCESS – komplett mit UI-Foundation + Moodboard === -->
+    <section id="process" class="py-24 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16 reveal">
+          Process
+        </h2>
+
+        <!-- User Flow -->
+        <div class="mb-20 reveal" style="transition-delay: 80ms">
+          <img src="/images/projekte/planora-user-flow.png"
+            alt="FlavorFusion User Flow"
+               class="w-full rounded-3xl shadow-2xl">
+        </div>
+
+        <!-- Designprinzipien -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20" style="transition-delay: 160ms">
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
+            <h3 class="text-2xl font-medium mb-4">Zurückhaltende Begleitung</h3>
+            <p class="text-muted-foreground">
+              Frosted Glass + minimale Elemente halten den Fokus auf dem <span class="text-emerald-700 font-medium">Naturerlebnis</span>.
+            </p>
+          </div>
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
+            <h3 class="text-2xl font-medium mb-4">Zugängliche Gestaltung</h3>
+            <p class="text-muted-foreground">
+              Klare Navigation und hohe Lesbarkeit für <span class="text-emerald-700 font-medium">einfache Nutzung</span>.
+            </p>
+          </div>
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
+            <h3 class="text-2xl font-medium mb-4">Inspirierende Wissensvermittlung</h3>
+            <p class="text-muted-foreground">
+              Wissen wird präzise und neugierig in kleinen Häppchen <span class="text-emerald-700 font-medium">vermittelt</span>.
+            </p>
+          </div>
+        </div>
+
+        <!-- UI-Foundation + Moodboard -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" style="transition-delay: 240ms">
+          <div class="reveal">
+            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
+            <!-- Hier deine UI-Foundation Bilder / Grid einfügen -->
+            <img src="/images/projekte/planora-ui-foundation.png" alt="FlavorFusion UI Foundation" class="w-full rounded-3xl shadow-xl">
+          </div>
+          <div class="reveal">
+            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h4>
+            <!-- Hier dein Moodboard Bild -->
+            <img src="/images/projekte/planora-moodboard.png" alt="FlavorFusion Moodboard" class="w-full rounded-3xl shadow-xl">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Staggered Reveal (gleiche Animation wie Challenge + Research)
+      function initProcessReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#process .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProcessReveal, { once: true });
+      } else {
+        initProcessReveal();
+      }
+    </script>
+
+    <section id="final-design" class="py-24 md:py-32 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="reveal text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">Final Design</h2>
+
+        <!-- Onboarding Before / After -->
+        <div class="reveal mb-20" style="transition-delay: 80ms">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">ONBOARDING VORHER / NACHHER</h3>
+          <img src="/images/projekte/planora-onboarding-before-after.png" alt="FlavorFusion Onboarding" class="w-full rounded-3xl shadow-2xl">
+        </div>
+
+        <!-- Haupt- & Nebenfunktionen -->
+        <div class="reveal mb-20" style="transition-delay: 220ms">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">HAUPT- & NEBENFUNKTIONEN</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <img src="/images/projekte/planora-feature-01.png" alt="FlavorFusion Feature 01" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-02.png" alt="FlavorFusion Feature 02" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-03.png" alt="FlavorFusion Feature 03" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-04.png" alt="FlavorFusion Feature 04" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-05.png" alt="FlavorFusion Feature 05" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-06.png" alt="FlavorFusion Feature 06" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-07.png" alt="FlavorFusion Feature 07" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/planora-feature-08.png" alt="FlavorFusion Feature 08" class="w-full rounded-3xl shadow-xl">
+          </div>
+        </div>
+
+        <!-- Live Preview -->
+        <div class="reveal text-center" style="transition-delay: 360ms">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8">LIVE PREVIEW</h3>
+          <div class="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black aspect-video">
+            <iframe class="w-full h-full"
+                    src="https://www.youtube.com/embed/_Weccn01Gi8"
+                    title="FlavorFusion Live Preview"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <p class="mt-8 text-muted-foreground max-w-md mx-auto text-sm md:text-base">
+            Das Ergebnis ist eine ruhige, <span class="text-emerald-700 font-medium">intuitive und offline-fähige</span> App,
+            die das Naturerlebnis unterstützt – ohne zu überfordern.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Gleiche sanfte Reveal-Animation wie bei Challenge, Research und Process
+      function initFinalReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#final-design .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFinalReveal, { once: true });
+      } else {
+        initFinalReveal();
+      }
+    </script>
+
+    <!-- === RESULTS & LEARNINGS – final optimiert mit grünen Highlights === -->
+    <section id="results" class="py-20 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-20 reveal">
+          Results & Learnings
+        </h2>
+
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground text-center mb-16 md:mb-20 reveal" style="transition-delay: 80ms">
+          In nur 4 Wochen entstand eine ruhige, intuitive und offline-fähige App.
+          Die Nutzer:innen beschreiben sie als „<span class="text-emerald-700 font-medium">entspannend und hilfreich</span>“.
+        </p>
+
+        <!-- Drei Karten mit gezielten grünen Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16" style="transition-delay: 160ms">
+
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
+            <h3 class="text-2xl font-medium mb-4">Weniger ist mehr</h3>
+            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+              Die größte Herausforderung war nicht, Features hinzuzufügen, sondern bewusst
+              <span class="text-emerald-700 font-medium">wegzulassen</span> – damit die Freude am Entdecken im Vordergrund bleibt.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
+            <h3 class="text-2xl font-medium mb-4">Forschung als Fundament</h3>
+            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+              Tiefgehende Nutzerforschung und kontinuierliche Iteration sind der schnellste Weg
+              zu einem wirklich <span class="text-emerald-700 font-medium">intuitiven Design</span>.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
+            <h3 class="text-2xl font-medium mb-4">Agency schafft Bindung</h3>
+            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+              Funktionen wie der Müllmelder geben Nutzern echtes Mitwirkungsgefühl und
+              <span class="text-emerald-700 font-medium">steigern die langfristige Bindung</span>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Nächste Schritte -->
+        <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
+          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
+          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
+            <li class="flex gap-4">→ MVP ausbauen: Fehlende Screens und Müllmelder-Funktion fertigstellen</li>
+            <li class="flex gap-4">→ Feldtests durchführen: Prototyp mit echten Nutzern unter realen Bedingungen testen</li>
+            <li class="flex gap-4">→ Entwickler-Kollaboration: Umsetzung der mobilen App in die Wege leiten</li>
+          </ul>
+        </div>
+
+        <!-- Zurück-Button -->
+        <div class="flex justify-center">
+          <a href="/projekte"
+             class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
+            Zurück zu allen Projekten →
+          </a>
+        </div>
+
+        <!-- Projekt-Navigation -->
+        <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-gray-100 flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
+          <a href="/projekte/[previous-project]"
+             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
+            ← Letztes Projekt
+          </a>
+          <a href="/projekte/[next-project]"
+             class="w-full md:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
+            Nächstes Projekt →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      // Sanfte Reveal-Animation (wie bei allen anderen Blöcken)
+      function initResultsReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResultsReveal, { once: true });
+      } else {
+        initResultsReveal();
+      }
+    </script>
+
+    <script>
+      function animateCounter(id: string, target: number, duration = 1600) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const startTime = performance.now();
+
+        function update(now: number) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          el!.textContent = String(Math.floor(progress * target));
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      function initSequentialReveals() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
+
+        groups.forEach((group) => {
+          const items = group.querySelectorAll<HTMLElement>('.reveal-item');
+          if (!items.length) return;
+
+          if (reduceMotion) {
+            items.forEach((item) => {
+              item.style.opacity = '1';
+              item.style.transform = 'none';
+            });
+            if (group.id === 'research') {
+              animateCounter('count-60', 60);
+              animateCounter('count-88', 88);
+              animateCounter('count-56', 56);
+              animateCounter('count-42', 42);
+            }
+            return;
+          }
+
+          items.forEach((item) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(28px)';
+            item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            item.style.willChange = 'opacity, transform';
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+
+                if (group.id === 'research' && group.dataset.countAnimated !== 'true' && item.querySelector('#count-60')) {
+                  animateCounter('count-60', 60);
+                  animateCounter('count-88', 88);
+                  animateCounter('count-56', 56);
+                  animateCounter('count-42', 42);
+                  group.dataset.countAnimated = 'true';
+                }
+              }, index * 160);
+            });
+            group.dataset.revealed = 'true';
+
+            observer.disconnect();
+          }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+          observer.observe(group);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSequentialReveals, { once: true });
+      } else {
+        initSequentialReveals();
+      }
+    </script>
+
+  </div>
+
+</Layout>

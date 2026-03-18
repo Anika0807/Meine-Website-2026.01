@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Festsaal im Klostergasthof | Projekte">
+  <section class="relative h-[70svh] min-h-[520px] w-full overflow-hidden">
+    <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
+
+    <div class="absolute inset-0 flex items-end">
+      <div class="mx-auto w-full max-w-6xl px-6 pb-16 text-white">
+        <p class="mb-3 text-xs uppercase tracking-[0.2em] text-white/80">Innenarchitektur</p>
+        <h1 class="text-4xl font-semibold tracking-tight md:text-6xl">Festsaal im Klostergasthof</h1>
+        <p class="mt-4 max-w-2xl text-base text-white/90 md:text-lg">Veranstaltungsgastronomie fur Hochzeiten und Events</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background py-20">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">Projektubersicht</h2>
+      <p class="mt-6 text-base text-muted-foreground md:text-lg">
+        Diese Unterseite ist die Detailansicht fur Festsaal im Klostergasthof. Inhalte wie Prozess, Ziele und Ergebnisse
+        konnen hier jederzeit erganzt werden.
+      </p>
+      <a href="/projekte" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
+        Zuruck zu den Projekten
+      </a>
+    </div>
+  </section>
+</Layout>
