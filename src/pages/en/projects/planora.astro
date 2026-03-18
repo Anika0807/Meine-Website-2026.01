@@ -2,30 +2,119 @@
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Planora | Projects">
-  <section class="relative h-[70svh] min-h-[520px] w-full overflow-hidden">
-    <img src="/images/planora.jpg" alt="Planora" class="absolute inset-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
+<Layout title="Planora - Anika Warncke">
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/planora-hero.jpg" alt="Planora Hero" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE APP</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">Planora</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Travel planning that adapts to you</p>
+    </div>
+  </section>
 
-    <div class="absolute inset-0 flex items-end">
-      <div class="mx-auto w-full max-w-6xl px-6 pb-16 text-white">
-        <p class="mb-3 text-xs uppercase tracking-[0.2em] text-white/80">UX/UI Design</p>
-        <h1 class="text-4xl font-semibold tracking-tight md:text-6xl">Planora</h1>
-        <p class="mt-4 max-w-2xl text-base text-white/90 md:text-lg">Travel planning that adapts to you</p>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- 2. METADATA -->
+    <section class="reveal-item mt-16 mb-12 flex flex-wrap gap-6 justify-center text-center">
+      <div class="bg-muted rounded-xl px-6 py-4 min-w-[180px]">
+        <span class="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Client</span>
+        <span class="block text-base font-medium">Planora (Startup)</span>
       </div>
+      <div class="bg-muted rounded-xl px-6 py-4 min-w-[180px]">
+        <span class="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Year</span>
+        <span class="block text-base font-medium">2023</span>
+      </div>
+      <div class="bg-muted rounded-xl px-6 py-4 min-w-[180px]">
+        <span class="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Role</span>
+        <span class="block text-base font-medium">UX/UI Design</span>
+      </div>
+      <div class="bg-muted rounded-xl px-6 py-4 min-w-[180px]">
+        <span class="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Duration</span>
+        <span class="block text-base font-medium">2 months</span>
+      </div>
+    </section>
+
+    <!-- 3. CHALLENGE -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Challenge</h2>
+      <p class="text-base sm:text-lg text-muted-foreground">How can travel planning be made more flexible, intuitive, and personalized for users?</p>
+    </section>
+
+    <!-- 4. RESEARCH HIGHLIGHTS -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Research Highlights</h2>
+      <ul class="list-disc pl-6 text-base sm:text-lg text-muted-foreground">
+        <li>Interviews with frequent travelers revealed a need for adaptable planning tools.</li>
+        <li>Competitive analysis showed gaps in personalization and user experience.</li>
+        <li>Usability tests confirmed the importance of intuitive navigation and clear visual hierarchy.</li>
+      </ul>
+    </section>
+
+    <!-- 5. PROCESS -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Process</h2>
+      <ul class="list-disc pl-6 text-base sm:text-lg text-muted-foreground">
+        <li>Ideation and wireframing based on user needs</li>
+        <li>Design system creation for consistent UI</li>
+        <li>Prototyping and iterative testing</li>
+        <li>Final UI design and handoff</li>
+      </ul>
+    </section>
+
+    <!-- 6. RESULTS & LEARNINGS -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Results & Learnings</h2>
+      <ul class="list-disc pl-6 text-base sm:text-lg text-muted-foreground">
+        <li>Created a flexible travel planning app with a modern, user-friendly interface.</li>
+        <li>Improved user satisfaction through personalized features and intuitive design.</li>
+        <li>Learned the value of continuous user feedback and rapid iteration.</li>
+      </ul>
+    </section>
+
+    <!-- 7. UI FOUNDATION IMAGE -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">UI Foundation</h2>
+      <div class="flex justify-center">
+        <img src="/images/projekte/planora-ui-foundation.jpg" alt="Planora UI Foundation" class="rounded-xl shadow-lg max-w-full h-auto" />
+      </div>
+    </section>
+
+    <!-- 8. FEATURE SCREENS IMAGE -->
+    <section class="reveal-item mb-16">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Feature Screens</h2>
+      <div class="flex justify-center">
+        <img src="/images/projekte/planora-feature-screens.jpg" alt="Planora Feature Screens" class="rounded-xl shadow-lg max-w-full h-auto" />
+      </div>
+    </section>
+
+    <!-- 9. NAVIGATION BUTTONS -->
+    <section class="reveal-item mb-24 flex justify-between items-center">
+      <a href="/en/projects" class="rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">Back to Projects</a>
+      <a href="/en/projects/omnomzen" class="rounded-btn bg-muted px-8 py-4 text-muted-foreground transition-colors hover:bg-accent">Next Project: OmNomZen</a>
+    </section>
+  </div>
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Planora - Anika Warncke">
+  <!-- 1. HERO -->
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/planora-hero.jpg" alt="Planora Hero" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE APP</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">Planora</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Travel planning that adapts to you</p>
     </div>
   </section>
 
-  <section class="bg-background py-20">
-    <div class="mx-auto max-w-3xl px-6 text-center">
-      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">Project Overview</h2>
-      <p class="mt-6 text-base text-muted-foreground md:text-lg">
-        This subpage is the detail view for Planora. Content such as process, goals, and outcomes
-        can be expanded here at any time.
-      </p>
-      <a href="/en/projects" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
-        Back to Projects
-      </a>
-    </div>
-  </section>
+  <!-- Content Rail – alle weiteren Sections -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- ...existing code... -->
+  </div>
 </Layout>
