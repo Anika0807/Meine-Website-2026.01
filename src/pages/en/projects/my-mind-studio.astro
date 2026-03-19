@@ -1,31 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import MyMindStudioPage from '../../projekte/en/my-mind-studio.astro';
 ---
 
-<Layout title="My Mind Studio | Projects">
-  <section class="relative h-[70svh] min-h-[520px] w-full overflow-hidden">
-    <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
-
-    <div class="absolute inset-0 flex items-end">
-      <div class="mx-auto w-full max-w-6xl px-6 pb-16 text-white">
-        <p class="mb-3 text-xs uppercase tracking-[0.2em] text-white/80">Interior Architecture</p>
-        <h1 class="text-4xl font-semibold tracking-tight md:text-6xl">My Mind Studio</h1>
-        <p class="mt-4 max-w-2xl text-base text-white/90 md:text-lg">Meditation and yoga studio with cafe</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-background py-20">
-    <div class="mx-auto max-w-3xl px-6 text-center">
-      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">Project Overview</h2>
-      <p class="mt-6 text-base text-muted-foreground md:text-lg">
-        This subpage is the detail view for My Mind Studio. Content such as process, goals, and outcomes
-        can be expanded here at any time.
-      </p>
-      <a href="/en/projects" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
-        Back to Projects
-      </a>
-    </div>
-  </section>
-</Layout>
+<MyMindStudioPage />
