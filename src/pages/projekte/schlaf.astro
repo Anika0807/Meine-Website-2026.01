@@ -31,16 +31,16 @@ import Layout from '@/layouts/Layout.astro';
           </div>
           <div class="reveal-item">
             <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Aufgabe</p>
-            <p class="text-foreground">
-              Von der Grundlagenermittlung bis zur Ausführungsreife (Grundlagenermittlung, Konzept- und Entwurfsentwicklung, Detaillierung & Darstellung)<br>
-              <span class="text-emerald-700 font-medium">Leistungsphasen 01 - 03, anteilig 05</span>
-            </p>
+              <p class="text-foreground">
+                Erarbeitung einer Erlebnisausstellung in die Tiefen des Schlafes<br>
+                <span class="text-emerald-700 font-medium">Leistungsphasen 01 - 03, anteilig 05</span>
+              </p>
           </div>
           <div class="reveal-item">
             <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Zeitraum & Rahmen</p>
             <p class="text-foreground">
               03 - 07 2020:<br>
-              <a href="https://projekte.g.hawk.de/projekt/5f2d054b1bef1" class="text-emerald-700 font-medium underline" target="_blank">Masterarbeit</a> an der HAWK - Hochschule für angewandte Künste in Hildesheim
+              <span class="text-emerald-700 font-medium"></span><a href="https://projekte.g.hawk.de/projekt/5f2d054b1bef1" class="text-emerald-700 font-medium underline" target="_blank">Masterarbeit</a>, an der HAWK - Hochschule für angewandte Künste in Hildesheim
             </p>
           </div>
           <div class="reveal-item">
@@ -54,130 +54,26 @@ import Layout from '@/layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- The Challenge – optimiert -->
-    <section class="py-16 md:py-28 bg-white" data-reveal-group>
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter mb-8 md:mb-14">The Challenge</h2>
-
-        <p class="reveal-item text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-          Naturbegeisterte stehen vor einer frustrierenden Wahl: Entweder nutzen sie überladene Apps –
-          oder sie verzichten komplett auf wertvolle Informationen. Es fehlt ein
-          <span class="text-emerald-700 font-medium">intuitives, offline-fähiges Tool</span>,
-          das hilft, Flora und Fauna zu erkennen, ohne das echte Naturerlebnis zu stören.
-        </p>
-      </div>
-    </section>
-
-    <!-- === RESEARCH HIGHLIGHTS – final optimiert === -->
-    <section id="research" class="py-20 md:py-32 bg-gray-50" data-reveal-group>
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-
-        <h2 class="reveal-item text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">
-          Research Highlights
+    <!-- === THE CHALLENGE – Schlaf === -->
+    <section id="challenge" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-6 md:px-12">
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Herausforderung
         </h2>
 
-        <!-- Drei Insights -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
-          <div class="text-center reveal-item">
-            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">1</div>
-            <p class="text-xl font-medium">Wunsch nach Wissen</p>
-            <p class="text-muted-foreground mt-3">Natur nicht nur erleben, sondern auch <span class="text-emerald-700 font-medium">verstehen</span>.</p>
-          </div>
-          <div class="text-center reveal-item">
-            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">2</div>
-            <p class="text-xl font-medium">Weniger ist mehr</p>
-            <p class="text-muted-foreground mt-3">Informationen auf Bedarf, aber <span class="text-emerald-700 font-medium">unaufdringlich</span>.</p>
-          </div>
-          <div class="text-center reveal-item">
-            <div class="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-emerald-700 text-3xl font-semibold text-emerald-700 mb-6">3</div>
-            <p class="text-xl font-medium">Gamification-Balance</p>
-            <p class="text-muted-foreground mt-3">Nicht für jeden.</p>
-          </div>
-        </div>
-
-        <!-- Prozente -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-60">0</span>%</div><p class="text-xs sm:text-sm mt-2">TÄGLICH IN DER NATUR</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-88">0</span>%</div><p class="text-xs sm:text-sm mt-2">ZUR ENTSPANNUNG</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-56">0</span>%</div><p class="text-xs sm:text-sm mt-2">WOLLEN AKTIV ENTDECKEN</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-700"><span id="count-42">0</span>%</div><p class="text-xs sm:text-sm mt-2">POLLENFLUG-INTERESSE</p></div>
-        </div>
-
-        <!-- Quotes + How might we -->
-        <div class="reveal-item max-w-3xl mx-auto text-center">
-          <div class="italic text-foreground text-xl md:text-2xl font-semibold mb-12">
-            „Kleine Infotafeln, aber bitte nicht alles vollplastern.“<br>
-            „Ich will wissen, was es genau ist – nicht 33 Vorschläge.“
-          </div>
-
-          <p class="text-2xl md:text-4xl font-semibold tracking-tight leading-tight text-foreground">
-            Wie können wir Menschen die Natur neugierig und aufmerksam erleben lassen -
-            mit einem <span class="text-emerald-700">ruhigen, offline-fähigen digitalen Begleiter</span>?
+        <div class="prose prose-lg mx-auto text-center text-muted-foreground leading-relaxed reveal" style="transition-delay: 80ms">
+          <p class="text-xl md:text-2xl">
+            In der Lüneburger Innenstadt sollte eine kleine, langgestreckte und schlecht belichtete Ladenfläche, die in den letzten Jahren mehrfach den Betreiber wechseln musste, in einen langfristigen <span class="text-emerald-700 font-medium">Ort der Auszeit</span> verwandelt werden: <span class="text-emerald-700 font-medium">ein Meditations- und Yogastudio mit integriertem Café</span>.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- === PROCESS – komplett mit UI-Foundation + Moodboard === -->
-    <section id="process" class="py-24 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16 reveal">
-          Process
-        </h2>
-
-        <!-- User Flow -->
-        <div class="mb-20 reveal" style="transition-delay: 80ms">
-          <img src="/images/projekte/naturkompass-user-flow.png"
-               alt="User Flow"
-               class="w-full rounded-3xl shadow-2xl">
-        </div>
-
-        <!-- Designprinzipien -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20" style="transition-delay: 160ms">
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
-            <h3 class="text-2xl font-medium mb-4">Zurückhaltende Begleitung</h3>
-            <p class="text-muted-foreground">
-              Frosted Glass + minimale Elemente halten den Fokus auf dem <span class="text-emerald-700 font-medium">Naturerlebnis</span>.
-            </p>
-          </div>
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
-            <h3 class="text-2xl font-medium mb-4">Zugängliche Gestaltung</h3>
-            <p class="text-muted-foreground">
-              Klare Navigation und hohe Lesbarkeit für <span class="text-emerald-700 font-medium">einfache Nutzung</span>.
-            </p>
-          </div>
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
-            <h3 class="text-2xl font-medium mb-4">Inspirierende Wissensvermittlung</h3>
-            <p class="text-muted-foreground">
-              Wissen wird präzise und neugierig in kleinen Häppchen <span class="text-emerald-700 font-medium">vermittelt</span>.
-            </p>
-          </div>
-        </div>
-
-        <!-- UI-Foundation + Moodboard -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" style="transition-delay: 240ms">
-          <div class="reveal">
-            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
-            <!-- Hier deine UI-Foundation Bilder / Grid einfügen -->
-            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-xl">
-          </div>
-          <div class="reveal">
-            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h4>
-            <!-- Hier dein Moodboard Bild -->
-            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-xl">
-          </div>
-        </div>
-      </div>
-    </section>
-
     <script>
-      // Staggered Reveal (gleiche Animation wie Challenge + Research)
-      function initProcessReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#process .reveal');
+      // Staggered Reveal – The Challenge
+      function initChallengeReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#challenge .reveal');
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -197,53 +93,152 @@ import Layout from '@/layouts/Layout.astro';
       }
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initProcessReveal, { once: true });
+        document.addEventListener('DOMContentLoaded', initChallengeReveal, { once: true });
       } else {
-        initProcessReveal();
+        initChallengeReveal();
       }
     </script>
 
-    <section id="final-design" class="py-24 md:py-32 bg-gray-50">
+    <!-- === KONZEPT – My Mind Studio (finale Version mit deinen Änderungen) === -->
+    <section id="konzept" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Konzept
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- 01 Raumgliederung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-2xl font-semibold mb-3">Raumgliederung</h3>
+            <p class="text-muted-foreground">Durch eine vollständige Umstrukturierung des <span class="text-emerald-700 font-medium">dunklen, langgestreckten Grundrisses</span> entstand eine <span class="text-emerald-700 font-medium">klare, flexible Raumordnung mit mehreren Räumen</span>, die bei Bedarf in zwei Einheiten teilbar ist.</p>
+          </div>
+
+          <!-- 02 Inszenierte Wegeführung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-2xl font-semibold mb-3">Inszenierte Wegeführung</h3>
+            <p class="text-muted-foreground">Gäste werden von der belebten Fußgängerzone durch einen <span class="text-emerald-700 font-medium">hellen, mystisch anmutenden Tunnel</span> schrittweise in den <span class="text-emerald-700 font-medium">stillen und intimen Kursraum</span> geführt.</p>
+          </div>
+
+          <!-- 03 Funktionale Einbindung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-2xl font-semibold mb-3">Funktionale Einbindung</h3>
+            <p class="text-muted-foreground">Alle notwendigen Funktionen sind <span class="text-emerald-700 font-medium">unaufdringlich in die Gestaltung integriert</span> und unterstützen eine <span class="text-emerald-700 font-medium">ruhige, konzentrierte Nutzung</span>.</p>
+          </div>
+
+          <!-- 04 Sinnliche Materialität -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-2xl font-semibold mb-3">Sinnliche Materialität</h3>
+            <p class="text-muted-foreground"><span class="text-emerald-700 font-medium">Material- und Farbpalette wird schrittweise reduziert</span> – von heller Eiche, Stein und Linoleum über Eichenparkett und Himmelblau bis hin zu einer <span class="text-emerald-700 font-medium">einheitlich warmen, weichen Natürlichkeit</span>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Staggered Reveal – Konzept-Karten
+      function initKonzeptReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#konzept .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initKonzeptReveal, { once: true });
+      } else {
+        initKonzeptReveal();
+      }
+    </script>
+
+    <!-- === FINAL DESIGN – My Mind Studio (echte Buttons + mehr Abstand) === -->
+    <section id="final-design" class="py-32 md:py-44 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 class="reveal text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">Final Design</h2>
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-20 reveal">
+          Realisierung
+        </h2>
 
-        <!-- Onboarding Before / After -->
-        <div class="reveal mb-20" style="transition-delay: 80ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">ONBOARDING VORHER / NACHHER</h3>
-          <img src="/images/projekte/naturkompass-onboarding-before-after.png" alt="Onboarding Before / After" class="w-full rounded-3xl shadow-2xl">
-        </div>
+        <p class="max-w-3xl mx-auto text-center text-xl text-muted-foreground mb-28 reveal" style="transition-delay: 80ms">
+          My Mind Studio – ein Ort der Auszeit in Lüneburg.<br>
+          Umsetzung als Innenarchitektur M.A. im Team bei <span class="font-medium">FORMWÆNDE</span>.
+        </p>
 
-        <!-- Haupt- & Nebenfunktionen -->
-        <div class="reveal mb-20" style="transition-delay: 220ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">HAUPT- & NEBENFUNKTIONEN</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <img src="/images/projekte/Hauptfunktion 01.png" alt="Camera Forest" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 02.png" alt="Camera Flowers" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 03.png" alt="Gefülltes Mutterkraut" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 04.png" alt="Weiterhin sammeln?" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 01.png" alt="Entdecken" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 02.png" alt="Wissen" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 03.png" alt="Mein Profil" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 04.png" alt="Müllmelder" class="w-full rounded-3xl shadow-xl">
+        <!-- 1. BDIA-Handbuch 2023/2024 -->
+        <div class="mb-32 reveal" style="transition-delay: 120ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung im BDIA-Handbuch 2023/2024</h3>
+            <a
+              href="https://bdia.de/wp-content/uploads/2024/05/my-mind-studio.pdf"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
+          </div>
+          <div class="space-y-12">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind.jpg" alt="BDIA Bild 1" class="w-full rounded-3xl shadow-2xl">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind2.jpg" alt="BDIA Bild 2" class="w-full rounded-3xl shadow-2xl">
           </div>
         </div>
 
-        <!-- Live Preview -->
-        <div class="reveal text-center" style="transition-delay: 360ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8">LIVE PREVIEW</h3>
-          <div class="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black aspect-video">
-            <iframe class="w-full h-full"
-                    src="https://www.youtube.com/embed/_Weccn01Gi8"
-                    title="NaturKompass Live Preview"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+        <!-- 2. AIT 06.2024 -->
+        <div class="mb-32 reveal" style="transition-delay: 200ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung in der AIT 06.2024</h3>
+            <a
+              href="https://ait-xia-dialog.de/ait-magazine/ausgabe-5-2024/"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
           </div>
-          <p class="mt-8 text-muted-foreground max-w-md mx-auto text-sm md:text-base">
-            Das Ergebnis ist eine ruhige, <span class="text-emerald-700 font-medium">intuitive und offline-fähige</span> App,
-            die das Naturerlebnis unterstützt – ohne zu überfordern.
-          </p>
+          <img src="/images/projekte/20240507_AIT_202405_Artikel.jpg" alt="AIT 06.2024" class="w-full rounded-3xl shadow-2xl">
         </div>
+
+        <!-- 3. db 07/2024 -->
+        <div class="reveal" style="transition-delay: 280ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung in der db 07/2024</h3>
+            <a
+              href="https://www.dds-online.de/gestaltung/kaleidoskop-der-innenraeume/?utm_source=chatgpt.com#slider-intro-20"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
+          </div>
+          <img src="/images/projekte/Formaaende_dds_09-2024.jpg" alt="db 07.2024" class="w-full rounded-3xl shadow-2xl">
+        </div>
+
+        <!-- Hinweis Formwaende mit dezentem Link -->
+        <p class="text-center text-sm text-muted-foreground mt-24 reveal" style="transition-delay: 360ms">
+          Mitarbeit als Innenarchitektur M.A. bei <span class="font-medium">FORMWÆNDE</span>, Lüneburg<br><br>
+          <a href="https://www.formwaende.de/projekte/mymindstudio/" 
+             target="_blank" 
+             class="text-emerald-700 hover:text-emerald-600 underline underline-offset-4 transition-colors">
+            Mehr Projektinhalte unter FORMWÆNDE →
+          </a>
+        </p>
       </div>
     </section>
 
@@ -276,62 +271,51 @@ import Layout from '@/layouts/Layout.astro';
       }
     </script>
 
-    <!-- === RESULTS & LEARNINGS – final optimiert mit grünen Highlights === -->
-    <section id="results" class="py-20 md:py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-20 reveal">
-          Results & Learnings
+    <!-- === ERGEBNISSE & ERKENNTNISSE – My Mind Studio (optimierte Version) === -->
+    <section id="ergebnisse" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Ergebnisse & Erkenntnisse
         </h2>
 
-        <p class="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground text-center mb-16 md:mb-20 reveal" style="transition-delay: 80ms">
-          In nur 4 Wochen entstand eine ruhige, intuitive und offline-fähige App.
-          Die Nutzer:innen beschreiben sie als „<span class="text-emerald-700 font-medium">entspannend und hilfreich</span>“.
+        <div class="max-w-3xl mx-auto text-center text-xl text-muted-foreground mb-20 reveal" style="transition-delay: 80ms">
+          Aus einer dunklen, langgestreckten Ladenfläche, die jahrelang den Betreiber wechseln musste, ist ein echter Ort der Auszeit entstanden.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-2xl font-semibold mb-3">Der Fokuswechsel funktioniert</h3>
+            <p class="text-muted-foreground">Gäste werden von der belebten Fußgängerzone <span class="text-emerald-700 font-medium">schrittweise Übergang vom Außen ins Innere</span> <span class="text-emerald-700 font-medium">sanft in eine ruhige, intime Atmosphäre</span> durch ein Café und einen mystisch anmutenden Tunnel in den stillen, intimen Kursraum geführt – der Übergang vom Außen ins Innere ist spürbar.</p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-2xl font-semibold mb-3">Reduktion schafft Atmosphäre</h3>
+            <p class="text-muted-foreground">Die schrittweise Reduktion der Material- und Farbpalette von heller Eiche und Linoleum bis hin zu <span class="text-emerald-700 font-medium">warme, weiche und sinnliche Atmosphäre</span> erzeugt eine ruhige, sinnliche und konzentrierte Stimmung.</p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-2xl font-semibold mb-3">Langfristige Nutzung gesichert</h3>
+            <p class="text-muted-foreground">Durch die klare Raumgliederung und flexible Teilbarkeit entstand eine <span class="text-emerald-700 font-medium">zukunftsfähige Immobilie</span> – nach jahrelangem Betreiberwechsel hat der Eigentümer endlich Stabilität gewonnen.</p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-2xl font-semibold mb-3">Historische Qualität fortgesetzt</h3>
+            <p class="text-muted-foreground">Die gestalterische Qualität der historischen Fassade wurde <span class="text-emerald-700 font-medium">respektvoll ins Innere übertragen</span> – ein <span class="text-emerald-700 font-medium">zeitgemäßer und gleichzeitig respektvoller Ausbau</span>, der die mittelalterliche Bausubstanz würdigt.</p>
+          </div>
+        </div>
+
+        <p class="text-center text-lg text-muted-foreground mt-16 max-w-2xl mx-auto reveal" style="transition-delay: 320ms">
+          My Mind Studio beweist: <span class="text-emerald-700 font-medium">Weniger kann mehr sein</span> – ein reduzierter Raum, der den Alltag ausblendet und die Sinne öffnet.
         </p>
 
-        <!-- Drei Karten mit gezielten grünen Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16" style="transition-delay: 160ms">
-
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">01</div>
-            <h3 class="text-2xl font-medium mb-4">Weniger ist mehr</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Die größte Herausforderung war nicht, Features hinzuzufügen, sondern bewusst
-              <span class="text-emerald-700 font-medium">wegzulassen</span> – damit die Freude am Entdecken im Vordergrund bleibt.
-            </p>
-          </div>
-
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">02</div>
-            <h3 class="text-2xl font-medium mb-4">Forschung als Fundament</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Tiefgehende Nutzerforschung und kontinuierliche Iteration sind der schnellste Weg
-              zu einem wirklich <span class="text-emerald-700 font-medium">intuitiven Design</span>.
-            </p>
-          </div>
-
-          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl shadow-sm reveal">
-            <div class="text-emerald-700 text-5xl font-semibold mb-6">03</div>
-            <h3 class="text-2xl font-medium mb-4">Agency schafft Bindung</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
-              Funktionen wie der Müllmelder geben Nutzern echtes Mitwirkungsgefühl und
-              <span class="text-emerald-700 font-medium">steigern die langfristige Bindung</span>.
-            </p>
-          </div>
-        </div>
-
-        <!-- Nächste Schritte -->
-        <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
-          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
-            <li class="flex gap-4">→ MVP ausbauen: Fehlende Screens und Müllmelder-Funktion fertigstellen</li>
-            <li class="flex gap-4">→ Feldtests durchführen: Prototyp mit echten Nutzern unter realen Bedingungen testen</li>
-            <li class="flex gap-4">→ Entwickler-Kollaboration: Umsetzung der mobilen App in die Wege leiten</li>
-          </ul>
-        </div>
-
         <!-- Zurück-Button -->
-        <div class="flex justify-center">
+        <div class="flex justify-center mt-12">
           <a href="/projekte"
              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
             Zurück zu allen Projekten →
@@ -349,14 +333,13 @@ import Layout from '@/layouts/Layout.astro';
             Nächstes Projekt →
           </a>
         </div>
-
       </div>
     </section>
 
     <script>
       // Sanfte Reveal-Animation (wie bei allen anderen Blöcken)
       function initResultsReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
+        const reveals = document.querySelectorAll<HTMLElement>('#ergebnisse .reveal');
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
