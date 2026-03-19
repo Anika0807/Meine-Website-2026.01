@@ -61,7 +61,7 @@ import Layout from '@/layouts/Layout.astro';
       <div class="max-w-4xl mx-auto px-6 md:px-12">
         
         <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
-          The Challenge
+          Herausforderung
         </h2>
 
         <div class="prose prose-lg mx-auto text-center text-muted-foreground leading-relaxed reveal" style="transition-delay: 80ms">
@@ -72,51 +72,10 @@ import Layout from '@/layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- === KONZEPT – My Mind Studio (finale Version mit deinen Änderungen) === -->
-    <section id="konzept" class="py-28 md:py-36 bg-white border-t border-gray-100">
-      <div class="max-w-5xl mx-auto px-6 md:px-12">
-        
-        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
-          Konzept
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal" style="transition-delay: 80ms">
-          
-          <!-- 01 Raumgliederung -->
-          <div class="bg-white border border-gray-100 rounded-3xl p-8">
-            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
-            <h3 class="text-2xl font-semibold mb-3">Raumgliederung</h3>
-            <p class="text-muted-foreground">Durch eine vollständige Umstrukturierung des <span class="text-emerald-700 font-medium">dunklen, langgestreckten Grundrisses</span> entstand eine <span class="text-emerald-700 font-medium">klare, flexible Raumordnung mit mehreren Räumen</span>, die bei Bedarf in zwei Einheiten teilbar ist.</p>
-          </div>
-
-          <!-- 02 Inszenierte Wegeführung -->
-          <div class="bg-white border border-gray-100 rounded-3xl p-8">
-            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
-            <h3 class="text-2xl font-semibold mb-3">Inszenierte Wegeführung</h3>
-            <p class="text-muted-foreground">Gäste werden von der belebten Fußgängerzone durch einen <span class="text-emerald-700 font-medium">hellen, mystisch anmutenden Tunnel</span> schrittweise in den <span class="text-emerald-700 font-medium">stillen und intimen Kursraum</span> geführt.</p>
-          </div>
-
-          <!-- 03 Funktionale Einbindung -->
-          <div class="bg-white border border-gray-100 rounded-3xl p-8">
-            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
-            <h3 class="text-2xl font-semibold mb-3">Funktionale Einbindung</h3>
-            <p class="text-muted-foreground">Alle notwendigen Funktionen sind <span class="text-emerald-700 font-medium">unaufdringlich in die Gestaltung integriert</span> und unterstützen eine <span class="text-emerald-700 font-medium">ruhige, konzentrierte Nutzung</span>.</p>
-          </div>
-
-          <!-- 04 Sinnliche Materialität -->
-          <div class="bg-white border border-gray-100 rounded-3xl p-8">
-            <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
-            <h3 class="text-2xl font-semibold mb-3">Sinnliche Materialität</h3>
-            <p class="text-muted-foreground"><span class="text-emerald-700 font-medium">Material- und Farbpalette wird schrittweise reduziert</span> – von heller Eiche, Stein und Linoleum über Eichenparkett und Himmelblau bis hin zu einer <span class="text-emerald-700 font-medium">einheitlich warmen, weichen Natürlichkeit</span>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <script>
-      // Staggered Reveal
-      function initProcessReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#umsetzung .reveal');
+      // Staggered Reveal – The Challenge
+      function initChallengeReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#challenge .reveal');
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -136,9 +95,79 @@ import Layout from '@/layouts/Layout.astro';
       }
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initProcessReveal, { once: true });
+        document.addEventListener('DOMContentLoaded', initChallengeReveal, { once: true });
       } else {
-        initProcessReveal();
+        initChallengeReveal();
+      }
+    </script>
+
+    <!-- === KONZEPT – My Mind Studio (finale Version mit deinen Änderungen) === -->
+    <section id="konzept" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Konzept
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- 01 Raumgliederung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-2xl font-semibold mb-3">Raumgliederung</h3>
+            <p class="text-muted-foreground">Durch eine vollständige Umstrukturierung des <span class="text-emerald-700 font-medium">dunklen, langgestreckten Grundrisses</span> entstand eine <span class="text-emerald-700 font-medium">klare, flexible Raumordnung mit mehreren Räumen</span>, die bei Bedarf in zwei Einheiten teilbar ist.</p>
+          </div>
+
+          <!-- 02 Inszenierte Wegeführung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-2xl font-semibold mb-3">Inszenierte Wegeführung</h3>
+            <p class="text-muted-foreground">Gäste werden von der belebten Fußgängerzone durch einen <span class="text-emerald-700 font-medium">hellen, mystisch anmutenden Tunnel</span> schrittweise in den <span class="text-emerald-700 font-medium">stillen und intimen Kursraum</span> geführt.</p>
+          </div>
+
+          <!-- 03 Funktionale Einbindung -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-2xl font-semibold mb-3">Funktionale Einbindung</h3>
+            <p class="text-muted-foreground">Alle notwendigen Funktionen sind <span class="text-emerald-700 font-medium">unaufdringlich in die Gestaltung integriert</span> und unterstützen eine <span class="text-emerald-700 font-medium">ruhige, konzentrierte Nutzung</span>.</p>
+          </div>
+
+          <!-- 04 Sinnliche Materialität -->
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 reveal">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-2xl font-semibold mb-3">Sinnliche Materialität</h3>
+            <p class="text-muted-foreground"><span class="text-emerald-700 font-medium">Material- und Farbpalette wird schrittweise reduziert</span> – von heller Eiche, Stein und Linoleum über Eichenparkett und Himmelblau bis hin zu einer <span class="text-emerald-700 font-medium">einheitlich warmen, weichen Natürlichkeit</span>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Staggered Reveal – Konzept-Karten
+      function initKonzeptReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#konzept .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initKonzeptReveal, { once: true });
+      } else {
+        initKonzeptReveal();
       }
     </script>
 
@@ -147,7 +176,7 @@ import Layout from '@/layouts/Layout.astro';
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         
         <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-20 reveal">
-          Final Design
+          Realisierung
         </h2>
 
         <p class="max-w-3xl mx-auto text-center text-xl text-muted-foreground mb-28 reveal" style="transition-delay: 80ms">
@@ -203,9 +232,14 @@ import Layout from '@/layouts/Layout.astro';
           <img src="/images/projekte/Formaaende_dds_09-2024.jpg" alt="db 07.2024" class="w-full rounded-3xl shadow-2xl">
         </div>
 
-        <!-- Hinweis Formwaende -->
-        <p class="text-center text-sm text-muted-foreground mt-32 reveal" style="transition-delay: 360ms">
-          Mitarbeit als Innenarchitektur M.A. bei <span class="font-medium">FORMWÆNDE</span>, Lüneburg
+        <!-- Hinweis Formwaende mit dezentem Link -->
+        <p class="text-center text-sm text-muted-foreground mt-24 reveal" style="transition-delay: 360ms">
+          Mitarbeit als Innenarchitektur M.A. bei <span class="font-medium">FORMWÆNDE</span>, Lüneburg<br><br>
+          <a href="https://www.formwaende.de/projekte/mymindstudio/" 
+             target="_blank" 
+             class="text-emerald-700 hover:text-emerald-600 underline underline-offset-4 transition-colors">
+            MEHR PROJEKTINHALTE UNTER FORMWÆNDE →
+          </a>
         </p>
       </div>
     </section>
@@ -251,27 +285,27 @@ import Layout from '@/layouts/Layout.astro';
           Aus einer dunklen, langgestreckten Ladenfläche, die jahrelang den Betreiber wechseln musste, ist ein echter Ort der Auszeit entstanden.
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal" style="transition-delay: 160ms">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
             <h3 class="text-2xl font-semibold mb-3">Der Fokuswechsel funktioniert</h3>
             <p class="text-muted-foreground">Gäste werden von der belebten Fußgängerzone <span class="text-emerald-700 font-medium">schrittweise Übergang vom Außen ins Innere</span> <span class="text-emerald-700 font-medium">sanft in eine ruhige, intime Atmosphäre</span> durch ein Café und einen mystisch anmutenden Tunnel in den stillen, intimen Kursraum geführt – der Übergang vom Außen ins Innere ist spürbar.</p>
           </div>
 
-          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
             <h3 class="text-2xl font-semibold mb-3">Reduktion schafft Atmosphäre</h3>
             <p class="text-muted-foreground">Die schrittweise Reduktion der Material- und Farbpalette von heller Eiche und Linoleum bis hin zu <span class="text-emerald-700 font-medium">warme, weiche und sinnliche Atmosphäre</span> erzeugt eine ruhige, sinnliche und konzentrierte Stimmung.</p>
           </div>
 
-          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
             <h3 class="text-2xl font-semibold mb-3">Langfristige Nutzung gesichert</h3>
             <p class="text-muted-foreground">Durch die klare Raumgliederung und flexible Teilbarkeit entstand eine <span class="text-emerald-700 font-medium">zukunftsfähige Immobilie</span> – nach jahrelangem Betreiberwechsel hat der Eigentümer endlich Stabilität gewonnen.</p>
           </div>
 
-          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
             <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
             <h3 class="text-2xl font-semibold mb-3">Historische Qualität fortgesetzt</h3>
             <p class="text-muted-foreground">Die gestalterische Qualität der historischen Fassade wurde <span class="text-emerald-700 font-medium">respektvoll ins Innere übertragen</span> – ein <span class="text-emerald-700 font-medium">zeitgemäßer und gleichzeitig respektvoller Ausbau</span>, der die mittelalterliche Bausubstanz würdigt.</p>
