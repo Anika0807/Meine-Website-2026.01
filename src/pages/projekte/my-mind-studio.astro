@@ -11,7 +11,7 @@ import Layout from '@/layouts/Layout.astro';
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">Innenarchitektur • HEALTH CARE & GASTRONOMIE</p>
       <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">My Mind Studio</h1>
-      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Meditations- und Yogastudio mit Cafe</p>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Meditations- und Yogastudio mit Café</p>
     </div>
   </section>
 
@@ -32,15 +32,17 @@ import Layout from '@/layouts/Layout.astro';
           </div>
           <div class="reveal-item">
             <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Aufgabe</p>
-            <p class="text-foreground">
-              <span class="text-emerald-700 font-medium">Leistungsphasen 01 - 09</span>
-            </p>
+              <p class="text-foreground">
+                Umbau einer kleinen Ladenfläche zu einem Meditations- und Yogastudio mit Café<br>
+                <span class="text-emerald-700 font-medium">Leistungsphasen 01 - 09</span>
+              </p>
           </div>
           <div class="reveal-item">
             <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Zeitraum & Rahmen</p>
             <p class="text-foreground">
               <span class="text-emerald-700 font-medium">Juli 2022-2023:</span><br>
-              Mitarbeit im Projekt in <span class="text-emerald-700 font-medium">Lüneburg</span> in Festanstellung bei <a href="https://www.formwaende.de" class="text-emerald-700 font-medium underline" target="_blank">FORMWÆNDE</a>, Lüneburg
+              Festanstellung bei <a href="https://www.formwaende.de" class="text-emerald-700 font-medium underline" target="_blank">FORMWÆNDE</a>, Lüneburg<br>
+              Projektstandort: <span class="text-emerald-700 font-medium">Lüneburg</span>
             </p>
           </div>
           <div class="reveal-item">
@@ -121,18 +123,9 @@ import Layout from '@/layouts/Layout.astro';
     <!-- === PROCESS – komplett mit UI-Foundation + Moodboard === -->
     <section id="process" class="py-24 md:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16 reveal">
           Process
         </h2>
-
-        <!-- User Flow -->
-        <div class="mb-20 reveal" style="transition-delay: 80ms">
-          <img src="/images/projekte/naturkompass-user-flow.png"
-               alt="User Flow"
-               class="w-full rounded-3xl shadow-2xl">
-        </div>
-
         <!-- Designprinzipien -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20" style="transition-delay: 160ms">
           <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-3xl reveal">
@@ -155,20 +148,6 @@ import Layout from '@/layouts/Layout.astro';
             <p class="text-muted-foreground">
               Wissen wird präzise und neugierig in kleinen Häppchen <span class="text-emerald-700 font-medium">vermittelt</span>.
             </p>
-          </div>
-        </div>
-
-        <!-- UI-Foundation + Moodboard -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" style="transition-delay: 240ms">
-          <div class="reveal">
-            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
-            <!-- Hier deine UI-Foundation Bilder / Grid einfügen -->
-            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-xl">
-          </div>
-          <div class="reveal">
-            <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h4>
-            <!-- Hier dein Moodboard Bild -->
-            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-xl">
           </div>
         </div>
       </div>
@@ -203,47 +182,71 @@ import Layout from '@/layouts/Layout.astro';
       }
     </script>
 
-    <section id="final-design" class="py-24 md:py-32 bg-gray-50">
+    <!-- === FINAL DESIGN – My Mind Studio (echte Buttons + mehr Abstand) === -->
+    <section id="final-design" class="py-32 md:py-44 bg-white">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 class="reveal text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-12 md:mb-16">Final Design</h2>
+        
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-20 reveal">
+          Final Design
+        </h2>
 
-        <!-- Onboarding Before / After -->
-        <div class="reveal mb-20" style="transition-delay: 80ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">ONBOARDING VORHER / NACHHER</h3>
-          <img src="/images/projekte/naturkompass-onboarding-before-after.png" alt="Onboarding Before / After" class="w-full rounded-3xl shadow-2xl">
-        </div>
+        <p class="max-w-3xl mx-auto text-center text-xl text-muted-foreground mb-28 reveal" style="transition-delay: 80ms">
+          My Mind Studio – ein Ort der Auszeit in Lüneburg.<br>
+          Umsetzung als Innenarchitektur M.A. im Team bei <span class="font-medium">FORMWÆNDE</span>.
+        </p>
 
-        <!-- Haupt- & Nebenfunktionen -->
-        <div class="reveal mb-20" style="transition-delay: 220ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">HAUPT- & NEBENFUNKTIONEN</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <img src="/images/projekte/Hauptfunktion 01.png" alt="Camera Forest" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 02.png" alt="Camera Flowers" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 03.png" alt="Gefülltes Mutterkraut" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 04.png" alt="Weiterhin sammeln?" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 01.png" alt="Entdecken" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 02.png" alt="Wissen" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 03.png" alt="Mein Profil" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 04.png" alt="Müllmelder" class="w-full rounded-3xl shadow-xl">
+        <!-- 1. BDIA-Handbuch 2023/2024 -->
+        <div class="mb-32 reveal" style="transition-delay: 120ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung im BDIA-Handbuch 2023/2024</h3>
+            <a
+              href="https://bdia.de/wp-content/uploads/2024/05/my-mind-studio.pdf"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
+          </div>
+          <div class="space-y-12">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind.jpg" alt="BDIA Bild 1" class="w-full rounded-3xl shadow-2xl">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind2.jpg" alt="BDIA Bild 2" class="w-full rounded-3xl shadow-2xl">
           </div>
         </div>
 
-        <!-- Live Preview -->
-        <div class="reveal text-center" style="transition-delay: 360ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8">LIVE PREVIEW</h3>
-          <div class="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black aspect-video">
-            <iframe class="w-full h-full"
-                    src="https://www.youtube.com/embed/_Weccn01Gi8"
-                    title="NaturKompass Live Preview"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+        <!-- 2. AIT 06.2024 -->
+        <div class="mb-32 reveal" style="transition-delay: 200ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung in der AIT 06.2024</h3>
+            <a
+              href="https://ait-xia-dialog.de/ait-magazine/ausgabe-5-2024/"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
           </div>
-          <p class="mt-8 text-muted-foreground max-w-md mx-auto text-sm md:text-base">
-            Das Ergebnis ist eine ruhige, <span class="text-emerald-700 font-medium">intuitive und offline-fähige</span> App,
-            die das Naturerlebnis unterstützt – ohne zu überfordern.
-          </p>
+          <img src="/images/projekte/20240507_AIT_202405_Artikel.jpg" alt="AIT 06.2024" class="w-full rounded-3xl shadow-2xl">
         </div>
+
+        <!-- 3. db 07/2024 -->
+        <div class="reveal" style="transition-delay: 280ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Veröffentlichung in der db 07/2024</h3>
+            <a
+              href="https://www.dds-online.de/gestaltung/kaleidoskop-der-innenraeume/?utm_source=chatgpt.com#slider-intro-20"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600 text-white text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all"
+            >
+              → zur Veröffentlichung
+            </a>
+          </div>
+          <img src="/images/projekte/Formaaende_dds_09-2024.jpg" alt="db 07.2024" class="w-full rounded-3xl shadow-2xl">
+        </div>
+
+        <!-- Hinweis Formwaende -->
+        <p class="text-center text-sm text-muted-foreground mt-32 reveal" style="transition-delay: 360ms">
+          Mitarbeit als Innenarchitektur M.A. bei <span class="font-medium">FORMWÆNDE</span>, Lüneburg
+        </p>
       </div>
     </section>
 
@@ -321,14 +324,6 @@ import Layout from '@/layouts/Layout.astro';
         </div>
 
         <!-- Nächste Schritte -->
-        <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
-          <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
-          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
-            <li class="flex gap-4">→ MVP ausbauen: Fehlende Screens und Müllmelder-Funktion fertigstellen</li>
-            <li class="flex gap-4">→ Feldtests durchführen: Prototyp mit echten Nutzern unter realen Bedingungen testen</li>
-            <li class="flex gap-4">→ Entwickler-Kollaboration: Umsetzung der mobilen App in die Wege leiten</li>
-          </ul>
-        </div>
 
         <!-- Zurück-Button -->
         <div class="flex justify-center">
