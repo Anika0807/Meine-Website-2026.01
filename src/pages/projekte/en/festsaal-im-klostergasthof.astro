@@ -1,0 +1,352 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Banquet Hall at the Monastery Inn - Anika Warncke">
+  <!-- 1. HERO -->
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/festsaal-hero.jpg" alt="Festsaal im Klostergasthof" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">INTERIOR ARCHITECTURE • GASTRONOMY</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">Banquet Hall at the Monastery Inn</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Event venue design for weddings and celebrations</p>
+    </div>
+  </section>
+
+  <!-- Content Rail - all following sections -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- === METADATA === -->
+    <section class="pt-12 pb-20 md:pb-28 bg-white" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-0 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-8 mb-16 text-sm">
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Role & Team</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">Interior Architecture M.A., Project Lead</span> in a two-person team<br>with Marco Smith
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Task</p>
+            <p class="text-foreground">
+              Redesign of the banquet hall at Klostergasthof <br>
+              Service phases 01 - 09, <span class="text-emerald-700 font-medium">contribution to phases 03 - 09</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Timeline & Scope</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">01 | 2023 - 03 | 2024:</span><br>
+              Full-time position at <a href="https://www.formwaende.de" class="text-emerald-700 font-medium underline" target="_blank">FORMWÆNDE</a>, Lüneburg<br>
+              Project location: <span class="text-emerald-700 font-medium">Augsburg</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Tools</p>
+            <p class="text-foreground">
+              <span class="text-emerald-700 font-medium">Vectorworks</span>, Adobe Creative Suite, Microsoft Office
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- === THE CHALLENGE === -->
+    <section id="challenge" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-6 md:px-12">
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Challenge
+        </h2>
+
+        <div class="prose prose-lg mx-auto text-center text-muted-foreground leading-relaxed reveal" style="transition-delay: 80ms">
+          <p class="text-xl md:text-2xl">
+            In the former riding stable of Kloster Holzen, with its <span class="text-emerald-700 font-medium">monumental columns</span> and <span class="text-emerald-700 font-medium">historic vaults</span>, the existing hospitality space was to be redesigned. The venue, repurposed in 2011, needed to retain its strong <span class="text-emerald-700 font-medium">historic identity</span> while introducing a <span class="text-emerald-700 font-medium">modern, elegant, and welcoming atmosphere</span> for <span class="text-emerald-700 font-medium">dining and events</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Staggered reveal - challenge section
+      function initChallengeReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#challenge .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChallengeReveal, { once: true });
+      } else {
+        initChallengeReveal();
+      }
+    </script>
+
+
+    <!-- === CONCEPT & REALIZATION === -->
+    <section id="realization" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Concept & Realization
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal" style="transition-delay: 80ms">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-2xl font-semibold mb-3">Historic Substance Preserved</h3>
+            <p class="text-muted-foreground">
+              The <span class="text-emerald-700 font-medium">monumental columns and historic vaults</span> remained <span class="text-emerald-700 font-medium">fully preserved in their original substance</span> and continue to form the <span class="text-emerald-700 font-medium">supporting soul of the space</span>.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-2xl font-semibold mb-3">Precise Custom Fabrication</h3>
+            <p class="text-muted-foreground">
+              Each column was <span class="text-emerald-700 font-medium">individually surveyed</span> and refined with <span class="text-emerald-700 font-medium">custom-made cladding</span> - a <span class="text-emerald-700 font-medium">technical masterpiece</span> connecting historic substance with modern functionality.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-2xl font-semibold mb-3">Restoration & Built-ins</h3>
+            <p class="text-muted-foreground">
+              <span class="text-emerald-700 font-medium">Extensive repair and restoration work</span> was carried out on the building fabric and existing fixtures. <span class="text-emerald-700 font-medium">High-quality built-in furniture</span>, including concealed buffet storage, plus the redesigned bar with a <span class="text-emerald-700 font-medium">carefully crafted back bar</span>, blends harmoniously with the historic architecture.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-2xl font-semibold mb-3">Flexible Furnishing & Built-ins</h3>
+            <p class="text-muted-foreground">
+              <span class="text-emerald-700 font-medium">Loose, flexible furnishing</span> and equipment, combined with <span class="text-emerald-700 font-medium">high-quality built-ins</span>, make the hall equally suitable for banquets, weddings and everyday gastronomy - <span class="text-emerald-700 font-medium">durable, comfortable and unobtrusive</span>.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-muted-foreground mt-20 reveal" style="transition-delay: 360ms">
+          Contribution as Interior Architecture M.A. at <span class="font-medium">FORMWÆNDE</span>, Lüneburg
+          <span class="block mt-4"></span>
+          <a href="https://www.formwaende.de/projekte/festsaal-im-klostergasthof/"
+             target="_blank"
+             class="text-emerald-700 hover:text-emerald-600 transition-colors font-medium underline decoration-current underline-offset-2">
+            More about the project at FORMWÆNDE →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      // Staggered reveal - concept and realization section
+      function initRealisierungReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#realization .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initRealisierungReveal, { once: true });
+      } else {
+        initRealisierungReveal();
+      }
+    </script>
+
+    <!-- === RESULTS & LEARNINGS === -->
+    <section id="results" class="py-28 md:py-36 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter text-center mb-16 reveal">
+          Results & Insights
+        </h2>
+
+        <div class="max-w-3xl mx-auto text-center text-xl text-muted-foreground mb-20 reveal" style="transition-delay: 80ms">
+          From a former riding stable with <span class="text-emerald-700 font-medium">monumental columns and historic vaults</span>, an <span class="text-emerald-700 font-medium">elegant, versatile event and gastronomy venue</span> has emerged.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal" style="transition-delay: 160ms">
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-2xl font-semibold mb-3">Historic Soul Lives On</h3>
+            <p class="text-muted-foreground">
+              The <span class="text-emerald-700 font-medium">monumental columns and vaults</span> <span class="text-emerald-700 font-medium">shine even more strongly after restoration</span> and create the space's <span class="text-emerald-700 font-medium">distinctive, storied identity</span>.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-2xl font-semibold mb-3">Elegant, Cohesive Atmosphere</h3>
+            <p class="text-muted-foreground">
+              Through <span class="text-emerald-700 font-medium">reduced materiality</span>, a <span class="text-emerald-700 font-medium">warm lighting concept</span>, and the <span class="text-emerald-700 font-medium">careful redesign of the bar area with back bar</span>, the interior gained an inviting, festive, and at the same time calm atmosphere.
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="text-emerald-700 text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-2xl font-semibold mb-3">Versatile Usability</h3>
+            <p class="text-muted-foreground">
+              The combination of <span class="text-emerald-700 font-medium">high-quality built-ins (including buffet storage)</span> and <span class="text-emerald-700 font-medium">flexible furnishings</span> makes the hall equally suited to weddings, banquets, conferences, and upscale dining - <span class="text-emerald-700 font-medium">durable and comfortable</span>.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-center text-lg text-muted-foreground mt-16 max-w-2xl mx-auto reveal" style="transition-delay: 320ms">
+          The Banquet Hall at the Monastery Inn proves that with respect for historic substance and precise contemporary design, a space can <span class="text-emerald-700 font-medium">preserve its soul while telling new, modern stories.</span>
+        </p>
+
+        <div class="flex justify-center mt-12">
+          <a href="/en/projects"
+             class="w-full sm:w-auto bg-primary text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition shadow-md hover:brightness-95 hover:shadow-lg">
+            Back to all projects →
+          </a>
+        </div>
+
+        <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-gray-100 flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
+          <a href="/en/projects/[previous-project]"
+             class="w-full md:w-auto bg-primary text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition shadow-md hover:brightness-95 hover:shadow-lg">
+            &larr; Previous Project
+          </a>
+          <a href="/en/projects/[next-project]"
+             class="w-full md:w-auto bg-primary text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition shadow-md hover:brightness-95 hover:shadow-lg">
+            Next Project →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Staggered reveal - results section
+      function initResultsReveal() {
+        const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResultsReveal, { once: true });
+      } else {
+        initResultsReveal();
+      }
+    </script>
+
+    <script>
+      function animateCounter(id: string, target: number, duration = 1600) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const startTime = performance.now();
+
+        function update(now: number) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          el!.textContent = String(Math.floor(progress * target));
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      function initSequentialReveals() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
+
+        groups.forEach((group) => {
+          const items = group.querySelectorAll<HTMLElement>('.reveal-item');
+          if (!items.length) return;
+
+          if (reduceMotion) {
+            items.forEach((item) => {
+              item.style.opacity = '1';
+              item.style.transform = 'none';
+            });
+            if (group.id === 'research') {
+              animateCounter('count-60', 60);
+              animateCounter('count-88', 88);
+              animateCounter('count-56', 56);
+              animateCounter('count-42', 42);
+            }
+            return;
+          }
+
+          items.forEach((item) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(28px)';
+            item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            item.style.willChange = 'opacity, transform';
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+
+                if (group.id === 'research' && group.dataset.countAnimated !== 'true' && item.querySelector('#count-60')) {
+                  animateCounter('count-60', 60);
+                  animateCounter('count-88', 88);
+                  animateCounter('count-56', 56);
+                  animateCounter('count-42', 42);
+                  group.dataset.countAnimated = 'true';
+                }
+              }, index * 160);
+            });
+            group.dataset.revealed = 'true';
+
+            observer.disconnect();
+          }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+          observer.observe(group);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSequentialReveals, { once: true });
+      } else {
+        initSequentialReveals();
+      }
+    </script>
+
+  </div>
+
+</Layout>
