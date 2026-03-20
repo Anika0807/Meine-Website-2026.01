@@ -77,6 +77,130 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
 
           lastScroll = currentScroll;
         });
+
+        function mountProjectHeroScrollIndicator() {
+          const pathname = window.location.pathname;
+          const isGermanProjectDetail = pathname.startsWith('/projekte/') && pathname !== '/projekte/';
+          const isEnglishProjectDetail = pathname.startsWith('/en/projects/') && pathname !== '/en/projects/';
+          const isProjectDetail = isGermanProjectDetail || isEnglishProjectDetail;
+
+          const oldIndicator = document.getElementById('project-hero-scroll-indicator');
+          if (oldIndicator) oldIndicator.remove();
+          if (!isProjectDetail) return;
+
+          const hero = document.querySelector('main > section.relative');
+          if (!(hero instanceof HTMLElement)) return;
+
+          // Mobile-Optimierung: Hero so komprimieren, dass Titel + Subtitle + Scroll-Hinweis
+          // im ersten Viewport sichtbar bleiben (inkl. sticky Header).
+          if (window.innerWidth < 768) {
+            const mobileHeader = document.querySelector('header.md\\:hidden');
+            const headerHeight = mobileHeader instanceof HTMLElement ? mobileHeader.offsetHeight : 88;
+            hero.style.minHeight = `calc(100svh - ${Math.max(72, headerHeight)}px)`;
+            hero.style.paddingTop = '0.75rem';
+            hero.style.paddingBottom = '5.5rem';
+
+            const heroTextWrap = hero.querySelector('div.relative.z-10.text-center');
+            if (heroTextWrap instanceof HTMLElement) {
+              heroTextWrap.style.maxWidth = '22rem';
+              heroTextWrap.style.paddingLeft = '1rem';
+              heroTextWrap.style.paddingRight = '1rem';
+
+              const title = heroTextWrap.querySelector('h1');
+              if (title instanceof HTMLElement) {
+                title.style.fontSize = 'clamp(2.1rem, 11vw, 3rem)';
+                title.style.lineHeight = '0.95';
+              }
+
+              const subtitle = heroTextWrap.querySelector('p.reveal-item.mt-5');
+              if (subtitle instanceof HTMLElement) {
+                subtitle.style.marginTop = '0.75rem';
+                subtitle.style.fontSize = 'clamp(0.95rem, 4.3vw, 1.2rem)';
+                subtitle.style.lineHeight = '1.3';
+                subtitle.style.maxWidth = '19rem';
+              }
+
+              const category = heroTextWrap.querySelector('p.reveal-item.text-sm');
+              if (category instanceof HTMLElement) {
+                category.style.marginBottom = '0.55rem';
+                category.style.fontSize = '0.72rem';
+                category.style.letterSpacing = '0.2em';
+              }
+            }
+          } else {
+            hero.style.minHeight = '';
+            hero.style.paddingTop = '';
+            hero.style.paddingBottom = '';
+          }
+
+          const label = isEnglishProjectDetail ? 'SCROLL' : 'SCROLLEN';
+          const isMobile = window.innerWidth < 768;
+          const indicator = document.createElement('div');
+          indicator.id = 'project-hero-scroll-indicator';
+          indicator.setAttribute('aria-hidden', 'true');
+          indicator.style.position = 'absolute';
+          indicator.style.left = '50%';
+          indicator.style.bottom = isMobile
+            ? 'max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem))'
+            : 'clamp(5.5rem, 12vh, 8rem)';
+          indicator.style.transform = 'translateX(-50%)';
+          indicator.style.display = 'flex';
+          indicator.style.flexDirection = 'column';
+          indicator.style.alignItems = 'center';
+          indicator.style.gap = isMobile ? '0.35rem' : '0.75rem';
+          indicator.style.color = isMobile ? 'rgba(255,255,255,0.95)' : '#ffffff';
+          indicator.style.zIndex = '60';
+          indicator.style.pointerEvents = 'none';
+          if (isMobile) {
+            indicator.style.padding = '0.4rem 0.75rem 0.55rem';
+            indicator.style.borderRadius = '9999px';
+            indicator.style.background = 'rgba(0, 0, 0, 0.28)';
+            indicator.style.backdropFilter = 'blur(6px)';
+            indicator.style.boxShadow = '0 8px 20px rgba(0,0,0,0.35)';
+          }
+
+          const text = document.createElement('p');
+          text.textContent = label;
+          text.style.fontSize = '0.75rem';
+          text.style.letterSpacing = '0.2em';
+          text.style.fontWeight = '500';
+          text.style.textTransform = 'uppercase';
+          text.style.lineHeight = '1';
+          text.style.margin = '0';
+          text.style.opacity = isMobile ? '1' : '0.7';
+
+          indicator.appendChild(text);
+          {
+            const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            arrow.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            arrow.setAttribute('fill', 'none');
+            arrow.setAttribute('viewBox', '0 0 24 24');
+            arrow.setAttribute('stroke', 'currentColor');
+            arrow.setAttribute('stroke-width', '2.5');
+            arrow.setAttribute('class', 'w-8 h-8 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)] animate-bounce-slow');
+            if (isMobile) {
+              arrow.style.width = '1.65rem';
+              arrow.style.height = '1.65rem';
+            }
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('stroke-linecap', 'round');
+            path.setAttribute('stroke-linejoin', 'round');
+            path.setAttribute('d', 'M19 9l-7 7-7-7');
+            arrow.appendChild(path);
+            indicator.appendChild(arrow);
+          }
+          hero.appendChild(indicator);
+        }
+
+        function mountProjectHeroScrollIndicatorDeferred() {
+          requestAnimationFrame(() => mountProjectHeroScrollIndicator());
+        }
+
+        window.addEventListener('load', mountProjectHeroScrollIndicatorDeferred);
+        window.addEventListener('resize', mountProjectHeroScrollIndicatorDeferred);
+        document.addEventListener('DOMContentLoaded', mountProjectHeroScrollIndicatorDeferred);
+        document.addEventListener('astro:page-load', mountProjectHeroScrollIndicatorDeferred);
       </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
