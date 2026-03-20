@@ -12,7 +12,7 @@ import Layout from '@/layouts/Layout.astro';
             Let's<br />create<br />together!
           </h1>
           <p class="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-            Tell me about your project, whether it is interior architecture, UX/UI, or a blend of both. I am excited to connect and build something meaningful with you.
+            I'd love to hear about your project - whether it's interior architecture, UX/UI, or a blend of both. I'm looking forward to getting to know you and creating something meaningful together.
           </p>
         </div>
 
@@ -79,13 +79,13 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <Button id="submit-btn" type="submit" size="lg" class="w-full text-base sm:text-lg">
-            Send Your Message
+            Send message
           </Button>
 
           <p id="status-msg" class="text-center text-sm mt-2 min-h-[1.5rem]" aria-live="polite"></p>
 
           <p class="text-xs text-muted-foreground text-center">
-            Your data is safe and will be treated confidentially.
+            I treat your data with care and confidentiality.
           </p>
         </form>
       </div>
@@ -194,7 +194,7 @@ import Layout from '@/layouts/Layout.astro';
         statusMsg.classList.add('text-red-600');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Your Message';
+        submitBtn.textContent = 'Send message';
       }
     });
   </script>

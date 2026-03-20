@@ -79,13 +79,13 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <Button id="absenden-btn" type="submit" size="lg" class="w-full text-base sm:text-lg">
-            Jetzt loslegen - Nachricht senden
+            Nachricht senden
           </Button>
 
           <p id="status-meldung" class="text-center text-sm mt-2 min-h-[1.5rem]" aria-live="polite"></p>
 
           <p class="text-xs text-muted-foreground text-center">
-            Deine Daten sind sicher und werden vertraulich behandelt.
+            Ich behandle deine Daten vertraulich.
           </p>
         </form>
       </div>
@@ -175,7 +175,7 @@ import Layout from '@/layouts/Layout.astro';
         .then((response) => {
           if (!response.ok) throw new Error('Request failed');
           form.reset();
-          btn.textContent = 'Jetzt loslegen - Nachricht senden';
+          btn.textContent = 'Nachricht senden';
           status.textContent = 'Vielen Dank! Ich melde mich so schnell wie möglich bei dir.';
           status.className = 'text-green-600 font-medium text-sm mt-2';
           setTimeout(() => {
@@ -184,7 +184,7 @@ import Layout from '@/layouts/Layout.astro';
           }, 6000);
         })
         .catch(() => {
-          btn.textContent = 'Jetzt loslegen - Nachricht senden';
+          btn.textContent = 'Nachricht senden';
           status.textContent = 'Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe direkt an hallo@anika-warncke.de.';
           status.className = 'text-red-600 text-sm mt-2 font-medium';
         })

@@ -41,3 +41,16 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Tone Quick Checklist
+
+1. Klar vor kreativ: Erst Aussage, dann Stil.
+2. Ein Satz = eine Kernbotschaft.
+3. Nutzen fuer Menschen immer explizit machen.
+4. Warm, direkt, professionell - nie werblich laut.
+5. Keine Buzzwords ohne echten Inhalt.
+6. CTA-Wording konsistent halten (z. B. Lass uns sprechen / Send message).
+7. Deutsch: persoenlich und nahbar im du-Ton.
+8. Englisch: natuerlich und menschlich, nicht zu formal.
+9. Fachbegriffe nur mit Kontext oder Nutzenbezug.
+10. Vor Publish: Wiederholungen und Uebertreibungen streichen.
