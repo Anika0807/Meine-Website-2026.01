@@ -16,9 +16,6 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="astro-view-transitions" content="true" />
     <title>{title}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/opendyslexic@1.0.0/css/opendyslexic.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=OpenDyslexic" />
-    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Theme-Script: verhindert Flackern beim Laden -->
     <script is:inline>
       (function() {
