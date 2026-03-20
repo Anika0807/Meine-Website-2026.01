@@ -62,13 +62,6 @@ export default function Navigation() {
     };
   }, [isMobileMenuOpen]);
 
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
   const navLinks = navTranslations[locale] ?? navTranslations['de'];
   const href = (path: string) => locale === 'en' ? `/en${path === '/' ? '' : path}` || '/en' : path;
 
