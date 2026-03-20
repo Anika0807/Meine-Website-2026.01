@@ -11,7 +11,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
   <!-- === HERO – NUR MOBILE (Kasten weniger schwarz + mehr blurry/transparente, Typo exakt wie Desktop) === -->
   <div class="md:hidden">
-    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+    <section class="relative isolate z-20 h-[100svh] flex items-center justify-center overflow-hidden bg-black">
 
       <!-- Mobile: zwei Bilder übereinander -->
       <div class="absolute inset-0 grid grid-rows-2">
@@ -141,7 +141,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
   </section>
 
   <!-- === AUSGEWÄHLTE PROJEKTE – Mobile Button-Fix (Link immer sichtbar), Desktop 100 % unverändert === -->
-  <section class="pt-16 pb-8 bg-background md:hidden">
+  <section class="relative z-0 pt-16 pb-8 bg-background md:hidden">
     <div class="w-full">
       <div class="relative z-50 bg-background pb-6">
         <h2 class="text-center text-h2 mb-12">Ausgewählte Projekte</h2>

@@ -14,7 +14,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 <Layout title={getMessage('hero.title')}>
   <!-- === HERO – NUR MOBILE === -->
   <div class="md:hidden">
-    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+    <section class="relative isolate z-20 h-[100svh] flex items-center justify-center overflow-hidden bg-black">
       <!-- Mobile: zwei Bilder übereinander -->
       <div class="absolute inset-0 grid grid-rows-2">
         <div class="relative">
@@ -121,7 +121,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </section>
 
 <!-- AUSGEWÄHLTE PROJEKTE – Mobile -->
-<section class="pt-16 pb-8 bg-background md:hidden">
+<section class="relative z-0 pt-16 pb-8 bg-background md:hidden">
 <div class="w-full">
 <div class="relative z-50 bg-background pb-6">
 <h2 class="text-center text-h2 mb-12">Selected Projects</h2>
