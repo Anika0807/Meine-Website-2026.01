@@ -5,7 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 <Layout title="NaturKompass – Anika Warncke">
   <!-- 1. HERO -->
   <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
-    <img src="/images/projekte/naturkompass-hero.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover">
+    <img src="/images/projekte/naturkompass-hero.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE APP</p>
@@ -129,7 +129,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="mb-20 reveal" style="transition-delay: 80ms">
           <img src="/images/projekte/naturkompass-user-flow.png"
                alt="User Flow"
-               class="w-full rounded-3xl shadow-2xl">
+               class="w-full rounded-3xl shadow-2xl" loading="lazy">
         </div>
 
         <!-- Designprinzipien -->
@@ -162,12 +162,12 @@ import Layout from '@/layouts/Layout.astro';
           <div class="reveal">
             <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
             <!-- Hier deine UI-Foundation Bilder / Grid einfügen -->
-            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/naturkompass-ui-foundation.png" alt="UI-Foundation" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
           <div class="reveal">
             <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">Moodboard</h4>
             <!-- Hier dein Moodboard Bild -->
-            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/naturkompass-moodboard.png" alt="Moodboard" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
         </div>
       </div>
@@ -209,21 +209,21 @@ import Layout from '@/layouts/Layout.astro';
         <!-- Onboarding Before / After -->
         <div class="reveal mb-20" style="transition-delay: 80ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">ONBOARDING VORHER / NACHHER</h3>
-          <img src="/images/projekte/naturkompass-onboarding-before-after.png" alt="Onboarding Before / After" class="w-full rounded-3xl shadow-2xl">
+          <img src="/images/projekte/naturkompass-onboarding-before-after.png" alt="Onboarding Before / After" class="w-full rounded-3xl shadow-2xl" loading="lazy">
         </div>
 
         <!-- Haupt- & Nebenfunktionen -->
         <div class="reveal mb-20" style="transition-delay: 220ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">HAUPT- & NEBENFUNKTIONEN</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <img src="/images/projekte/Hauptfunktion 01.png" alt="Camera Forest" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 02.png" alt="Camera Flowers" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 03.png" alt="Gefülltes Mutterkraut" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Hauptfunktion 04.png" alt="Weiterhin sammeln?" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 01.png" alt="Entdecken" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 02.png" alt="Wissen" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 03.png" alt="Mein Profil" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/Nebenfunktionen 04.png" alt="Müllmelder" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/Hauptfunktion 01.png" alt="Camera Forest" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Hauptfunktion 02.png" alt="Camera Flowers" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Hauptfunktion 03.png" alt="Gefülltes Mutterkraut" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Hauptfunktion 04.png" alt="Weiterhin sammeln?" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Nebenfunktionen 01.png" alt="Entdecken" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Nebenfunktionen 02.png" alt="Wissen" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Nebenfunktionen 03.png" alt="Mein Profil" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/Nebenfunktionen 04.png" alt="Müllmelder" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
         </div>
 

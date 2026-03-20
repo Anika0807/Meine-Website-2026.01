@@ -21,7 +21,7 @@ export default function SlowCarousel({ images }: SlowCarouselProps) {
     >
       {images.map((img, index) => (
         <SwiperSlide key={index}>
-          <img src={img} alt={`Projekt ${index + 1}`} className="w-full h-full object-cover rounded-card" />
+          <img src={img} alt={`Projekt ${index + 1}`} className="w-full h-full object-cover rounded-card" loading="lazy" />
         </SwiperSlide>
       ))}
     </Swiper>

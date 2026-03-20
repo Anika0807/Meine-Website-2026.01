@@ -5,7 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 <Layout title="SCHLAF – Anika Warncke">
   <!-- 1. HERO -->
   <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
-    <img src="/images/projekte/schlaf-hero.jpg" alt="SCHLAF" class="absolute inset-0 w-full h-full object-cover">
+    <img src="/images/projekte/schlaf-hero.jpg" alt="SCHLAF" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">INTERIOR ARCHITECTURE • EXHIBITION DESIGN</p>
@@ -57,8 +57,7 @@ import Layout from '@/layouts/Layout.astro';
       <img
         src="/images/projekte/schlaf-herausforderung-placeholder.png"
         alt="Placeholder image before the Challenge section"
-        class="reveal-item w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain"
-      >
+        class="reveal-item w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
     </div>
 
     <!-- === THE CHALLENGE === -->
@@ -79,8 +78,7 @@ import Layout from '@/layouts/Layout.astro';
           <img
             src="/images/projekte/schlaf-herausforderung-detail-placeholder.png"
             alt="Placeholder image below the Challenge text"
-            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain"
-          >
+            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
         </div>
       </div>
     </section>
@@ -155,8 +153,7 @@ import Layout from '@/layouts/Layout.astro';
           <img
             src="/images/projekte/schlaf-konzept-placeholder.png"
             alt="Placeholder image below the Concept section"
-            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain"
-          >
+            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
         </div>
       </div>
     </section>
@@ -206,60 +203,59 @@ import Layout from '@/layouts/Layout.astro';
             <img
               src="/images/projekte/schlaf-herausforderung-placeholder.png"
               alt="Placeholder image – Design and Visualization"
-              class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain"
-            >
+              class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">
               I. Time to Dive In – Good Night
             </figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 120ms">
-            <img src="/images/projekte/schlaf-entwurf-01.png" alt="Design and Visualization 01" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-01.png" alt="Design and Visualization 01" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">II. How Do You Sleep?</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 160ms">
-            <img src="/images/projekte/schlaf-entwurf-02.png" alt="Design and Visualization 02" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-02.png" alt="Design and Visualization 02" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">III. On the Trail of Sleep</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 200ms">
-            <img src="/images/projekte/schlaf-entwurf-03.png" alt="Design and Visualization 03" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-03.png" alt="Design and Visualization 03" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">IV. How (and Why) Do We Sleep?</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 240ms">
-            <img src="/images/projekte/schlaf-entwurf-04.png" alt="Design and Visualization 04" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-04.png" alt="Design and Visualization 04" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">V. What Makes You Tick?</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 280ms">
-            <img src="/images/projekte/schlaf-entwurf-05.png" alt="Design and Visualization 05" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-05.png" alt="Design and Visualization 05" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">VI. [D]REAM 01</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 320ms">
-            <img src="/images/projekte/schlaf-entwurf-06.png" alt="Design and Visualization 06" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-06.png" alt="Design and Visualization 06" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">VI. [D]REAM 02</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 360ms">
-            <img src="/images/projekte/schlaf-entwurf-07.png" alt="Design and Visualization 07" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-07.png" alt="Design and Visualization 07" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">VII. Lost Paths 01</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 400ms">
-            <img src="/images/projekte/schlaf-entwurf-08.png" alt="Design and Visualization 08" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-08.png" alt="Design and Visualization 08" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">VII. Lost Paths 02</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 440ms">
-            <img src="/images/projekte/schlaf-entwurf-09.png" alt="Design and Visualization 09" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-09.png" alt="Design and Visualization 09" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">VIII. The Balance of Sleep Hygiene</figcaption>
           </figure>
 
           <figure class="reveal" style="transition-delay: 480ms">
-            <img src="/images/projekte/schlaf-entwurf-10.png" alt="Design and Visualization 10" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain">
+            <img src="/images/projekte/schlaf-entwurf-10.png" alt="Design and Visualization 10" class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
             <figcaption class="mt-3 text-sm md:text-base text-muted-foreground text-center">IX. Good Morning – Time to Surface</figcaption>
           </figure>
         </div>
@@ -329,8 +325,7 @@ import Layout from '@/layouts/Layout.astro';
           <img
             src="/images/projekte/schlaf-ergebnisse-placeholder.png"
             alt="Placeholder image before the closing statement in Results & Insights"
-            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain"
-          >
+            class="w-full h-auto rounded-3xl border border-gray-100 bg-gray-50 shadow-sm object-contain" loading="lazy">
         </div>
 
         <p class="text-center text-lg text-muted-foreground mt-16 max-w-2xl mx-auto reveal" style="transition-delay: 320ms">

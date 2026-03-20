@@ -5,7 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 <Layout title="OmNomZen - Anika Warncke">
   <!-- 1. HERO -->
   <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
-    <img src="/images/projekte/omnomzen-hero.jpg" alt="OmNomZen Hero" class="absolute inset-0 w-full h-full object-cover">
+    <img src="/images/projekte/omnomzen-hero.jpg" alt="OmNomZen Hero" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • MOBILE APP</p>
@@ -120,7 +120,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="mb-20 reveal" style="transition-delay: 80ms">
           <img src="/images/projekte/omnomzen-user-flow.png"
             alt="OmNomZen User Flow"
-               class="w-full rounded-3xl shadow-2xl">
+               class="w-full rounded-3xl shadow-2xl" loading="lazy">
         </div>
 
         <!-- Design Principles -->
@@ -152,7 +152,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="grid grid-cols-1 md:grid-cols-1 gap-8 md:gap-12" style="transition-delay: 240ms">
           <div class="reveal">
             <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI Foundation</h4>
-            <img src="/images/projekte/omnomzen-ui-foundation.png" alt="OmNomZen UI Foundation" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/omnomzen-ui-foundation.png" alt="OmNomZen UI Foundation" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
         </div>
       </div>
@@ -195,10 +195,10 @@ import Layout from '@/layouts/Layout.astro';
         <div class="reveal mb-20" style="transition-delay: 220ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-8 text-center">APP INSIGHTS</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <img src="/images/projekte/omnomzen-feature-01.png" alt="OmNomZen feature screen 01" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/omnomzen-feature-02.png" alt="OmNomZen feature screen 02" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/omnomzen-feature-03.png" alt="OmNomZen feature screen 03" class="w-full rounded-3xl shadow-xl">
-            <img src="/images/projekte/omnomzen-feature-04.png" alt="OmNomZen feature screen 04" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/omnomzen-feature-01.png" alt="OmNomZen feature screen 01" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/omnomzen-feature-02.png" alt="OmNomZen feature screen 02" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/omnomzen-feature-03.png" alt="OmNomZen feature screen 03" class="w-full rounded-3xl shadow-xl" loading="lazy">
+            <img src="/images/projekte/omnomzen-feature-04.png" alt="OmNomZen feature screen 04" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
         </div>
 

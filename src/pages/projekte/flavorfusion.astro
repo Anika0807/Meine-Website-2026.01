@@ -5,7 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 <Layout title="FlavorFusion - Anika Warncke">
   <!-- 1. HERO -->
   <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
-    <img src="/images/projekte/flavorfusion-hero.jpg" alt="FlavorFusion Hero" class="absolute inset-0 w-full h-full object-cover">
+    <img src="/images/projekte/flavorfusion-hero.jpg" alt="FlavorFusion Hero" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • LANDING PAGE</p>
@@ -126,7 +126,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="mb-20 reveal" style="transition-delay: 80ms">
           <img src="/images/projekte/flavorfusion-user-flow.png"
             alt="FlavorFusion User Flow"
-               class="w-full rounded-3xl shadow-2xl">
+               class="w-full rounded-3xl shadow-2xl" loading="lazy">
         </div>
 
         <!-- Designprinzipien -->
@@ -158,7 +158,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="max-w-4xl mx-auto" style="transition-delay: 240ms">
           <div class="reveal">
             <h4 class="uppercase tracking-widest text-sm text-muted-foreground mb-6">UI-Foundation</h4>
-            <img src="/images/projekte/flavorfusion-ui-foundation.png" alt="FlavorFusion UI Foundation" class="w-full rounded-3xl shadow-xl">
+            <img src="/images/projekte/flavorfusion-ui-foundation.png" alt="FlavorFusion UI Foundation" class="w-full rounded-3xl shadow-xl" loading="lazy">
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ import Layout from '@/layouts/Layout.astro';
         <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
           <!-- 1. My Mind Studio -->
           <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none cursor-pointer" onclick="window.location='/projekte/my-mind-studio'">
-            <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
               <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
@@ -28,7 +28,7 @@ import Layout from '@/layouts/Layout.astro';
           <!-- 2. NaturKompass -->
           <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer"
             onclick="window.location=(window.location.pathname.startsWith('/en') ? '/en/projects/naturkompass' : '/projekte/naturkompass')">
-            <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
               <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
@@ -39,7 +39,7 @@ import Layout from '@/layouts/Layout.astro';
 
           <!-- 3. Festsaal im Klostergasthof -->
           <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
-            <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
               <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
@@ -50,7 +50,7 @@ import Layout from '@/layouts/Layout.astro';
 
           <!-- 4. FlavorFusion -->
           <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none cursor-pointer" onclick="window.location='/projekte/flavorfusion'">
-            <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
               <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
@@ -73,7 +73,7 @@ import Layout from '@/layouts/Layout.astro';
           <!-- 5. SCHLAF -->
           <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/schlaf'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
-              <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
                 <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
@@ -86,7 +86,7 @@ import Layout from '@/layouts/Layout.astro';
           <!-- 6. OmNomZen -->
           <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/omnomzen'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
-              <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
                 <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
@@ -99,7 +99,7 @@ import Layout from '@/layouts/Layout.astro';
           <!-- 7. weserkoje -->
           <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/weserkoje'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
-              <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
                 <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
@@ -112,7 +112,7 @@ import Layout from '@/layouts/Layout.astro';
           <!-- 8. Planora -->
           <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/planora'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
-              <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
                 <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
