@@ -246,6 +246,27 @@ const schemaData = {
 
 <html lang={ssrLocale}>
   <head>
+    <!-- Google tag (gtag.js) - GA4 mit Consent Mode v2 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3NYM3DF9X"></script>
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+
+      // Default: Alles denied (DSGVO-konform)
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-T3NYM3DF9X', {
+        cookie_flags: 'SameSite=None;Secure',
+        anonymize_ip: true
+      });
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="astro-view-transitions" content="true" />
@@ -332,6 +353,87 @@ const schemaData = {
 
           lastScroll = currentScroll;
         });
+
+        function isProjectDetailPath(pathname) {
+          const isGermanProjectDetail = pathname.startsWith('/projekte/') && pathname !== '/projekte/';
+          const isEnglishProjectDetail = pathname.startsWith('/en/projects/') && pathname !== '/en/projects/';
+          return isGermanProjectDetail || isEnglishProjectDetail;
+        }
+
+        function getProjectMeta() {
+          const titleNode = document.querySelector('main h1');
+          const projectName = titleNode?.textContent?.trim() || 'Unknown Project';
+
+          const categoryCandidates = Array.from(document.querySelectorAll('main p'));
+          const categoryNode = categoryCandidates.find((node) => {
+            const txt = node.textContent?.trim() || '';
+            return /Innenarchitektur|UX\/UI|Interior Architecture|UX\/UI Design/i.test(txt);
+          });
+
+          const projectCategory = categoryNode?.textContent?.trim() || 'Unknown';
+          return { projectName, projectCategory };
+        }
+
+        function initPortfolioAnalytics() {
+          const pathname = window.location.pathname;
+
+          if (window.__portfolioAnalyticsCleanup) {
+            window.__portfolioAnalyticsCleanup();
+            window.__portfolioAnalyticsCleanup = null;
+          }
+
+          if (!isProjectDetailPath(pathname)) return;
+
+          const meta = getProjectMeta();
+          window.gtag?.('event', 'project_view', {
+            project_name: meta.projectName,
+            project_category: meta.projectCategory,
+          });
+
+          let scrollDepthTracked = false;
+          const onScrollDepth = () => {
+            if (scrollDepthTracked) return;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            if (maxScroll <= 0) return;
+            const percentScrolled = Math.round((window.scrollY / maxScroll) * 100);
+
+            if (percentScrolled >= 75) {
+              scrollDepthTracked = true;
+              window.gtag?.('event', 'scroll_depth', {
+                percent_scrolled: 75,
+                project_name: meta.projectName,
+              });
+              window.removeEventListener('scroll', onScrollDepth);
+            }
+          };
+
+          window.addEventListener('scroll', onScrollDepth, { passive: true });
+
+          const onButtonClick = (event) => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+
+            const clickable = target.closest('a, button, [role="button"], [data-slot="button"], [role="link"][tabindex]');
+            if (!(clickable instanceof HTMLElement)) return;
+
+            const buttonName =
+              clickable.getAttribute('aria-label') ||
+              clickable.textContent?.replace(/\s+/g, ' ').trim() ||
+              'Unknown Button';
+
+            window.gtag?.('event', 'button_click', {
+              button_name: buttonName,
+              project_name: meta.projectName,
+            });
+          };
+
+          document.addEventListener('click', onButtonClick);
+
+          window.__portfolioAnalyticsCleanup = () => {
+            window.removeEventListener('scroll', onScrollDepth);
+            document.removeEventListener('click', onButtonClick);
+          };
+        }
 
         function mountProjectHeroScrollIndicator() {
           const pathname = window.location.pathname;
@@ -529,6 +631,10 @@ const schemaData = {
         window.addEventListener('load', mountGlobalAutoReveal);
         document.addEventListener('DOMContentLoaded', mountGlobalAutoReveal);
         document.addEventListener('astro:page-load', mountGlobalAutoReveal);
+
+        window.addEventListener('load', initPortfolioAnalytics);
+        document.addEventListener('DOMContentLoaded', initPortfolioAnalytics);
+        document.addEventListener('astro:page-load', initPortfolioAnalytics);
       </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->

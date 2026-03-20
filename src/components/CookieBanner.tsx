@@ -43,6 +43,12 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
       ariaAcceptLabel={isEn ? 'Accept all cookies' : 'Alle Cookies akzeptieren'}
       ariaDeclineLabel={isEn ? 'Decline cookies' : 'Cookies ablehnen'}
       expires={365}
+      onAccept={() => {
+        // Update GA4 Consent Mode after explicit user acceptance.
+        (window as any).gtag?.('consent', 'update', {
+          analytics_storage: 'granted',
+        });
+      }}
     >
       {isEn ? (
         <>
