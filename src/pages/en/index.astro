@@ -78,11 +78,11 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 <!-- Text-Overlay – zentriert -->
 <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 z-10">
-<div class="pointer-events-auto bg-black/65 backdrop-blur-sm text-white rounded-2xl p-8 md:p-12 max-w-lg md:max-w-2xl w-full text-center border border-white/10 shadow-2xl">
+<div class="pointer-events-auto bg-black/65 backdrop-blur-sm text-white rounded-2xl p-8 md:p-12 max-w-lg md:max-w-3xl w-full text-center border border-white/10 shadow-2xl">
 <h1 class="text-[4.1rem] md:text-[5.4rem] leading-none font-light tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
   {getMessage('hero.title')}
 </h1>
-<p class="text-[2.25rem] md:text-[2.55rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl whitespace-nowrap">
+<p class="text-[2.25rem] md:text-[2.55rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
   {getMessage('hero.subtitle')}
 </p>
 <p class="hero-long-text text-body-lg text-white/95 max-w-lg mx-auto mb-12 drop-shadow-lg">
