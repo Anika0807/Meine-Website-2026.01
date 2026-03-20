@@ -158,7 +158,7 @@ export default function Navigation() {
         
         <SheetContent 
           side="top" 
-          className="w-full h-[100svh] flex flex-col overflow-y-auto scrollbar-hide px-6 pt-8 pb-12"
+          className="w-full h-[100svh] flex flex-col overflow-hidden px-6 pt-8 pb-12"
           showCloseButton={false}
         >
           <div className="flex items-center justify-between mb-10">
