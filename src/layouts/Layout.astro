@@ -508,7 +508,7 @@ const schemaData = {
           indicator.style.display = 'flex';
           indicator.style.flexDirection = 'column';
           indicator.style.alignItems = 'center';
-          indicator.style.gap = isMobile ? '0.35rem' : '0.75rem';
+          indicator.style.gap = isMobile ? '0.5rem' : '0.75rem';
           indicator.style.color = isMobile ? 'rgba(255,255,255,0.95)' : '#ffffff';
           indicator.style.zIndex = '60';
           indicator.style.pointerEvents = 'none';
@@ -522,7 +522,7 @@ const schemaData = {
 
           const text = document.createElement('p');
           text.textContent = label;
-          text.style.fontSize = '0.75rem';
+          text.style.fontSize = isMobile ? '0.82rem' : '0.75rem';
           text.style.letterSpacing = '0.2em';
           text.style.fontWeight = '500';
           text.style.textTransform = 'uppercase';
@@ -540,8 +540,8 @@ const schemaData = {
             arrow.setAttribute('stroke-width', '2.5');
             arrow.setAttribute('class', 'w-8 h-8 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)] animate-bounce-slow');
             if (isMobile) {
-              arrow.style.width = '1.65rem';
-              arrow.style.height = '1.65rem';
+              arrow.style.width = '2rem';
+              arrow.style.height = '2rem';
             }
 
             const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
