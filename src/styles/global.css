@@ -245,6 +245,57 @@ html {
   display: none;  /* Chrome, Safari and Opera */
 }
 
+/* Prevent iOS/Safari default black tap/focus contour on clickable card-like links. */
+.project-card,
+[role="link"][tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-card:focus,
+[role="link"][tabindex]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-focus-ring-color: transparent;
+}
+
+.project-card:focus:not(:focus-visible),
+[role="link"][tabindex]:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-focus-ring-color: transparent;
+}
+
+.project-card:focus-visible,
+[role="link"][tabindex]:focus-visible {
+  outline: 2px solid hsl(var(--primary)) !important;
+  outline-offset: 4px;
+  box-shadow: none !important;
+  -webkit-focus-ring-color: transparent;
+}
+
+/* On touch devices, suppress focus rings entirely to avoid Safari's black contour artifact. */
+@media (hover: none) and (pointer: coarse) {
+  .project-card,
+  [role="link"][tabindex],
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .project-card:focus,
+  .project-card:focus-visible,
+  [role="link"][tabindex]:focus,
+  [role="link"][tabindex]:focus-visible,
+  a:focus,
+  a:focus-visible,
+  button:focus,
+  button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-focus-ring-color: transparent !important;
+  }
+}
+
 /* Eigene Utilities für bg-primary und text-primary-foreground */
 .bg-primary {
   background-color: hsl(var(--primary));
@@ -725,6 +776,40 @@ header[data-scroll-shadow="true"] {
     .btn-primary, .btn-secondary {
       font-size: 1.18rem !important;
       font-weight: 600;
+    }
+  }
+}
+
+/* ==================== GLOBAL TYPOGRAPHY NORMALIZATION ==================== */
+@layer base {
+  .typography-normalized h1,
+  .typography-normalized h2,
+  .typography-normalized h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  .typography-normalized h1 {
+    line-height: 0.94;
+  }
+
+  .typography-normalized h2 {
+    line-height: 0.98;
+  }
+
+  .typography-normalized h3 {
+    line-height: 1.02;
+  }
+
+  .typography-normalized p {
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 1024px) {
+    .typography-normalized h1 {
+      max-width: 18ch;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
