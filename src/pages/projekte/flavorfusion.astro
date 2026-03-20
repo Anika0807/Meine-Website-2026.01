@@ -10,7 +10,7 @@ import Button from '@/components/ui/astro-button.astro';
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-base md:text-lg font-semibold tracking-[0.16em] uppercase mb-3 opacity-95">UX/UI DESIGN • LANDING PAGE</p>
-      <h1 class="reveal-item text-[2.9rem] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">FlavorFusion</h1>
+      <h1 class="reveal-item text-[clamp(2.05rem,9.6vw,2.9rem)] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">FlavorFusion</h1>
       <p class="reveal-item mt-4 text-lg md:text-xl max-w-lg mx-auto opacity-90">Landing Page für eine mobile Rezepte App</p>
     </div>
   </section>
@@ -95,10 +95,10 @@ import Button from '@/components/ui/astro-button.astro';
 
         <!-- Prozente -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-72">0</span>%</div><p class="text-xs sm:text-sm mt-2">KOCHEN 3-5x PRO WOCHE</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-81-apps">0</span>%</div><p class="text-xs sm:text-sm mt-2">NUTZEN APPS STATT GOOGLE</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-70">0</span>%</div><p class="text-xs sm:text-sm mt-2">WOLLEN KLARE SCHRITT-FÜR-SCHRITT-ANLEITUNG</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-81-photos">0</span>%</div><p class="text-xs sm:text-sm mt-2">SUCHEN SCHÖNE FOTOS & INSPIRATIONEN</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-72">0</span>%</div><p class="text-sm mt-2 leading-snug">KOCHEN 3-5x PRO WOCHE</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-81-apps">0</span>%</div><p class="text-sm mt-2 leading-snug">NUTZEN APPS STATT GOOGLE</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-70">0</span>%</div><p class="text-sm mt-2 leading-snug">WOLLEN KLARE SCHRITT-FÜR-SCHRITT-ANLEITUNG</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-81-photos">0</span>%</div><p class="text-sm mt-2 leading-snug">SUCHEN SCHÖNE FOTOS & INSPIRATIONEN</p></div>
         </div>
 
         <!-- Quotes + How might we -->
@@ -276,7 +276,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">01</div>
             <h3 class="text-2xl font-medium mb-4">Radikale Priorisierung</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Der 20-stündige Designsprint diente als Katalysator für eine <span class="text-primary font-medium">radikale Fokussierung</span> auf die Kernbotschaft und die zentrale Aktion der Landing Page.
             </p>
           </div>
@@ -284,7 +284,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">02</div>
             <h3 class="text-2xl font-medium mb-4">Forschung als Fundament</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Der Einsatz von KI kann einen <span class="text-primary font-medium">grundlegenden und fundierten User Research</span> vereinfachen und beschleunigen, aber nicht komplett ersetzen.
             </p>
           </div>
@@ -292,7 +292,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">03</div>
             <h3 class="text-2xl font-medium mb-4">Mut zur Entscheidung</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Der enge Zeitrahmen hat gezeigt, wie entscheidend der <span class="text-primary font-medium">Mut zur schnellen Entscheidung</span> ist – ohne die <span class="text-primary font-medium">empathische Perspektive</span> zu verlieren.
             </p>
           </div>
@@ -301,7 +301,7 @@ import Button from '@/components/ui/astro-button.astro';
         <!-- Nächste Schritte -->
         <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
-          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
+          <ul class="space-y-6 text-base md:text-base text-muted-foreground">
             <li class="flex gap-4">→ Testen: Prototyp mit echten Nutzer:innen validieren</li>
             <li class="flex gap-4">→ Iterieren: Feedback zur gezielten Verbesserung nutzen</li>
             <li class="flex gap-4">→ Umsetzen & Optimieren: Finale Seite bauen und mittels A/B-Tests die Conversion steigern</li>

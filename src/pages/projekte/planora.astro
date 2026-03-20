@@ -10,7 +10,7 @@ import Button from '@/components/ui/astro-button.astro';
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-base md:text-lg font-semibold tracking-[0.16em] uppercase mb-3 opacity-95">UX/UI DESIGN • MOBILE APP</p>
-      <h1 class="reveal-item text-[2.9rem] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">Planora</h1>
+      <h1 class="reveal-item text-[clamp(2.05rem,9.6vw,2.9rem)] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">Planora</h1>
       <p class="reveal-item mt-4 text-lg md:text-xl max-w-lg mx-auto opacity-90">Reiseplanung, die sich dir anpasst</p>
     </div>
   </section>
@@ -94,10 +94,10 @@ import Button from '@/components/ui/astro-button.astro';
 
         <!-- Neue Prozente -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">81%</div><p class="text-xs sm:text-sm mt-2">SIND ÜBERFORDERT DURCH DIE NUTZUNG VERSCHIEDENER APPS</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">93%</div><p class="text-xs sm:text-sm mt-2">GEMEINSAME PLANUNG MIT FAMILIE/FREUNDE</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">73%</div><p class="text-xs sm:text-sm mt-2">NUTZEN MEHRERE APPS FÜR IHRE PLANUNG</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">93%</div><p class="text-xs sm:text-sm mt-2">WOLLEN OFFLINENUTZUNG VON INHALTEN</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">81%</div><p class="text-sm mt-2 leading-snug">SIND ÜBERFORDERT DURCH DIE NUTZUNG VERSCHIEDENER APPS</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">93%</div><p class="text-sm mt-2 leading-snug">GEMEINSAME PLANUNG MIT FAMILIE/FREUNDE</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">73%</div><p class="text-sm mt-2 leading-snug">NUTZEN MEHRERE APPS FÜR IHRE PLANUNG</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">93%</div><p class="text-sm mt-2 leading-snug">WOLLEN OFFLINENUTZUNG VON INHALTEN</p></div>
         </div>
 
         <!-- Neue Quotes + How might we -->
@@ -241,21 +241,21 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">01</div>
             <h3 class="text-2xl font-medium mb-4">Fokus durch Zeitdruck</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Der enge 5-Tage-Sprint zwang uns, <span class="text-primary font-medium">radikal zu priorisieren</span> und uns ausschließlich auf das <span class="text-primary font-medium">MVP</span> zu konzentrieren.
             </p>
           </div>
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">02</div>
             <h3 class="text-2xl font-medium mb-4">User Research als Wegweiser</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Zum ersten Mal führten wir <span class="text-primary font-medium">eigene Nutzerforschung</span> durch. Trotz begrenzter Zeit und unerfahrener Herangehensweise lieferte sie <span class="text-primary font-medium">wertvolle erste Einblicke</span>.
             </p>
           </div>
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">03</div>
             <h3 class="text-2xl font-medium mb-4">Klare Struktur im Prozess</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Eine übersichtliche Prozessstruktur und <span class="text-primary font-medium">klare Kommunikation</span> im Team halfen uns, den Überblick zu behalten und <span class="text-primary font-medium">fokussiert zu arbeiten</span>.
             </p>
           </div>
@@ -264,7 +264,7 @@ import Button from '@/components/ui/astro-button.astro';
         <!-- Nächste Schritte -->
         <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
-          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
+          <ul class="space-y-6 text-base md:text-base text-muted-foreground">
             <li class="flex gap-4">→ Vertiefter User Research: Weitere Interviews und Surveys</li>
             <li class="flex gap-4">→ Erweiterung der Funktionen: Budget-Tracking und personalisierte Empfehlungen</li>
             <li class="flex gap-4">→ UI-Design & technische Umsetzung: Optimierung und Offline-Funktionalität</li>

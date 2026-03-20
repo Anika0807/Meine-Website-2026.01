@@ -10,7 +10,7 @@ import Button from '@/components/ui/astro-button.astro';
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-base md:text-lg font-semibold tracking-[0.16em] uppercase mb-3 opacity-95">UX/UI DESIGN • MOBILE APP</p>
-      <h1 class="reveal-item text-[2.9rem] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">NaturKompass</h1>
+      <h1 class="reveal-item text-[clamp(2.05rem,9.6vw,2.9rem)] md:text-[4.1rem] max-w-[16ch] mx-auto font-semibold tracking-tight leading-[0.92]">NaturKompass</h1>
       <p class="reveal-item mt-4 text-lg md:text-xl max-w-lg mx-auto opacity-90">Dein digitaler Begleiter zur Identifikation von Flora & Fauna</p>
     </div>
   </section>
@@ -97,10 +97,10 @@ import Button from '@/components/ui/astro-button.astro';
 
         <!-- Prozente -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-60">0</span>%</div><p class="text-xs sm:text-sm mt-2">TÄGLICH IN DER NATUR</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-88">0</span>%</div><p class="text-xs sm:text-sm mt-2">ZUR ENTSPANNUNG</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-56">0</span>%</div><p class="text-xs sm:text-sm mt-2">WOLLEN AKTIV ENTDECKEN</p></div>
-          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-42">0</span>%</div><p class="text-xs sm:text-sm mt-2">POLLENFLUG-INTERESSE</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-60">0</span>%</div><p class="text-sm mt-2 leading-snug">TÄGLICH IN DER NATUR</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-88">0</span>%</div><p class="text-sm mt-2 leading-snug">ZUR ENTSPANNUNG</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-56">0</span>%</div><p class="text-sm mt-2 leading-snug">WOLLEN AKTIV ENTDECKEN</p></div>
+          <div class="text-center reveal-item"><div class="text-4xl sm:text-5xl md:text-6xl font-bold text-primary"><span id="count-42">0</span>%</div><p class="text-sm mt-2 leading-snug">POLLENFLUG-INTERESSE</p></div>
         </div>
 
         <!-- Quotes + How might we -->
@@ -297,7 +297,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">01</div>
             <h3 class="text-2xl font-medium mb-4">Weniger ist mehr</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Die größte Herausforderung war nicht, Features hinzuzufügen, sondern bewusst
               <span class="text-primary font-medium">wegzulassen</span> – damit die Freude am Entdecken im Vordergrund bleibt.
             </p>
@@ -306,7 +306,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">02</div>
             <h3 class="text-2xl font-medium mb-4">Forschung als Fundament</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Tiefgehende Nutzerforschung und kontinuierliche Iteration sind der schnellste Weg
               zu einem wirklich <span class="text-primary font-medium">intuitiven Design</span>.
             </p>
@@ -315,7 +315,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="bg-background border border-border p-8 md:p-10 rounded-3xl shadow-sm reveal">
             <div class="text-primary text-5xl font-semibold mb-6">03</div>
             <h3 class="text-2xl font-medium mb-4">Agency schafft Bindung</h3>
-            <p class="text-muted-foreground text-[15px] md:text-base leading-relaxed">
+            <p class="text-muted-foreground text-base md:text-base leading-relaxed">
               Funktionen wie der Müllmelder geben Nutzern echtes Mitwirkungsgefühl und
               <span class="text-primary font-medium">steigern die langfristige Bindung</span>.
             </p>
@@ -325,7 +325,7 @@ import Button from '@/components/ui/astro-button.astro';
         <!-- Nächste Schritte -->
         <div class="max-w-2xl mx-auto mb-16 reveal" style="transition-delay: 240ms">
           <h3 class="uppercase tracking-widest text-sm text-muted-foreground mb-6 text-center">NÄCHSTE SCHRITTE</h3>
-          <ul class="space-y-6 text-[15px] md:text-base text-muted-foreground">
+          <ul class="space-y-6 text-base md:text-base text-muted-foreground">
             <li class="flex gap-4">→ MVP ausbauen: Fehlende Screens und Müllmelder-Funktion fertigstellen</li>
             <li class="flex gap-4">→ Feldtests durchführen: Prototyp mit echten Nutzern unter realen Bedingungen testen</li>
             <li class="flex gap-4">→ Entwickler-Kollaboration: Umsetzung der mobilen App in die Wege leiten</li>
