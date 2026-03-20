@@ -11,7 +11,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
   <!-- === HERO – NUR MOBILE (Kasten weniger schwarz + mehr blurry/transparente, Typo exakt wie Desktop) === -->
   <div class="md:hidden">
-    <section class="relative isolate z-20 h-[100svh] flex items-center justify-center overflow-hidden bg-black">
+    <section class="relative isolate z-20 h-[calc(100svh-5rem)] flex items-center justify-center overflow-hidden bg-black px-6">
 
       <!-- Mobile: zwei Bilder übereinander -->
       <div class="absolute inset-0 grid grid-rows-2">
@@ -24,17 +24,17 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Kasten – transparenter, kompakt für Mobile optimiert -->
-        <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-5 sm:px-8 py-8 max-w-[90%] mx-auto text-center shadow-2xl border border-white/10">
+        <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-5 sm:px-8 py-7 w-full mx-auto text-center shadow-2xl border border-white/10">
           <!-- Typo-Hierarchie wie Desktop, mobil skaliert -->
           <h1 class="text-3xl sm:text-4xl leading-tight font-semibold tracking-tight text-white mb-3 drop-shadow-2xl">
           Anika Warncke
         </h1>
-          <p class="text-lg sm:text-xl leading-snug font-light text-white mb-6 drop-shadow-xl">
+          <p class="text-[2.25rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
           Innenarchitektur<br />&amp; UX/UI Design
         </p>
 
           <p class="text-sm sm:text-base text-white/95 mx-auto mb-6 drop-shadow-lg leading-relaxed">
-          Ich gestalte für dich Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
+          Hochwertige Räume und intuitive digitale Erlebnisse. Strategisch, datenbasiert, kreativ &amp; neugierig.
         </p>
 
         <div class="flex flex-col gap-3">
@@ -48,8 +48,8 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Scroll-Pfeil – direkt unter dem Container -->
-      <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/70 pointer-events-none">
-        <p class="text-[10px] tracking-[2px] font-medium uppercase">Scrollen</p>
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/70 pointer-events-none">
+        <p class="text-xs tracking-[3px] font-medium">SCROLLEN</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)] animate-bounce-slow"
@@ -91,11 +91,11 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         <h1 class="text-[4.1rem] md:text-[5.4rem] leading-none font-light tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
           Anika Warncke
         </h1>
-        <p class="text-[1.65rem] sm:text-[2rem] md:text-[2.55rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
+        <p class="text-[2.25rem] md:text-[2.55rem] leading-[1.05] font-light text-white mb-12 drop-shadow-xl">
           Innenarchitektur &amp; UX/UI Design
         </p>
         <p class="hero-long-text text-body-lg text-white/95 max-w-2xl md:max-w-3xl mx-auto mb-12 drop-shadow-lg">
-          Ich gestalte für dich Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
+          Hochwertige Räume und intuitive digitale Erlebnisse. Strategisch, datenbasiert, kreativ &amp; neugierig.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/projekte" variant="primary" size="lg" class="text-lg">

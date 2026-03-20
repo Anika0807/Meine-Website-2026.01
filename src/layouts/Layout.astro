@@ -503,7 +503,7 @@ const schemaData = {
           indicator.style.left = '50%';
           indicator.style.bottom = isMobile
             ? 'max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem))'
-            : 'clamp(5.5rem, 12vh, 8rem)';
+            : 'clamp(8rem, 16vh, 11rem)';
           indicator.style.transform = 'translateX(-50%)';
           indicator.style.display = 'flex';
           indicator.style.flexDirection = 'column';
@@ -522,13 +522,13 @@ const schemaData = {
 
           const text = document.createElement('p');
           text.textContent = label;
-          text.style.fontSize = isMobile ? '0.82rem' : '0.75rem';
+          text.style.fontSize = isMobile ? '0.82rem' : '1rem';
           text.style.letterSpacing = '0.2em';
-          text.style.fontWeight = '500';
+          text.style.fontWeight = isMobile ? '500' : '600';
           text.style.textTransform = 'uppercase';
           text.style.lineHeight = '1';
           text.style.margin = '0';
-          text.style.opacity = isMobile ? '1' : '0.7';
+          text.style.opacity = isMobile ? '1' : '0.82';
 
           indicator.appendChild(text);
           {

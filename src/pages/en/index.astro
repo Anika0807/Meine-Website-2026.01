@@ -14,7 +14,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 <Layout title={getMessage('hero.title')}>
   <!-- === HERO – NUR MOBILE === -->
   <div class="md:hidden">
-    <section class="relative isolate z-20 h-[100svh] flex items-center justify-center overflow-hidden bg-black">
+    <section class="relative isolate z-20 h-[calc(100svh-5rem)] flex items-center justify-center overflow-hidden bg-black px-6">
       <!-- Mobile: zwei Bilder übereinander -->
       <div class="absolute inset-0 grid grid-rows-2">
         <div class="relative">
@@ -26,7 +26,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
       </div>
 
       <!-- Kasten – transparenter, mit Desktop-artigem Glas-Look -->
-      <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-6 sm:px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
+      <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-5 sm:px-8 py-7 w-full mx-auto text-center shadow-2xl border border-white/10">
         <h1 class="text-[4.1rem] leading-none font-semibold tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
           {getMessage('hero.title')}
         </h1>
@@ -48,7 +48,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
       </div>
 
       <!-- Scroll-Pfeil -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
         <p class="text-xs tracking-[3px] font-medium">SCROLL</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"

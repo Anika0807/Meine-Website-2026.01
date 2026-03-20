@@ -49,18 +49,17 @@ export default function LanguageToggle() {
         variant={lang === 'de' ? 'default' : 'ghost'}
         size="sm"
         className={
-          `text-sm px-3 ${lang === 'de' ? 'bg-primary text-primary-foreground' : ''}`
+          `h-8 min-h-8 text-sm px-3 min-w-[48px] ${lang === 'de' ? 'bg-primary text-primary-foreground' : ''}`
         }
         onClick={() => switchLang('de')}
       >
         DE
       </Button>
-      <span className="text-muted-foreground">/</span>
       <Button
         variant={lang === 'en' ? 'default' : 'ghost'}
         size="sm"
         className={
-          `text-sm px-3 ${lang === 'en' ? 'bg-primary text-primary-foreground' : ''}`
+          `h-8 min-h-8 text-sm px-3 min-w-[48px] ${lang === 'en' ? 'bg-primary text-primary-foreground' : ''}`
         }
         onClick={() => switchLang('en')}
       >

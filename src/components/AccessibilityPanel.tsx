@@ -125,10 +125,10 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
           id="accessibility-button"
           variant="default"
           size="icon"
-          className={`fixed bottom-8 right-8 z-[60] flex h-[52px] w-[52px] items-center justify-center rounded-btn bg-primary text-primary-foreground shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30 md:h-[72px] md:w-[72px] ${isOpen ? 'hidden' : ''}`}
+          className={`fixed bottom-8 right-8 z-[60] flex h-[52px] min-w-[62px] px-2 items-center justify-center rounded-btn bg-primary text-primary-foreground shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30 md:h-[72px] md:min-w-[82px] md:px-3 ${isOpen ? 'hidden' : ''}`}
           aria-label={t(locale, 'accessibility.ariaLabel')}
         >
-          <PersonStanding className="h-8 w-8 md:h-14 md:w-14" strokeWidth={2.25} />
+          <PersonStanding className="size-9 md:size-[50px]" strokeWidth={2.25} />
         </Button>
       </DialogTrigger>
 
