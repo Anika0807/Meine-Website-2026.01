@@ -258,11 +258,16 @@
 html {
   font-size: calc(1rem * var(--font-size-multiplier));
   line-height: calc(1.5 * var(--line-height-multiplier));
-  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-* {
-  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+
+  * {
+    transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+  }
 }
 
 .dyslexia-font {
@@ -562,7 +567,6 @@ header[data-scroll-shadow="true"] {
   line-height: 1.05; 
   font-weight: 900; 
   letter-spacing: -0.04em; 
-  text-align: left;
 }
 
 .text-h2 { 

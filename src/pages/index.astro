@@ -24,7 +24,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Kasten – transparenter, mit Desktop-artigem Glas-Look -->
-        <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
+        <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-6 sm:px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
           <!-- Typo-Hierarchie wie Desktop, mobil skaliert -->
           <h1 class="text-[4.1rem] leading-none font-semibold tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
           Anika Warncke
@@ -148,7 +148,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 1: My Mind Studio -->
-      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/my-mind-studio'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 cursor-pointer" role="link" aria-label="Projekt My Mind Studio ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/my-mind-studio'">
         <img src="/images/my-mind-studio.jpg" alt="My Mind Studio"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -160,7 +160,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 2: NaturKompass -->
-      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/naturkompass'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 cursor-pointer" role="link" aria-label="Projekt NaturKompass ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/naturkompass'">
         <img src="/images/naturkompass.jpg" alt="NaturKompass"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -172,7 +172,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 3: Festsaal im Klostergasthof -->
-      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
+      <div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 cursor-pointer" role="link" aria-label="Projekt Festsaal im Klostergasthof ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
         <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -184,7 +184,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 4: FlavorFusion -->
-      <div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/flavorfusion'">
+      <div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0 cursor-pointer" role="link" aria-label="Projekt FlavorFusion ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/flavorfusion'">
         <img src="/images/flavorfusion.jpg" alt="FlavorFusion"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
@@ -213,7 +213,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       <div class="relative">
 
       <!-- Projekt 1 -->
-      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/my-mind-studio'">
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" data-no-reveal role="link" aria-label="Projekt My Mind Studio ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/my-mind-studio'">
         <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -224,7 +224,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 2 -->
-      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/naturkompass'">
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" data-no-reveal role="link" aria-label="Projekt NaturKompass ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/naturkompass'">
         <img src="/images/naturkompass.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -235,7 +235,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 3 -->
-      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" data-no-reveal role="link" aria-label="Projekt Festsaal im Klostergasthof ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
         <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -246,7 +246,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </div>
 
       <!-- Projekt 4 -->
-      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/flavorfusion'">
+      <div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" data-no-reveal role="link" aria-label="Projekt FlavorFusion ansehen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/flavorfusion'">
         <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -315,7 +315,7 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
   </section>
 
   <!-- === CTA-Abschnitt – optimiert für iPhone SE === -->
-  <section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:bg-none dark:bg-background overflow-hidden">
+  <section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:from-background dark:via-background dark:to-background dark:bg-none dark:bg-background overflow-hidden">
     <div class="container mx-auto max-w-3xl md:max-w-5xl px-6 text-center relative z-10">
 
       <div class="mb-12 md:mb-14">

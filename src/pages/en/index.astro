@@ -26,7 +26,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
       </div>
 
       <!-- Kasten – transparenter, mit Desktop-artigem Glas-Look -->
-      <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
+      <div class="relative z-10 bg-black/60 backdrop-blur-2xl rounded-card px-6 sm:px-9 py-11 max-w-[92%] mx-auto text-center shadow-2xl border border-white/10">
         <h1 class="text-[4.1rem] leading-none font-semibold tracking-[-0.04em] text-white mb-6 drop-shadow-2xl">
           {getMessage('hero.title')}
         </h1>
@@ -127,7 +127,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 <h2 class="text-center text-h2 mb-12">Selected Projects</h2>
 </div>
 <!-- Projekt 1: My Mind Studio -->
-<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/my-mind-studio'">
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 cursor-pointer" role="link" aria-label="View project My Mind Studio" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/my-mind-studio'">
 <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -137,7 +137,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 <!-- Projekt 2: NaturKompass -->
-<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/naturkompass'">
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 cursor-pointer" role="link" aria-label="View project NaturKompass" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/naturkompass'">
 <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -147,7 +147,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 <!-- Project 3: Banquet Hall at the Monastery Inn -->
-<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/festsaal-im-klostergasthof'">
+<div class="group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 cursor-pointer" role="link" aria-label="View project Banquet Hall at the Monastery Inn" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/festsaal-im-klostergasthof'">
 <img src="/images/festsaal.jpg" alt="Banquet Hall at the Monastery Inn" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -157,7 +157,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 <!-- Projekt 4: FlavorFusion -->
-<div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0 cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/flavorfusion'">
+<div class="group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:mt-0 cursor-pointer" role="link" aria-label="View project FlavorFusion" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/flavorfusion'">
 <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -180,7 +180,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 <div class="w-full">
 <Heading2 className="text-center mb-16">Selected Projects</Heading2>
 <div class="relative">
-<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/my-mind-studio'">
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-10" data-no-reveal role="link" aria-label="View project My Mind Studio" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/my-mind-studio'">
 <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -190,7 +190,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 
-<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/naturkompass'">
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-20" data-no-reveal role="link" aria-label="View project NaturKompass" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/naturkompass'">
 <img src="/images/naturkompass.jpg" alt="NaturKompass" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -200,7 +200,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 
-<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/festsaal-im-klostergasthof'">
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-30" data-no-reveal role="link" aria-label="View project Banquet Hall at the Monastery Inn" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/festsaal-im-klostergasthof'">
 <img src="/images/festsaal.jpg" alt="Banquet Hall at the Monastery Inn" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -210,7 +210,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </div>
 </div>
 
-<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/flavorfusion'">
+<div class="project-card sticky top-0 h-screen w-full overflow-hidden group cursor-none z-40" data-no-reveal role="link" aria-label="View project FlavorFusion" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/en/projects/flavorfusion'">
 <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80"></div>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-6">
@@ -267,7 +267,7 @@ const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
 </section>
 
 <!-- CTA mit Portrait -->
-<section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:bg-none dark:bg-background overflow-hidden">
+<section class="relative py-32 bg-gradient-to-b from-background via-[#fdfaf5] to-background dark:from-background dark:via-background dark:to-background dark:bg-none dark:bg-background overflow-hidden">
 <div class="container mx-auto max-w-3xl md:max-w-5xl px-6 text-center relative z-10">
 <div class="mb-12 md:mb-14">
 <Image src={anikaPortraitWarm} alt="Anika Warncke" width={512} height={512} quality={95} format="webp" densities={[1, 2]} sizes="(max-width: 768px) 224px, 288px" class="mx-auto w-52 h-52 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-8 border-white/50" />

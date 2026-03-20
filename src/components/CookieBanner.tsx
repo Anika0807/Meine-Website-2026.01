@@ -53,7 +53,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
       {isEn ? (
         <>
           This website uses cookies to improve your experience.{' '}
-          <a href="/datenschutz" className="underline hover:text-primary transition-colors">
+          <a href="/en/datenschutz" className="underline hover:text-primary transition-colors">
             Learn more
           </a>
         </>

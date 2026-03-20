@@ -29,17 +29,19 @@ import Layout from '@/layouts/Layout.astro';
           <a href="mailto:hallo@anika-warncke.de" class="font-medium text-foreground/90 transition hover:text-primary hover:underline underline-offset-4">
             hallo@anika-warncke.de
           </a>
-          <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noreferrer" class="text-foreground/80 transition hover:text-primary hover:underline underline-offset-4">
+          <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noopener noreferrer" class="text-foreground/80 transition hover:text-primary hover:underline underline-offset-4">
             LinkedIn
           </a>
         </div>
       </div>
 
       <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
-        <form id="kontakt-formular" action="DEIN_FORM_BACKEND_URL" method="POST" class="space-y-5" novalidate>
+        <form id="kontakt-formular" action="https://formsubmit.co/ajax/hallo@anika-warncke.de" method="POST" class="space-y-5" novalidate>
+          <input type="hidden" name="_subject" value="Neue Kontaktanfrage über anika-warncke.de" />
+          <input type="hidden" name="_template" value="table" />
           <div class="space-y-1" data-field>
             <div class="relative">
-              <input type="text" name="name" id="name" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <input type="text" name="name" id="name" required autocomplete="name" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
               <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Dein Name *</label>
             </div>
             <p class="error-msg hidden text-red-600 text-xs">Bitte gib deinen Namen ein.</p>
@@ -47,7 +49,7 @@ import Layout from '@/layouts/Layout.astro';
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <input type="email" name="email" id="email" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <input type="email" name="email" id="email" required autocomplete="email" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
               <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine E-Mail *</label>
             </div>
             <p class="error-msg hidden text-red-600 text-xs">Bitte gib eine gültige E-Mail-Adresse ein.</p>
@@ -70,7 +72,7 @@ import Layout from '@/layouts/Layout.astro';
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <textarea name="message" id="message" rows="5" required placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
+              <textarea name="message" id="message" rows="5" required autocomplete="off" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
               <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine Nachricht / dein Projekt *</label>
             </div>
             <p class="error-msg hidden text-red-600 text-xs">Bitte beschreibe dein Projekt kurz.</p>
@@ -163,18 +165,32 @@ import Layout from '@/layouts/Layout.astro';
       btn.textContent = 'Wird gesendet ...';
       status.className = 'text-gray-600 text-sm mt-2';
 
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = 'Jetzt loslegen - Nachricht senden';
-        status.textContent = 'Vielen Dank! Ich melde mich so schnell wie möglich bei dir.';
-        status.className = 'text-green-600 font-medium text-sm mt-2';
-        form.reset();
-
-        setTimeout(() => {
-          status.textContent = '';
-          status.className = 'text-sm mt-2 min-h-[1.5rem]';
-        }, 6000);
-      }, 1500);
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('Request failed');
+          form.reset();
+          btn.textContent = 'Jetzt loslegen - Nachricht senden';
+          status.textContent = 'Vielen Dank! Ich melde mich so schnell wie möglich bei dir.';
+          status.className = 'text-green-600 font-medium text-sm mt-2';
+          setTimeout(() => {
+            status.textContent = '';
+            status.className = 'text-sm mt-2 min-h-[1.5rem]';
+          }, 6000);
+        })
+        .catch(() => {
+          btn.textContent = 'Jetzt loslegen - Nachricht senden';
+          status.textContent = 'Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe direkt an hallo@anika-warncke.de.';
+          status.className = 'text-red-600 text-sm mt-2 font-medium';
+        })
+        .finally(() => {
+          btn.disabled = false;
+        });
     });
   </script>
 </Layout>

@@ -23,8 +23,12 @@ const {
   class: className,
   className: legacyClassName,
   disabled = false,
+  target,
+  rel,
   ...rest
 } = Astro.props;
+
+const safeRel = target === '_blank' ? rel ?? 'noopener noreferrer' : rel;
 
 const classes = cn(
   buttonVariants({ variant, size }),
@@ -39,6 +43,8 @@ const classes = cn(
     href={disabled ? undefined : href}
     aria-disabled={disabled ? 'true' : undefined}
     class={classes}
+    target={target}
+    rel={safeRel}
     {...rest}
   >
     <slot />

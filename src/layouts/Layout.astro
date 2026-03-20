@@ -283,6 +283,10 @@ const schemaData = {
     <meta name="twitter:title" content={effectiveOgTitle} />
     <meta name="twitter:description" content={effectiveOgDescription} />
     <meta name="twitter:image" content={absoluteOgImage} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="de" href={hreflangDe} />
     <link rel="alternate" hreflang="en" href={hreflangEn} />
@@ -676,8 +680,7 @@ const schemaData = {
               </div>
 
               <div class="flex items-center gap-8 text-muted-foreground">
-                <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">LinkedIn</a>
-                <span>{ssrLocale === 'en' ? '09:17 CET' : '09:17 Uhr MEZ'}</span>
+                <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">LinkedIn</a>
               </div>
 
               <div class="flex flex-wrap gap-x-6 text-muted-foreground">
