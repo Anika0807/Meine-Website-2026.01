@@ -215,10 +215,79 @@ const navLinkClass = (targetPath: string) =>
           requestAnimationFrame(() => mountProjectHeroScrollIndicator());
         }
 
+        function mountGlobalAutoReveal() {
+          const main = document.querySelector('main');
+          if (!(main instanceof HTMLElement)) return;
+
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduceMotion) return;
+
+          const sections = main.querySelectorAll('section, article');
+          if (!sections.length) return;
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const target = entry.target;
+                if (target instanceof HTMLElement) {
+                  target.classList.add('auto-reveal-visible');
+                  target.style.opacity = '1';
+                  target.style.transform = 'translateY(0)';
+                  target.style.filter = 'blur(0)';
+                }
+                observer.unobserve(entry.target);
+              });
+            },
+            {
+              threshold: 0.12,
+              rootMargin: '0px 0px -8% 0px',
+            }
+          );
+
+          sections.forEach((section) => {
+            if (section.closest('[data-reveal-group]')) return;
+
+            const candidates = section.querySelectorAll(
+              'h1, h2, h3, h4, p, li, figure, figcaption, img, video, article, form, blockquote, [data-slot="button"], a[href], button'
+            );
+
+            let visibleIndex = 0;
+
+            candidates.forEach((el) => {
+              if (el.classList.contains('reveal-item')) return;
+              if (el.classList.contains('auto-reveal-item')) return;
+              if (el.closest('[data-reveal-group]')) return;
+              if (el.closest('header, nav, footer')) return;
+              if (el.tagName === 'A' && el.closest('[data-slot="button"]')) return;
+
+              const style = window.getComputedStyle(el);
+              if (style.display === 'none' || style.visibility === 'hidden') return;
+
+              el.classList.add('auto-reveal-item');
+              el.style.setProperty('--auto-reveal-delay', `${Math.min(visibleIndex * 85, 680)}ms`);
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(24px)';
+              el.style.filter = 'blur(2px)';
+              el.style.transition =
+                'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+              el.style.transitionDelay = `${Math.min(visibleIndex * 85, 680)}ms`;
+              el.style.willChange = 'opacity, transform, filter';
+              visibleIndex += 1;
+
+              observer.observe(el);
+            });
+          });
+        }
+
         window.addEventListener('load', mountProjectHeroScrollIndicatorDeferred);
         window.addEventListener('resize', mountProjectHeroScrollIndicatorDeferred);
         document.addEventListener('DOMContentLoaded', mountProjectHeroScrollIndicatorDeferred);
         document.addEventListener('astro:page-load', mountProjectHeroScrollIndicatorDeferred);
+
+        window.addEventListener('load', mountGlobalAutoReveal);
+        document.addEventListener('DOMContentLoaded', mountGlobalAutoReveal);
+        document.addEventListener('astro:page-load', mountGlobalAutoReveal);
       </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
