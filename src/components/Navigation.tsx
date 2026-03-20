@@ -133,10 +133,10 @@ export default function Navigation() {
         
         <SheetContent 
           side="top" 
-          className="w-full h-[100svh] flex flex-col overflow-hidden px-6 pt-8 pb-12"
+          className="w-full h-[100svh] flex flex-col overflow-y-auto px-6 pt-6 pb-8"
           showCloseButton={false}
         >
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center justify-between mb-6">
             <div className="text-3xl font-semibold tracking-tight">{getMessage('menu.title')}</div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
@@ -147,13 +147,13 @@ export default function Navigation() {
             </button>
           </div>
 
-          <nav className="flex-1 space-y-1">
+          <nav className="space-y-1">
             {navLinks.map(({ path, label }) => (
               <a
                 key={path}
                 href={href(path)}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-lg px-6 py-6 text-xl font-medium transition-all hover:bg-primary/10 hover:text-primary active:bg-primary/20"
+                className="block rounded-lg px-6 py-4 text-xl font-medium transition-all hover:bg-primary/10 hover:text-primary active:bg-primary/20"
               >
                 {path === '/' && getMessage('menu.home')}
                 {(path === '/projekte' || path === '/projects') && getMessage('menu.projects')}
@@ -163,9 +163,9 @@ export default function Navigation() {
             ))}
           </nav>
 
-          <div className="my-8 pt-8 border-t border-border">
-            <p className="mb-8 text-sm text-muted-foreground font-medium">{getMessage('menu.appearance')}</p>
-            <div className="flex gap-3 justify-center mb-12">
+          <div className="mt-5 pt-5 border-t border-border">
+            <p className="mb-4 text-sm text-muted-foreground font-medium">{getMessage('menu.appearance')}</p>
+            <div className="flex gap-3 justify-center mb-5">
               <Toggle
                 pressed={theme === 'light'}
                 onPressedChange={() => applyTheme('light')}
@@ -198,7 +198,7 @@ export default function Navigation() {
             </div>
           </div>
 
-          <div className="border-t border-border pt-8">
+          <div className="border-t border-border pt-5">
             <div className="flex justify-center gap-8 text-lg font-medium">
               <button
                 onClick={() => switchLanguage('de')}
