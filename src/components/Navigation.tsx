@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { initLanguage, setCurrentLanguage } from '../lib/language';
+import { initLanguage, mapLocalizedPath, setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -68,24 +68,6 @@ export default function Navigation() {
   const isActive = (path: string) => {
     if (path === '/') return currentPath === '/' || currentPath === '';
     return currentPath.startsWith(path);
-  };
-
-  const mapLocalizedPath = (path: string, targetLang: 'de' | 'en') => {
-    const normalized = path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path;
-
-    if (targetLang === 'en') {
-      if (normalized.startsWith('/projekte/')) return `/en/projects/${normalized.replace('/projekte/', '')}`;
-      if (normalized === '/kontakt') return '/en/contact';
-      if (normalized === '/ueber-mich') return '/en/about';
-      if (normalized === '/projekte') return '/en/projects';
-      return normalized === '/' ? '/en' : `/en${normalized}`;
-    }
-
-    if (normalized.startsWith('/projects/')) return `/projekte/${normalized.replace('/projects/', '')}`;
-    if (normalized === '/contact') return '/kontakt';
-    if (normalized === '/about') return '/ueber-mich';
-    if (normalized === '/projects') return '/projekte';
-    return normalized;
   };
 
   const switchLanguage = (newLang: 'de' | 'en') => {

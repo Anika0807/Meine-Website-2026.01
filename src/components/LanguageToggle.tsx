@@ -1,27 +1,9 @@
 import { useEffect, useState } from 'react';
-import { setCurrentLanguage } from '../lib/language';
+import { mapLocalizedPath, setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';
 
 export default function LanguageToggle() {
   const [lang, setLang] = useState('de');
-
-  const mapLocalizedPath = (path: string, targetLang: 'de' | 'en') => {
-    const normalized = path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path;
-
-    if (targetLang === 'en') {
-      if (normalized.startsWith('/projekte/')) return `/en/projects/${normalized.replace('/projekte/', '')}`;
-      if (normalized === '/kontakt') return '/en/contact';
-      if (normalized === '/ueber-mich') return '/en/about';
-      if (normalized === '/projekte') return '/en/projects';
-      return normalized === '/' ? '/en' : `/en${normalized}`;
-    }
-
-    if (normalized.startsWith('/projects/')) return `/projekte/${normalized.replace('/projects/', '')}`;
-    if (normalized === '/contact') return '/kontakt';
-    if (normalized === '/about') return '/ueber-mich';
-    if (normalized === '/projects') return '/projekte';
-    return normalized;
-  };
 
   useEffect(() => {
     const currentPath = window.location.pathname;
