@@ -1,4 +1,5 @@
 ---
+import Button from '@/components/ui/astro-button.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const projects = {
@@ -85,9 +86,9 @@ if (!project) {
         Diese Unterseite ist die Detailansicht für {project.title}. Inhalte wie Prozess, Ziele und Ergebnisse
         können hier jederzeit ergänzt werden.
       </p>
-      <a href="/projekte" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
+      <Button href="/projekte" variant="primary" size="lg" class="mt-10">
         Zurück zu den Projekten
-      </a>
+      </Button>
     </div>
   </section>
 </Layout>

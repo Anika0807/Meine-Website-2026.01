@@ -1,4 +1,5 @@
 ---
+import Button from '@/components/ui/astro-button.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import anikaPortrait from '@/assets/anika-portrait.jpg';
@@ -37,14 +38,12 @@ import anikaPortrait from '@/assets/anika-portrait.jpg';
 
       <!-- Buttons -->
       <div class="flex flex-wrap gap-4 justify-center mt-14">
-        <a href="/kontakt"
-           class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] px-8 py-4 bg-primary text-white rounded-btn font-medium hover:bg-accent transition-all">
+        <Button href="/kontakt" variant="primary" size="lg" class="w-full sm:w-auto sm:min-w-[230px]">
           Mit mir sprechen
-        </a>
-        <a href="#designprozess"
-           class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] px-8 py-4 border border-border rounded-btn font-medium hover:bg-accent hover:text-white transition-all">
+        </Button>
+        <Button href="#designprozess" variant="outline" size="lg" class="w-full sm:w-auto sm:min-w-[230px]">
           Mein Designprozess
-        </a>
+        </Button>
       </div>
     </div>
   </section>
@@ -617,12 +616,12 @@ import anikaPortrait from '@/assets/anika-portrait.jpg';
       </p>
 
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/kontakt" class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+        <Button href="/kontakt" variant="primary" size="lg" class="w-full sm:w-auto sm:min-w-[230px] text-lg">
           Mit mir sprechen
-        </a>
-        <a href="/projekte" class="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[230px] border border-foreground/30 text-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent/10 transition-all">
+        </Button>
+        <Button href="/projekte" variant="outline" size="lg" class="w-full sm:w-auto sm:min-w-[230px] text-lg">
           Meine Projekte ansehen
-        </a>
+        </Button>
       </div>
 
       <p class="text-xs text-muted-foreground mt-16">

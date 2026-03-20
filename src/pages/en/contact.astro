@@ -1,4 +1,5 @@
 ---
+import Button from '@/components/ui/astro-button.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
 
@@ -75,9 +76,9 @@ import Layout from '@/layouts/Layout.astro';
             <p id="message-error" class="hidden text-red-600 text-xs">Please share a short message about your project.</p>
           </div>
 
-          <button id="submit-btn" type="submit" class="w-full py-4 bg-primary text-primary-foreground font-medium rounded-btn text-base sm:text-lg hover:brightness-95 transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+          <Button id="submit-btn" type="submit" size="lg" class="w-full text-base sm:text-lg">
             Send Your Message
-          </button>
+          </Button>
 
           <p id="status-msg" class="text-center text-sm mt-2 min-h-[1.5rem]" aria-live="polite"></p>
 

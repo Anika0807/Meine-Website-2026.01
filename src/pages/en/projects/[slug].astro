@@ -1,4 +1,5 @@
 ---
+import Button from '@/components/ui/astro-button.astro';
 import Layout from '@/layouts/Layout.astro';
 import NaturkompassPage from './naturkompass.astro';
 
@@ -90,9 +91,9 @@ if (!project && !isNaturkompass) {
         This subpage is the detail view for {project!.title}. Content such as process, goals, and outcomes
         can be expanded here at any time.
       </p>
-      <a href="/en/projects" class="mt-10 inline-block rounded-btn bg-primary px-8 py-4 text-primary-foreground transition-colors hover:bg-accent">
+      <Button href="/en/projects" variant="primary" size="lg" class="mt-10">
         Back to Projects
-      </a>
+      </Button>
     </div>
   </section>
 </Layout>

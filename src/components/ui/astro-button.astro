@@ -1,0 +1,55 @@
+---
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'default' | 'primary' | 'outline' | 'secondary' | 'ghost' | 'ghostSoft' | 'destructive' | 'danger' | 'success' | 'text' | 'link';
+  size?: 'default' | 'xs' | 'sm' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg';
+  class?: string;
+  className?: string;
+  disabled?: boolean;
+  target?: string;
+  rel?: string;
+  id?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'default',
+  size = 'default',
+  class: className,
+  className: legacyClassName,
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const classes = cn(
+  buttonVariants({ variant, size }),
+  className,
+  legacyClassName,
+  disabled && href && 'pointer-events-none cursor-not-allowed opacity-50'
+);
+---
+
+{href ? (
+  <a
+    href={disabled ? undefined : href}
+    aria-disabled={disabled ? 'true' : undefined}
+    class={classes}
+    {...rest}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    disabled={disabled}
+    class={classes}
+    {...rest}
+  >
+    <slot />
+  </button>
+)}

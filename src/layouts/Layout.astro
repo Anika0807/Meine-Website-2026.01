@@ -8,6 +8,24 @@ import CookieBanner from '@/components/CookieBanner';
 
 const { title = 'Meine Website 2026' } = Astro.props;
 const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
+const normalizePath = (path: string) => {
+  if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+  return path;
+};
+const currentPath = normalizePath(Astro.url.pathname);
+const isNavActive = (targetPath: string) => {
+  const normalizedTarget = normalizePath(targetPath);
+  if (normalizedTarget === '/' || normalizedTarget === '/en') {
+    return currentPath === normalizedTarget;
+  }
+  return currentPath === normalizedTarget || currentPath.startsWith(`${normalizedTarget}/`);
+};
+const navLinkClass = (targetPath: string) =>
+  `nav-link transition-colors ${
+    isNavActive(targetPath)
+      ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
+      : 'hover:text-primary'
+  }`;
 ---
 
 <html lang={ssrLocale}>
@@ -47,10 +65,10 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground">Anika Warncke</a>
 
         <nav class="flex items-center gap-x-10 text-lg font-medium">
-          <a href={ssrLocale === 'en' ? '/en' : '/'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
-          <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
-          <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
-          <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="nav-link hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
+          <a href={ssrLocale === 'en' ? '/en' : '/'} class={navLinkClass(ssrLocale === 'en' ? '/en' : '/')}>{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
+          <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class={navLinkClass(ssrLocale === 'en' ? '/en/projects' : '/projekte')}>{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+          <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class={navLinkClass(ssrLocale === 'en' ? '/en/about' : '/ueber-mich')}>{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+          <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class={navLinkClass(ssrLocale === 'en' ? '/en/contact' : '/kontakt')}>{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
         </nav>
 
         <div class="flex items-center gap-x-6">

@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Button } from '@/components/ui/button';
+import Button from '@/components/ui/astro-button.astro';
 import { not_found_title, not_found_heading, not_found_message, not_found_back_home } from '@/paraglide/messages.js';
 const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
 const loc = { locale: ssrLocale } as const;
@@ -20,10 +20,8 @@ const loc = { locale: ssrLocale } as const;
       {not_found_message({}, loc)}
     </p>
 
-    <Button size="lg" asChild>
-      <a href={ssrLocale === 'en' ? '/en/' : '/'}>
-        {not_found_back_home({}, loc)}
-      </a>
+    <Button href={ssrLocale === 'en' ? '/en/' : '/'} size="lg">
+      {not_found_back_home({}, loc)}
     </Button>
   </div>
 </Layout>

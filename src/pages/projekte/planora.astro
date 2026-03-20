@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/astro-button.astro';
 ---
 
 <Layout title="Planora - Anika Warncke">
@@ -270,22 +271,13 @@ import Layout from '@/layouts/Layout.astro';
 
         <!-- Zurück-Button -->
         <div class="flex justify-center">
-          <a href="/projekte"
-             class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
-            Zurück zu allen Projekten →
-          </a>
+          <Button href="/projekte" variant="primary" size="lg" class="w-full sm:w-auto">Zurück zu allen Projekten →</Button>
         </div>
 
         <!-- Projekt-Navigation -->
         <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-border flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
-          <a href="/projekte/[previous-project]"
-             class="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
-            ← Letztes Projekt
-          </a>
-          <a href="/projekte/[next-project]"
-             class="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground text-base sm:text-lg font-medium px-6 sm:px-10 py-4 sm:py-6 rounded-btn text-center transition-all">
-            Nächstes Projekt →
-          </a>
+          <Button href="/projekte/[previous-project]" variant="primary" size="lg" class="w-full md:w-auto">← Letztes Projekt</Button>
+          <Button href="/projekte/[next-project]" variant="primary" size="lg" class="w-full md:w-auto">Nächstes Projekt →</Button>
         </div>
 
       </div>

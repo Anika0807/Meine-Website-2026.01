@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/astro-button.astro';
 import ScrollReveal from '@/components/ScrollReveal';
 import { Heading2 } from '@/components/design-system/headings';
 import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-image-hover';
@@ -38,12 +39,12 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
         </p>
 
         <div class="flex flex-col gap-4">
-          <a href="/projekte" class="bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+          <Button href="/projekte" variant="primary" size="lg" class="text-lg">
             Projekte ansehen
-          </a>
-          <a href="/kontakt" class="border-2 border-white text-white px-10 py-4 rounded-btn font-medium text-lg hover:bg-card hover:text-black transition-all">
+          </Button>
+          <Button href="/kontakt" variant="outline" size="lg" class="border-2 border-white bg-transparent text-white text-lg hover:bg-white/10 hover:text-white">
             Lass uns sprechen
-          </a>
+          </Button>
         </div>
       </div>
 
@@ -98,12 +99,12 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
           Ich gestalte Räume und digitale Erlebnisse mit dem gleichen Prozess – strategisch, datenbasiert und emotional.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/projekte" class="bg-primary text-primary-foreground px-10 py-4 rounded-btn font-medium text-lg hover:bg-accent transition-all">
+          <Button href="/projekte" variant="primary" size="lg" class="text-lg">
             Projekte ansehen
-          </a>
-          <a href="/kontakt" class="border-2 border-white text-white px-10 py-4 rounded-btn font-medium text-lg hover:bg-card hover:text-black transition-all">
+          </Button>
+          <Button href="/kontakt" variant="outline" size="lg" class="border-2 border-white bg-transparent text-white text-lg hover:bg-white/10 hover:text-white">
             Lass uns sprechen
-          </a>
+          </Button>
         </div>
       </div>
 
@@ -343,15 +344,13 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       </p>
 
       <div class="flex flex-col items-center gap-8 md:gap-10 mb-12 md:mb-14">
-        <a href="/kontakt"
-           class="inline-block bg-primary text-primary-foreground px-14 py-6 rounded-btn font-medium text-lg md:text-xl hover:bg-accent transition-all">
+        <Button href="/kontakt" variant="primary" size="lg" class="text-lg md:text-xl px-8 md:px-14 py-6">
           Mit mir sprechen
-        </a>
+        </Button>
 
-        <a href="/ueber-mich"
-           class="inline-block text-primary hover:text-accent transition-colors text-base font-medium">
+        <Button href="/ueber-mich" variant="text" class="text-base font-medium">
           Mehr über mich erfahren →
-        </a>
+        </Button>
       </div>
 
       <p class="cta-privacy-text text-xs text-muted-foreground">
