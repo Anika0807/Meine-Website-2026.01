@@ -160,9 +160,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Staggered reveal matching the other sections
       function initProcessReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#process .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#process .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -223,9 +224,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Matching reveal animation for the final design section
       function initFinalReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#final-design .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#final-design .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -318,9 +320,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Matching reveal animation for results and learnings
       function initResultsReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#results .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -347,12 +350,13 @@ import Button from '@/components/ui/astro-button.astro';
     </script>
 
     <script>
+      // @ts-nocheck
       function initSequentialReveals() {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
+        const groups = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-reveal-group]'));
 
         groups.forEach((group) => {
-          const items = group.querySelectorAll<HTMLElement>('.reveal-item');
+          const items = /** @type {NodeListOf<HTMLElement>} */ (group.querySelectorAll('.reveal-item'));
           if (!items.length) return;
 
           if (reduceMotion) {

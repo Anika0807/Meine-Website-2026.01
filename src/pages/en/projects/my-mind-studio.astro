@@ -1,5 +1,400 @@
 ---
-import MyMindStudioPage from '../../projekte/en/my-mind-studio.astro';
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/astro-button.astro';
 ---
 
-<MyMindStudioPage />
+<Layout title="My Mind Studio – Anika Warncke">
+  <!-- 1. HERO -->
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/my-mind-studio.jpg" alt="My Mind Studio" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">INTERIOR ARCHITECTURE • HEALTH CARE & GASTRONOMY</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">My Mind Studio</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Meditation and yoga studio with café</p>
+    </div>
+  </section>
+
+  <!-- Content Rail – all following sections -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- === METADATA – larger headings for My Mind Studio === -->
+    <section class="pt-12 pb-20 md:pb-28 bg-background border-t border-border" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-0 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-8 mb-16 text-sm">
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Role & Team</p>
+            <p class="text-foreground">
+              <span class="text-primary font-medium">Interior Architecture M.A.</span> in a two-person team with Marco Smith
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Task</p>
+            <p class="text-foreground">
+              Conversion of a small retail space into a meditation and yoga studio with café<br>
+              <span class="text-primary font-medium">Service phases 01-09</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Timeline & Scope</p>
+            <p class="text-foreground">
+              <span class="text-primary font-medium">July 2022-2023:</span><br>
+              Full-time position at <a href="https://www.formwaende.de" class="text-primary font-medium underline" target="_blank">FORMWÆNDE</a>, Lüneburg<br>
+              Project location: <span class="text-primary font-medium">Lüneburg</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Tools</p>
+            <p class="text-foreground">
+              <span class="text-primary font-medium">Vectorworks</span>, Procreate, Adobe Creative Suite, Microsoft Office
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenge" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-4xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Challenge
+        </h2>
+
+        <div class="prose prose-lg mx-auto text-center text-muted-foreground leading-relaxed reveal" style="transition-delay: 80ms">
+          <p class="text-body-lg">
+            In the heart of Lüneburg, a small, narrow and poorly lit retail unit that had changed operators several times over the years was to be transformed into a lasting <span class="text-primary font-medium">place of retreat</span>: <span class="text-primary font-medium">a meditation and yoga studio with an integrated café</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initChallengeReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#challenge .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChallengeReveal, { once: true });
+      } else {
+        initChallengeReveal();
+      }
+    </script>
+
+    <section id="concept" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Concept
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-h4 mb-3">Spatial Organization</h3>
+            <p class="text-body text-muted-foreground">A complete restructuring of the <span class="text-primary font-medium">dark, elongated floor plan</span> created a <span class="text-primary font-medium">clear, flexible layout with several rooms</span> that can be split into two separate units when needed.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-h4 mb-3">Staged Journey</h3>
+            <p class="text-body text-muted-foreground">Guests move from the lively pedestrian street through a <span class="text-primary font-medium">bright, almost mystical tunnel</span> and gradually arrive in the <span class="text-primary font-medium">quiet, intimate practice room</span>.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-h4 mb-3">Integrated Functionality</h3>
+            <p class="text-body text-muted-foreground">All essential functions are <span class="text-primary font-medium">integrated unobtrusively into the design</span> and support a <span class="text-primary font-medium">calm, focused experience</span>.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-h4 mb-3">Sensory Materiality</h3>
+            <p class="text-body text-muted-foreground"><span class="text-primary font-medium">The material and color palette is gradually reduced</span> – from light oak, stone and linoleum to oak parquet and soft sky blue, culminating in a <span class="text-primary font-medium">consistently warm, gentle naturalness</span>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initConceptReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#concept .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initConceptReveal, { once: true });
+      } else {
+        initConceptReveal();
+      }
+    </script>
+
+    <section id="final-design" class="py-32 md:py-44 bg-background border-t border-border">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-20 reveal">
+          Realization
+        </h2>
+
+        <p class="max-w-3xl mx-auto text-center text-body-lg text-muted-foreground mb-28 reveal" style="transition-delay: 80ms">
+          My Mind Studio – a place of retreat in Lüneburg.<br>
+          Realized as part of my work as an Interior Architecture M.A. at <span class="font-medium">FORMWÆNDE</span>.
+        </p>
+
+        <div class="mb-32 reveal" style="transition-delay: 120ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Published in the BDIA Handbook 2023/2024</h3>
+            <Button href="https://bdia.de/wp-content/uploads/2024/05/my-mind-studio.pdf" target="_blank" variant="primary" size="lg" class="w-full sm:w-auto text-base sm:text-lg">→ View publication</Button>
+          </div>
+          <div class="space-y-12">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind.jpg" alt="BDIA image 1" class="w-full rounded-3xl shadow-2xl" loading="lazy">
+            <img src="/images/projekte/CAL_bdia24-25_my_mind2.jpg" alt="BDIA image 2" class="w-full rounded-3xl shadow-2xl" loading="lazy">
+          </div>
+        </div>
+
+        <div class="mb-32 reveal" style="transition-delay: 200ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Published in AIT 06.2024</h3>
+            <Button href="https://ait-xia-dialog.de/ait-magazine/ausgabe-5-2024/" target="_blank" variant="primary" size="lg" class="w-full sm:w-auto text-base sm:text-lg">→ View publication</Button>
+          </div>
+          <img src="/images/projekte/20240507_AIT_202405_Artikel.jpg" alt="AIT 06.2024" class="w-full rounded-3xl shadow-2xl" loading="lazy">
+        </div>
+
+        <div class="reveal" style="transition-delay: 280ms">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <h3 class="text-2xl font-semibold">Published in db 07.2024</h3>
+            <Button href="https://www.dds-online.de/gestaltung/kaleidoskop-der-innenraeume/?utm_source=chatgpt.com#slider-intro-20" target="_blank" variant="primary" size="lg" class="w-full sm:w-auto text-base sm:text-lg">→ View publication</Button>
+          </div>
+          <img src="/images/projekte/Formaaende_dds_09-2024.jpg" alt="db 07.2024" class="w-full rounded-3xl shadow-2xl" loading="lazy">
+        </div>
+
+        <p class="text-center text-sm text-muted-foreground mt-24 reveal" style="transition-delay: 360ms">
+          Contributed in my role as Interior Architecture M.A. at <span class="font-medium">FORMWÆNDE</span>, Lüneburg<br><br>
+          <a href="https://www.formwaende.de/projekte/mymindstudio/"
+             target="_blank"
+             class="text-primary hover:text-primary/90 underline underline-offset-4 transition-colors">
+            More project insights at FORMWÆNDE →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initFinalReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#final-design .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFinalReveal, { once: true });
+      } else {
+        initFinalReveal();
+      }
+    </script>
+
+    <section id="results" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Results & Learnings
+        </h2>
+
+        <div class="max-w-3xl mx-auto text-center text-body-lg text-muted-foreground mb-20 reveal" style="transition-delay: 80ms">
+          What emerged from a dark, narrow retail space with years of tenant turnover is a genuine place of retreat.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-card border border-border rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-h4 mb-3">A Gentle Shift in Focus</h3>
+            <p class="text-body text-muted-foreground">Guests move from the busy pedestrian street through the café and tunnel in a <span class="text-primary font-medium">gradual transition from outside to inside</span>, arriving <span class="text-primary font-medium">gently in a calm, intimate atmosphere</span>.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-h4 mb-3">Reduction Creates Atmosphere</h3>
+            <p class="text-body text-muted-foreground">The gradual reduction of materials and colors creates a <span class="text-primary font-medium">warm, soft and sensual atmosphere</span> that encourages calm, focus and inwardness.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-h4 mb-3">A Viable Long-Term Future</h3>
+            <p class="text-body text-muted-foreground">The clear spatial structure and flexible layout created a <span class="text-primary font-medium">future-proof property</span> that finally brought stability after years of changing operators.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-h4 mb-3">Historic Quality Continued</h3>
+            <p class="text-body text-muted-foreground">The design quality of the historic facade was <span class="text-primary font-medium">carried respectfully into the interior</span> through a <span class="text-primary font-medium">contemporary yet respectful fit-out</span> that honors the building's medieval fabric.</p>
+          </div>
+        </div>
+
+        <p class="text-center text-lg text-muted-foreground mt-16 max-w-2xl mx-auto reveal" style="transition-delay: 320ms">
+          My Mind Studio shows that <span class="text-primary font-medium">less can be more</span> – a pared-back space that quiets everyday life and opens the senses.
+        </p>
+
+        <div class="flex justify-center mt-12">
+          <Button href="/en/projects" variant="primary" size="lg" class="w-full sm:w-auto">Back to all projects →</Button>
+        </div>
+
+        <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-border flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
+          <Button href="/en/projects/[previous-project]" variant="primary" size="lg" class="w-full md:w-auto">← Previous Project</Button>
+          <Button href="/en/projects/[next-project]" variant="primary" size="lg" class="w-full md:w-auto">Next Project →</Button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initResultsReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#results .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResultsReveal, { once: true });
+      } else {
+        initResultsReveal();
+      }
+    </script>
+
+    <script>
+      // @ts-nocheck
+      function animateCounter(id, target, duration = 1600) {
+        const counter = document.getElementById(id);
+        if (!(counter instanceof HTMLElement)) return;
+        const startTime = performance.now();
+
+        function update(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          counter.textContent = String(Math.floor(progress * target));
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      function initSequentialReveals() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const groups = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-reveal-group]'));
+
+        groups.forEach((group) => {
+          const items = /** @type {NodeListOf<HTMLElement>} */ (group.querySelectorAll('.reveal-item'));
+          if (!items.length) return;
+
+          if (reduceMotion) {
+            items.forEach((item) => {
+              item.style.opacity = '1';
+              item.style.transform = 'none';
+            });
+            if (group.id === 'research') {
+              animateCounter('count-60', 60);
+              animateCounter('count-88', 88);
+              animateCounter('count-56', 56);
+              animateCounter('count-42', 42);
+            }
+            return;
+          }
+
+          items.forEach((item) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(28px)';
+            item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            item.style.willChange = 'opacity, transform';
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+
+                if (group.id === 'research' && group.dataset.countAnimated !== 'true' && item.querySelector('#count-60')) {
+                  animateCounter('count-60', 60);
+                  animateCounter('count-88', 88);
+                  animateCounter('count-56', 56);
+                  animateCounter('count-42', 42);
+                  group.dataset.countAnimated = 'true';
+                }
+              }, index * 160);
+            });
+            group.dataset.revealed = 'true';
+
+            observer.disconnect();
+          }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+          observer.observe(group);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSequentialReveals, { once: true });
+      } else {
+        initSequentialReveals();
+      }
+    </script>
+
+  </div>
+
+</Layout>

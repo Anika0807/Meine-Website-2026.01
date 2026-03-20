@@ -6,7 +6,18 @@ import ThemeToggle from '@/components/ThemeToggle';
 import AccessibilityPanel from '@/components/AccessibilityPanel';
 import CookieBanner from '@/components/CookieBanner';
 
-const { title = 'Meine Website 2026' } = Astro.props;
+type SeoSchemaType = 'WebSite' | 'WebPage' | 'ProfilePage' | 'CollectionPage' | 'ContactPage' | 'AboutPage';
+
+const {
+  title = 'Meine Website 2026',
+  description: descriptionProp,
+  ogTitle,
+  ogDescription,
+  ogImage: ogImageProp,
+  noindex = false,
+  schemaType: schemaTypeProp,
+} = Astro.props;
+
 const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
 const normalizePath = (path: string) => {
   if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
@@ -26,6 +37,211 @@ const navLinkClass = (targetPath: string) =>
       ? 'font-semibold text-primary underline underline-offset-8 decoration-2 decoration-primary'
       : 'hover:text-primary'
   }`;
+
+type SeoDefaults = {
+  description: string;
+  schemaType: SeoSchemaType;
+  ogImage: string;
+  ogTitle?: string;
+};
+
+const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
+  const exactPageSeo: Record<string, { description: string; schemaType: SeoSchemaType; ogImage: string; ogTitle: string }> = {
+    '/projekte/my-mind-studio': {
+      description: 'My Mind Studio: Innenarchitektur fuer ein Meditations- und Yogastudio mit Cafe.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/my-mind-studio.jpg',
+      ogTitle: 'My Mind Studio - Innenarchitektur Projekt | Anika Warncke',
+    },
+    '/projekte/naturkompass': {
+      description: 'NaturKompass Case Study: UX/UI Design fuer eine mobile App zur Flora- und Fauna-Erkennung.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/naturkompass-hero.jpg',
+      ogTitle: 'NaturKompass - UX/UI Case Study | Anika Warncke',
+    },
+    '/projekte/festsaal-im-klostergasthof': {
+      description: 'Festsaal im Klostergasthof: Innenarchitektur fuer Veranstaltungsgastronomie und Events.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/festsaal-hero.jpg',
+      ogTitle: 'Festsaal im Klostergasthof - Innenarchitektur | Anika Warncke',
+    },
+    '/projekte/flavorfusion': {
+      description: 'FlavorFusion Case Study: UX/UI Konzeption und Landing Page fuer eine mobile Rezepte-App.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/flavorfusion-hero.jpg',
+      ogTitle: 'FlavorFusion - UX/UI Case Study | Anika Warncke',
+    },
+    '/projekte/schlaf': {
+      description: 'SCHLAF: Innenarchitektur und Raumkonzept fuer eine immersive Ausstellung zum Schlaf.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/schlaf-hero.jpg',
+      ogTitle: 'SCHLAF - Innenarchitektur Ausstellungskonzept | Anika Warncke',
+    },
+    '/projekte/omnomzen': {
+      description: 'OmNomZen Case Study: UX/UI Design fuer eine Marke mit Fokus auf Stressabbau und Wohlbefinden.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/omnomzen-hero.jpg',
+      ogTitle: 'OmNomZen - UX/UI Case Study | Anika Warncke',
+    },
+    '/projekte/weserkoje': {
+      description: 'Weserkoje: Innenarchitektur fuer eine multifunktionale Herberge mit Tagungszentrum.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/weserkoje-hero.jpg',
+      ogTitle: 'Weserkoje - Innenarchitektur Projekt | Anika Warncke',
+    },
+    '/projekte/planora': {
+      description: 'Planora Case Study: UX/UI Design fuer eine flexible und nutzerzentrierte Reiseplanung.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/planora-hero.jpg',
+      ogTitle: 'Planora - UX/UI Case Study | Anika Warncke',
+    },
+
+    '/en/projects/my-mind-studio': {
+      description: 'My Mind Studio: Interior architecture case study for a meditation and yoga studio with cafe.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/my-mind-studio.jpg',
+      ogTitle: 'My Mind Studio - Interior Architecture Case Study | Anika Warncke',
+    },
+    '/en/projects/naturkompass': {
+      description: 'NaturKompass case study: UX/UI design for a mobile flora and fauna identification app.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/naturkompass-hero.jpg',
+      ogTitle: 'NaturKompass - UX/UI Case Study | Anika Warncke',
+    },
+    '/en/projects/festsaal-im-klostergasthof': {
+      description: 'Banquet Hall at the Monastery Inn: Interior architecture for hospitality events and celebrations.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/festsaal-hero.jpg',
+      ogTitle: 'Banquet Hall at the Monastery Inn - Interior Architecture | Anika Warncke',
+    },
+    '/en/projects/flavorfusion': {
+      description: 'FlavorFusion case study: UX/UI concept and landing page design for a mobile recipe app.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/flavorfusion-hero.jpg',
+      ogTitle: 'FlavorFusion - UX/UI Case Study | Anika Warncke',
+    },
+    '/en/projects/schlaf': {
+      description: 'SCHLAF: Interior architecture and spatial concept for an immersive exhibition about sleep.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/schlaf-hero.jpg',
+      ogTitle: 'SCHLAF - Interior Architecture Exhibition Concept | Anika Warncke',
+    },
+    '/en/projects/omnomzen': {
+      description: 'OmNomZen case study: UX/UI design for a wellness-focused product and digital experience.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/omnomzen-hero.jpg',
+      ogTitle: 'OmNomZen - UX/UI Case Study | Anika Warncke',
+    },
+    '/en/projects/weserkoje': {
+      description: 'Weserkoje: Interior architecture for a multifunctional hostel with an integrated conference center.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/weserkoje-hero.jpg',
+      ogTitle: 'Weserkoje - Interior Architecture Case Study | Anika Warncke',
+    },
+    '/en/projects/planora': {
+      description: 'Planora case study: UX/UI design for adaptive and user-centered travel planning.',
+      schemaType: 'WebPage',
+      ogImage: '/images/projekte/planora-hero.jpg',
+      ogTitle: 'Planora - UX/UI Case Study | Anika Warncke',
+    },
+  };
+
+  const exact = exactPageSeo[path];
+  if (exact) return exact;
+
+  if (path === '/' || path === '/en') {
+    return {
+      description:
+        locale === 'en'
+          ? 'Portfolio of Anika Warncke: Interior Architecture, UX/UI Design and selected projects.'
+          : 'Portfolio von Anika Warncke: Innenarchitektur, UX/UI Design und ausgewählte Projekte.',
+      schemaType: 'WebSite' as SeoSchemaType,
+      ogImage: '/images/anika-warncke.jpg',
+    };
+  }
+
+  if (path === '/projekte' || path === '/en/projects') {
+    return {
+      description:
+        locale === 'en'
+          ? 'Project overview by Anika Warncke: Interior Architecture and UX/UI case studies.'
+          : 'Projektübersicht von Anika Warncke: Innenarchitektur- und UX/UI-Case-Studies.',
+      schemaType: 'CollectionPage' as SeoSchemaType,
+      ogImage: '/images/projekt-detail-hero.jpg',
+    };
+  }
+
+  if (path.startsWith('/projekte/') || path.startsWith('/en/projects/')) {
+    return {
+      description:
+        locale === 'en'
+          ? 'Case study by Anika Warncke with process, concept and visual results.'
+          : 'Case Study von Anika Warncke mit Prozess, Konzept und visuellen Ergebnissen.',
+      schemaType: 'WebPage' as SeoSchemaType,
+      ogImage: '/images/projekt-detail-hero.jpg',
+    };
+  }
+
+  if (path === '/ueber-mich' || path === '/en/about') {
+    return {
+      description:
+        locale === 'en'
+          ? 'Learn more about Anika Warncke, her profile, values and design approach.'
+          : 'Erfahre mehr über Anika Warncke, ihr Profil, ihre Werte und ihre Designhaltung.',
+      schemaType: 'ProfilePage' as SeoSchemaType,
+      ogImage: '/images/anika-portrait.jpg',
+    };
+  }
+
+  if (path === '/kontakt' || path === '/en/contact') {
+    return {
+      description:
+        locale === 'en'
+          ? 'Contact Anika Warncke for Interior Architecture and UX/UI Design projects.'
+          : 'Kontakt zu Anika Warncke für Projekte in Innenarchitektur und UX/UI Design.',
+      schemaType: 'ContactPage' as SeoSchemaType,
+      ogImage: '/images/anika-work.jpg',
+    };
+  }
+
+  return {
+    description:
+      locale === 'en'
+        ? 'Portfolio of Anika Warncke: Interior Architecture, UX/UI Design and projects.'
+        : 'Portfolio von Anika Warncke: Innenarchitektur, UX/UI Design und Projekte.',
+    schemaType: 'WebPage' as SeoSchemaType,
+    ogImage: '/images/anika-warncke.jpg',
+  };
+};
+
+const seoDefaults = getSeoDefaults(currentPath, ssrLocale as 'de' | 'en');
+const description = descriptionProp ?? seoDefaults.description;
+const schemaType = (schemaTypeProp as SeoSchemaType | undefined) ?? seoDefaults.schemaType;
+const ogImage = ogImageProp ?? seoDefaults.ogImage;
+
+const siteOrigin = Astro.site?.toString() ?? Astro.url.origin;
+const base = new URL(siteOrigin);
+const canonicalUrl = new URL(Astro.url.pathname + Astro.url.search, base).toString();
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, base).toString();
+const effectiveOgTitle = ogTitle ?? seoDefaults.ogTitle ?? title;
+const effectiveOgDescription = ogDescription ?? description;
+
+const englishPath = currentPath.startsWith('/en') ? currentPath : `/en${currentPath === '/' ? '' : currentPath}`;
+const germanPath = currentPath.startsWith('/en')
+  ? currentPath.replace(/^\/en(?=\/|$)/, '') || '/'
+  : currentPath;
+
+const hreflangDe = new URL(germanPath, base).toString();
+const hreflangEn = new URL(englishPath, base).toString();
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': schemaType,
+  inLanguage: ssrLocale,
+  url: canonicalUrl,
+  name: title,
+  description,
+};
 ---
 
 <html lang={ssrLocale}>
@@ -33,7 +249,25 @@ const navLinkClass = (targetPath: string) =>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="astro-view-transitions" content="true" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta property="og:locale" content={ssrLocale === 'en' ? 'en_US' : 'de_DE'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={effectiveOgTitle} />
+    <meta property="og:description" content={effectiveOgDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:site_name" content="Anika Warncke" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={effectiveOgTitle} />
+    <meta name="twitter:description" content={effectiveOgDescription} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="de" href={hreflangDe} />
+    <link rel="alternate" hreflang="en" href={hreflangEn} />
+    <link rel="alternate" hreflang="x-default" href={hreflangDe} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
     <!-- Theme-Script: verhindert Flackern beim Laden -->
     <script is:inline>
       (function() {

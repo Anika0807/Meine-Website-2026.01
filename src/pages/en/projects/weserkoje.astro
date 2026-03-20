@@ -1,5 +1,341 @@
 ---
-import WeserkojePage from '../../projekte/en/weserkoje.astro';
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/astro-button.astro';
 ---
 
-<WeserkojePage />
+<Layout title="Weserkoje - Anika Warncke">
+  <!-- 1. HERO -->
+  <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden" data-reveal-group>
+    <img src="/images/projekte/weserkoje-hero.jpg" alt="Weserkoje" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
+      <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">INTERIOR ARCHITECTURE • HOSPITALITY</p>
+      <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">Weserkoje</h1>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Multifunctional Hostel with an Integrated Conference Center</p>
+    </div>
+  </section>
+
+  <!-- Content Rail - all following sections -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- === METADATA === -->
+    <section class="pt-12 pb-20 md:pb-28 bg-background border-t border-border" data-reveal-group>
+      <div class="max-w-7xl mx-auto px-0 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-8 mb-16 text-sm">
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Role</p>
+            <p class="text-foreground">
+              <span class="text-primary font-medium">Interior Architecture B.A.</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Task</p>
+            <p class="text-foreground">
+              Concept development through execution-ready planning<br>
+              <span class="text-primary font-medium">Service phases 01-03, partial phase 05</span>
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Timeline & Scope</p>
+            <p class="text-foreground">
+              03-07 2017:<br>
+              <a href="https://projekte.g.hawk.de/projekt/5df0c5b8174c8" class="text-primary font-medium underline" target="_blank">Bachelor Thesis</a>, at HAWK University of Applied Sciences and Arts, Hildesheim
+            </p>
+          </div>
+          <div class="reveal-item">
+            <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Tools</p>
+            <p class="text-foreground">
+              <span class="text-primary font-medium">Vectorworks</span>, Adobe Creative Suite
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === THE CHALLENGE === -->
+    <section id="challenge" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-4xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Challenge
+        </h2>
+
+        <div class="prose prose-lg mx-auto text-center text-muted-foreground leading-relaxed reveal" style="transition-delay: 80ms">
+          <p class="text-body-lg">
+            The looming vacancy of the former ophthalmology and urology clinic in Bremen created a <span class="text-primary font-medium">double challenge</span>: preventing the decline of <span class="text-primary font-medium">valuable historic building fabric</span> in a central location and <span class="text-primary font-medium">strengthening the district socially and economically</span>. The task was to develop an architecturally ambitious and economically viable adaptive-reuse concept that would deliver tangible value for the community.
+          </p>
+        </div>
+
+        <img src="/images/projekte/weserkoje-herausforderung-01.png" alt="Challenge visualization" class="w-full h-52 sm:h-72 md:h-[440px] rounded-3xl border border-border bg-muted/40 shadow-sm object-cover object-center mt-16 reveal" style="transition-delay: 120ms" loading="lazy">
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initChallengeReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#challenge .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChallengeReveal, { once: true });
+      } else {
+        initChallengeReveal();
+      }
+    </script>
+
+    <!-- === CONCEPT === -->
+    <section id="concept" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Concept
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-h4 mb-3">Horizontal Experience Layers</h3>
+            <p class="text-body text-muted-foreground">The spatial organization follows a clear <span class="text-primary font-medium">horizontal zoning strategy</span>. The building is divided into three <span class="text-primary font-medium">atmospheric layers</span>: a vibrant public heart in the lower level, a focused conference area on the ground floor, and private retreat spaces on the upper floors.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-h4 mb-3">Vibrant Public Core</h3>
+            <p class="text-body text-muted-foreground">In the <span class="text-primary font-medium">lower level</span>, the <span class="text-primary font-medium">public life</span> of Weserkoje comes alive. Lobby, restaurant, and bar merge into a flowing space that welcomes hotel guests and local visitors alike, intentionally blurring boundaries between backpackers, business travelers, and Bremen residents.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-h4 mb-3">Focus & Collaboration</h3>
+            <p class="text-body text-muted-foreground">The <span class="text-primary font-medium">ground floor</span> serves as a professional <span class="text-primary font-medium">conference and seminar zone</span>. Flexible, high-spec rooms support focused work, while the central lobby functions as a representative foyer.</p>
+          </div>
+
+          <div class="bg-card border border-border rounded-3xl p-8 reveal">
+            <div class="text-primary text-5xl font-semibold mb-4">04</div>
+            <h3 class="text-h4 mb-3">Private Retreat</h3>
+            <p class="text-body text-muted-foreground">The <span class="text-primary font-medium">upper floors</span> are dedicated to <span class="text-primary font-medium">living and relaxation</span>. Comfortable double rooms offer calm for business travelers, while practical shared rooms reflect the communicative spirit of backpackers.</p>
+          </div>
+        </div>
+
+        <img src="/images/projekte/weserkoje-konzept-01.png" alt="Concept visualization" class="w-full h-auto rounded-3xl border border-border bg-muted/40 shadow-sm object-contain mt-12 reveal" style="transition-delay: 180ms" loading="lazy">
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initConceptReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#concept .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initConceptReveal, { once: true });
+      } else {
+        initConceptReveal();
+      }
+    </script>
+
+    <!-- === DESIGN & VISUALIZATION === -->
+    <section id="final-design" class="py-32 md:py-44 bg-background border-t border-border">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Design & Visualization
+        </h2>
+
+        <p class="max-w-3xl mx-auto text-center text-body-lg text-muted-foreground">
+          The central design theme <span class="text-primary font-medium">"Flow"</span> is inspired by the course of the Weser River. The final renderings show how the lobby is staged as a <span class="text-primary font-medium">fluid spatial sequence</span>: a sweeping golden reception desk, a sculpted wave structure on the rear wall, and a <span class="text-primary font-medium">layered lighting concept</span> create an inviting, sculptural atmosphere.
+        </p>
+
+        <div class="mt-16 space-y-8">
+          <img src="/images/projekte/weserkoje-entwurf-01.png" alt="Design and visualization 01" class="w-full h-auto rounded-3xl border border-border bg-muted/40 shadow-sm object-contain reveal" style="transition-delay: 120ms" loading="lazy">
+          <img src="/images/projekte/weserkoje-entwurf-02.png" alt="Design and visualization 02" class="w-full h-auto rounded-3xl border border-border bg-muted/40 shadow-sm object-contain reveal" style="transition-delay: 180ms" loading="lazy">
+          <img src="/images/projekte/weserkoje-entwurf-03.png" alt="Design and visualization 03" class="w-full h-auto rounded-3xl border border-border bg-muted/40 shadow-sm object-contain reveal" style="transition-delay: 240ms" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initFinalReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#final-design .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFinalReveal, { once: true });
+      } else {
+        initFinalReveal();
+      }
+    </script>
+
+    <!-- === RESULTS & INSIGHTS === -->
+    <section id="results" class="py-28 md:py-36 bg-background border-t border-border">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 class="text-h2 text-center mb-16 reveal">
+          Results & Insights
+        </h2>
+
+        <div class="max-w-3xl mx-auto text-center text-body-lg text-muted-foreground mb-20 reveal" style="transition-delay: 80ms">
+          The "Weserkoje" is more than a hostel - it is a <span class="text-primary font-medium">vibrant, thoughtfully designed interior ecosystem</span> that combines <span class="text-primary font-medium">respect for historic substance</span> with a future-oriented vision for shared living and working.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal" style="transition-delay: 160ms">
+          <div class="bg-background border border-border rounded-3xl p-8">
+            <div class="text-primary text-5xl font-semibold mb-4">01</div>
+            <h3 class="text-h4 mb-3">A New Social Hub</h3>
+            <p class="text-body text-muted-foreground">An <span class="text-primary font-medium">open, flowing space</span> that brings backpackers, business travelers, and Bremen locals together and <span class="text-primary font-medium">revitalizes the neighborhood socially</span>.</p>
+          </div>
+
+          <div class="bg-background border border-border rounded-3xl p-8">
+            <div class="text-primary text-5xl font-semibold mb-4">02</div>
+            <h3 class="text-h4 mb-3">Respectful Transformation</h3>
+            <p class="text-body text-muted-foreground">The <span class="text-primary font-medium">historic building fabric</span> was preserved and carefully connected with modern elements - a successful <span class="text-primary font-medium">dialogue between past and present</span>.</p>
+          </div>
+
+          <div class="bg-background border border-border rounded-3xl p-8">
+            <div class="text-primary text-5xl font-semibold mb-4">03</div>
+            <h3 class="text-h4 mb-3">Long-Term Value</h3>
+            <p class="text-body text-muted-foreground">The <span class="text-primary font-medium">dual concept of hostel and conference center</span> secures long-term viability and creates <span class="text-primary font-medium">social and economic impact</span> for the entire neighborhood.</p>
+          </div>
+        </div>
+
+        <p class="text-center text-lg text-muted-foreground mt-16 max-w-2xl mx-auto reveal" style="transition-delay: 320ms">
+          Weserkoje proves that <span class="text-primary font-medium">sensitive interior architecture</span> can transform threatened vacancy into a thriving destination that not only functions, but <span class="text-primary font-medium">enriches the community</span>.
+        </p>
+
+        <div class="flex justify-center mt-12">
+          <Button href="/en/projects" variant="primary" size="lg" class="w-full sm:w-auto">Back to all projects →</Button>
+        </div>
+
+        <div class="mt-14 md:mt-20 pt-8 md:pt-12 border-t border-border flex flex-col md:flex-row gap-4 md:gap-6 justify-between">
+          <Button href="/en/projects/[previous-project]" variant="primary" size="lg" class="w-full md:w-auto">← Previous Project</Button>
+          <Button href="/en/projects/[next-project]" variant="primary" size="lg" class="w-full md:w-auto">Next Project →</Button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // @ts-nocheck
+      function initResultsReveal() {
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#results .reveal'));
+        reveals.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 140);
+            observer.disconnect();
+          }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResultsReveal, { once: true });
+      } else {
+        initResultsReveal();
+      }
+    </script>
+
+    <script>
+      // @ts-nocheck
+      function initSequentialReveals() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const groups = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-reveal-group]'));
+
+        groups.forEach((group) => {
+          const items = /** @type {NodeListOf<HTMLElement>} */ (group.querySelectorAll('.reveal-item'));
+          if (!items.length) return;
+
+          if (reduceMotion) {
+            items.forEach((item) => {
+              item.style.opacity = '1';
+              item.style.transform = 'none';
+            });
+            return;
+          }
+
+          items.forEach((item) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(28px)';
+            item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            item.style.willChange = 'opacity, transform';
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, index * 160);
+            });
+            group.dataset.revealed = 'true';
+
+            observer.disconnect();
+          }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+          observer.observe(group);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSequentialReveals, { once: true });
+      } else {
+        initSequentialReveals();
+      }
+    </script>
+
+  </div>
+</Layout>

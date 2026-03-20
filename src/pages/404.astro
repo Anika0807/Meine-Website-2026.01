@@ -6,7 +6,7 @@ const ssrLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'de';
 const loc = { locale: ssrLocale } as const;
 ---
 
-<Layout title={not_found_title({}, loc)}>
+<Layout title={not_found_title({}, loc)} noindex={true} schemaType="WebPage">
   <div class="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-background">
     <h1 class="text-8xl md:text-[12rem] font-black text-primary/80 mb-6 tracking-tighter">
       404

@@ -86,9 +86,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Staggered Reveal – The Challenge
       function initChallengeReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#challenge .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#challenge .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -162,9 +163,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Staggered Reveal – Konzept-Karten
       function initKonzeptReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#konzept .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#konzept .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -267,9 +269,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Gleiche sanfte Reveal-Animation wie bei Challenge, Research und Process
       function initFinalReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#final-design .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#final-design .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -351,9 +354,10 @@ import Button from '@/components/ui/astro-button.astro';
     </section>
 
     <script>
+      // @ts-nocheck
       // Sanfte Reveal-Animation (wie bei allen anderen Blöcken)
       function initResultsReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#ergebnisse .reveal');
+        const reveals = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('#ergebnisse .reveal'));
         reveals.forEach((el, i) => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -380,14 +384,15 @@ import Button from '@/components/ui/astro-button.astro';
     </script>
 
     <script>
-      function animateCounter(id: string, target: number, duration = 1600) {
-        const el = document.getElementById(id);
-        if (!el) return;
+      // @ts-nocheck
+      function animateCounter(id, target, duration = 1600) {
+        const counter = document.getElementById(id);
+        if (!(counter instanceof HTMLElement)) return;
         const startTime = performance.now();
 
-        function update(now: number) {
+        function update(now) {
           const progress = Math.min((now - startTime) / duration, 1);
-          el!.textContent = String(Math.floor(progress * target));
+          counter.textContent = String(Math.floor(progress * target));
           if (progress < 1) requestAnimationFrame(update);
         }
 
@@ -396,10 +401,10 @@ import Button from '@/components/ui/astro-button.astro';
 
       function initSequentialReveals() {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
+        const groups = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-reveal-group]'));
 
         groups.forEach((group) => {
-          const items = group.querySelectorAll<HTMLElement>('.reveal-item');
+          const items = /** @type {NodeListOf<HTMLElement>} */ (group.querySelectorAll('.reveal-item'));
           if (!items.length) return;
 
           if (reduceMotion) {

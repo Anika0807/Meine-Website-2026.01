@@ -11,7 +11,7 @@ import Button from '@/components/ui/astro-button.astro';
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-4xl">
       <p class="reveal-item text-sm tracking-[4px] uppercase font-medium mb-4 opacity-90">UX/UI DESIGN • LANDING PAGE</p>
       <h1 class="reveal-item text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-none">FlavorFusion</h1>
-      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Landing Page fur eine mobile Rezepte App</p>
+      <p class="reveal-item mt-5 text-base sm:text-xl md:text-2xl max-w-lg mx-auto opacity-90">Landing Page für eine mobile Rezepte App</p>
     </div>
   </section>
 
@@ -27,7 +27,7 @@ import Button from '@/components/ui/astro-button.astro';
           <div class="reveal-item">
             <p class="uppercase tracking-widest text-sm font-medium text-foreground mb-3">Rolle & Team</p>
             <p class="text-foreground">
-              <span class="text-primary font-medium">UX/UI-Designer</span>
+              <span class="text-primary font-medium">UX/UI-Designerin</span>
             </p>
           </div>
           <div class="reveal-item">
@@ -57,7 +57,7 @@ import Button from '@/components/ui/astro-button.astro';
     <!-- The Challenge – optimiert -->
     <section class="py-16 md:py-28 bg-background border-t border-border" data-reveal-group>
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="reveal-item text-h2 mb-8 md:mb-14">The Challenge</h2>
+        <h2 class="reveal-item text-h2 mb-8 md:mb-14">Die Herausforderung</h2>
 
           <p class="reveal-item text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             Ambitionierte Hobbyköch:innen stehen vor einer frustrierenden Wahl: Entweder kämpfen sie sich durch überladene Rezepte-Apps – oder sie verzichten komplett auf echte Inspiration.
@@ -71,7 +71,7 @@ import Button from '@/components/ui/astro-button.astro';
       <div class="max-w-7xl mx-auto px-6 md:px-12">
 
         <h2 class="reveal-item text-h2 text-center mb-12 md:mb-16">
-          Research Highlights
+          Research-Erkenntnisse
         </h2>
 
         <!-- Drei Insights -->
@@ -168,8 +168,9 @@ import Button from '@/components/ui/astro-button.astro';
     <script>
       // Staggered Reveal (gleiche Animation wie Challenge + Research)
       function initProcessReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#process .reveal');
+        const reveals = document.querySelectorAll('#process .reveal');
         reveals.forEach((el, i) => {
+          if (!(el instanceof HTMLElement)) return;
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
           el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
@@ -229,8 +230,9 @@ import Button from '@/components/ui/astro-button.astro';
     <script>
       // Gleiche sanfte Reveal-Animation wie bei Challenge, Research und Process
       function initFinalReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#final-design .reveal');
+        const reveals = document.querySelectorAll('#final-design .reveal');
         reveals.forEach((el, i) => {
+          if (!(el instanceof HTMLElement)) return;
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
           el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
@@ -323,8 +325,9 @@ import Button from '@/components/ui/astro-button.astro';
     <script>
       // Sanfte Reveal-Animation (wie bei allen anderen Blöcken)
       function initResultsReveal() {
-        const reveals = document.querySelectorAll<HTMLElement>('#results .reveal');
+        const reveals = document.querySelectorAll('#results .reveal');
         reveals.forEach((el, i) => {
+          if (!(el instanceof HTMLElement)) return;
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
           el.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
@@ -350,14 +353,21 @@ import Button from '@/components/ui/astro-button.astro';
     </script>
 
     <script>
-      function animateCounter(id: string, target: number, duration = 1600) {
-        const el = document.getElementById(id);
-        if (!el) return;
+      // @ts-nocheck
+      /**
+       * @param {string} id
+       * @param {number} target
+       * @param {number} [duration=1600]
+       */
+      function animateCounter(id, target, duration = 1600) {
+        const counter = document.getElementById(id);
+        if (!(counter instanceof HTMLElement)) return;
         const startTime = performance.now();
 
-        function update(now: number) {
+        /** @param {number} now */
+        function update(now) {
           const progress = Math.min((now - startTime) / duration, 1);
-          el!.textContent = String(Math.floor(progress * target));
+          counter.textContent = String(Math.floor(progress * target));
           if (progress < 1) requestAnimationFrame(update);
         }
 
@@ -373,14 +383,16 @@ import Button from '@/components/ui/astro-button.astro';
 
       function initSequentialReveals() {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
+        const groups = document.querySelectorAll('[data-reveal-group]');
 
         groups.forEach((group) => {
-          const items = group.querySelectorAll<HTMLElement>('.reveal-item');
+          if (!(group instanceof HTMLElement)) return;
+          const items = group.querySelectorAll('.reveal-item');
           if (!items.length) return;
 
           if (reduceMotion) {
             items.forEach((item) => {
+              if (!(item instanceof HTMLElement)) return;
               item.style.opacity = '1';
               item.style.transform = 'none';
             });
@@ -391,6 +403,7 @@ import Button from '@/components/ui/astro-button.astro';
           }
 
           items.forEach((item) => {
+            if (!(item instanceof HTMLElement)) return;
             item.style.opacity = '0';
             item.style.transform = 'translateY(28px)';
             item.style.transition = 'all 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
@@ -406,6 +419,7 @@ import Button from '@/components/ui/astro-button.astro';
             }
 
             items.forEach((item, index) => {
+              if (!(item instanceof HTMLElement)) return;
               setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateY(0)';
