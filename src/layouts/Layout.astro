@@ -45,10 +45,13 @@ const navLinkClass = (targetPath: string) =>
   </head>
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-4 focus:ring-primary/40">
+      {ssrLocale === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
+    </a>
     <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
     <header class="md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50 border-b-0 transition-all duration-300" data-scroll="up">
       <div class="px-6 py-6 flex items-center justify-between">
-        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground">
+          <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">
           Anika Warncke
         </a>
 
@@ -62,7 +65,7 @@ const navLinkClass = (targetPath: string) =>
     <!-- Sticky Header Desktop -->
     <header class="hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50" data-scroll="up">
       <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
-        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground">Anika Warncke</a>
+        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">Anika Warncke</a>
 
         <nav class="flex items-center gap-x-10 text-lg font-medium">
           <a href={ssrLocale === 'en' ? '/en' : '/'} class={navLinkClass(ssrLocale === 'en' ? '/en' : '/')}>{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
@@ -249,7 +252,7 @@ const navLinkClass = (targetPath: string) =>
             if (section.closest('[data-reveal-group]')) return;
 
             const candidates = section.querySelectorAll(
-              'h1, h2, h3, h4, p, li, figure, figcaption, img, video, article, form, blockquote, [data-slot="button"], a[href], button'
+              'h1, h2, h3, h4, p, li, figure, figcaption, video, article, form, blockquote, .project-card, [data-slot="button"], a[href], button'
             );
 
             let visibleIndex = 0;
@@ -259,6 +262,10 @@ const navLinkClass = (targetPath: string) =>
               if (el.classList.contains('auto-reveal-item')) return;
               if (el.closest('[data-reveal-group]')) return;
               if (el.closest('header, nav, footer')) return;
+              if (el.hasAttribute('data-no-reveal')) return;
+              if (el.classList.contains('ds-hero-image')) return;
+              if (el.closest('.ds-hero-panel')) return;
+              if (el.closest('.project-card') && !el.classList.contains('project-card')) return;
               if (el.tagName === 'A' && el.closest('[data-slot="button"]')) return;
 
               const style = window.getComputedStyle(el);
@@ -291,7 +298,7 @@ const navLinkClass = (targetPath: string) =>
       </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
-    <main class="flex-1 w-full">
+    <main id="main-content" class="flex-1 w-full">
       <slot />
     </main>
 
@@ -303,16 +310,16 @@ const navLinkClass = (targetPath: string) =>
         <div class="md:hidden space-y-8">
           <!-- Links -->
           <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
-            <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
-            <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
-            <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-primary transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
+            <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+            <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+            <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
           </div>
 
           <!-- Legal + Copyright -->
           <div class="text-center text-xs text-muted-foreground space-y-1">
             <div class="flex justify-center gap-6">
-              <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
-              <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
+              <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
+              <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
             </div>
             <p>© 2026 Anika Warncke • {ssrLocale === 'en' ? 'All rights reserved' : 'Alle Rechte vorbehalten'}</p>
           </div>
@@ -323,19 +330,19 @@ const navLinkClass = (targetPath: string) =>
           <div class="container mx-auto max-w-5xl px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm">
               <div class="flex flex-wrap gap-x-8 gap-y-2 text-muted-foreground">
-                <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
-                <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
-                <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
+                <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+                <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+                <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
               </div>
 
               <div class="flex items-center gap-8 text-muted-foreground">
-                <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" class="hover:text-foreground transition-colors">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">LinkedIn</a>
                 <span>{ssrLocale === 'en' ? '09:17 CET' : '09:17 Uhr MEZ'}</span>
               </div>
 
               <div class="flex flex-wrap gap-x-6 text-muted-foreground">
-                <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
-                <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
+                <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
+                <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
                 <span>© 2026 Anika Warncke</span>
               </div>
             </div>

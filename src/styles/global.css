@@ -358,6 +358,12 @@ header[data-scroll-shadow="true"] {
   animation: scroll-down 1.35s infinite ease-in-out;
 }
 
+.project-card[role='link']:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.45);
+  border-radius: var(--radius-card, 1rem);
+}
+
 /* Globales stufenweises Einblenden fuer Seiteninhalte */
 .auto-reveal-item {
   opacity: 0;

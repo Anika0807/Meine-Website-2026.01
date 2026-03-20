@@ -15,11 +15,11 @@ import Layout from '@/layouts/Layout.astro';
 
         <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
           <!-- 1. My Mind Studio -->
-          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none cursor-pointer" onclick="window.location='/projekte/my-mind-studio'">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-10 md:cursor-none cursor-pointer" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/my-mind-studio'">
             <img src="/images/my-mind-studio.jpg" alt="My Mind Studio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
+              <p class="text-xs tracking-widest uppercase text-white/95 mb-2">Innenarchitektur</p>
               <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">My Mind Studio</h3>
               <p class="text-sm md:text-base mt-3 opacity-90">Meditations- und Yogastudio mit Café</p>
             </div>
@@ -27,33 +27,33 @@ import Layout from '@/layouts/Layout.astro';
 
           <!-- 2. NaturKompass -->
           <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-20 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer"
-            onclick="window.location=(window.location.pathname.startsWith('/en') ? '/en/projects/naturkompass' : '/projekte/naturkompass')">
+            data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location=(window.location.pathname.startsWith('/en') ? '/en/projects/naturkompass' : '/projekte/naturkompass')">
             <img src="/images/naturkompass.jpg" alt="NaturKompass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <p class="text-xs tracking-widest uppercase text-white/95 mb-2">UX/UI Design</p>
               <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">NaturKompass</h3>
               <p class="text-sm md:text-base mt-3 opacity-90">Ihr digitaler Begleiter zur Identifikation von Flora &amp; Fauna</p>
             </div>
           </div>
 
           <!-- 3. Festsaal im Klostergasthof -->
-          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
+          <div class="project-card group relative overflow-hidden h-[88svh] sm:h-[92svh] md:h-screen w-full sticky top-0 z-30 mt-[-3svh] md:mt-0 md:cursor-none cursor-pointer" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/festsaal-im-klostergasthof'">
             <img src="/images/festsaal.jpg" alt="Festsaal im Klostergasthof" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">Innenarchitektur</p>
+              <p class="text-xs tracking-widest uppercase text-white/95 mb-2">Innenarchitektur</p>
               <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">Festsaal im Klostergasthof</h3>
               <p class="text-sm md:text-base mt-3 opacity-90">Veranstaltungsgastronomie für Hochzeiten und Events</p>
             </div>
           </div>
 
           <!-- 4. FlavorFusion -->
-          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none cursor-pointer" onclick="window.location='/projekte/flavorfusion'">
+          <div class="project-card group relative overflow-hidden h-[100svh] md:h-screen w-full z-40 mt-0 md:cursor-none cursor-pointer" data-no-reveal role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/flavorfusion'">
             <img src="/images/flavorfusion.jpg" alt="FlavorFusion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-              <p class="text-xs tracking-widest uppercase text-white/80 mb-2">UX/UI Design</p>
+              <p class="text-xs tracking-widest uppercase text-white/95 mb-2">UX/UI Design</p>
               <h3 class="text-3xl md:text-5xl font-semibold tracking-tighter">FlavorFusion</h3>
               <p class="text-sm md:text-base mt-3 opacity-90">Landing Page für eine mobile Rezepte App</p>
             </div>
@@ -71,12 +71,12 @@ import Layout from '@/layouts/Layout.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="projects-grid">
 
           <!-- 5. SCHLAF -->
-          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/schlaf'">
+          <div class="project-card group md:cursor-none cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/schlaf'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/schlaf.jpg" alt="SCHLAF" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
-                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
+                <p class="text-xs tracking-widest uppercase text-white/95 mb-1">Innenarchitektur</p>
                 <h3 class="text-3xl font-semibold tracking-tighter">SCHLAF</h3>
                 <p class="text-sm mt-2 opacity-90">Eine Erlebnisausstellung in die Tiefen des Schlafes</p>
               </div>
@@ -84,12 +84,12 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 6. OmNomZen -->
-          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/omnomzen'">
+          <div class="project-card group md:cursor-none cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/omnomzen'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/omnomzen.jpg" alt="OmNomZen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
-                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <p class="text-xs tracking-widest uppercase text-white/95 mb-1">UX/UI Design</p>
                 <h3 class="text-3xl font-semibold tracking-tighter">OmNomZen</h3>
                 <p class="text-sm mt-2 opacity-90">Stressabbau mit Bio-Ashwagandha-Gummibärchen</p>
               </div>
@@ -97,12 +97,12 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 7. weserkoje -->
-          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/weserkoje'">
+          <div class="project-card group md:cursor-none cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/weserkoje'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/weserkoje.jpg" alt="weserkoje" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
-                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">Innenarchitektur</p>
+                <p class="text-xs tracking-widest uppercase text-white/95 mb-1">Innenarchitektur</p>
                 <h3 class="text-3xl font-semibold tracking-tighter">weserkoje</h3>
                 <p class="text-sm mt-2 opacity-90">Multifunktionale Herberge mit integriertem Tagungszentrum</p>
               </div>
@@ -110,12 +110,12 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- 8. Planora -->
-          <div class="project-card group md:cursor-none cursor-pointer" onclick="window.location='/projekte/planora'">
+          <div class="project-card group md:cursor-none cursor-pointer" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" onclick="window.location='/projekte/planora'">
             <div class="relative overflow-hidden rounded-3xl h-[500px]">
               <img src="/images/planora.jpg" alt="Planora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/65"></div>
               <div class="absolute bottom-10 left-10 text-white">
-                <p class="text-xs tracking-widest uppercase text-white/80 mb-1">UX/UI Design</p>
+                <p class="text-xs tracking-widest uppercase text-white/95 mb-1">UX/UI Design</p>
                 <h3 class="text-3xl font-semibold tracking-tighter">Planora</h3>
                 <p class="text-sm mt-2 opacity-90">Reiseplanung, die sich dir anpasst</p>
               </div>
@@ -134,7 +134,7 @@ import Layout from '@/layouts/Layout.astro';
 
   <script>
     const cursor = document.getElementById('custom-cursor');
-    const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
+    const projectCards = document.querySelectorAll('.project-card');
     const desktopMedia = window.matchMedia('(min-width: 768px)');
 
     if (cursor instanceof HTMLElement) {
@@ -149,7 +149,8 @@ import Layout from '@/layouts/Layout.astro';
             return;
           }
 
-          const mouseEvent = e as MouseEvent;
+          if (!(e instanceof MouseEvent)) return;
+          const mouseEvent = e;
           cursor.style.left = `${mouseEvent.clientX - 80}px`;
           cursor.style.top = `${mouseEvent.clientY - 80}px`;
           cursor.classList.remove('hidden');
