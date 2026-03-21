@@ -5,6 +5,7 @@ import LanguageToggle from '@/components/LanguageToggle';
 import ThemeToggle from '@/components/ThemeToggle';
 import AccessibilityPanel from '@/components/AccessibilityPanel';
 import CookieBanner from '@/components/CookieBanner';
+import { mapLocalizedPath } from '@/lib/language';
 
 type SeoSchemaType = 'WebSite' | 'WebPage' | 'ProfilePage' | 'CollectionPage' | 'ContactPage' | 'AboutPage';
 
@@ -226,10 +227,8 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, 
 const effectiveOgTitle = ogTitle ?? seoDefaults.ogTitle ?? title;
 const effectiveOgDescription = ogDescription ?? description;
 
-const englishPath = currentPath.startsWith('/en') ? currentPath : `/en${currentPath === '/' ? '' : currentPath}`;
-const germanPath = currentPath.startsWith('/en')
-  ? currentPath.replace(/^\/en(?=\/|$)/, '') || '/'
-  : currentPath;
+const englishPath = mapLocalizedPath(currentPath, 'en');
+const germanPath = mapLocalizedPath(currentPath, 'de');
 
 const hreflangDe = new URL(germanPath, base).toString();
 const hreflangEn = new URL(englishPath, base).toString();
