@@ -185,8 +185,9 @@
 }
 
 /* Prevent horizontal overflow from full-bleed sections (w-screen / -mx-[50vw]) */
+/* Using clip instead of hidden so sticky positioning keeps working */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Viel Weißraum & Clean Design */

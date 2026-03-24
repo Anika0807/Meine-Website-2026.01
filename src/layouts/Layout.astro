@@ -376,7 +376,7 @@ const schemaData = {
       {ssrLocale === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
     </a>
     <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
-    <header class="md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50 border-b-0 transition-all duration-300" data-scroll="up">
+    <header class="site-header md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] border-b-0 transition-all duration-300">
       <div class="px-6 py-6 flex items-center justify-between">
           <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">
           Anika Warncke
@@ -390,7 +390,7 @@ const schemaData = {
     </header>
 
     <!-- Sticky Header Desktop -->
-    <header class="hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-50" data-scroll="up">
+    <header class="site-header hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120]">
       <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">Anika Warncke</a>
 
@@ -409,22 +409,18 @@ const schemaData = {
     </header>
 
       <script is:inline>
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-          const headers = document.querySelectorAll('header[data-scroll="up"]');
+        function updateSiteHeaderShadow() {
+          const headers = document.querySelectorAll('.site-header');
           const currentScroll = window.scrollY;
-
           headers.forEach((header) => {
-            if (currentScroll > lastScroll && currentScroll > 100) {
-              header.classList.add('translate-y-[-100%]');
-            } else {
-              header.classList.remove('translate-y-[-100%]');
-            }
             header.classList.toggle('shadow-md', currentScroll > 10);
           });
+        }
 
-          lastScroll = currentScroll;
-        });
+        window.addEventListener('scroll', updateSiteHeaderShadow, { passive: true });
+        window.addEventListener('load', updateSiteHeaderShadow);
+        document.addEventListener('DOMContentLoaded', updateSiteHeaderShadow);
+        document.addEventListener('astro:page-load', updateSiteHeaderShadow);
 
         function isProjectDetailPath(pathname) {
           const isGermanProjectDetail = pathname.startsWith('/projekte/') && pathname !== '/projekte/';
