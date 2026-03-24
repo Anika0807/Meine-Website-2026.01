@@ -50,23 +50,23 @@ import Layout from '@/layouts/Layout.astro';
           <input type="hidden" name="_template" value="table" />
           <div class="space-y-1" data-field>
             <div class="relative">
-              <input type="text" name="name" id="name" required autocomplete="name" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <input type="text" name="name" id="name" required autocomplete="name" placeholder=" " data-error-id="name-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
               <label for="name" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Dein Name *</label>
             </div>
-            <p class="error-msg hidden text-red-600 text-xs">Bitte gib deinen Namen ein.</p>
+            <p id="name-error" class="error-msg hidden text-red-600 text-xs" aria-live="polite">Bitte gib deinen Namen ein.</p>
           </div>
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <input type="email" name="email" id="email" required autocomplete="email" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <input type="email" name="email" id="email" required autocomplete="email" placeholder=" " data-error-id="email-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
               <label for="email" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine E-Mail *</label>
             </div>
-            <p class="error-msg hidden text-red-600 text-xs">Bitte gib eine gültige E-Mail-Adresse ein.</p>
+            <p id="email-error" class="error-msg hidden text-red-600 text-xs" aria-live="polite">Bitte gib eine gültige E-Mail-Adresse ein.</p>
           </div>
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <select name="projektart" id="projektart" required class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <select name="projektart" id="projektart" required data-error-id="project-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all appearance-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
                 <option value="" disabled selected hidden></option>
                 <option value="innenarchitektur">Innenarchitektur</option>
                 <option value="ux-ui">UX/UI Design</option>
@@ -76,15 +76,15 @@ import Layout from '@/layouts/Layout.astro';
               <label for="projektart" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-valid:top-2 peer-valid:translate-y-0 peer-valid:text-xs peer-valid:text-primary peer-valid:font-medium">Art des Projekts *</label>
               <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">▼</span>
             </div>
-            <p class="error-msg hidden text-red-600 text-xs">Bitte wähle eine Projektart aus.</p>
+            <p id="project-error" class="error-msg hidden text-red-600 text-xs" aria-live="polite">Bitte wähle eine Projektart aus.</p>
           </div>
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <textarea name="message" id="message" rows="3" required autocomplete="off" placeholder=" " class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" style="min-height:96px"></textarea>
+              <textarea name="message" id="message" rows="3" required autocomplete="off" placeholder=" " data-error-id="message-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" style="min-height:96px"></textarea>
               <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Deine Nachricht / dein Projekt *</label>
             </div>
-            <p class="error-msg hidden text-red-600 text-xs">Bitte beschreibe dein Projekt kurz.</p>
+            <p id="message-error" class="error-msg hidden text-red-600 text-xs" aria-live="polite">Bitte beschreibe dein Projekt kurz.</p>
           </div>
 
           <Button id="absenden-btn" type="submit" size="lg" class="w-full text-base sm:text-lg">
@@ -107,18 +107,24 @@ import Layout from '@/layouts/Layout.astro';
     const status = document.getElementById('status-meldung');
 
     const markInvalid = (feld, errorText) => {
-      const errorNode = feld.closest('[data-field]')?.querySelector('.error-msg');
+      const errorId = feld?.dataset?.errorId;
+      const errorNode = errorId ? document.getElementById(errorId) : null;
       if (errorNode) {
         errorNode.textContent = errorText;
         errorNode.classList.remove('hidden');
       }
+      feld.setAttribute('aria-invalid', 'true');
+      if (errorId) feld.setAttribute('aria-describedby', errorId);
       feld.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
       feld.classList.remove('border-border', 'focus:border-primary', 'focus:ring-primary/20');
     };
 
     const clearInvalid = (feld) => {
-      const errorNode = feld.closest('[data-field]')?.querySelector('.error-msg');
+      const errorId = feld?.dataset?.errorId;
+      const errorNode = errorId ? document.getElementById(errorId) : null;
       if (errorNode) errorNode.classList.add('hidden');
+      feld.removeAttribute('aria-invalid');
+      feld.removeAttribute('aria-describedby');
       feld.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
       feld.classList.add('border-border', 'focus:border-primary', 'focus:ring-primary/20');
     };

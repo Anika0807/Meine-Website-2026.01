@@ -735,6 +735,12 @@ const schemaData = {
           if (_scrollProgressHandler) {
             window.removeEventListener('scroll', _scrollProgressHandler);
           }
+
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            bar.style.width = '0%';
+            return;
+          }
+
           _scrollProgressHandler = function () {
             const docH = document.documentElement.scrollHeight - window.innerHeight;
             bar.style.width = (docH > 0 ? (window.scrollY / docH) * 100 : 0) + '%';
