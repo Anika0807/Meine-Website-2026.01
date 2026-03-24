@@ -29,7 +29,8 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
         color: 'hsl(var(--primary-foreground))',
         fontSize: '0.875rem',
         borderRadius: '0.5rem',
-        padding: '0.5rem 1.25rem',
+        padding: '0.75rem 1.25rem',
+        minHeight: '44px',
         fontWeight: '500',
       }}
       declineButtonStyle={{
@@ -37,7 +38,8 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
         color: 'hsl(var(--muted-foreground))',
         fontSize: '0.875rem',
         borderRadius: '0.5rem',
-        padding: '0.5rem 1.25rem',
+        padding: '0.75rem 1.25rem',
+        minHeight: '44px',
         fontWeight: '500',
         border: '1px solid hsl(var(--border))',
       }}

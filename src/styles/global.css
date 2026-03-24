@@ -184,6 +184,11 @@
   }
 }
 
+/* Prevent horizontal overflow from full-bleed sections (w-screen / -mx-[50vw]) */
+html, body {
+  overflow-x: hidden;
+}
+
 /* Viel Weißraum & Clean Design */
 .container {
   max-width: 1280px;
@@ -249,6 +254,15 @@
   .section {
     padding-top: var(--space-8);
     padding-bottom: var(--space-8);
+  }
+}
+
+/* Landscape-safety: prevent content crush on short mobile viewports */
+@media (max-height: 480px) and (orientation: landscape) {
+  .project-card[class*="sticky"] {
+    position: relative !important;
+    height: auto !important;
+    min-height: 80vh;
   }
 }
 
