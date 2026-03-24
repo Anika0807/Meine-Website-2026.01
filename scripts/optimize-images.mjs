@@ -2,95 +2,90 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const ROOT = process.cwd();
-const IMAGES_DIR = path.join(ROOT, 'public', 'images');
-const WIDTHS = [480, 768, 1024, 1440, 1920];
-const ALLOWED_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-const CONCURRENCY = 4;
+const IMAGES_DIR = path.resolve('public/images');
+const SOURCE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png']);
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  const files = [];
-
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...(await walk(fullPath)));
-      continue;
-    }
-
-    const ext = path.extname(entry.name).toLowerCase();
-    if (!ALLOWED_EXT.has(ext)) continue;
-    if (entry.name.includes('.__opt__')) continue;
-    files.push(fullPath);
-  }
-
-  return files;
+  const files = await Promise.all(
+    entries.map(async (entry) => {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        return walk(fullPath);
+      }
+      return [fullPath];
+    })
+  );
+  return files.flat();
 }
 
-async function needsUpdate(sourcePath, targetPath) {
+async function exists(filePath) {
   try {
-    const [srcStat, targetStat] = await Promise.all([fs.stat(sourcePath), fs.stat(targetPath)]);
-    return srcStat.mtimeMs > targetStat.mtimeMs;
-  } catch {
+    await fs.access(filePath);
     return true;
+  } catch {
+    return false;
   }
 }
 
-async function ensureVariant(sourcePath, width, format) {
-  const ext = path.extname(sourcePath);
-  const base = sourcePath.slice(0, -ext.length);
-  const targetPath = `${base}.__opt__${width}.${format}`;
-
-  if (!(await needsUpdate(sourcePath, targetPath))) return;
-
-  const transformer = sharp(sourcePath).rotate().resize({
-    width,
-    fit: 'inside',
-    withoutEnlargement: true,
-  });
-
-  if (format === 'webp') {
-    await transformer.webp({ quality: 78, effort: 4 }).toFile(targetPath);
-  } else {
-    await transformer.avif({ quality: 52, effort: 4 }).toFile(targetPath);
-  }
+async function needsUpdate(sourcePath, outputPath) {
+  if (!(await exists(outputPath))) return true;
+  const [src, out] = await Promise.all([fs.stat(sourcePath), fs.stat(outputPath)]);
+  return src.mtimeMs > out.mtimeMs;
 }
 
-async function processImage(sourcePath) {
-  for (const width of WIDTHS) {
-    await ensureVariant(sourcePath, width, 'webp');
-    await ensureVariant(sourcePath, width, 'avif');
+async function optimizeImage(sourcePath) {
+  const ext = path.extname(sourcePath).toLowerCase();
+  if (!SOURCE_EXTENSIONS.has(ext)) return { skipped: true, updated: false };
+
+  const outputPath = sourcePath.replace(/\.[^.]+$/i, '.webp');
+  if (!(await needsUpdate(sourcePath, outputPath))) {
+    return { skipped: false, updated: false };
   }
+
+  await sharp(sourcePath)
+    .rotate()
+    .webp({ quality: 82, effort: 5 })
+    .toFile(outputPath);
+
+  return { skipped: false, updated: true };
 }
 
 async function run() {
-  try {
-    await fs.access(IMAGES_DIR);
-  } catch {
-    console.log('[optimize-images] No public/images directory found, skipping.');
-    return;
-  }
-
   const files = await walk(IMAGES_DIR);
-  if (!files.length) {
-    console.log('[optimize-images] No source images found.');
-    return;
-  }
+  let converted = 0;
+  let unchanged = 0;
+  let skipped = 0;
+  let failed = 0;
 
-  let index = 0;
-  async function worker() {
-    while (index < files.length) {
-      const current = files[index++];
-      await processImage(current);
+  for (const file of files) {
+    try {
+      const result = await optimizeImage(file);
+      if (result.skipped) {
+        skipped += 1;
+      } else if (result.updated) {
+        converted += 1;
+      } else {
+        unchanged += 1;
+      }
+    } catch (error) {
+      failed += 1;
+      console.warn(`[optimize-images] Failed: ${file}`);
+      console.warn(error instanceof Error ? error.message : String(error));
     }
   }
 
-  await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
-  console.log(`[optimize-images] Processed ${files.length} image(s).`);
+  console.log(
+    `[optimize-images] done | converted=${converted} unchanged=${unchanged} skipped=${skipped} failed=${failed}`
+  );
+
+  if (failed > 0) {
+    process.exitCode = 1;
+  }
 }
 
 run().catch((error) => {
-  console.error('[optimize-images] Failed:', error);
-  process.exitCode = 1;
+  console.error('[optimize-images] fatal error');
+  console.error(error instanceof Error ? error.stack : String(error));
+  process.exit(1);
 });
