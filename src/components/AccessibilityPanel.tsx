@@ -134,8 +134,8 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
 
       <DialogContent
         showCloseButton={false}
-        overlayClassName="bg-transparent md:bg-black/60"
-        className="top-0 left-0 !flex h-[100svh] max-h-[100svh] w-full max-w-none !flex-col translate-x-0 translate-y-0 overflow-hidden rounded-none border-0 bg-background p-0 shadow-none ring-0 sm:max-w-none md:top-1/2 md:left-1/2 md:h-auto md:max-h-[92svh] md:w-full md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-card md:border md:border-border/50 md:shadow-2xl md:ring-1 md:ring-foreground/10"
+        overlayClassName="z-[180] bg-transparent md:bg-black/60"
+        className="z-[190] top-0 left-0 !flex h-[100svh] max-h-[100svh] w-full max-w-none !flex-col translate-x-0 translate-y-0 overflow-hidden rounded-none border-0 bg-background p-0 shadow-none ring-0 sm:max-w-none md:top-1/2 md:left-1/2 md:h-auto md:max-h-[92svh] md:w-full md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-card md:border md:border-border/50 md:shadow-2xl md:ring-1 md:ring-foreground/10"
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))] pb-4 md:px-6 md:pt-6">
           <div className="flex items-center gap-3 md:gap-4">
