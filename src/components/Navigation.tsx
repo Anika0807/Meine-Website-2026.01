@@ -146,14 +146,14 @@ export default function Navigation() {
         
         <SheetContent 
           side="top" 
-          className="w-full h-[100svh] flex flex-col overflow-y-auto px-6 pt-6 pb-8"
+          className="w-full h-[100svh] flex flex-col overflow-y-auto overscroll-contain px-5 pt-[max(1rem,calc(env(safe-area-inset-top)+0.25rem))] pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+0.75rem))] sm:px-6"
           showCloseButton={false}
         >
-          <div className="flex items-center justify-between mb-6">
-            <div className="text-3xl font-semibold tracking-tight">{getMessage('menu.title')}</div>
+          <div className="mb-5 flex items-center justify-between">
+            <div className="text-[1.75rem] font-semibold tracking-tight">{getMessage('menu.title')}</div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-4xl leading-none text-muted-foreground hover:text-foreground transition-colors"
+              className="text-3xl leading-none text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Menü schließen"
             >
               ×
@@ -166,7 +166,7 @@ export default function Navigation() {
                 key={path}
                 href={href(path)}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-lg px-6 py-4 text-xl font-medium transition-all hover:bg-primary/10 hover:text-primary active:bg-primary/20"
+                className="block rounded-lg px-5 py-3 text-lg font-medium transition-all hover:bg-primary/10 hover:text-primary active:bg-primary/20"
               >
                 {path === '/' && getMessage('menu.home')}
                 {(path === '/projekte' || path === '/projects') && getMessage('menu.projects')}
@@ -176,52 +176,52 @@ export default function Navigation() {
             ))}
           </nav>
 
-          <div className="mt-5 pt-5 border-t border-border">
-            <p className="mb-4 text-sm text-muted-foreground font-medium">{getMessage('menu.appearance')}</p>
-            <div className="flex gap-3 justify-center mb-5">
+          <div className="mt-4 border-t border-border pt-4">
+            <p className="mb-3 text-sm font-medium text-muted-foreground">{getMessage('menu.appearance')}</p>
+            <div className="mb-4 grid grid-cols-3 gap-2">
               <Toggle
                 pressed={theme === 'light'}
                 onPressedChange={() => applyTheme('light')}
-                className="flex flex-col items-center gap-3 h-auto px-6 py-5 rounded-lg border border-border data-[state=on]:bg-muted data-[state=on]:border-primary"
+                className="flex h-auto min-w-0 flex-col items-center gap-2 rounded-lg border border-border px-3 py-4 data-[state=on]:border-primary data-[state=on]:bg-muted"
                 aria-label={getMessage('theme.light')}
               >
-                <Sun className="h-6 w-6" />
+                <Sun className="h-5 w-5" />
                 <span className="text-xs font-medium text-center">{getMessage('theme.light')}</span>
               </Toggle>
 
               <Toggle
                 pressed={theme === 'dark'}
                 onPressedChange={() => applyTheme('dark')}
-                className="flex flex-col items-center gap-3 h-auto px-6 py-5 rounded-lg border border-border data-[state=on]:bg-muted data-[state=on]:border-primary"
+                className="flex h-auto min-w-0 flex-col items-center gap-2 rounded-lg border border-border px-3 py-4 data-[state=on]:border-primary data-[state=on]:bg-muted"
                 aria-label={getMessage('theme.dark')}
               >
-                <Moon className="h-6 w-6" />
+                <Moon className="h-5 w-5" />
                 <span className="text-xs font-medium text-center">{getMessage('theme.dark')}</span>
               </Toggle>
 
               <Toggle
                 pressed={theme === 'system'}
                 onPressedChange={() => applyTheme('system')}
-                className="flex flex-col items-center gap-3 h-auto px-6 py-5 rounded-lg border border-border data-[state=on]:bg-muted data-[state=on]:border-primary"
+                className="flex h-auto min-w-0 flex-col items-center gap-2 rounded-lg border border-border px-3 py-4 data-[state=on]:border-primary data-[state=on]:bg-muted"
                 aria-label={getMessage('theme.system')}
               >
-                <Monitor className="h-6 w-6" />
+                <Monitor className="h-5 w-5" />
                 <span className="text-xs font-medium text-center">{getMessage('theme.system')}</span>
               </Toggle>
             </div>
           </div>
 
-          <div className="border-t border-border pt-5">
-            <div className="flex justify-center gap-8 text-lg font-medium">
+          <div className="border-t border-border pt-4">
+            <div className="flex justify-center gap-4 text-base font-medium">
               <button
                 onClick={() => switchLanguage('de')}
-                className={`rounded-full px-8 py-3 transition-all ${locale === 'de' ? 'bg-primary text-primary-foreground' : 'hover:bg-accent/10'}`}
+                className={`rounded-full px-6 py-2.5 transition-all ${locale === 'de' ? 'bg-primary text-primary-foreground' : 'hover:bg-accent/10'}`}
               >
                 DE
               </button>
               <button
                 onClick={() => switchLanguage('en')}
-                className={`rounded-full px-8 py-3 transition-all ${locale === 'en' ? 'bg-primary text-primary-foreground' : 'hover:bg-accent/10'}`}
+                className={`rounded-full px-6 py-2.5 transition-all ${locale === 'en' ? 'bg-primary text-primary-foreground' : 'hover:bg-accent/10'}`}
               >
                 EN
               </button>

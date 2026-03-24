@@ -125,7 +125,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
           id="accessibility-button"
           variant="default"
           size="icon"
-          className={`fixed bottom-8 right-8 z-[60] flex h-[52px] min-w-[62px] px-2 items-center justify-center rounded-btn bg-primary text-primary-foreground shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30 md:h-[72px] md:min-w-[82px] md:px-3 ${isOpen ? 'hidden' : ''}`}
+          className={`fixed bottom-[max(1.25rem,calc(env(safe-area-inset-bottom)+0.75rem))] right-[max(1rem,calc(env(safe-area-inset-right)+0.75rem))] z-[60] flex h-[52px] min-w-[62px] items-center justify-center rounded-btn bg-primary px-2 text-primary-foreground shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30 md:bottom-8 md:right-8 md:h-[72px] md:min-w-[82px] md:px-3 ${isOpen ? 'hidden' : ''}`}
           aria-label={t(locale, 'accessibility.ariaLabel')}
         >
           <PersonStanding className="size-9 md:size-[50px]" strokeWidth={2.25} />
@@ -135,14 +135,14 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
       <DialogContent
         showCloseButton={false}
         overlayClassName="bg-transparent md:bg-black/60"
-        className="top-0 left-0 h-full max-h-none w-full max-w-none translate-x-0 translate-y-0 overflow-hidden rounded-none border-0 bg-background p-0 shadow-none ring-0 sm:max-w-none md:top-1/2 md:left-1/2 md:h-auto md:max-h-[92vh] md:w-full md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-card md:border md:border-border/50 md:shadow-2xl md:ring-1 md:ring-foreground/10"
+        className="top-0 left-0 !flex h-[100svh] max-h-[100svh] w-full max-w-none !flex-col translate-x-0 translate-y-0 overflow-hidden rounded-none border-0 bg-background p-0 shadow-none ring-0 sm:max-w-none md:top-1/2 md:left-1/2 md:h-auto md:max-h-[92svh] md:w-full md:max-w-lg md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-card md:border md:border-border/50 md:shadow-2xl md:ring-1 md:ring-foreground/10"
       >
-        <div className="flex items-center justify-between border-b border-border/50 px-6 pt-8 pb-4 md:pt-6">
-          <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-card bg-primary/10 text-primary">
+        <div className="flex items-center justify-between border-b border-border/50 px-5 pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))] pb-4 md:px-6 md:pt-6">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex h-9 w-9 items-center justify-center rounded-card bg-primary/10 text-primary md:h-10 md:w-10">
               <PersonStanding className="h-6 w-6" strokeWidth={2.25} />
             </div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
               {t(locale, 'accessibility.title')}
             </h2>
           </div>
@@ -150,14 +150,14 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="text-3xl text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[2rem] text-muted-foreground transition-colors hover:text-foreground"
             aria-label="Panel schließen"
           >
             ×
           </button>
         </div>
 
-        <div className="h-[calc(100vh-97px)] overflow-auto p-6 space-y-9 md:h-auto md:max-h-[calc(92vh-96px)] md:p-8">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+0.75rem))] space-y-7 md:max-h-[calc(92svh-96px)] md:p-8 md:space-y-9">
           <div>
             <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="fontSize">
               <Type className="h-5 w-5" />
@@ -212,7 +212,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
             </div>
           </div>
 
-          <div className="space-y-5 pt-2">
+          <div className="space-y-4 pt-1 md:space-y-5 md:pt-2">
             <div className="flex items-center justify-between">
               <Label className="flex items-center gap-3 text-base md:text-lg font-medium" htmlFor="dyslexia">
                 <Type className="h-5 w-5" />
@@ -288,7 +288,7 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
 
           <button
             onClick={resetSettings}
-            className="w-full py-5 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-lg rounded-btn transition-all"
+            className="w-full rounded-btn bg-primary py-4 text-base font-medium text-primary-foreground transition-all hover:bg-primary/90 md:py-5 md:text-lg"
           >
             {getMessage('accessibility.reset')}
           </button>
