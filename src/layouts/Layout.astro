@@ -932,36 +932,42 @@ const schemaData = {
           </div>
 
           <!-- Legal + Copyright -->
-          <div class="text-center text-xs text-muted-foreground space-y-1">
-            <div class="flex justify-center gap-6">
+          <div class="text-center text-xs text-muted-foreground space-y-2">
+            <div class="mx-auto flex max-w-[20rem] flex-wrap items-center justify-center gap-x-5 gap-y-2 leading-tight">
               <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
               <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
-              <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
+              <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md text-center">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
             </div>
-            <p>© 2026 Anika Warncke • {ssrLocale === 'en' ? 'All rights reserved' : 'Alle Rechte vorbehalten'}</p>
+            <p class="leading-tight">© 2026 Anika Warncke • {ssrLocale === 'en' ? 'All rights reserved' : 'Alle Rechte vorbehalten'}</p>
           </div>
         </div>
 
         <!-- Desktop bleibt exakt wie vorher (nichts verändert) -->
         <div class="hidden md:block">
           <div class="container mx-auto max-w-5xl px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm">
-              <div class="flex flex-wrap gap-x-8 gap-y-2 text-muted-foreground">
-                <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
-                <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
-                <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
-              </div>
+            <div class="flex flex-col items-center gap-3 text-sm">
+              <div class="flex items-center justify-center text-muted-foreground whitespace-nowrap">
+                <div class={`flex items-center ${ssrLocale === 'en' ? 'gap-x-7' : 'gap-x-6'}`}>
+                  <a href={ssrLocale === 'en' ? '/en/about' : '/ueber-mich'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'About me' : 'Über mich'}</a>
+                  <a href={ssrLocale === 'en' ? '/en/projects' : '/projekte'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Projects' : 'Projekte'}</a>
+                  <a href={ssrLocale === 'en' ? '/en/contact' : '/kontakt'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Contact' : 'Kontakt'}</a>
+                </div>
 
-              <div class="flex items-center gap-8 text-muted-foreground">
-                <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">LinkedIn</a>
-              </div>
+                <span class={`h-4 w-px bg-border/80 ${ssrLocale === 'en' ? 'mx-6' : 'mx-5'}`} aria-hidden="true"></span>
 
-              <div class="flex flex-wrap gap-x-6 text-muted-foreground">
-                <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
-                <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
-                <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
-                <span>© 2026 Anika Warncke</span>
+                <div class={`flex items-center ${ssrLocale === 'en' ? 'gap-x-7' : 'gap-x-6'}`}>
+                  <a href="https://www.linkedin.com/in/anika-warncke" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">LinkedIn</a>
+                </div>
+
+                <span class={`h-4 w-px bg-border/80 ${ssrLocale === 'en' ? 'mx-6' : 'mx-5'}`} aria-hidden="true"></span>
+
+                <div class={`flex items-center ${ssrLocale === 'en' ? 'gap-x-7' : 'gap-x-6'}`}>
+                  <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
+                  <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
+                  <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
+                </div>
               </div>
+              <span class="text-xs text-center text-muted-foreground/90">© 2026 Anika Warncke</span>
             </div>
           </div>
         </div>
