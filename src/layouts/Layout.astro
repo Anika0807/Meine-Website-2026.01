@@ -46,103 +46,105 @@ type SeoDefaults = {
   ogTitle?: string;
 };
 
+const defaultOgImage = '/images/anika-warncke.__opt__1024.webp';
+
 const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
   const exactPageSeo: Record<string, { description: string; schemaType: SeoSchemaType; ogImage: string; ogTitle: string }> = {
     '/projekte/my-mind-studio': {
       description: 'My Mind Studio: Innenarchitektur fuer ein Meditations- und Yogastudio mit Cafe.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'My Mind Studio - Innenarchitektur Projekt | Anika Warncke',
     },
     '/projekte/naturkompass': {
       description: 'NaturKompass Case Study: UX/UI Design fuer eine mobile App zur Flora- und Fauna-Erkennung.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'NaturKompass - UX/UI Case Study | Anika Warncke',
     },
     '/projekte/festsaal-im-klostergasthof': {
       description: 'Festsaal im Klostergasthof: Innenarchitektur fuer Veranstaltungsgastronomie und Events.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Festsaal im Klostergasthof - Innenarchitektur | Anika Warncke',
     },
     '/projekte/flavorfusion': {
       description: 'FlavorFusion Case Study: UX/UI Konzeption und Landing Page fuer eine mobile Rezepte-App.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'FlavorFusion - UX/UI Case Study | Anika Warncke',
     },
     '/projekte/schlaf': {
       description: 'SCHLAF: Innenarchitektur und Raumkonzept fuer eine immersive Ausstellung zum Schlaf.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'SCHLAF - Innenarchitektur Ausstellungskonzept | Anika Warncke',
     },
     '/projekte/omnomzen': {
       description: 'OmNomZen Case Study: UX/UI Design fuer eine Marke mit Fokus auf Stressabbau und Wohlbefinden.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'OmNomZen - UX/UI Case Study | Anika Warncke',
     },
     '/projekte/weserkoje': {
       description: 'Weserkoje: Innenarchitektur fuer eine multifunktionale Herberge mit Tagungszentrum.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Weserkoje - Innenarchitektur Projekt | Anika Warncke',
     },
     '/projekte/planora': {
       description: 'Planora Case Study: UX/UI Design fuer eine flexible und nutzerzentrierte Reiseplanung.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Planora - UX/UI Case Study | Anika Warncke',
     },
 
     '/en/projects/my-mind-studio': {
       description: 'My Mind Studio: Interior architecture case study for a meditation and yoga studio with cafe.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'My Mind Studio - Interior Architecture Case Study | Anika Warncke',
     },
     '/en/projects/naturkompass': {
       description: 'NaturKompass case study: UX/UI design for a mobile flora and fauna identification app.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'NaturKompass - UX/UI Case Study | Anika Warncke',
     },
     '/en/projects/festsaal-im-klostergasthof': {
       description: 'Banquet Hall at the Monastery Inn: Interior architecture for hospitality events and celebrations.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Banquet Hall at the Monastery Inn - Interior Architecture | Anika Warncke',
     },
     '/en/projects/flavorfusion': {
       description: 'FlavorFusion case study: UX/UI concept and landing page design for a mobile recipe app.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'FlavorFusion - UX/UI Case Study | Anika Warncke',
     },
     '/en/projects/schlaf': {
       description: 'SCHLAF: Interior architecture and spatial concept for an immersive exhibition about sleep.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'SCHLAF - Interior Architecture Exhibition Concept | Anika Warncke',
     },
     '/en/projects/omnomzen': {
       description: 'OmNomZen case study: UX/UI design for a wellness-focused product and digital experience.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'OmNomZen - UX/UI Case Study | Anika Warncke',
     },
     '/en/projects/weserkoje': {
       description: 'Weserkoje: Interior architecture for a multifunctional hostel with an integrated conference center.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Weserkoje - Interior Architecture Case Study | Anika Warncke',
     },
     '/en/projects/planora': {
       description: 'Planora case study: UX/UI design for adaptive and user-centered travel planning.',
       schemaType: 'WebPage',
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
       ogTitle: 'Planora - UX/UI Case Study | Anika Warncke',
     },
   };
@@ -157,7 +159,7 @@ const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
           ? 'Portfolio of Anika Warncke: Interior Architecture, UX/UI Design and selected projects.'
           : 'Portfolio von Anika Warncke: Innenarchitektur, UX/UI Design und ausgewählte Projekte.',
       schemaType: 'WebSite' as SeoSchemaType,
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
     };
   }
 
@@ -168,7 +170,7 @@ const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
           ? 'Project overview by Anika Warncke: Interior Architecture and UX/UI case studies.'
           : 'Projektübersicht von Anika Warncke: Innenarchitektur- und UX/UI-Case-Studies.',
       schemaType: 'CollectionPage' as SeoSchemaType,
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
     };
   }
 
@@ -179,7 +181,7 @@ const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
           ? 'Case study by Anika Warncke with process, concept and visual results.'
           : 'Case Study von Anika Warncke mit Prozess, Konzept und visuellen Ergebnissen.',
       schemaType: 'WebPage' as SeoSchemaType,
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
     };
   }
 
@@ -190,7 +192,7 @@ const getSeoDefaults = (path: string, locale: 'de' | 'en'): SeoDefaults => {
           ? 'Learn more about Anika Warncke, her profile, values and design approach.'
           : 'Erfahre mehr über Anika Warncke, ihr Profil, ihre Werte und ihre Designhaltung.',
       schemaType: 'ProfilePage' as SeoSchemaType,
-      ogImage: '.webp',
+      ogImage: defaultOgImage,
     };
   }
 
@@ -246,25 +248,41 @@ const schemaData = {
 <html lang={ssrLocale} data-current-locale={ssrLocale} data-german-path={germanPath} data-english-path={englishPath}>
   <head>
     <!-- Google tag (gtag.js) - GA4 mit Consent Mode v2 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3NYM3DF9X"></script>
     <script>
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
-      (window as any).gtag = gtag;
+      const GA_MEASUREMENT_ID = 'G-T3NYM3DF9X';
 
-      // Default: Alles denied (DSGVO-konform)
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
-      });
+      function ensureAnalyticsInitialized() {
+        if ((window as any).__analyticsInitialized) return;
 
-      gtag('js', new Date());
-      gtag('config', 'G-T3NYM3DF9X', {
-        cookie_flags: 'SameSite=None;Secure',
-        anonymize_ip: true
-      });
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        function gtag(...args: any[]) {
+          (window as any).dataLayer.push(args);
+        }
+        (window as any).gtag = gtag;
+
+        // Default: Alles denied (DSGVO-konform)
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          analytics_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        });
+
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID, {
+          cookie_flags: 'SameSite=None;Secure',
+          anonymize_ip: true,
+        });
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        document.head.appendChild(script);
+
+        (window as any).__analyticsInitialized = true;
+      }
+
+      document.addEventListener('analytics:load', ensureAnalyticsInitialized);
     </script>
 
     <meta charset="utf-8" />
@@ -437,6 +455,7 @@ const schemaData = {
         function syncAnalyticsConsentFromCookie() {
           const consentValue = getCookieValue('meineWebsiteConsent');
           if (consentValue === 'true') {
+            document.dispatchEvent(new Event('analytics:load'));
             window.gtag?.('consent', 'update', {
               analytics_storage: 'granted',
               ad_storage: 'denied',

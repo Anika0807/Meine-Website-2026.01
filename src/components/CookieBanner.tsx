@@ -47,6 +47,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
       ariaDeclineLabel={isEn ? 'Accept necessary cookies only' : 'Nur notwendige Cookies akzeptieren'}
       expires={365}
       onAccept={() => {
+        document.dispatchEvent(new Event('analytics:load'));
         // Update GA4 Consent Mode after explicit user acceptance.
         (window as any).gtag?.('consent', 'update', {
           analytics_storage: 'granted',
