@@ -11,7 +11,7 @@ import Layout from '@/layouts/Layout.astro';
       Transparenz und Vertrauen sind mir wichtig. Hier erfährst du klar und nachvollziehbar, welche Daten auf dieser Website verarbeitet werden und warum.
     </p>
 
-    <div class="text-body leading-relaxed space-y-12">
+    <div class="legal-content text-body leading-relaxed space-y-12">
 
       <div class="space-y-4">
         <h3 class="text-h5 md:text-h4 mb-4">1. Datenschutz auf einen Blick</h3>
@@ -137,3 +137,13 @@ import Layout from '@/layouts/Layout.astro';
   </div>
   <div style="padding-bottom: 6rem;"></div>
 </Layout>
+
+<style>
+  .legal-content,
+  .legal-content p,
+  .legal-content li,
+  .legal-content a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+</style>

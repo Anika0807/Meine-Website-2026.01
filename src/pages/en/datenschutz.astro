@@ -8,7 +8,7 @@ import Layout from '@/layouts/Layout.astro';
     <p class="text-muted-foreground mb-10">
       Transparency and trust matter to me. This page explains clearly which data is processed on this website and for what purpose.
     </p>
-    <div class="text-body leading-relaxed space-y-12">
+    <div class="legal-content text-body leading-relaxed space-y-12">
       <div class="space-y-4">
         <h3 class="text-h5 md:text-h4 mb-4">1. Data Protection Overview</h3>
         <p><strong>General Information</strong></p>
@@ -106,3 +106,13 @@ IF YOUR PERSONAL DATA IS PROCESSED FOR DIRECT ADVERTISING, YOU HAVE THE RIGHT TO
   </div>
   <div style="padding-bottom: 6rem;"></div>
 </Layout>
+
+<style>
+  .legal-content,
+  .legal-content p,
+  .legal-content li,
+  .legal-content a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+</style>

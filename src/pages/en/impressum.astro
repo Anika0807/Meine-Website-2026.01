@@ -8,7 +8,7 @@ import Layout from '@/layouts/Layout.astro';
     <p class="text-muted-foreground mb-10">
       I value a transparent and reliable presence. That's why you'll find all legally required information about this website here.
     </p>
-    <div class="text-body leading-relaxed space-y-10">
+    <div class="legal-content text-body leading-relaxed space-y-10">
       <div class="space-y-3">
         <p><strong>Imprint</strong></p>
         <p>Anika Warncke<br>
@@ -53,3 +53,13 @@ import Layout from '@/layouts/Layout.astro';
   </div>
   <div style="padding-bottom: 6rem;"></div>
 </Layout>
+
+<style>
+  .legal-content,
+  .legal-content p,
+  .legal-content li,
+  .legal-content a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+</style>
