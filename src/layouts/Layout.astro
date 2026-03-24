@@ -348,6 +348,7 @@ const schemaData = {
   </head>
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+    <div id="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-4 focus:ring-primary/40">
       {ssrLocale === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
     </a>
@@ -676,7 +677,7 @@ const schemaData = {
             if (section.closest('[data-reveal-group]')) return;
 
             const candidates = section.querySelectorAll(
-              'h1, h2, h3, h4, p, li, figure, figcaption, video, article, form, blockquote, .project-card, [data-slot="button"], a[href], button'
+              'h1, h2, h3, h4, p, li, figure, figcaption, img:not([data-no-reveal]):not(.ds-hero-image), video, article, form, blockquote, .project-card, [data-slot="button"], a[href], button'
             );
 
             let visibleIndex = 0;
@@ -684,6 +685,7 @@ const schemaData = {
             candidates.forEach((el) => {
               if (el.classList.contains('reveal-item')) return;
               if (el.classList.contains('auto-reveal-item')) return;
+              if (el.classList.contains('reveal-heading')) return;
               if (el.closest('[data-reveal-group]')) return;
               if (el.closest('header, nav, footer')) return;
               if (el.hasAttribute('data-no-reveal')) return;
@@ -719,6 +721,84 @@ const schemaData = {
         window.addEventListener('load', mountGlobalAutoReveal);
         document.addEventListener('DOMContentLoaded', mountGlobalAutoReveal);
         document.addEventListener('astro:page-load', mountGlobalAutoReveal);
+
+        // ── Scroll-Fortschrittsanzeige ───────────────────────────────────────
+        var _scrollProgressHandler = null;
+        function mountScrollProgress() {
+          const bar = document.getElementById('scroll-progress');
+          if (!bar) return;
+          if (_scrollProgressHandler) {
+            window.removeEventListener('scroll', _scrollProgressHandler);
+          }
+          _scrollProgressHandler = function () {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.width = (docH > 0 ? (window.scrollY / docH) * 100 : 0) + '%';
+          };
+          window.addEventListener('scroll', _scrollProgressHandler, { passive: true });
+          _scrollProgressHandler();
+        }
+
+        // ── Heading Word-by-Word Reveal ──────────────────────────────────────
+        function mountHeadingWordReveal() {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          document.querySelectorAll('.reveal-heading').forEach((el) => {
+            if (!(el instanceof HTMLElement)) return;
+            if (el.dataset.wordRevealMounted) return;
+            el.dataset.wordRevealMounted = '1';
+            el.setAttribute('data-no-reveal', '');
+
+            if (el.children.length > 0) {
+              // Has child elements (e.g. <br>) – whole-element slide-up
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(32px)';
+              el.style.filter = 'blur(3px)';
+              el.style.transition =
+                'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s cubic-bezier(0.22,1,0.36,1)';
+              const obs = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                  if (!e.isIntersecting) return;
+                  el.style.opacity = '1';
+                  el.style.transform = 'translateY(0)';
+                  el.style.filter = 'blur(0)';
+                  obs.unobserve(el);
+                });
+              }, { threshold: 0.2 });
+              obs.observe(el);
+              return;
+            }
+
+            const text = el.textContent?.trim() || '';
+            const words = text.split(/\s+/).filter(Boolean);
+            if (!words.length) return;
+
+            el.innerHTML = words
+              .map(
+                (word, i) =>
+                  `<span class="rh-word"><span class="rh-inner" style="transition-delay:${i * 55}ms">${word}</span></span>`
+              )
+              .join(' ');
+
+            const obs = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((e) => {
+                  if (!e.isIntersecting) return;
+                  el.classList.add('reveal-heading-active');
+                  obs.unobserve(el);
+                });
+              },
+              { threshold: 0.2, rootMargin: '0px 0px -5% 0px' }
+            );
+            obs.observe(el);
+          });
+        }
+
+        window.addEventListener('load', mountScrollProgress);
+        document.addEventListener('DOMContentLoaded', mountScrollProgress);
+        document.addEventListener('astro:page-load', mountScrollProgress);
+
+        window.addEventListener('load', mountHeadingWordReveal);
+        document.addEventListener('DOMContentLoaded', mountHeadingWordReveal);
+        document.addEventListener('astro:page-load', mountHeadingWordReveal);
 
         document.addEventListener('click', (event) => {
           const target = event.target;

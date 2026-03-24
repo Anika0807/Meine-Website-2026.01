@@ -477,6 +477,47 @@ header[data-scroll-shadow="true"] {
   animation: scroll-down 1.35s infinite ease-in-out;
 }
 
+/* ── Scroll-Fortschrittsanzeige ────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: hsl(var(--primary));
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ── Heading Word-by-Word Reveal ────────────────────────────────────── */
+.rh-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;
+}
+.rh-inner {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-heading-active .rh-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rh-inner,
+  .reveal-heading-active .rh-inner {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
 .project-card[role='link']:focus-visible {
   outline: none;
   box-shadow: 0 0 0 4px hsl(var(--primary) / 0.45);
