@@ -81,7 +81,7 @@ import Layout from '@/layouts/Layout.astro';
 
           <div class="space-y-1" data-field>
             <div class="relative">
-              <textarea name="message" id="message" rows="5" required autocomplete="off" placeholder=" " data-error-id="message-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"></textarea>
+              <textarea name="message" id="message" rows="3" required autocomplete="off" placeholder=" " data-error-id="message-error" class="peer w-full px-4 pt-6 pb-2 bg-background border border-border rounded-xl transition-all resize-none text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" style="min-height:96px"></textarea>
               <label for="message" class="absolute left-4 top-6 -translate-y-1/2 text-muted-foreground text-sm transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-primary peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-primary peer-[&:not(:placeholder-shown)]:font-medium">Your Message / Project *</label>
             </div>
             <p id="message-error" class="hidden text-red-600 text-xs">Please share a short message about your project.</p>
@@ -116,7 +116,7 @@ import Layout from '@/layouts/Layout.astro';
         errorNode.classList.remove('hidden');
       }
     };
-
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full sm:max-w-[340px] md:max-w-none">
     const clearFieldError = (field) => {
       const errorId = field?.dataset?.errorId;
       const errorNode = errorId ? document.getElementById(errorId) : null;
