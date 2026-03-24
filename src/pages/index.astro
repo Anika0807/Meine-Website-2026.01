@@ -5,6 +5,8 @@ import { Heading2 } from '@/components/design-system/headings';
 import { heroImageHover, heroPanelClass } from '@/components/design-system/hero-image-hover';
 import { Image } from 'astro:assets';
 import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
+import heroInterior from '@/assets/hero-interior.jpg';
+import heroUxui from '@/assets/hero-uxui.jpg';
 ---
 
 <Layout title="Anika Warncke | Innenarchitektur & UX/UI Design">
@@ -15,10 +17,10 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
       <!-- Mobile: zwei Bilder übereinander -->
       <div class="absolute inset-0 grid grid-rows-2">
         <div class="relative">
-          <img src="/images/hero-innenarchitektur.webp" alt="Innenarchitektur" class="w-full h-full object-cover hero-parallax" loading="eager" fetchpriority="high" />
+          <Image src={heroInterior} alt="Innenarchitektur" class="w-full h-full object-cover hero-parallax" loading="eager" fetchpriority="high" format="webp" quality={85} densities={[1, 2]} />
         </div>
         <div class="relative">
-          <img src="/images/hero-ux-ui.webp" alt="UX/UI Design" class="w-full h-full object-cover hero-parallax" loading="eager" fetchpriority="high" />
+          <Image src={heroUxui} alt="UX/UI Design" class="w-full h-full object-cover hero-parallax" loading="eager" fetchpriority="high" format="webp" quality={85} densities={[1, 2]} />
         </div>
       </div>
 
@@ -68,19 +70,19 @@ import anikaPortraitWarm from '@/assets/anika-portrait-warm.jpg';
 
     <!-- LINKS: Innenarchitektur -->
     <div class={`${heroPanelClass} hero-left`}>
-      <img 
-        src="/images/hero-interior.webp" 
+      <Image 
+        src={heroInterior} 
         alt="Innenarchitektur Projekt"
-        class={heroImageHover} loading="eager" fetchpriority="high" />
+        class={heroImageHover} loading="eager" fetchpriority="high" format="webp" quality={85} densities={[1, 2]} />
       <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
     </div>
 
     <!-- RECHTS: UX/UI -->
     <div class={`${heroPanelClass} hero-right`}>
-      <img 
-        src="/images/hero-uxui.webp" 
+      <Image 
+        src={heroUxui} 
         alt="UX/UI Projekt"
-        class={heroImageHover} loading="eager" fetchpriority="high" />
+        class={heroImageHover} loading="eager" fetchpriority="high" format="webp" quality={85} densities={[1, 2]} />
       <div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent"></div>
     </div>
 
