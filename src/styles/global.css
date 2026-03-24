@@ -490,6 +490,69 @@ header[data-scroll-shadow="true"] {
   transition: width 0.08s linear;
 }
 
+/* ── Magnetische Buttons ────────────────────────────────────────────── */
+.mag-btn {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* ── Parallax Hero Layers ───────────────────────────────────────────── */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* ── Form Submit Spinner ────────────────────────────────────────────── */
+@keyframes spin-smooth {
+  to { transform: rotate(360deg); }
+}
+.btn-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin-smooth 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+/* ── Form Success State ─────────────────────────────────────────────── */
+.form-success-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: hsl(var(--card));
+  border-radius: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+.form-success-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+@keyframes checkmark-draw {
+  from { stroke-dashoffset: 60; }
+  to   { stroke-dashoffset: 0; }
+}
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: checkmark-draw 0.55s 0.1s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark-check {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: checkmark-draw 0.4s 0.55s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
 /* ── Heading Word-by-Word Reveal ────────────────────────────────────── */
 .rh-word {
   display: inline-block;

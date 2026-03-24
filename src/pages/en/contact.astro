@@ -35,7 +35,16 @@ import Layout from '@/layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
+      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center relative overflow-hidden">
+        <!-- Success Overlay -->
+        <div id="success-overlay" class="form-success-overlay">
+          <svg viewBox="0 0 52 52" class="w-16 h-16" fill="none">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" stroke="hsl(var(--primary))" stroke-width="2" fill="none"/>
+            <path class="checkmark-check" fill="none" stroke="hsl(var(--primary))" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 27l8 8 16-16"/>
+          </svg>
+          <p class="text-lg font-semibold text-foreground">Thank you!</p>
+          <p class="text-sm text-muted-foreground text-center max-w-[24ch]">I will get back to you as soon as possible.</p>
+        </div>
         <form id="contact-form" action="https://formsubmit.co/ajax/hallo@anika-warncke.de" method="POST" class="space-y-5" novalidate>
           <input type="hidden" name="_subject" value="New contact request from anika-warncke.de" />
           <input type="hidden" name="_template" value="table" />
@@ -172,7 +181,7 @@ import Layout from '@/layouts/Layout.astro';
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      submitBtn.innerHTML = '<span class="btn-spinner"></span> Sending...';
 
       try {
         const response = await fetch(form.action, {
@@ -187,14 +196,18 @@ import Layout from '@/layouts/Layout.astro';
 
         form.reset();
         fields.forEach(clearFieldError);
-        statusMsg.textContent = 'Thank you! I will get back to you as soon as possible.';
-        statusMsg.classList.add('text-green-600', 'font-medium');
+        const overlay = document.getElementById('success-overlay');
+        if (overlay) overlay.classList.add('visible');
+        statusMsg.textContent = '';
+        setTimeout(() => {
+          if (overlay) overlay.classList.remove('visible');
+        }, 5000);
       } catch (error) {
         statusMsg.textContent = 'Something went wrong. Please try again or email hallo@anika-warncke.de directly.';
         statusMsg.classList.add('text-red-600');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
+        submitBtn.innerHTML = 'Send message';
       }
     });
   </script>

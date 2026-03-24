@@ -800,6 +800,69 @@ const schemaData = {
         document.addEventListener('DOMContentLoaded', mountHeadingWordReveal);
         document.addEventListener('astro:page-load', mountHeadingWordReveal);
 
+        // ── Parallax Hero ────────────────────────────────────────────────────
+        function mountHeroParallax() {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if (window.innerWidth < 768) return;  // Desktop only
+
+          const heroImgs = document.querySelectorAll('.ds-hero-image, .hero-parallax');
+          if (!heroImgs.length) return;
+
+          var ticking = false;
+          function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+              const scrollY = window.scrollY;
+              heroImgs.forEach(function (img) {
+                const section = img.closest('section');
+                if (!section) return;
+                const rect = section.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > window.innerHeight) { ticking = false; return; }
+                const progress = scrollY / (section.offsetHeight + window.innerHeight);
+                img.style.transform = 'translateY(' + (progress * 60).toFixed(1) + 'px) scale(1.08)';
+              });
+              ticking = false;
+            });
+          }
+
+          window.removeEventListener('scroll', window._heroParallaxHandler);
+          window._heroParallaxHandler = onScroll;
+          window.addEventListener('scroll', onScroll, { passive: true });
+        }
+
+        // ── Magnetische Buttons ──────────────────────────────────────────────
+        function mountMagneticButtons() {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if (window.matchMedia('(hover: none)').matches) return;  // No touch devices
+
+          document.querySelectorAll('.mag-btn').forEach(function (btn) {
+            if (btn._magMounted) return;
+            btn._magMounted = true;
+
+            btn.addEventListener('mousemove', function (e) {
+              const rect = btn.getBoundingClientRect();
+              const cx = rect.left + rect.width / 2;
+              const cy = rect.top + rect.height / 2;
+              const dx = (e.clientX - cx) * 0.35;
+              const dy = (e.clientY - cy) * 0.35;
+              btn.style.transform = 'translate(' + dx.toFixed(1) + 'px, ' + dy.toFixed(1) + 'px)';
+            });
+
+            btn.addEventListener('mouseleave', function () {
+              btn.style.transform = '';
+            });
+          });
+        }
+
+        window.addEventListener('load', mountHeroParallax);
+        document.addEventListener('DOMContentLoaded', mountHeroParallax);
+        document.addEventListener('astro:page-load', mountHeroParallax);
+
+        window.addEventListener('load', mountMagneticButtons);
+        document.addEventListener('DOMContentLoaded', mountMagneticButtons);
+        document.addEventListener('astro:page-load', mountMagneticButtons);
+
         document.addEventListener('click', (event) => {
           const target = event.target;
           if (!(target instanceof Element)) return;

@@ -35,7 +35,16 @@ import Layout from '@/layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center">
+      <div class="bg-card p-6 sm:p-8 md:p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-center relative overflow-hidden">
+        <!-- Erfolgs-Overlay -->
+        <div id="success-overlay" class="form-success-overlay">
+          <svg viewBox="0 0 52 52" class="w-16 h-16" fill="none">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" stroke="hsl(var(--primary))" stroke-width="2" fill="none"/>
+            <path class="checkmark-check" fill="none" stroke="hsl(var(--primary))" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 27l8 8 16-16"/>
+          </svg>
+          <p class="text-lg font-semibold text-foreground">Vielen Dank!</p>
+          <p class="text-sm text-muted-foreground text-center max-w-[24ch]">Ich melde mich so schnell wie möglich bei dir.</p>
+        </div>
         <form id="kontakt-formular" action="https://formsubmit.co/ajax/hallo@anika-warncke.de" method="POST" class="space-y-5" novalidate>
           <input type="hidden" name="_subject" value="Neue Kontaktanfrage über anika-warncke.de" />
           <input type="hidden" name="_template" value="table" />
@@ -162,7 +171,7 @@ import Layout from '@/layouts/Layout.astro';
       }
 
       btn.disabled = true;
-      btn.textContent = 'Wird gesendet ...';
+      btn.innerHTML = '<span class="btn-spinner"></span> Wird gesendet ...';
       status.className = 'text-gray-600 text-sm mt-2';
 
       fetch(form.action, {
@@ -175,16 +184,17 @@ import Layout from '@/layouts/Layout.astro';
         .then((response) => {
           if (!response.ok) throw new Error('Request failed');
           form.reset();
-          btn.textContent = 'Nachricht senden';
-          status.textContent = 'Vielen Dank! Ich melde mich so schnell wie möglich bei dir.';
-          status.className = 'text-green-600 font-medium text-sm mt-2';
+          btn.innerHTML = 'Nachricht senden';
+          const overlay = document.getElementById('success-overlay');
+          if (overlay) overlay.classList.add('visible');
+          status.textContent = '';
+          status.className = 'text-sm mt-2 min-h-[1.5rem]';
           setTimeout(() => {
-            status.textContent = '';
-            status.className = 'text-sm mt-2 min-h-[1.5rem]';
-          }, 6000);
+            if (overlay) overlay.classList.remove('visible');
+          }, 5000);
         })
         .catch(() => {
-          btn.textContent = 'Nachricht senden';
+          btn.innerHTML = 'Nachricht senden';
           status.textContent = 'Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe direkt an hallo@anika-warncke.de.';
           status.className = 'text-red-600 text-sm mt-2 font-medium';
         })
