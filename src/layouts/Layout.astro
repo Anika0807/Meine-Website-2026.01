@@ -376,7 +376,7 @@ const schemaData = {
       {ssrLocale === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
     </a>
     <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
-    <header class="site-header md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] border-b-0 transition-all duration-300">
+    <header class="site-header md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] border-b-0 transition-[transform,opacity] duration-500 ease-out">
       <div class="px-6 py-6 flex items-center justify-between">
           <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">
           Anika Warncke
@@ -390,7 +390,7 @@ const schemaData = {
     </header>
 
     <!-- Sticky Header Desktop -->
-    <header class="site-header hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120]">
+    <header class="site-header hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] transition-[transform,opacity] duration-500 ease-out">
       <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
         <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">Anika Warncke</a>
 
@@ -409,18 +409,52 @@ const schemaData = {
     </header>
 
       <script is:inline>
-        function updateSiteHeaderShadow() {
-          const headers = document.querySelectorAll('.site-header');
-          const currentScroll = window.scrollY;
-          headers.forEach((header) => {
-            header.classList.toggle('shadow-md', currentScroll > 10);
+        var _headerScrollState = { lastY: 0, timer: null, handler: null };
+
+        function mountHeaderScrollHide() {
+          var s = _headerScrollState;
+          if (s.handler) window.removeEventListener('scroll', s.handler);
+
+          s.lastY = window.scrollY;
+
+          s.handler = function () {
+            var headers = document.querySelectorAll('.site-header');
+            var currentY = window.scrollY;
+            var isDown = currentY > s.lastY && currentY > 60;
+
+            headers.forEach(function (h) {
+              h.classList.toggle('shadow-md', currentY > 10);
+
+              if (isDown) {
+                h.style.transform = 'translateY(-100%)';
+                h.style.opacity = '0';
+              }
+            });
+
+            s.lastY = currentY;
+
+            if (s.timer) clearTimeout(s.timer);
+            s.timer = setTimeout(function () {
+              headers.forEach(function (h) {
+                h.style.transform = '';
+                h.style.opacity = '';
+              });
+            }, 150);
+          };
+
+          window.addEventListener('scroll', s.handler, { passive: true });
+
+          // initial state
+          document.querySelectorAll('.site-header').forEach(function (h) {
+            h.style.transform = '';
+            h.style.opacity = '';
+            h.classList.toggle('shadow-md', window.scrollY > 10);
           });
         }
 
-        window.addEventListener('scroll', updateSiteHeaderShadow, { passive: true });
-        window.addEventListener('load', updateSiteHeaderShadow);
-        document.addEventListener('DOMContentLoaded', updateSiteHeaderShadow);
-        document.addEventListener('astro:page-load', updateSiteHeaderShadow);
+        window.addEventListener('load', mountHeaderScrollHide);
+        document.addEventListener('DOMContentLoaded', mountHeaderScrollHide);
+        document.addEventListener('astro:page-load', mountHeaderScrollHide);
 
         function isProjectDetailPath(pathname) {
           const isGermanProjectDetail = pathname.startsWith('/projekte/') && pathname !== '/projekte/';
