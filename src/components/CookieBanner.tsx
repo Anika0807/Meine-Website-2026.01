@@ -17,7 +17,10 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
         background: 'hsl(var(--card))',
         color: 'hsl(var(--card-foreground))',
         borderTop: '1px solid hsl(var(--border))',
-        padding: '1rem 1.5rem',
+        paddingTop: '1rem',
+        paddingRight: '1.5rem',
+        paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
+        paddingLeft: '1.5rem',
         alignItems: 'center',
         gap: '1rem',
       }}
