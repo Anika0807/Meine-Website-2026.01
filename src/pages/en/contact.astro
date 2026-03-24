@@ -16,7 +16,7 @@ import Layout from '@/layouts/Layout.astro';
           </p>
         </div>
 
-        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full max-w-[340px] md:max-w-none">
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full sm:max-w-[340px] md:max-w-none">
           <img
             src="/images/anika-moodboard.webp"
             alt="Anika at work or portrait"
@@ -116,7 +116,6 @@ import Layout from '@/layouts/Layout.astro';
         errorNode.classList.remove('hidden');
       }
     };
-        <div class="rounded-2xl overflow-hidden shadow-xl border border-border aspect-[4/3] max-h-[280px] sm:max-h-[320px] md:max-h-[380px] mx-auto md:mx-0 w-full sm:max-w-[340px] md:max-w-none">
     const clearFieldError = (field) => {
       const errorId = field?.dataset?.errorId;
       const errorNode = errorId ? document.getElementById(errorId) : null;
