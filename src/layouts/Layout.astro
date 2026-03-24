@@ -291,6 +291,8 @@ const schemaData = {
     <link rel="alternate" hreflang="de" href={hreflangDe} />
     <link rel="alternate" hreflang="en" href={hreflangEn} />
     <link rel="alternate" hreflang="x-default" href={hreflangDe} />
+    <link rel="preload" href="/fonts/satoshi/satoshi-medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/satoshi/satoshi-bold.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
     <script is:inline>
@@ -799,6 +801,42 @@ const schemaData = {
         window.addEventListener('load', mountHeadingWordReveal);
         document.addEventListener('DOMContentLoaded', mountHeadingWordReveal);
         document.addEventListener('astro:page-load', mountHeadingWordReveal);
+
+        // ── Automatic Responsive Image Attributes ───────────────────────────
+        function mountAutoOptimizedImages() {
+          const widths = [480, 768, 1024, 1440, 1920];
+          const images = document.querySelectorAll('img[src^="/images/"]');
+
+          images.forEach((img) => {
+            if (!(img instanceof HTMLImageElement)) return;
+            if (img.dataset.autoOptimized === '1') return;
+            if (img.hasAttribute('data-no-auto-optimize')) return;
+
+            const rawSrc = img.getAttribute('src') || '';
+            const cleanSrc = rawSrc.split('?')[0];
+            const dotIndex = cleanSrc.lastIndexOf('.');
+            if (dotIndex < 0) return;
+
+            const ext = cleanSrc.slice(dotIndex + 1).toLowerCase();
+            if (!['jpg', 'jpeg', 'png', 'webp'].includes(ext)) return;
+
+            const basePath = cleanSrc.slice(0, dotIndex);
+            const srcset = widths.map((w) => `${basePath}.__opt__${w}.webp ${w}w`).join(', ');
+
+            if (!img.getAttribute('srcset')) img.setAttribute('srcset', srcset);
+            if (!img.getAttribute('sizes')) img.setAttribute('sizes', '100vw');
+            if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+            if (!img.getAttribute('loading') && img.getAttribute('fetchpriority') !== 'high') {
+              img.setAttribute('loading', 'lazy');
+            }
+
+            img.dataset.autoOptimized = '1';
+          });
+        }
+
+        window.addEventListener('load', mountAutoOptimizedImages);
+        document.addEventListener('DOMContentLoaded', mountAutoOptimizedImages);
+        document.addEventListener('astro:page-load', mountAutoOptimizedImages);
 
         // ── Parallax Hero ────────────────────────────────────────────────────
         function mountHeroParallax() {

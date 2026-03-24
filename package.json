@@ -6,8 +6,9 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "dev": "npm run optimize:images && astro dev",
+    "build": "npm run optimize:images && paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "machine-translate": "inlang machine translate --project project.inlang"
@@ -15,6 +16,7 @@
   "dependencies": {
     "@astrojs/react": "^5.0.0",
     "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/inter": "^5.2.8",
     "@fontsource/opendyslexic": "^5.2.5",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",

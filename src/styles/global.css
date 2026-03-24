@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/opendyslexic";
 
 @font-face {
   font-family: 'Satoshi';
@@ -24,43 +26,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'OpenDyslexic';
-  src: url('/fonts/opendyslexic/OpenDyslexic-Regular.otf') format('opentype');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'OpenDyslexic';
-  src: url('/fonts/opendyslexic/OpenDyslexic-Bold.otf') format('opentype');
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'OpenDyslexic';
-  src: url('/fonts/opendyslexic/OpenDyslexic-Italic.otf') format('opentype');
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
 @font-face {
   font-family: 'OpenDyslexic';
   src: url('/fonts/opendyslexic/OpenDyslexic-BoldItalic.otf') format('opentype');
