@@ -243,13 +243,14 @@ const schemaData = {
 };
 ---
 
-<html lang={ssrLocale}>
+<html lang={ssrLocale} data-current-locale={ssrLocale} data-german-path={germanPath} data-english-path={englishPath}>
   <head>
     <!-- Google tag (gtag.js) - GA4 mit Consent Mode v2 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3NYM3DF9X"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+      (window as any).gtag = gtag;
 
       // Default: Alles denied (DSGVO-konform)
       gtag('consent', 'default', {
@@ -292,6 +293,50 @@ const schemaData = {
     <link rel="alternate" hreflang="x-default" href={hreflangDe} />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    <script is:inline>
+      (function() {
+        var readCookie = function(name) {
+          var escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          var match = document.cookie.match(new RegExp('(?:^|; )' + escapedName + '=([^;]*)'));
+          return match ? decodeURIComponent(match[1]) : null;
+        };
+
+        var normalizePath = function(path) {
+          return path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+        };
+
+        var root = document.documentElement;
+        var currentLocale = root.dataset.currentLocale || 'de';
+        var germanPath = normalizePath(root.dataset.germanPath || '/');
+        var englishPath = normalizePath(root.dataset.englishPath || '/en');
+        var userAgent = (navigator.userAgent || '').toLowerCase();
+        var isCrawler = /bot|crawler|spider|crawling|googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|facebot|twitterbot|linkedinbot|slackbot|whatsapp|telegrambot|discordbot/.test(userAgent);
+        var savedLocale =
+          readCookie('PARAGLIDE_LOCALE') ||
+          readCookie('lang') ||
+          localStorage.getItem('PARAGLIDE_LOCALE') ||
+          localStorage.getItem('lang');
+        var browserLocale = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
+        var preferredLocale = savedLocale === 'de' || savedLocale === 'en'
+          ? savedLocale
+          : (browserLocale.startsWith('de') ? 'de' : 'en');
+        var targetPath = preferredLocale === 'en' ? englishPath : germanPath;
+        var currentPath = normalizePath(window.location.pathname);
+
+        if (isCrawler) {
+          return;
+        }
+
+        localStorage.setItem('PARAGLIDE_LOCALE', preferredLocale);
+        localStorage.setItem('lang', preferredLocale);
+        document.cookie = 'PARAGLIDE_LOCALE=' + preferredLocale + '; path=/; max-age=34560000; samesite=lax';
+        document.cookie = 'lang=' + preferredLocale + '; path=/; max-age=34560000; samesite=lax';
+
+        if (preferredLocale !== currentLocale && currentPath !== targetPath) {
+          window.location.replace(targetPath);
+        }
+      })();
+    </script>
     <!-- Theme-Script: verhindert Flackern beim Laden -->
     <script is:inline>
       (function() {
@@ -375,6 +420,46 @@ const schemaData = {
 
           const projectCategory = categoryNode?.textContent?.trim() || 'Unknown';
           return { projectName, projectCategory };
+        }
+
+        function getCookieValue(name) {
+          const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const match = document.cookie.match(new RegExp('(?:^|; )' + escapedName + '=([^;]*)'));
+          return match ? decodeURIComponent(match[1]) : null;
+        }
+
+        function syncAnalyticsConsentFromCookie() {
+          const consentValue = getCookieValue('meineWebsiteConsent');
+          if (consentValue === 'true') {
+            window.gtag?.('consent', 'update', {
+              analytics_storage: 'granted',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+            });
+            return;
+          }
+
+          if (consentValue === 'false') {
+            window.gtag?.('consent', 'update', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+            });
+          }
+        }
+
+        function resetCookieConsent() {
+          window.gtag?.('consent', 'update', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+          });
+
+          document.cookie = 'meineWebsiteConsent=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+          window.location.reload();
         }
 
         function initPortfolioAnalytics() {
@@ -635,6 +720,21 @@ const schemaData = {
         document.addEventListener('DOMContentLoaded', mountGlobalAutoReveal);
         document.addEventListener('astro:page-load', mountGlobalAutoReveal);
 
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+
+          const trigger = target.closest('[data-cookie-settings-trigger]');
+          if (!(trigger instanceof HTMLElement)) return;
+
+          event.preventDefault();
+          resetCookieConsent();
+        });
+
+        window.addEventListener('load', syncAnalyticsConsentFromCookie);
+        document.addEventListener('DOMContentLoaded', syncAnalyticsConsentFromCookie);
+        document.addEventListener('astro:page-load', syncAnalyticsConsentFromCookie);
+
         window.addEventListener('load', initPortfolioAnalytics);
         document.addEventListener('DOMContentLoaded', initPortfolioAnalytics);
         document.addEventListener('astro:page-load', initPortfolioAnalytics);
@@ -663,6 +763,7 @@ const schemaData = {
             <div class="flex justify-center gap-6">
               <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
               <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
+              <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
             </div>
             <p>© 2026 Anika Warncke • {ssrLocale === 'en' ? 'All rights reserved' : 'Alle Rechte vorbehalten'}</p>
           </div>
@@ -685,6 +786,7 @@ const schemaData = {
               <div class="flex flex-wrap gap-x-6 text-muted-foreground">
                 <a href={ssrLocale === 'en' ? '/en/impressum' : '/impressum'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Imprint' : 'Impressum'}</a>
                 <a href={ssrLocale === 'en' ? '/en/datenschutz' : '/datenschutz'} class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Privacy Policy' : 'Datenschutz'}</a>
+                <button type="button" data-cookie-settings-trigger class="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 rounded-md">{ssrLocale === 'en' ? 'Cookie Settings' : 'Cookie-Einstellungen'}</button>
                 <span>© 2026 Anika Warncke</span>
               </div>
             </div>

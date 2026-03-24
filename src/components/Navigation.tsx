@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { initLanguage, mapLocalizedPath, setCurrentLanguage } from '../lib/language';
+import { getLanguageFromPathname, mapLocalizedPath, setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -56,6 +56,19 @@ export default function Navigation() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    const pathname = window.location.pathname;
+    const currentLocale = getLanguageFromPathname(pathname);
+    const normalizedPath = currentLocale === 'en'
+      ? pathname.replace(/^\/en(?=\/|$)/, '') || '/'
+      : pathname;
+    const savedTheme = (localStorage.getItem('theme') as 'light' | 'dark' | 'system' | null) ?? 'system';
+
+    setCurrentPath(normalizedPath);
+    setLocale(currentLocale);
+    setTheme(savedTheme);
+    setCurrentLanguage(currentLocale);
+    setIsMounted(true);
+
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';

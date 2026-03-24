@@ -1,4 +1,6 @@
-import { setLocale, localStorageKey } from '../paraglide/runtime.js';
+import { cookieMaxAge, cookieName, setLocale, localStorageKey } from '../paraglide/runtime.js';
+
+export type Language = 'de' | 'en';
 
 const projectSlugs = new Set([
   'my-mind-studio',
@@ -68,17 +70,21 @@ export function mapLocalizedPath(pathname: string, targetLang: 'de' | 'en') {
   return path;
 }
 
-export function setCurrentLanguage(lang: 'de' | 'en') {
+export function getLanguageFromPathname(pathname: string): Language {
+  return normalizePathname(pathname).startsWith('/en') ? 'en' : 'de';
+}
+
+export function setCurrentLanguage(lang: Language) {
   setLocale(lang);
+
+  if (typeof window === 'undefined') return;
+
   localStorage.setItem(localStorageKey, lang);
+  localStorage.setItem('lang', lang);
+  document.cookie = `${cookieName}=${lang}; path=/; max-age=${cookieMaxAge}; samesite=lax`;
+  document.cookie = `lang=${lang}; path=/; max-age=${cookieMaxAge}; samesite=lax`;
 }
 
 export function initLanguage() {
-  const path = window.location.pathname;
-  if (path.startsWith('/en')) {
-    setCurrentLanguage('en');
-  } else {
-    const saved = localStorage.getItem(localStorageKey) as 'de' | 'en' | null;
-    setCurrentLanguage(saved ?? 'de');
-  }
+  setCurrentLanguage(getLanguageFromPathname(window.location.pathname));
 }

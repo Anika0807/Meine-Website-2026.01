@@ -11,7 +11,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
     <CookieConsent
       location="bottom"
       buttonText={isEn ? 'Accept all' : 'Alle akzeptieren'}
-      declineButtonText={isEn ? 'Decline' : 'Ablehnen'}
+      declineButtonText={isEn ? 'Necessary only' : 'Nur notwendige'}
       cookieName="meineWebsiteConsent"
       style={{
         background: 'hsl(var(--card))',
@@ -41,7 +41,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
       enableDeclineButton
       flipButtons
       ariaAcceptLabel={isEn ? 'Accept all cookies' : 'Alle Cookies akzeptieren'}
-      ariaDeclineLabel={isEn ? 'Decline cookies' : 'Cookies ablehnen'}
+      ariaDeclineLabel={isEn ? 'Accept necessary cookies only' : 'Nur notwendige Cookies akzeptieren'}
       expires={365}
       onAccept={() => {
         // Update GA4 Consent Mode after explicit user acceptance.
@@ -49,17 +49,26 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
           analytics_storage: 'granted',
         });
       }}
+      onDecline={() => {
+        // Immediately revoke analytics consent when declined.
+        (window as any).gtag?.('consent', 'update', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        });
+      }}
     >
       {isEn ? (
         <>
-          This website uses cookies to improve your experience.{' '}
+          This website uses cookies and Google Analytics to statistically analyze site usage and improve your experience.{' '}
           <a href="/en/datenschutz" className="underline hover:text-primary transition-colors">
             Learn more
           </a>
         </>
       ) : (
         <>
-          Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern.{' '}
+          Diese Website verwendet Cookies und Google Analytics, um die Nutzung der Website statistisch auszuwerten und die Nutzererfahrung zu verbessern.{' '}
           <a href="/datenschutz" className="underline hover:text-primary transition-colors">
             Mehr erfahren
           </a>

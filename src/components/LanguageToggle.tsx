@@ -1,20 +1,14 @@
 import { useEffect, useState } from 'react';
-import { mapLocalizedPath, setCurrentLanguage } from '../lib/language';
+import { getLanguageFromPathname, mapLocalizedPath, setCurrentLanguage } from '../lib/language';
 import { Button } from '@/components/ui/button';
 
 export default function LanguageToggle() {
   const [lang, setLang] = useState('de');
 
   useEffect(() => {
-    const currentPath = window.location.pathname;
-    const savedLang = (localStorage.getItem('PARAGLIDE_LOCALE') || localStorage.getItem('lang') || 'de') as 'de' | 'en';
-
-    if (currentPath.startsWith('/en')) {
-      setLang('en');
-      localStorage.setItem('lang', 'en');
-    } else {
-      setLang(savedLang);
-    }
+    const currentLang = getLanguageFromPathname(window.location.pathname);
+    setLang(currentLang);
+    setCurrentLanguage(currentLang);
   }, []);
 
   const switchLang = (newLang: 'de' | 'en') => {
