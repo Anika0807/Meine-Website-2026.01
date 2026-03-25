@@ -65,7 +65,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
           <button
             type="button"
             onClick={handleDecline}
-            className="rounded-btn px-5 py-2.5 text-sm font-medium min-h-[44px] border border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
+            className="rounded-full px-5 py-2.5 text-sm font-medium min-h-[44px] border border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             aria-label={isEn ? 'Decline all optional cookies' : 'Alle optionalen Cookies ablehnen'}
           >
             {isEn ? 'Decline' : 'Ablehnen'}
@@ -73,7 +73,7 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
           <button
             type="button"
             onClick={handleAccept}
-            className="rounded-btn px-5 py-2.5 text-sm font-medium min-h-[44px] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
+            className="rounded-full px-5 py-2.5 text-sm font-medium min-h-[44px] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             aria-label={isEn ? 'Accept all cookies' : 'Alle Cookies akzeptieren'}
           >
             {isEn ? 'Accept all' : 'Alle akzeptieren'}
