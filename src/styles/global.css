@@ -295,8 +295,21 @@ html {
 }
 
 .dyslexia-font {
+  --heading-font: 'OpenDyslexic', 'Arial', sans-serif;
+  --body-font: 'OpenDyslexic', 'Arial', sans-serif;
   font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
   letter-spacing: 0.05em;
+}
+
+.dyslexia-font * {
+  font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
+}
+
+.dyslexia-font input,
+.dyslexia-font textarea,
+.dyslexia-font select,
+.dyslexia-font button {
+  font-family: 'OpenDyslexic', 'Arial', sans-serif !important;
 }
 
 .high-contrast {
