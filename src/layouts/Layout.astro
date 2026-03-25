@@ -429,7 +429,7 @@ const schemaData = {
     <!-- MOBILE HEADER ONLY - Desktop bleibt 100% unveraendert -->
     <header class="site-header md:hidden bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] border-b-0 transition-[transform,opacity] duration-500 ease-out">
       <div class="px-6 py-6 flex items-center justify-between">
-          <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[20px] font-semibold tracking-[-0.015em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">
+          <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[1.25rem] font-semibold tracking-[-0.015em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">
           Anika Warncke
         </a>
 
@@ -443,7 +443,7 @@ const schemaData = {
     <!-- Sticky Header Desktop -->
     <header class="site-header hidden md:block bg-white/60 dark:bg-black/45 backdrop-blur-xl sticky top-0 z-[120] transition-[transform,opacity] duration-500 ease-out">
       <div class="max-w-7xl mx-auto px-8 py-9 flex items-center justify-between">
-        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[28px] font-semibold tracking-[-0.025em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">Anika Warncke</a>
+        <a href={ssrLocale === 'en' ? '/en/' : '/'} class="text-[1.75rem] font-semibold tracking-[-0.025em] text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 rounded-md">Anika Warncke</a>
 
         <nav class="flex items-center gap-x-10 text-lg font-medium">
           <a href={ssrLocale === 'en' ? '/en' : '/'} class={navLinkClass(ssrLocale === 'en' ? '/en' : '/')}>{ssrLocale === 'en' ? 'Home' : 'Home'}</a>
@@ -1049,6 +1049,26 @@ const schemaData = {
             var classes = root.classList;
             var stored = null;
 
+            function getLineMetrics(selector) {
+              var el = document.querySelector(selector);
+              if (!el) return null;
+
+              var styles = window.getComputedStyle(el);
+              var lineHeight = styles.lineHeight;
+              var fontSize = styles.fontSize;
+              var lineHeightPx = parseFloat(lineHeight);
+              var fontSizePx = parseFloat(fontSize);
+              var ratio = Number.isFinite(lineHeightPx) && Number.isFinite(fontSizePx) && fontSizePx > 0
+                ? lineHeightPx / fontSizePx
+                : null;
+
+              return {
+                lineHeight: lineHeight,
+                fontSize: fontSize,
+                ratio: ratio,
+              };
+            }
+
             try {
               var raw = localStorage.getItem('accessibility');
               if (raw) stored = JSON.parse(raw);
@@ -1065,6 +1085,8 @@ const schemaData = {
               largeCursor: classes.contains('large-cursor'),
               fontSize: Number(root.style.getPropertyValue('--font-size-multiplier') || 1),
               lineHeight: Number(root.style.getPropertyValue('--line-height-multiplier') || 1.5),
+              bodyMetrics: getLineMetrics('main p, main li, main .text-body, main .text-body-sm'),
+              headingMetrics: getLineMetrics('main h1, main .text-h1'),
               persisted: Boolean(stored),
             };
           }
@@ -1075,6 +1097,13 @@ const schemaData = {
 
           function render() {
             var state = readState();
+            var bodyLine = state.bodyMetrics
+              ? state.bodyMetrics.lineHeight + ' (x' + (state.bodyMetrics.ratio ? state.bodyMetrics.ratio.toFixed(2) : 'n/a') + ')'
+              : 'n/a';
+            var headingLine = state.headingMetrics
+              ? state.headingMetrics.lineHeight + ' (x' + (state.headingMetrics.ratio ? state.headingMetrics.ratio.toFixed(2) : 'n/a') + ')'
+              : 'n/a';
+
             badge.innerHTML = [
               '<strong style="display:block; margin-bottom:0.2rem; color:#93c5fd;">A11Y DEBUG (local)</strong>',
               '<div>motion: ' + boolMark(state.reducedMotion) + '</div>',
@@ -1082,6 +1111,8 @@ const schemaData = {
               '<div>gray: ' + boolMark(state.grayscale) + ' | invert: ' + boolMark(state.invertedColors) + '</div>',
               '<div>dyslexia: ' + boolMark(state.dyslexiaFont) + ' | cursor: ' + boolMark(state.largeCursor) + '</div>',
               '<div>font: x' + state.fontSize.toFixed(2) + ' | line: x' + state.lineHeight.toFixed(2) + '</div>',
+              '<div>body lh: ' + bodyLine + '</div>',
+              '<div>h1 lh: ' + headingLine + '</div>',
               '<div>storage: ' + (state.persisted ? 'ok' : 'none') + '</div>'
             ].join('');
           }

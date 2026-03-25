@@ -277,6 +277,7 @@ html, body {
 :root {
   --font-size-multiplier: 1;
   --line-height-multiplier: 1.5;
+  --line-height-accessibility-factor: calc(var(--line-height-multiplier) / 1.5);
   --a11y-filter-contrast: 1;
   --a11y-filter-brightness: 1;
   --a11y-filter-grayscale: 0;
@@ -462,6 +463,18 @@ header[data-scroll-shadow="true"] {
 
 ::view-transition-new(root) {
   animation-name: fade-in;
+}
+
+html.reduced-motion::view-transition-old(root),
+html.reduced-motion::view-transition-new(root) {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }
 
 @keyframes fade-out {
@@ -710,7 +723,7 @@ header[data-scroll-shadow="true"] {
 
 .project-image:hover {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);   /* Schatten am Container */
-  line-height: 1.05; 
+  line-height: calc(1.05 * var(--line-height-accessibility-factor)); 
   font-weight: 900; 
   letter-spacing: -0.04em; 
 }
@@ -718,7 +731,7 @@ header[data-scroll-shadow="true"] {
 .text-h1 { 
   font-family: var(--heading-font); 
   font-size: 4.5rem; 
-  line-height: 1.05; 
+  line-height: calc(1.05 * var(--line-height-accessibility-factor)); 
   font-weight: 900; 
   letter-spacing: -0.04em; 
 }
@@ -726,7 +739,7 @@ header[data-scroll-shadow="true"] {
 .text-h2 { 
   font-family: var(--heading-font); 
   font-size: 3.5rem; 
-  line-height: 1.08; 
+  line-height: calc(1.08 * var(--line-height-accessibility-factor)); 
   font-weight: 700; 
   letter-spacing: -0.03em; 
 }
@@ -734,28 +747,28 @@ header[data-scroll-shadow="true"] {
 .text-h3 { 
   font-family: var(--heading-font); 
   font-size: 2.8rem; 
-  line-height: 1.12; 
+  line-height: calc(1.12 * var(--line-height-accessibility-factor)); 
   font-weight: 700; 
 }
 
 .text-h4 { 
   font-family: var(--heading-font); 
   font-size: 2.1rem; 
-  line-height: 1.2; 
+  line-height: calc(1.2 * var(--line-height-accessibility-factor)); 
   font-weight: 600; 
 }
 
 .text-h5 { 
   font-family: var(--body-font); 
   font-size: 1.75rem; 
-  line-height: 1.25; 
+  line-height: calc(1.25 * var(--line-height-accessibility-factor)); 
   font-weight: 600; 
 }
 
 .text-h6 { 
   font-family: var(--body-font); 
   font-size: 1.4rem; 
-  line-height: 1.35; 
+  line-height: calc(1.35 * var(--line-height-accessibility-factor)); 
   font-weight: 500; 
   letter-spacing: 0.02em; 
 }
@@ -764,13 +777,13 @@ header[data-scroll-shadow="true"] {
 .text-body { 
   font-family: var(--body-font); 
   font-size: 1rem; 
-  line-height: 1.65; 
+  line-height: calc(1.65 * var(--line-height-accessibility-factor)); 
   font-weight: 400; 
 }
 
-.text-body-lg { font-size: 1.125rem; line-height: 1.6; }
-.text-body-sm { font-size: 0.875rem; line-height: 1.55; }
-.text-caption { font-size: 0.75rem; line-height: 1.4; font-weight: 500; }
+.text-body-lg { font-size: 1.125rem; line-height: calc(1.6 * var(--line-height-accessibility-factor)); }
+.text-body-sm { font-size: 0.875rem; line-height: calc(1.55 * var(--line-height-accessibility-factor)); }
+.text-caption { font-size: 0.75rem; line-height: calc(1.4 * var(--line-height-accessibility-factor)); font-weight: 500; }
 
 /* Responsive Skalierung (Mobile-First) */
 @media (max-width: 768px) {
@@ -976,14 +989,14 @@ header[data-scroll-shadow="true"] {
     /* Hero langer Text */
     .hero-long-text {
       font-size: 1.35rem !important;
-      line-height: 1.65;
+      line-height: calc(1.65 * var(--line-height-accessibility-factor));
       font-weight: 500;
     }
 
     /* Projekt-Untertitel */
     .project-subtitle {
       font-size: 1.28rem !important;
-      line-height: 1.55;
+      line-height: calc(1.55 * var(--line-height-accessibility-factor));
       font-weight: 500;
     }
 
@@ -1011,15 +1024,15 @@ header[data-scroll-shadow="true"] {
   }
 
   .typography-normalized h1 {
-    line-height: 0.94;
+    line-height: calc(0.94 * var(--line-height-accessibility-factor));
   }
 
   .typography-normalized h2 {
-    line-height: 0.98;
+    line-height: calc(0.98 * var(--line-height-accessibility-factor));
   }
 
   .typography-normalized h3 {
-    line-height: 1.02;
+    line-height: calc(1.02 * var(--line-height-accessibility-factor));
   }
 
   .typography-normalized p {
@@ -1068,19 +1081,19 @@ header[data-scroll-shadow="true"] {
 @layer base {
   @media (min-width: 769px) {
     /* Small text sizes larger on desktop */
-    .text-body-sm { font-size: 1.12rem !important; line-height: 1.6; }
+    .text-body-sm { font-size: 1.12rem !important; line-height: calc(1.6 * var(--line-height-accessibility-factor)); }
     .text-xs      { font-size: 1.08rem !important; }
     .text-sm      { font-size: 1.12rem !important; }
 
     /* Einstein quote */
-    .einstein-quote   { font-size: 1.65rem !important; line-height: 1.45; }
+    .einstein-quote   { font-size: 1.65rem !important; line-height: calc(1.45 * var(--line-height-accessibility-factor)); }
 
     /* Project subtitles */
-    .project-subtitle { font-size: 1.28rem !important; line-height: 1.55; }
+    .project-subtitle { font-size: 1.28rem !important; line-height: calc(1.55 * var(--line-height-accessibility-factor)); }
 
     /* CTA texts and privacy note */
-    .cta-text         { font-size: 1.25rem !important; line-height: 1.6; }
-    .cta-privacy-text { font-size: 1.08rem !important; line-height: 1.5; }
+    .cta-text         { font-size: 1.25rem !important; line-height: calc(1.6 * var(--line-height-accessibility-factor)); }
+    .cta-privacy-text { font-size: 1.08rem !important; line-height: calc(1.5 * var(--line-height-accessibility-factor)); }
 
     /* Accessibility button larger */
     .accessibility-btn {
@@ -1093,7 +1106,7 @@ header[data-scroll-shadow="true"] {
 
 @layer base {
   @media (max-width: 768px) {
-    .text-body-sm { font-size: 1rem; line-height: 1.55; }
+    .text-body-sm { font-size: 1rem; line-height: calc(1.55 * var(--line-height-accessibility-factor)); }
     .text-xs      { font-size: 0.95rem; }
     .text-sm      { font-size: 1rem; }
   }
@@ -1102,15 +1115,15 @@ header[data-scroll-shadow="true"] {
 /* ==================== MOBILE TEXT BOOST – Barrierefrei & groesser ==================== */
 @layer base {
   @media (max-width: 768px) {
-    .text-body-sm { font-size: 1.1rem !important; line-height: 1.6; }
+    .text-body-sm { font-size: 1.1rem !important; line-height: calc(1.6 * var(--line-height-accessibility-factor)); }
     .text-xs      { font-size: 1.05rem !important; }
     .text-sm      { font-size: 1.1rem !important; }
 
     /* Speziell fuer die genannten Texte */
-    .einstein-quote   { font-size: 1.48rem !important; line-height: 1.45; }
-    .project-subtitle { font-size: 1.2rem !important; line-height: 1.55; }
-    .cta-text         { font-size: 1.22rem !important; line-height: 1.6; }
-    .cta-privacy-text { font-size: 0.92rem !important; line-height: 1.45; }
+    .einstein-quote   { font-size: 1.48rem !important; line-height: calc(1.45 * var(--line-height-accessibility-factor)); }
+    .project-subtitle { font-size: 1.2rem !important; line-height: calc(1.55 * var(--line-height-accessibility-factor)); }
+    .cta-text         { font-size: 1.22rem !important; line-height: calc(1.6 * var(--line-height-accessibility-factor)); }
+    .cta-privacy-text { font-size: 0.92rem !important; line-height: calc(1.45 * var(--line-height-accessibility-factor)); }
   }
 }
 
@@ -1120,13 +1133,13 @@ header[data-scroll-shadow="true"] {
     /* Hero langer Text + Warum ich Haupttexte */
     .hero-long-text, .warum-ich-text {
       font-size: 1.35rem !important;
-      line-height: 1.65;
+      line-height: calc(1.65 * var(--line-height-accessibility-factor));
     }
 
     /* Projekt-Untertitel + alle kleinen Untertitel */
     .project-subtitle {
       font-size: 1.28rem !important;
-      line-height: 1.55;
+      line-height: calc(1.55 * var(--line-height-accessibility-factor));
       font-weight: 500;
     }
 
@@ -1145,7 +1158,7 @@ header[data-scroll-shadow="true"] {
     /* Einstein-Zitat */
     .einstein-quote {
       font-size: 1.65rem !important;
-      line-height: 1.45;
+      line-height: calc(1.45 * var(--line-height-accessibility-factor));
     }
   }
 }
