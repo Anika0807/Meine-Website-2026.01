@@ -350,7 +350,7 @@ import Button from '@/components/ui/astro-button.astro';
     <script>
       // @ts-nocheck
       function initSequentialReveals() {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion = (window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         const groups = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-reveal-group]'));
 
         groups.forEach((group) => {

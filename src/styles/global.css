@@ -277,11 +277,17 @@ html, body {
 :root {
   --font-size-multiplier: 1;
   --line-height-multiplier: 1.5;
+  --a11y-filter-contrast: 1;
+  --a11y-filter-brightness: 1;
+  --a11y-filter-grayscale: 0;
+  --a11y-filter-invert: 0;
+  --a11y-filter-hue-rotate: 0deg;
 }
 
 html {
   font-size: calc(1rem * var(--font-size-multiplier));
   line-height: calc(1.5 * var(--line-height-multiplier));
+  filter: contrast(var(--a11y-filter-contrast)) brightness(var(--a11y-filter-brightness)) grayscale(var(--a11y-filter-grayscale)) invert(var(--a11y-filter-invert)) hue-rotate(var(--a11y-filter-hue-rotate));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -313,7 +319,8 @@ html {
 }
 
 .high-contrast {
-  filter: contrast(150%) brightness(110%);
+  --a11y-filter-contrast: 1.5;
+  --a11y-filter-brightness: 1.1;
 }
 
 .reduced-motion * {
@@ -321,13 +328,19 @@ html {
   animation: none !important;
 }
 
+.reduced-motion,
+.reduced-motion * {
+  scroll-behavior: auto !important;
+}
+
 .grayscale {
-  filter: grayscale(100%);
+  --a11y-filter-grayscale: 1;
 }
 
 /* Neu: Inverted Colors */
 .inverted-colors {
-  filter: invert(100%) hue-rotate(180deg);
+  --a11y-filter-invert: 1;
+  --a11y-filter-hue-rotate: 180deg;
 }
 
 /* Neu: Large Cursor */

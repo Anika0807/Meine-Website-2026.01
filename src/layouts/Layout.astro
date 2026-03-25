@@ -401,6 +401,24 @@ const schemaData = {
         if (dark) document.documentElement.classList.add('dark');
       })();
     </script>
+    <script is:inline>
+      // Single source of truth for reduced-motion checks (OS preference + accessibility panel setting).
+      (function() {
+        window.__awPrefersReducedMotion = function() {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+          if (document.documentElement.classList.contains('reduced-motion')) return true;
+
+          try {
+            var saved = localStorage.getItem('accessibility');
+            if (!saved) return false;
+            var parsed = JSON.parse(saved);
+            return Boolean(parsed && parsed.reducedMotion);
+          } catch (_error) {
+            return false;
+          }
+        };
+      })();
+    </script>
   </head>
 
   <body class="bg-background text-foreground antialiased min-h-screen flex flex-col" data-category={projectType}>
@@ -750,7 +768,7 @@ const schemaData = {
           const main = document.querySelector('main');
           if (!(main instanceof HTMLElement)) return;
 
-          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const reduceMotion = (window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches);
           if (reduceMotion) return;
 
           const sections = main.querySelectorAll('section, article');
@@ -834,7 +852,7 @@ const schemaData = {
             window.removeEventListener('scroll', _scrollProgressHandler);
           }
 
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          if ((window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
             bar.style.width = '0%';
             return;
           }
@@ -849,7 +867,7 @@ const schemaData = {
 
         // ── Heading Word-by-Word Reveal ──────────────────────────────────────
         function mountHeadingWordReveal() {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if ((window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
           document.querySelectorAll('.reveal-heading').forEach((el) => {
             if (!(el instanceof HTMLElement)) return;
             if (el.dataset.wordRevealMounted) return;
@@ -911,7 +929,7 @@ const schemaData = {
 
         // ── Parallax Hero ────────────────────────────────────────────────────
         function mountHeroParallax() {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if ((window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
           if (window.innerWidth < 768) return;  // Desktop only
 
           const heroImgs = document.querySelectorAll('.ds-hero-image, .hero-parallax');
@@ -942,7 +960,7 @@ const schemaData = {
 
         // ── Magnetische Buttons ──────────────────────────────────────────────
         function mountMagneticButtons() {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if ((window.__awPrefersReducedMotion?.() ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
           if (window.matchMedia('(hover: none)').matches) return;  // No touch devices
 
           document.querySelectorAll('.mag-btn').forEach(function (btn) {
@@ -990,6 +1008,104 @@ const schemaData = {
         window.addEventListener('load', initPortfolioAnalytics);
         document.addEventListener('DOMContentLoaded', initPortfolioAnalytics);
         document.addEventListener('astro:page-load', initPortfolioAnalytics);
+
+        // Local debug badge for accessibility state (shown only on localhost).
+        function mountA11yDebugIndicator() {
+          var host = window.location.hostname;
+          var isLocalHost = host === 'localhost' || host === '127.0.0.1' || host === '::1';
+          var existing = document.getElementById('a11y-debug-indicator');
+
+          if (!isLocalHost) {
+            if (existing) existing.remove();
+            return;
+          }
+
+          var badge = existing;
+          if (!badge) {
+            badge = document.createElement('aside');
+            badge.id = 'a11y-debug-indicator';
+            badge.setAttribute('aria-live', 'polite');
+            badge.style.position = 'fixed';
+            badge.style.top = '0.75rem';
+            badge.style.right = '0.75rem';
+            badge.style.zIndex = '300';
+            badge.style.maxWidth = '18rem';
+            badge.style.border = '1px solid rgba(255,255,255,0.2)';
+            badge.style.borderRadius = '0.75rem';
+            badge.style.background = 'rgba(15, 23, 42, 0.86)';
+            badge.style.backdropFilter = 'blur(8px)';
+            badge.style.padding = '0.5rem 0.625rem';
+            badge.style.fontFamily = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace';
+            badge.style.fontSize = '11px';
+            badge.style.lineHeight = '1.35';
+            badge.style.color = '#e2e8f0';
+            badge.style.boxShadow = '0 10px 25px rgba(2, 6, 23, 0.35)';
+            badge.style.pointerEvents = 'none';
+            document.body.appendChild(badge);
+          }
+
+          function readState() {
+            var root = document.documentElement;
+            var classes = root.classList;
+            var stored = null;
+
+            try {
+              var raw = localStorage.getItem('accessibility');
+              if (raw) stored = JSON.parse(raw);
+            } catch (_error) {
+              stored = null;
+            }
+
+            return {
+              reducedMotion: Boolean(window.__awPrefersReducedMotion?.()),
+              highContrast: classes.contains('high-contrast'),
+              grayscale: classes.contains('grayscale'),
+              invertedColors: classes.contains('inverted-colors'),
+              dyslexiaFont: classes.contains('dyslexia-font'),
+              largeCursor: classes.contains('large-cursor'),
+              fontSize: Number(root.style.getPropertyValue('--font-size-multiplier') || 1),
+              lineHeight: Number(root.style.getPropertyValue('--line-height-multiplier') || 1.5),
+              persisted: Boolean(stored),
+            };
+          }
+
+          function boolMark(value) {
+            return value ? 'on ' : 'off';
+          }
+
+          function render() {
+            var state = readState();
+            badge.innerHTML = [
+              '<strong style="display:block; margin-bottom:0.2rem; color:#93c5fd;">A11Y DEBUG (local)</strong>',
+              '<div>motion: ' + boolMark(state.reducedMotion) + '</div>',
+              '<div>contrast: ' + boolMark(state.highContrast) + '</div>',
+              '<div>gray: ' + boolMark(state.grayscale) + ' | invert: ' + boolMark(state.invertedColors) + '</div>',
+              '<div>dyslexia: ' + boolMark(state.dyslexiaFont) + ' | cursor: ' + boolMark(state.largeCursor) + '</div>',
+              '<div>font: x' + state.fontSize.toFixed(2) + ' | line: x' + state.lineHeight.toFixed(2) + '</div>',
+              '<div>storage: ' + (state.persisted ? 'ok' : 'none') + '</div>'
+            ].join('');
+          }
+
+          render();
+
+          if (badge._a11yDebugObserver) badge._a11yDebugObserver.disconnect();
+          var observer = new MutationObserver(render);
+          observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class', 'style'],
+          });
+          badge._a11yDebugObserver = observer;
+
+          window.removeEventListener('storage', window._a11yDebugStorageHandler);
+          window._a11yDebugStorageHandler = function(event) {
+            if (!event || event.key === 'accessibility') render();
+          };
+          window.addEventListener('storage', window._a11yDebugStorageHandler);
+        }
+
+        window.addEventListener('load', mountA11yDebugIndicator);
+        document.addEventListener('DOMContentLoaded', mountA11yDebugIndicator);
+        document.addEventListener('astro:page-load', mountA11yDebugIndicator);
       </script>
 
     <!-- Haupt-Content: w-full ensures mobile-first full bleed -->
