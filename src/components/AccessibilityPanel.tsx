@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Slider } from '@/components/ui/slider';
@@ -52,6 +52,106 @@ interface AccessibilityPanelProps {
   locale?: Locale;
 }
 
+const DEFAULT_SETTINGS = {
+  fontSize: 100,
+  lineHeight: 150,
+  dyslexiaFont: false,
+  highContrast: false,
+  reducedMotion: false,
+  grayscale: false,
+  invertedColors: false,
+  largeCursor: false,
+};
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function toPercent(value: unknown, fallback: number, min: number, max: number) {
+  if (typeof value !== 'number' || Number.isNaN(value)) return fallback;
+
+  // Legacy compatibility: old values were stored as multipliers (e.g. 1.2)
+  // instead of percentages (e.g. 120).
+  const normalized = value > 0 && value <= 3 ? value * 100 : value;
+  return clamp(Math.round(normalized), min, max);
+}
+
+function sanitizeSettings(raw: unknown) {
+  const src = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {};
+
+  return {
+    fontSize: toPercent(src.fontSize, DEFAULT_SETTINGS.fontSize, 80, 200),
+    lineHeight: toPercent(src.lineHeight, DEFAULT_SETTINGS.lineHeight, 100, 250),
+    dyslexiaFont: Boolean(src.dyslexiaFont),
+    highContrast: Boolean(src.highContrast),
+    reducedMotion: Boolean(src.reducedMotion),
+    grayscale: Boolean(src.grayscale),
+    invertedColors: Boolean(src.invertedColors),
+    largeCursor: Boolean(src.largeCursor),
+  };
+}
+
+type ValueAnimationPreset = 'snappy' | 'smooth';
+
+const VALUE_ANIMATION_DURATION: Record<ValueAnimationPreset, number> = {
+  snappy: 140,
+  smooth: 220,
+};
+
+const VALUE_ANIMATION_PRESET: ValueAnimationPreset = 'snappy';
+
+function useAnimatedPercent(target: number, duration: number) {
+  const [display, setDisplay] = useState(target);
+  const frameRef = useRef<number | null>(null);
+  const currentValueRef = useRef(target);
+
+  useEffect(() => {
+    const shouldReduceMotion = typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (shouldReduceMotion) {
+      currentValueRef.current = target;
+      setDisplay(target);
+      return;
+    }
+
+    const from = currentValueRef.current;
+    const to = target;
+
+    if (from === to) {
+      setDisplay(to);
+      return;
+    }
+
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const next = Math.round(from + (to - from) * eased);
+
+      currentValueRef.current = next;
+      setDisplay(next);
+
+      if (progress < 1) {
+        frameRef.current = requestAnimationFrame(tick);
+      } else {
+        currentValueRef.current = to;
+      }
+    };
+
+    frameRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, [target, duration]);
+
+  return display;
+}
+
 export default function AccessibilityPanel({ locale: propLocale }: AccessibilityPanelProps) {
   // Locale from prop (SSR), fallback to URL path detection, then default
   let locale: Locale = propLocale ?? defaultLocale;
@@ -60,35 +160,42 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
   }
   if (locale !== 'de' && locale !== 'en') locale = defaultLocale;
   const getMessage = (key: Parameters<typeof t>[1]) => t(locale, key);
-  const [settings, setSettings] = useState({
-    fontSize: 100,
-    lineHeight: 150,
-    dyslexiaFont: false,
-    highContrast: false,
-    reducedMotion: false,
-    grayscale: false,
-    invertedColors: false,
-    largeCursor: false,
-  });
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
+  const animationDuration = VALUE_ANIMATION_DURATION[VALUE_ANIMATION_PRESET];
+  const animatedFontSize = useAnimatedPercent(settings.fontSize, animationDuration);
+  const animatedLineHeight = useAnimatedPercent(settings.lineHeight, animationDuration);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('accessibility');
-    if (saved) {
+    try {
+      const saved = localStorage.getItem('accessibility');
+      if (!saved) {
+        applySettings(DEFAULT_SETTINGS);
+        return;
+      }
+
       const parsed = JSON.parse(saved);
-      setSettings(parsed);
-      applySettings(parsed);
+      const sanitized = sanitizeSettings(parsed);
+      setSettings(sanitized);
+      localStorage.setItem('accessibility', JSON.stringify(sanitized));
+      applySettings(sanitized);
+    } catch (_error) {
+      setSettings(DEFAULT_SETTINGS);
+      localStorage.setItem('accessibility', JSON.stringify(DEFAULT_SETTINGS));
+      applySettings(DEFAULT_SETTINGS);
     }
   }, []);
 
-  const updateSetting = (key: keyof typeof settings, value: any) => {
-    const newSettings = { ...settings, [key]: value };
-    setSettings(newSettings);
-    localStorage.setItem('accessibility', JSON.stringify(newSettings));
-    applySettings(newSettings);
+  const updateSetting = (key: keyof typeof DEFAULT_SETTINGS, value: number | boolean) => {
+    setSettings((prev) => {
+      const newSettings = sanitizeSettings({ ...prev, [key]: value });
+      localStorage.setItem('accessibility', JSON.stringify(newSettings));
+      applySettings(newSettings);
+      return newSettings;
+    });
   };
 
-  const applySettings = (s: typeof settings) => {
+  const applySettings = (s: typeof DEFAULT_SETTINGS) => {
     const root = document.documentElement;
 
     root.style.setProperty('--font-size-multiplier', `${s.fontSize / 100}`);
@@ -103,19 +210,9 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
   };
 
   const resetSettings = () => {
-    const defaults = {
-      fontSize: 100,
-      lineHeight: 150,
-      dyslexiaFont: false,
-      highContrast: false,
-      reducedMotion: false,
-      grayscale: false,
-      invertedColors: false,
-      largeCursor: false,
-    };
-    setSettings(defaults);
-    localStorage.setItem('accessibility', JSON.stringify(defaults));
-    applySettings(defaults);
+    setSettings(DEFAULT_SETTINGS);
+    localStorage.setItem('accessibility', JSON.stringify(DEFAULT_SETTINGS));
+    applySettings(DEFAULT_SETTINGS);
   };
 
   return (
@@ -159,10 +256,15 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+0.75rem))] space-y-7 md:max-h-[calc(92svh-96px)] md:p-8 md:space-y-9">
           <div>
-            <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="fontSize">
-              <Type className="h-5 w-5" />
-              {t(locale, 'accessibility.fontSize')}
-            </Label>
+            <div className="flex items-center justify-between gap-4">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="fontSize">
+                <Type className="h-5 w-5" />
+                {t(locale, 'accessibility.fontSize')}
+              </Label>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs md:text-sm font-semibold tabular-nums text-primary" aria-live="polite">
+                {animatedFontSize} %
+              </span>
+            </div>
             <div className="relative mt-4">
               <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-primary"></div>
               <Slider
@@ -186,10 +288,15 @@ export default function AccessibilityPanel({ locale: propLocale }: Accessibility
           </div>
 
           <div>
-            <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="lineHeight">
-                <AlignJustify className="h-5 w-5" />
-                {t(locale, 'accessibility.lineHeight')}
-            </Label>
+            <div className="flex items-center justify-between gap-4">
+              <Label className="flex items-center gap-3 text-base md:text-lg font-medium text-foreground" htmlFor="lineHeight">
+                  <AlignJustify className="h-5 w-5" />
+                  {t(locale, 'accessibility.lineHeight')}
+              </Label>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs md:text-sm font-semibold tabular-nums text-primary" aria-live="polite">
+                {animatedLineHeight} %
+              </span>
+            </div>
             <div className="relative mt-4">
               <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 bg-primary"></div>
               <Slider
