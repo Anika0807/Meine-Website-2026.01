@@ -235,6 +235,22 @@ const germanPath = mapLocalizedPath(currentPath, 'de');
 const hreflangDe = new URL(germanPath, base).toString();
 const hreflangEn = new URL(englishPath, base).toString();
 
+const getProjectTypeByPath = (path: string): 'ux-ui' | 'innenarchitektur' | undefined => {
+  const uxProjectSlugs = new Set(['naturkompass', 'flavorfusion', 'omnomzen', 'planora']);
+  const interiorProjectSlugs = new Set(['my-mind-studio', 'festsaal-im-klostergasthof', 'schlaf', 'weserkoje']);
+
+  const germanMatch = path.match(/^\/projekte\/([^/]+)$/);
+  const englishMatch = path.match(/^\/en\/projects\/([^/]+)$/);
+  const slug = germanMatch?.[1] ?? englishMatch?.[1];
+
+  if (!slug) return undefined;
+  if (uxProjectSlugs.has(slug)) return 'ux-ui';
+  if (interiorProjectSlugs.has(slug)) return 'innenarchitektur';
+  return undefined;
+};
+
+const projectType = getProjectTypeByPath(currentPath);
+
 const schemaData = {
   '@context': 'https://schema.org',
   '@type': schemaType,
@@ -387,7 +403,7 @@ const schemaData = {
     </script>
   </head>
 
-  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col" data-category={projectType}>
     <div id="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-4 focus:ring-primary/40">
       {ssrLocale === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
@@ -545,9 +561,12 @@ const schemaData = {
           if (!isProjectDetailPath(pathname)) return;
 
           const meta = getProjectMeta();
+          const projectName = document.title.replace(/\s*\|\s*Anika Warncke\s*$/, '').trim() || meta.projectName;
+          const projectType = document.body.dataset.category || 'unknown';
+
           window.gtag?.('event', 'project_view', {
-            project_name: meta.projectName,
-            project_category: meta.projectCategory,
+            project_name: projectName,
+            project_type: projectType,
           });
 
           let scrollDepthTracked = false;
@@ -561,7 +580,7 @@ const schemaData = {
               scrollDepthTracked = true;
               window.gtag?.('event', 'scroll_depth', {
                 percent_scrolled: 75,
-                project_name: meta.projectName,
+                project_name: projectName,
               });
               window.removeEventListener('scroll', onScrollDepth);
             }
@@ -576,14 +595,27 @@ const schemaData = {
             const clickable = target.closest('a, button, [role="button"], [data-slot="button"], [role="link"][tabindex]');
             if (!(clickable instanceof HTMLElement)) return;
 
-            const buttonName =
+            const label = (
               clickable.getAttribute('aria-label') ||
               clickable.textContent?.replace(/\s+/g, ' ').trim() ||
-              'Unknown Button';
+              ''
+            ).toLowerCase();
+
+            let buttonName = null;
+
+            if (label.includes('nächstes projekt') || label.includes('next project')) {
+              buttonName = 'next_project';
+            } else if (label.includes('vorheriges projekt') || label.includes('previous project')) {
+              buttonName = 'previous_project';
+            } else if (label.includes('zurück zu allen projekten') || label.includes('back to all projects')) {
+              buttonName = 'back_to_projects';
+            }
+
+            if (!buttonName) return;
 
             window.gtag?.('event', 'button_click', {
               button_name: buttonName,
-              project_name: meta.projectName,
+              project_name: projectName,
             });
           };
 
