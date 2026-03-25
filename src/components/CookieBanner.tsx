@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
 
 interface CookieBannerProps {
   locale?: string;
@@ -62,22 +63,22 @@ export default function CookieBanner({ locale = 'de' }: CookieBannerProps) {
           </a>
         </p>
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            type="button"
+          <Button
+            variant="outline"
+            size="sm"
             onClick={handleDecline}
-            className="rounded-full px-5 py-2.5 text-sm font-medium min-h-[44px] border border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             aria-label={isEn ? 'Decline all optional cookies' : 'Alle optionalen Cookies ablehnen'}
           >
             {isEn ? 'Decline' : 'Ablehnen'}
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            variant="default"
+            size="sm"
             onClick={handleAccept}
-            className="rounded-full px-5 py-2.5 text-sm font-medium min-h-[44px] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             aria-label={isEn ? 'Accept all cookies' : 'Alle Cookies akzeptieren'}
           >
             {isEn ? 'Accept all' : 'Alle akzeptieren'}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
