@@ -247,6 +247,19 @@ const schemaData = {
 
 <html lang={ssrLocale} data-current-locale={ssrLocale} data-german-path={germanPath} data-english-path={englishPath}>
   <head>
+    <!-- Consent Mode v2: Default MUSS vor jedem GA-Script gesetzt werden (DSGVO) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+    </script>
+
     <!-- Google tag (gtag.js) - GA4 mit Consent Mode v2 -->
     <script>
       const GA_MEASUREMENT_ID = 'G-T3NYM3DF9X';
@@ -254,24 +267,19 @@ const schemaData = {
       function ensureAnalyticsInitialized() {
         if ((window as any).__analyticsInitialized) return;
 
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        function gtag(...args: any[]) {
-          (window as any).dataLayer.push(args);
-        }
-        (window as any).gtag = gtag;
-
-        // Default: Alles denied (DSGVO-konform)
-        gtag('consent', 'default', {
+        // Consent erteilt → jetzt Update senden, BEVOR config/page_view eingereiht wird
+        (window as any).gtag('consent', 'update', {
+          analytics_storage: 'granted',
           ad_storage: 'denied',
-          analytics_storage: 'denied',
           ad_user_data: 'denied',
           ad_personalization: 'denied',
         });
 
-        gtag('js', new Date());
-        gtag('config', GA_MEASUREMENT_ID, {
+        (window as any).gtag('js', new Date());
+        (window as any).gtag('config', GA_MEASUREMENT_ID, {
           cookie_flags: 'SameSite=None;Secure',
           anonymize_ip: true,
+          send_page_view: true,
         });
 
         const script = document.createElement('script');
@@ -283,6 +291,15 @@ const schemaData = {
       }
 
       document.addEventListener('analytics:load', ensureAnalyticsInitialized);
+
+      // page_view bei jeder Astro-Navigation (View Transitions) nachsenden
+      document.addEventListener('astro:page-load', () => {
+        if (!(window as any).__analyticsInitialized) return;
+        (window as any).gtag('config', GA_MEASUREMENT_ID, {
+          page_path: window.location.pathname,
+          page_title: document.title,
+        });
+      });
     </script>
 
     <meta charset="utf-8" />
